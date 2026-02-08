@@ -10,9 +10,18 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write  # OIDC認証に必要
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/62187303601/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: scheduler-sa@correlate-workspace.iam.gserviceaccount.com
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -20,7 +29,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install pyyaml
+        run: pip install pyyaml google-auth
 
       - name: Parse articles and sync to BigQuery
         env:
@@ -53,19 +62,29 @@ jobs:
 
           def count_words(body):
               """日本語＋英語の文字数（マークダウン記法除去後）"""
-              # コードブロック除去
               cleaned = re.sub(r'```.*?```', '', body, flags=re.DOTALL)
-              # インラインコード除去
               cleaned = re.sub(r'`[^`]+`', '', cleaned)
-              # マークダウン記法除去
               cleaned = re.sub(r'[#*\[\]()>!|_~-]', '', cleaned)
-              # 空白・改行を除去して文字数カウント
               cleaned = re.sub(r'\s+', '', cleaned)
               return len(cleaned)
 
           def count_code_examples(body):
               """コードブロック（```...```）の数を数える"""
               return len(re.findall(r'```', body)) // 2
+
+          def get_id_token(target_audience):
+              """GCP IDトークンを取得（Workload Identity Federation経由）"""
+              try:
+                  import google.auth
+                  import google.auth.transport.requests
+                  from google.oauth2 import id_token
+                  credentials, _ = google.auth.default()
+                  request = google.auth.transport.requests.Request()
+                  token = id_token.fetch_id_token(request, target_audience)
+                  return token
+              except Exception as e:
+                  print(f"Failed to get ID token: {e}")
+                  return None
 
           articles = []
           for md_file in sorted(ARTICLES_DIR.glob("*.md")):
@@ -97,7 +116,6 @@ jobs:
                   "da_feedback": "",
               }
 
-              # published_atがある場合
               if published_at_raw:
                   article["published_at"] = str(published_at_raw)
 
@@ -109,21 +127,25 @@ jobs:
 
           if not API_URL:
               print("SYNC_API_URL not set. Dry run only.")
-              print(json.dumps({"articles": articles, "platform": PLATFORM}, ensure_ascii=False, indent=2))
           else:
+              # Cloud Run呼び出し用のIDトークンを取得
+              base_url = API_URL.split("/api/")[0]
+              id_token = get_id_token(base_url)
+
               payload = json.dumps({"articles": articles, "platform": PLATFORM}).encode("utf-8")
-              req = urllib.request.Request(
-                  API_URL,
-                  data=payload,
-                  headers={"Content-Type": "application/json"},
-                  method="POST",
-              )
+              headers = {"Content-Type": "application/json"}
+              if id_token:
+                  headers["Authorization"] = f"Bearer {id_token}"
+                  print("Using authenticated request with ID token")
+              else:
+                  print("Warning: No ID token available, trying unauthenticated")
+
+              req = urllib.request.Request(API_URL, data=payload, headers=headers, method="POST")
               try:
                   with urllib.request.urlopen(req, timeout=30) as resp:
                       result = json.loads(resp.read().decode("utf-8"))
                       print(f"Sync result: {json.dumps(result, ensure_ascii=False)}")
               except Exception as e:
                   print(f"Sync failed: {e}")
-                  # エラーでもワークフロー自体は失敗させない（記事公開が本務）
                   print("Warning: BigQuery sync failed but workflow continues")
           PYTHON_SCRIPT
