@@ -50,7 +50,7 @@ jobs:
 
           ARTICLES_DIR = Path("articles")
           PLATFORM = "zenn"
-          ZENN_BASE_URL = "https://zenn.dev/correlate000/articles"
+          ZENN_BASE_URL = "https://zenn.dev/correlate/articles"
           API_URL = os.environ.get("SYNC_API_URL", "")
           ID_TOKEN = os.environ.get("ID_TOKEN", "")
 
