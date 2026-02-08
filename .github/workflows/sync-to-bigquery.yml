@@ -1,0 +1,129 @@
+name: Sync Articles to BigQuery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'articles/**'
+  workflow_dispatch:  # 手動実行
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Parse articles and sync to BigQuery
+        env:
+          SYNC_API_URL: ${{ secrets.SYNC_API_URL }}
+        run: |
+          python3 << 'PYTHON_SCRIPT'
+          import os
+          import json
+          import re
+          import urllib.request
+          import yaml
+          from pathlib import Path
+
+          ARTICLES_DIR = Path("articles")
+          PLATFORM = "zenn"
+          ZENN_BASE_URL = "https://zenn.dev/correlate000/articles"
+          API_URL = os.environ.get("SYNC_API_URL", "")
+
+          def parse_frontmatter(content):
+              """YAML frontmatterを抽出"""
+              match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+              if not match:
+                  return {}, content
+              try:
+                  meta = yaml.safe_load(match.group(1))
+                  body = content[match.end():]
+                  return meta or {}, body
+              except yaml.YAMLError:
+                  return {}, content
+
+          def count_words(body):
+              """日本語＋英語の文字数（マークダウン記法除去後）"""
+              # コードブロック除去
+              cleaned = re.sub(r'```.*?```', '', body, flags=re.DOTALL)
+              # インラインコード除去
+              cleaned = re.sub(r'`[^`]+`', '', cleaned)
+              # マークダウン記法除去
+              cleaned = re.sub(r'[#*\[\]()>!|_~-]', '', cleaned)
+              # 空白・改行を除去して文字数カウント
+              cleaned = re.sub(r'\s+', '', cleaned)
+              return len(cleaned)
+
+          def count_code_examples(body):
+              """コードブロック（```...```）の数を数える"""
+              return len(re.findall(r'```', body)) // 2
+
+          articles = []
+          for md_file in sorted(ARTICLES_DIR.glob("*.md")):
+              content = md_file.read_text(encoding="utf-8")
+              meta, body = parse_frontmatter(content)
+
+              slug = md_file.stem
+              title = meta.get("title", slug)
+              article_type = meta.get("type", "tech")
+              topics = meta.get("topics", [])
+              published = meta.get("published", False)
+              published_at_raw = meta.get("published_at", None)
+
+              status = "published" if published else "draft"
+              source_tags = ",".join(topics) if isinstance(topics, list) else str(topics)
+              published_url = f"{ZENN_BASE_URL}/{slug}" if published else ""
+
+              article = {
+                  "id": f"zenn-{slug}",
+                  "title": title,
+                  "article_type": article_type,
+                  "status": status,
+                  "source_content_id": slug,
+                  "source_tags": source_tags,
+                  "published_url": published_url,
+                  "word_count": count_words(body),
+                  "code_example_count": count_code_examples(body),
+                  "da_review_count": 0,
+                  "da_feedback": "",
+              }
+
+              # published_atがある場合
+              if published_at_raw:
+                  article["published_at"] = str(published_at_raw)
+
+              articles.append(article)
+
+          print(f"Parsed {len(articles)} articles")
+          for a in articles:
+              print(f"  - {a['id']}: {a['title'][:40]}... ({a['status']}, {a['word_count']}字, code:{a['code_example_count']})")
+
+          if not API_URL:
+              print("SYNC_API_URL not set. Dry run only.")
+              print(json.dumps({"articles": articles, "platform": PLATFORM}, ensure_ascii=False, indent=2))
+          else:
+              payload = json.dumps({"articles": articles, "platform": PLATFORM}).encode("utf-8")
+              req = urllib.request.Request(
+                  API_URL,
+                  data=payload,
+                  headers={"Content-Type": "application/json"},
+                  method="POST",
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as resp:
+                      result = json.loads(resp.read().decode("utf-8"))
+                      print(f"Sync result: {json.dumps(result, ensure_ascii=False)}")
+              except Exception as e:
+                  print(f"Sync failed: {e}")
+                  # エラーでもワークフロー自体は失敗させない（記事公開が本務）
+                  print("Warning: BigQuery sync failed but workflow continues")
+          PYTHON_SCRIPT
