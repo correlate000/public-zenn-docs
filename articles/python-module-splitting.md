@@ -3,7 +3,8 @@ title: "1ファイル3500行超のPythonを恐れずにモジュール分割し�
 emoji: "🧩"
 type: "tech"
 topics: ["python", "fastapi", "refactoring", "architecture"]
-published: true
+published: false
+published_at: "2026-02-09 12:30"
 ---
 
 ## 約3500行のmain.pyに新機能を追加することになった

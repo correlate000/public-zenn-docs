@@ -1,0 +1,27 @@
+name: Publish Scheduled Articles
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # 30分毎に実行
+  workflow_dispatch:  # 手動実行
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Publish scheduled articles
+        uses: x-color/zenn-post-scheduler@v1.0.0
+        with:
+          path: articles
+          target_key: published_at
+
+      - name: Auto-commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: 予約記事を自動公開'
+          file_pattern: articles/

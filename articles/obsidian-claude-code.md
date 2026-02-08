@@ -3,7 +3,8 @@ title: "Obsidian × Claude Codeで作業ログを自動蓄積する仕組み"
 emoji: "🗃️"
 type: "tech"
 topics: ["Obsidian", "Claude", "AI", "ナレッジ管理"]
-published: true
+published: false
+published_at: "2026-02-10 12:30"
 ---
 
 ## はじめに

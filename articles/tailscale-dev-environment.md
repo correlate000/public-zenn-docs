@@ -3,7 +3,8 @@ title: "Mac miniとMBPをTailscale+Syncthingで同期したら開発効率が激
 emoji: "🔗"
 type: "tech"
 topics: ["tailscale", "macos", "syncthing", "ssh"]
-published: true
+published: false
+published_at: "2026-02-10 08:00"
 ---
 
 ## カフェからMac miniのターミナルを開く
