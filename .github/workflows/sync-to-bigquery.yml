@@ -18,10 +18,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Authenticate to Google Cloud
+        id: auth
         uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: projects/62187303601/locations/global/workloadIdentityPools/github-pool/providers/github-provider
           service_account: scheduler-sa@correlate-workspace.iam.gserviceaccount.com
+          token_format: id_token
+          id_token_audience: https://correlate-api-62187303601.asia-northeast1.run.app
+          id_token_include_email: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -29,11 +33,12 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install pyyaml google-auth requests
+        run: pip install pyyaml
 
       - name: Parse articles and sync to BigQuery
         env:
           SYNC_API_URL: ${{ secrets.SYNC_API_URL }}
+          ID_TOKEN: ${{ steps.auth.outputs.id_token }}
         run: |
           python3 << 'PYTHON_SCRIPT'
           import os
@@ -47,6 +52,7 @@ jobs:
           PLATFORM = "zenn"
           ZENN_BASE_URL = "https://zenn.dev/correlate000/articles"
           API_URL = os.environ.get("SYNC_API_URL", "")
+          ID_TOKEN = os.environ.get("ID_TOKEN", "")
 
           def parse_frontmatter(content):
               """YAML frontmatterを抽出"""
@@ -71,20 +77,6 @@ jobs:
           def count_code_examples(body):
               """コードブロック（```...```）の数を数える"""
               return len(re.findall(r'```', body)) // 2
-
-          def get_id_token(target_audience):
-              """GCP IDトークンを取得（Workload Identity Federation経由）"""
-              try:
-                  import google.auth
-                  import google.auth.transport.requests
-                  from google.oauth2 import id_token
-                  credentials, _ = google.auth.default()
-                  request = google.auth.transport.requests.Request()
-                  token = id_token.fetch_id_token(request, target_audience)
-                  return token
-              except Exception as e:
-                  print(f"Failed to get ID token: {e}")
-                  return None
 
           articles = []
           for md_file in sorted(ARTICLES_DIR.glob("*.md")):
@@ -128,15 +120,11 @@ jobs:
           if not API_URL:
               print("SYNC_API_URL not set. Dry run only.")
           else:
-              # Cloud Run呼び出し用のIDトークンを取得
-              base_url = API_URL.split("/api/")[0]
-              id_token = get_id_token(base_url)
-
               payload = json.dumps({"articles": articles, "platform": PLATFORM}).encode("utf-8")
               headers = {"Content-Type": "application/json"}
-              if id_token:
-                  headers["Authorization"] = f"Bearer {id_token}"
-                  print("Using authenticated request with ID token")
+              if ID_TOKEN:
+                  headers["Authorization"] = f"Bearer {ID_TOKEN}"
+                  print("Using authenticated request with ID token from Workload Identity Federation")
               else:
                   print("Warning: No ID token available, trying unauthenticated")
 
