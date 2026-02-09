@@ -5,6 +5,7 @@ type: "tech"
 topics: ["llm", "claudecode", "ollama", "ai", "mac"]
 published: true
 published_at: "2026-02-12 08:00"
+publication_name: "correlate_dev"
 ---
 
 ## Claude Max $200/月を払いながら、ローカルLLMを考えた

@@ -5,6 +5,7 @@ type: "tech"
 topics: ["gcp", "cloudrun", "bigquery", "discord", "個人開発"]
 published: true
 published_at: "2026-02-10 19:00"
+publication_name: "correlate_dev"
 ---
 
 ## 会計・営業・開発を全部1人でやるということ

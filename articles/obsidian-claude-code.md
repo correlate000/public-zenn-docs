@@ -5,6 +5,7 @@ type: "tech"
 topics: ["Obsidian", "Claude", "AI", "ナレッジ管理"]
 published: true
 published_at: "2026-02-10 12:30"
+publication_name: "correlate_dev"
 ---
 
 ## はじめに

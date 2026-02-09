@@ -5,6 +5,7 @@ type: "tech"
 topics: ["syncthing", "macos", "devtools", "productivity", "sync"]
 published: true
 published_at: "2026-02-09 19:00"
+publication_name: "correlate_dev"
 ---
 
 ## Mac 2台で開発していると、必ずぶつかる壁

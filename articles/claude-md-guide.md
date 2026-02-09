@@ -4,6 +4,7 @@ emoji: "📋"
 type: "tech"
 topics: ["Claude", "AI", "開発環境", "自動化"]
 published: true
+publication_name: "correlate_dev"
 ---
 
 ## はじめに

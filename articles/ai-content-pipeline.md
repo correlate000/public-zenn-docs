@@ -4,6 +4,7 @@ emoji: "🚀"
 type: "tech"
 topics: ["claudecode", "agentteams", "zenn", "obsidian", "ai"]
 published: true
+publication_name: "correlate_dev"
 ---
 
 ## 1本に半日かかっていた記事を、1日で5本書けるようになった
