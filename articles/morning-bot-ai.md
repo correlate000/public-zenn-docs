@@ -3,7 +3,7 @@ title: "朝会ボットを設計書から実装まで全部AIにやらせた話"
 emoji: "🌅"
 type: "tech"
 topics: ["claudecode", "discord", "cloudrun", "python", "ai"]
-published: false
+published: true
 published_at: "2026-02-11 12:30"
 ---
 

@@ -3,7 +3,7 @@ title: "1人法人がDiscord Botを業務ツールにしたら想像以上に便
 emoji: "🤖"
 type: "tech"
 topics: ["discord", "python", "cloudrun", "fastapi", "bot"]
-published: false
+published: true
 published_at: "2026-02-11 08:00"
 ---
 

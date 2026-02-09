@@ -3,7 +3,7 @@ title: "Claude Code x ローカルLLM: いつ切り替えるべきかの判断�
 emoji: "🤖"
 type: "tech"
 topics: ["llm", "claudecode", "ollama", "ai", "mac"]
-published: false
+published: true
 published_at: "2026-02-12 08:00"
 ---
 
