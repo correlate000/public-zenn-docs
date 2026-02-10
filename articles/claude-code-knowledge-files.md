@@ -3,7 +3,7 @@ title: "CLAUDE.mdを「ルーティングテーブル」に進化させる - 12�
 emoji: "🗂️"
 type: "tech"
 topics: ["claudecode", "ai", "開発効率化", "contextengineering"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
@@ -16,7 +16,7 @@ SNSでこんなCLAUDE.mdを見かけました。
 # using Master Branch instead of Main Branch naming scheme!
 ```
 
-1行だけ。これはこれで動きますが、CLAUDE.mdの本来のポテンシャルを考えると、もったいない使い方です。一方で、前回の記事「[CLAUDE.md設計ガイド - AIエージェントに環境を理解させる15セクション](https://zenn.dev/correlate/articles/claude-md-guide)」では逆の極端に振っていました。15セクション、300行超。あらゆる情報を1ファイルに詰め込んだ「全部入り」です。
+1行だけ。これはこれで動きますが、CLAUDE.mdの本来のポテンシャルを考えると、もったいない使い方です。一方で、前回の記事「[CLAUDE.md設計ガイド - AIエージェントに環境を理解させる15セクション](https://zenn.dev/correlate_dev/articles/claude-md-guide)」では逆の極端に振っていました。15セクション、300行超。あらゆる情報を1ファイルに詰め込んだ「全部入り」です。
 
 **1行だけのCLAUDE.mdと、300行の全部入りCLAUDE.md。** どちらも最適解ではありませんでした。
 
@@ -59,7 +59,7 @@ Claude Codeは起動時にCLAUDE.mdを読み込みます。15セクション全�
 
 これは単なるトークン効率の問題ではありません。LLMには「提示された情報は全て使うべき」と解釈する傾向があります（いわば**チェーホフの銃**[^2]の効果です）。BigQueryの作業中にCSS命名規則が目に入ると、関係ないのに考慮しようとする。情報が多すぎると、かえって**意味的な干渉**が発生するのです。
 
-[^2]: 「物語に登場した銃は必ず発砲されなければならない」という創作原則。LLMもコンテキストに含まれた情報を「使おうとする」傾向がある
+[^2]: 「物語に登場した銃は必ず発砲されなければならない」という創作原則。LLMもコンテキストに含まれた情報を「使おうとする」傾向がある。この問題は「[脱・ファット・CLAUDE.md](https://zenn.dev/smartshopping/articles/refactor-fat-claude-md)」でも「チェーホフの銃の誤謬」として指摘されている
 
 ### 問題2: メンテナンスの困難さ
 
@@ -69,7 +69,7 @@ Claude Codeは起動時にCLAUDE.mdを読み込みます。15セクション全�
 
 解決のヒントはネットワーク設計にありました。
 
-ネットワークのルーターは、パケットの宛先に応じて転送先を決定する**ルーティングテーブル**を持っています。全てのデータを保持するのではなく、「このパケットはこの経路に送る」という振り分けルールだけを保持する仕組みです。CLAUDE.mdにも同じ発想を適用できます。
+ネットワークのルーターは、パケットの宛先に応じて転送先を決定する**ルーティングテーブル**を持っています。全てのデータを保持するのではなく、「このパケットはこの経路に送る」という振り分けルールだけを保持する仕組みです。この発想をCLAUDE.mdに応用します。
 
 ```
 Before: CLAUDE.md = 全データを持つ単一ファイル
@@ -119,23 +119,25 @@ graph TD
 
 CLAUDE.mdには以下の4つだけを記述します。
 
-1. **MUST Rules**（5項目） -- 常に遵守すべき最低限のルール
+1. **MUST Rules**（5〜7項目） -- 常に遵守すべき最低限のルール
 2. **Knowledge Files ルーティングテーブル** -- トリガー→ファイルの対応表
 3. **Commands リスト** -- 利用可能なスラッシュコマンド
 4. **環境概要** -- 最小限の環境情報
 
-MUST Rulesは「常にコンテキストに入っていて欲しい」最重要ルールです。私の場合は以下の5つです。
+MUST Rulesは「常にコンテキストに入っていて欲しい」最重要ルールです。私の場合は以下の7つです。
 
 ```markdown
 ## MUST Rules（常に遵守）
-1. セッション記録の逐次更新: git commit前に必ずセッション記録を更新
-2. 記事執筆前にDeep Research必須: リサーチノートなしで執筆禁止
-3. Agent Teamsに必ずDA（デビルズアドボケイト）を含める
-4. APIキー・シークレットのハードコード禁止
-5. 本番環境への直接操作禁止
+1. 全セッションで /session-start を実行
+2. セッション記録の逐次更新: git commit前に必ずセッション記録を更新
+3. セッション終了時にコンテンツ候補を自動抽出
+4. 記事執筆前にDeep Research必須: リサーチノートなしで執筆禁止
+5. Agent Teamsに必ずDA（デビルズアドボケイト）を含める
+6. APIキー・シークレットのハードコード禁止
+7. 本番環境への直接操作禁止
 ```
 
-**ポイント**: MUST Rulesは5項目程度に絞ります。多すぎると「全部重要 = 何も重要でない」になります。
+**ポイント**: MUST Rulesは5〜7項目程度に絞ります。最初は5項目でしたが、運用で「抜け漏れが起きた項目」を追加して現在7項目になりました。多すぎると「全部重要 = 何も重要でない」になるため、10項目は超えないようにしています。
 
 ### Layer 2: Knowledge Files（12ファイル）
 
@@ -199,10 +201,14 @@ MUST Rulesは「常にコンテキストに入っていて欲しい」最重要�
 ├── session-start.md     # セッション開始ルーチン
 ├── session-end.md       # セッション終了ルーチン
 ├── da-review.md         # デビルズアドボケイトレビュー
-└── content-research.md  # Deep Research実施
+├── content-research.md  # Deep Research実施
+├── content-scout.md     # 競合記事分析
+├── news-scan.md         # ニュース速報スキャン
+├── workspace-improve.md # ワークスペース改善適用
+└── design-implement.md  # デザイン分析→実装
 ```
 
-例えば`/session-start`は、前回セッション確認→Daily Note作成→セッション記録作成→タスク宣言という一連の手順を自動化します。`$ARGUMENTS`プレースホルダで引数も受け取れるため、`/da-review Knowledge Files`のように対象を指定できます。
+現在8つのコマンドを運用しています。例えば`/session-start`は、前回セッション確認→Daily Note作成→セッション記録作成→タスク宣言という一連の手順を自動化します。`$ARGUMENTS`プレースホルダで引数も受け取れるため、`/da-review Knowledge Files`のように対象を指定できます。
 
 ### Layer 4: Hooks & Auto Memory
 
@@ -225,7 +231,7 @@ MUST Rulesは「常にコンテキストに入っていて欲しい」最重要�
 }
 ```
 
-私は2つのHookを運用しています。
+私は主に2つのHookを運用しています。
 
 1. **check-domain.sh**: Write/Edit操作時に、廃止済みドメインの誤使用を検知してブロック
 2. **session-reminder.sh**: セッション終了時に、Handoffセクション未記入をリマインド
@@ -236,7 +242,7 @@ Hookのレスポンスは`{"decision":"approve"}`または`{"decision":"block","
 
 ## After: 数値で見る改善効果
 
-Afterは実測値、Beforeは移行前の推定値です。
+以下は移行直後（2026-02-10）の実測値です。Beforeは移行前の推定値（15セクション構成時にCLAUDE.md 2ファイルの全行数を合算）です。
 
 ### ファイルサイズ比較
 
@@ -245,7 +251,7 @@ Afterは実測値、Beforeは移行前の推定値です。
 | `~/.claude/CLAUDE.md` | 200+行 | 65行 / 3,097B | **約67%** |
 | `~/dev/CLAUDE.md` | 300+行 | 108行 / 4,121B | **約64%** |
 
-### Knowledge Files（新規作成）
+### Knowledge Files（新規作成・初期12ファイル）
 
 | 指標 | 数値 |
 |------|------|
@@ -258,12 +264,14 @@ Afterは実測値、Beforeは移行前の推定値です。
 
 | シナリオ | Before | After |
 |---------|--------|-------|
-| 起動時（常時読み込み） | 500+行（全情報） | 173行 / 7,218B（CLAUDE.md 2ファイルのみ） |
+| 起動時（常時読み込み） | 500+行（全情報） | 173行 / 7,218B（CLAUDE.md 2ファイル + MEMORY.md先頭200行） |
 | BigQuery作業時 | 同上（変化なし） | +25行 / ~1KB（bigquery-patterns.md追加） |
 | 通常作業（1-2ファイル参照） | 同上 | ~9.4KB |
 | 最悪ケース（全12ファイル参照） | 同上 | ~20.6KB |
 
-起動時の常時読み込みが大幅に削減され、**必要な時に必要な知識だけをロード**する形になりました。英語圏でも同様のアプローチで54%のコンテキスト削減が報告されており[^1]、この設計パターンの有効性を裏付けています。
+起動時の常時読み込みが大幅に削減され、**必要な時に必要な知識だけをロード**する形になりました。なお、Auto MemoryのMEMORY.md（先頭200行）も常時読み込み対象ですが、ここには「現在の状態」だけを書くため追加コストは小さくなります。
+
+英語圏でも同様のアプローチで54%のコンテキスト削減が報告されており[^1]、この設計パターンの有効性を裏付けています。
 
 [^1]: [Claude Code Context Optimization: 54% reduction](https://gist.github.com/johnlindquist/849b813e76039a908d962b2f0923dc9a)
 
@@ -310,7 +318,9 @@ Claude Codeの`@import`構文を使って全Knowledge Filesを`CLAUDE.md`にimpo
 
 ### 5. CLAUDE.mdをAIに自動生成させる
 
-「CLAUDE.mdを作って」とClaudeに丸投げすると、汎用的で冗長な内容が生成されがちです。Anthropicの公式ベストプラクティスでも「Claudeに自動生成させたCLAUDE.mdは冗長でメンテナンスが困難」と注意されています。ルーティングテーブルもKnowledge Filesも、**自分の環境固有の知見を手動でキュレーション**することに価値があります。
+「CLAUDE.mdを作って」とClaudeに丸投げすると、汎用的で冗長な内容が生成されがちです。Claude Code公式ドキュメントでも、CLAUDE.mdの内容は手動でキュレーションすることが推奨されています[^4]。ルーティングテーブルもKnowledge Filesも、**自分の環境固有の知見を自分で書く**ことに価値があります。
+
+[^4]: [Manage Claude's memory - Claude Code公式ドキュメント](https://code.claude.com/docs/en/memory) 「Best practices」セクション参照
 
 ## まとめ: ルーティングテーブル設計の3原則
 
@@ -326,10 +336,10 @@ Claude Codeの`@import`構文を使って全Knowledge Filesを`CLAUDE.md`にimpo
 
 **この記事は「CLAUDE.md設計ガイド」シリーズの第2弾です**
 
-- 第1弾: [CLAUDE.md設計ガイド - AIエージェントに環境を理解させる15セクション](https://zenn.dev/correlate/articles/claude-md-guide)
+- 第1弾: [CLAUDE.md設計ガイド - AIエージェントに環境を理解させる15セクション](https://zenn.dev/correlate_dev/articles/claude-md-guide)
 
 :::message
-**公開時点の補記**: 本記事で紹介した12ファイル構成は初期設計時の状態です。その後の運用で`scout-topics.md`（情報収集トピック定義）と`design-implementation.md`（デザイン実装プロトコル）を追加し、現在は**14ファイル**になっています。ルーティングテーブルに1行追加するだけで拡張できるのが、この設計パターンの利点です。
+**補記（2026-02-11時点）**: 本記事で紹介した12ファイル構成は初期設計時（2026-02-10）の状態です。その後の運用で`scout-topics.md`（情報収集トピック定義）と`design-implementation.md`（デザイン実装プロトコル）を追加し、**14ファイル**になっています。ルーティングテーブルに1行追加するだけで拡張できるのが、この設計パターンの利点です。
 :::
 
 **参考資料**:
