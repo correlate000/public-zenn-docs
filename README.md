@@ -68,4 +68,4 @@ published: true     # true: 公開 / false: 下書き
 
 ## 著者
 
-**Naoya** / [合同会社コラレイトデザイン](https://correlate-design.com)
+**Naoya** / [合同会社コラレイトデザイン](https://correlate.design)
