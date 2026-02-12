@@ -3,13 +3,15 @@ title: "MCPサーバーより直接APIを叩くべき3つの理由 — 行政オ
 emoji: "🔌"
 type: "tech"
 topics: ["MCP", "API", "オープンデータ", "行政API", "セキュリティ"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
 ## はじめに
 
-2026年2月12日、AI HYVEとN-3が「行政オープンデータリモートMCPサーバー」を無料公開しました。ChatGPTやClaudeから自然言語で行政APIにアクセスできる便利なサービスです。
+2026年2月12日、AI HYVEとN-3が「[行政オープンデータリモートMCPサーバー](https://prtimes.jp/main/html/rd/p/000000006.000146070.html)」を無料公開しました。ChatGPTやClaudeから自然言語で行政APIにアクセスできる便利なサービスです。
+
+https://prtimes.jp/main/html/rd/p/000000006.000146070.html
 
 しかし、本当にこのMCPサーバーを経由する必要があるのでしょうか？
 
