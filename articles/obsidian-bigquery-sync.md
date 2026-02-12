@@ -56,9 +56,9 @@ graph LR
 
 1人法人のDWHとしてBigQueryを選んだ理由は3つ。
 
-1. **コスト**: 10GBまでストレージ無料、月1TBまでクエリ無料。ナレッジ同期の規模なら月額ほぼ0円
-2. **標準SQL**: 特殊な構文を覚える必要がなく、SQLの知識がそのまま活きる
-3. **GCPエコシステム**: Cloud Run、Cloud Scheduler、GASとの連携が容易。朝会ボットやレポート自動化の基盤になります
+1. コスト — 10GBまでストレージ無料、月1TBまでクエリ無料。ナレッジ同期の規模なら月額ほぼ0円
+2. 標準SQL — 特殊な構文を覚える必要がなく、SQLの知識がそのまま活きる
+3. GCPエコシステム — Cloud Run、Cloud Scheduler、GASとの連携が容易。朝会ボットやレポート自動化の基盤になります
 
 ## Obsidian側の設計 --- パース可能なMarkdownテンプレート
 
@@ -129,9 +129,9 @@ learnings.append({
 
 同期スクリプト `obsidian-to-bq.py` は約500行で、大きく3つの層に分かれている。
 
-1. **bq CLIラッパー**: `bq query` コマンドの実行、結果のJSON解析、SQLエスケープ
-2. **Markdownパーサー**: 6種類のパーサー（session, knowledge, decision, error, learnings, candidates）
-3. **同期エンジン**: 冪等INSERT + UPDATE のロジック
+1. bq CLIラッパー — `bq query` コマンドの実行、結果のJSON解析、SQLエスケープ
+2. Markdownパーサー — 6種類のパーサー（session, knowledge, decision, error, learnings, candidates）
+3. 同期エンジン — 冪等INSERT + UPDATE のロジック
 
 ### なぜbq CLIを使うのか
 
@@ -444,9 +444,9 @@ Obsidianは「考える場所」。思考を整理し、知見を蓄積し、次
 
 本記事で紹介したパイプラインはまだ発展途上。今後は以下の展開を予定しています。
 
-- **朝会ボット**: BigQueryの日次サマリーをDiscordに自動配信し、「今日やるべきこと」を提案
-- **コンテンツ自動生成**: `content_candidates` テーブルから記事候補を抽出し、リサーチ→ドラフト→レビューの半自動パイプラインを構築
-- **エラーパターン分析**: `error_records` の再発頻度を分析し、予防策の優先順位を決定
+- 朝会ボット — BigQueryの日次サマリーをDiscordに自動配信し、「今日やるべきこと」を提案
+- コンテンツ自動生成 — `content_candidates` テーブルから記事候補を抽出し、リサーチ→ドラフト→レビューの半自動パイプラインを構築
+- エラーパターン分析 — `error_records` の再発頻度を分析し、予防策の優先順位を決定
 
 「ObsidianとBigQueryをつなぐ」というニッチな組み合わせだが、PKMの蓄積に課題を感じている方の参考になれば幸いです。
 

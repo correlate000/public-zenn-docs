@@ -56,7 +56,7 @@ freee APIと連携する経理自動化サーバー、Discord Botによる社内
 
 ### Dockerfile = 環境の「設計図」
 
-DDEVでは `.ddev/config.yaml` が設定ファイルでした。Dockerの世界では、これに相当するのが **Dockerfile** です。
+DDEVでは `.ddev/config.yaml` が設定ファイルでした。Dockerの世界では、これに相当するのがDockerfileです。
 
 実際にCloud Run用に書いたDockerfileがこちら。
 
@@ -98,14 +98,14 @@ Docker Image（イメージ = レシピ）
 Container（コンテナ = 料理）
 ```
 
-- **イメージ**: 読み取り専用のテンプレート。何度でも同じコンテナを作れる
-- **コンテナ**: イメージから作られた実行中のインスタンス。停止・削除しても、イメージから再作成可能
+- イメージ。読み取り専用のテンプレート。何度でも同じコンテナを作れる
+- コンテナ。イメージから作られた実行中のインスタンス。停止・削除しても、イメージから再作成可能
 
 DDEVで `ddev start` を打つと、内部的にはDDEV用のイメージからコンテナが起動している。`ddev stop` はコンテナの停止、`ddev delete` はコンテナの削除に相当します。
 
 ### docker-compose = 複数コンテナのオーケストレーション
 
-WordPressの開発環境には、Webサーバー、PHP、データベースの3つが必要です。DDEVはこれを `ddev start` 一発で立ち上げてくれますが、裏では **docker-compose** が動いています。
+WordPressの開発環境には、Webサーバー、PHP、データベースの3つが必要です。DDEVはこれを `ddev start` 一発で立ち上げてくれますが、裏ではdocker-composeが動いています。
 
 docker-composeは、複数のコンテナをまとめて定義・管理するツール。DDEVが生成するdocker-composeファイルを覗いてみると、その実態が見えてきます。
 
@@ -128,7 +128,7 @@ Dockerを理解してから、DDEVの `.ddev` フォルダを改めて見てみ�
 
 `config.yaml` のたった数行の設定から、DDEVは完全なdocker-compose設定を自動生成していたのです。Nginx、PHP-FPM、MariaDB、ddev-router（Traefik）の構成が全て含まれています。
 
-つまり、DDEVは **「docker-composeの高レベルラッパー」** だったのです。
+つまり、DDEVは「docker-composeの高レベルラッパー」だったのです。
 
 :::message
 DDEVのルーター（ddev-router）にはTraefik Proxyが使われています。これにより、複数のDDEVプロジェクトを同時に起動しても、ポート80/443を共有しつつ、ホスト名ベースで正しいプロジェクトにリクエストを振り分けられます。
@@ -145,7 +145,7 @@ Dockerを理解した今、両者の使い分けが明確になりました。
 | Python/FastAPI | Docker直接 | DDEVはPHP/Node.js向け、Python環境は自分で構築 |
 | 本番デプロイ | Docker直接 | Cloud Run/ECS等のコンテナサービスはDockerイメージを要求 |
 
-**DDEVはWordPress開発の最適解であり続ける。** ただし、DDEVの外の世界（Cloud Run、AWS ECS、Kubernetes等）に出るときは、Dockerの直接操作が必須になります。
+DDEVはWordPress開発の最適解であり続ける。ただし、DDEVの外の世界（Cloud Run、AWS ECS、Kubernetes等）に出るときは、Dockerの直接操作が必須になります。
 
 ## Before / After
 

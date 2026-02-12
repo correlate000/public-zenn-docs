@@ -16,15 +16,15 @@ SSH + Tailscaleという王道はありますが、スマホでターミナル�
 
 「普段使っているDiscordからスラッシュコマンドで操作できたら最高なのでは？」
 
-この発想から、Discord BotでMac miniを遠隔操作する仕組みを**Pythonで0から自作**しました。Clawdbot等の既製ツールもありますが、セキュリティ設計を自分で完全にコントロールしたかったのが自作を選んだ理由です。
+この発想から、Discord BotでMac miniを遠隔操作する仕組みをPythonで0から自作しました。Clawdbot等の既製ツールもありますが、セキュリティ設計を自分で完全にコントロールしたかったのが自作を選んだ理由です。
 
-この記事では、実装コードと**設計判断の「なぜ」**を詳しく解説します。
+この記事では、実装コードと設計判断の「なぜ」を詳しく解説します。
 
 ## 完成イメージ
 
 実際にDiscordから操作している様子です。
 
-**システム監視（`/mac status`）:**
+システム監視（`/mac status`）:
 ```
 Mac mini Status
 ────────────────
@@ -34,7 +34,7 @@ Disk: 412/994 GB (41.4%) Free: 581 GB
 Uptime: 3d 14h 22m
 ```
 
-**Claude Code対話（`/claude run`）:**
+Claude Code対話（`/claude run`）:
 1. `/claude run` と入力すると、`prompt`と`directory`の入力欄が表示されるので記入して送信
 2. Discordスレッドが自動作成される
 3. スレッド内で普通にチャットするだけでClaude Codeとの会話が継続
@@ -91,7 +91,7 @@ python-dotenv>=1.0
 
 [Discord Developer Portal](https://discord.com/developers/applications)で新しいApplicationを作成し、BotセクションでTokenを取得します。
 
-Intentsの設定では **MESSAGE CONTENT INTENT** を有効にします。スレッド内のチャットメッセージを読むために必要です。
+Intentsの設定では MESSAGE CONTENT INTENT を有効にします。スレッド内のチャットメッセージを読むために必要です。
 
 ### 環境変数の管理
 
@@ -263,13 +263,13 @@ async def run(self, prompt, directory=None, safety='readonly',
 
 ポイントは3つあります。
 
-**1. `--allowed-tools`でツールを制限する**
+1つ目は`--allowed-tools`でツールを制限すること。
 
-Claude Code CLIには`--allowed-tools`フラグ（`--allowedTools`でも可）があり、使用可能なツールをカンマ区切りで指定できます。`readonly`モードでは`Read,Glob,Grep`のみを許可し、ファイルの読み取りと検索だけに限定します。`standard`モードでも`Edit,Write`を追加するだけで、**Bashツールは常にブロック**します。
+Claude Code CLIには`--allowed-tools`フラグ（`--allowedTools`でも可）があり、使用可能なツールをカンマ区切りで指定できます。`readonly`モードでは`Read,Glob,Grep`のみを許可し、ファイルの読み取りと検索だけに限定します。`standard`モードでも`Edit,Write`を追加するだけで、Bashツールは常にブロックします。
 
 Discord経由でシェルコマンドが実行可能になるのは、どんなに制限してもリスクが高いためです。
 
-**2. `--output-format json`でセッションIDを取得する**
+2つ目は`--output-format json`でセッションIDを取得すること。
 
 JSON出力を指定すると、レスポンスに`session_id`が含まれます。これをスレッドに紐づけて保存し、次回のメッセージで`--resume`に渡すことで、会話の文脈を維持します。
 
@@ -280,7 +280,7 @@ job.output = data.get('result', '')
 job.session_id = data.get('session_id', '')
 ```
 
-**3. `asyncio.create_subprocess_exec`で非同期実行する**
+3つ目は`asyncio.create_subprocess_exec`で非同期実行すること。
 
 Claude Codeの実行は数秒〜数分かかります。`subprocess.run`で同期的に待つとBotが固まるため、非同期サブプロセスを使います。
 
@@ -409,7 +409,7 @@ _BLOCKED_PATTERNS = [
 ]
 ```
 
-**これは主防御ではありません。** Layer 5のClaude CLI `--allowed-tools`が主防御であり、このレイヤーは防御を深くするためのものです（defense in depth）。「`rm -rf`を実行して」というプロンプトが来ても、そもそもClaude CLIにBashツールが許可されていないので実行不可能です。しかし、そのようなプロンプトがCLIに到達する前にブロックする方が安全です。
+これは主防御ではありません。Layer 5のClaude CLI `--allowed-tools`が主防御であり、このレイヤーは防御を深くするためのものです（defense in depth）。「`rm -rf`を実行して」というプロンプトが来ても、そもそもClaude CLIにBashツールが許可されていないので実行不可能です。しかし、そのようなプロンプトがCLIに到達する前にブロックする方が安全です。
 
 ### Layer 4: どこで操作するか
 
@@ -439,7 +439,7 @@ _TOOLS_BY_SAFETY = {
 }
 ```
 
-**BashツールはどのSafetyレベルでも許可しません。** これが最も重要な判断です。Bashが使えると`os.system`呼び出しやパイプ経由での任意コマンド実行が理論的に可能になります。Claude Codeにおいてもファイル操作は`Edit`/`Write`ツールで十分で、Bashが必要になるケースはSSHで直接接続すれば対応できます。
+BashツールはどのSafetyレベルでも許可しません。これが最も重要な判断です。Bashが使えると`os.system`呼び出しやパイプ経由での任意コマンド実行が理論的に可能になります。Claude Codeにおいてもファイル操作は`Edit`/`Write`ツールで十分で、Bashが必要になるケースはSSHで直接接続すれば対応できます。
 
 ## Step 5: launchd常駐化
 
@@ -485,11 +485,11 @@ macOSでプロセスを常駐させるにはlaunchdを使います。`systemd`�
 
 設計ポイントを解説します:
 
-- **`KeepAlive: true`** — プロセスが終了したら自動で再起動します。Mac miniの再起動後も自動で復帰します
-- **`RunAtLoad: true`** — plistをロードした時点で即座に起動します
-- **`ThrottleInterval: 30`** — 前回の起動から30秒以内の再起動を抑制します。これにより異常終了時のクラッシュループを防ぎます
-- **`ProgramArguments`にvenv内のPython** — システムのPythonではなくvenvを直接指定します。`source activate`は不要で、venv内のpython3パスを直接書けばOKです
-- **`EnvironmentVariables`でPATH指定** — `claude`コマンドのパスを解決するために必要です。launchdはシェルのPATHを引き継がないため、明示的に設定します
+- `KeepAlive: true` -- プロセスが終了したら自動で再起動します。Mac miniの再起動後も自動で復帰します
+- `RunAtLoad: true` -- plistをロードした時点で即座に起動します
+- `ThrottleInterval: 30` -- 前回の起動から30秒以内の再起動を抑制します。これにより異常終了時のクラッシュループを防ぎます
+- `ProgramArguments`にvenv内のPython -- システムのPythonではなくvenvを直接指定します。`source activate`は不要で、venv内のpython3パスを直接書けばOKです
+- `EnvironmentVariables`でPATH指定 -- `claude`コマンドのパスを解決するために必要です。launchdはシェルのPATHを引き継がないため、明示的に設定します
 
 ### 操作コマンド
 
@@ -545,7 +545,7 @@ logging.basicConfig(
 | Clawdbot/OpenClaw | 高 | 中〜高 | OSSだが複雑 | Multi-model | 無料 |
 | TeamViewer | 高 | 低 | パスワード/2FA | なし | 無料 |
 
-Discord Botの最大の強みは**スマホUX**です。すでに日常使いしているDiscordアプリから、スラッシュコマンドのサジェスト付きで操作できます。新しいアプリをインストールする必要がありません。
+Discord Botの最大の強みはスマホUXです。すでに日常使いしているDiscordアプリから、スラッシュコマンドのサジェスト付きで操作できます。新しいアプリをインストールする必要がありません。
 
 一方、Clawdbot（現OpenClaw）は50以上のプラットフォームと連携する多機能ツールで、「とにかく高機能なAI執事が欲しい」場合に最適です。本記事のBotは約800行のミニマルな実装ですが、セキュリティの全レイヤーを自分で把握・制御できることが強みです。
 
@@ -553,7 +553,7 @@ Discord Botの最大の強みは**スマホUX**です。すでに日常使いし
 
 ### Discordの3秒タイムアウト
 
-Discordのインタラクションは**3秒以内にレスポンスを返す**必要があります。Claude Codeの実行は数秒〜数分かかるため、`interaction.response.defer()`を最初に呼んで「処理中」であることをDiscordに伝えます。
+Discordのインタラクションは3秒以内にレスポンスを返す必要があります。Claude Codeの実行は数秒〜数分かかるため、`interaction.response.defer()`を最初に呼んで「処理中」であることをDiscordに伝えます。
 
 ```python
 # defer()はコマンドハンドラの最初に呼ぶ
@@ -562,11 +562,11 @@ await interaction.response.defer()
 # 3秒を超えて「Unknown interaction」エラーが出る
 ```
 
-これは実際にハマったポイントです。バリデーション処理をdefer()の前に置いていたところ、プロンプトが長い場合に3秒を超えて`Unknown interaction`エラーが頻発しました。defer()は**必ず最初に呼ぶ**のが鉄則です。バリデーションエラーは`followup.send()`で後から返します。
+これは実際にハマったポイントです。バリデーション処理をdefer()の前に置いていたところ、プロンプトが長い場合に3秒を超えて`Unknown interaction`エラーが頻発しました。defer()は必ず最初に呼ぶのが鉄則です。バリデーションエラーは`followup.send()`で後から返します。
 
 ### Bot Tokenの多重接続問題
 
-テスト時に同じBot Tokenで2つのプロセスを起動すると、Discord GatewayがWebSocket接続を競合させ、片方が切断されます。テストは**REST API直叩き**（aiohttp等）で行い、Bot本体のGateway接続を邪魔しないようにします。
+テスト時に同じBot Tokenで2つのプロセスを起動すると、Discord GatewayがWebSocket接続を競合させ、片方が切断されます。テストはREST API直叩き（aiohttp等）で行い、Bot本体のGateway接続を邪魔しないようにします。
 
 テスト後は`ps aux | grep bot.py`でゾンビプロセスがないか確認します。複数プロセスが同じTokenで接続していると、Discordはインタラクションを古いプロセスに配信することがあり、「新しいコードを反映したはずなのに動かない」という症状になります。
 
@@ -592,9 +592,9 @@ else:
 
 Mac miniにDiscord Botを常駐させることで、スマホからClaude Codeを使った開発作業が可能になりました。
 
-**自作した理由**: Clawdbotのような既製ツールは便利ですが、自宅マシンを外部から操作する以上、セキュリティ設計を自分で完全にコントロールしたかったからです。全5層の防御をコード付きで理解しているからこそ、安心して常駐運用できています。
+自作した理由は、Clawdbotのような既製ツールは便利ですが、自宅マシンを外部から操作する以上、セキュリティ設計を自分で完全にコントロールしたかったからです。全5層の防御をコード付きで理解しているからこそ、安心して常駐運用できています。
 
-**学べること**: discord.py、asyncio、subprocessの非同期管理、launchd運用、そしてClaude Code CLIの`--allowed-tools`による安全なAI実行制御。約800行のPythonで、実用的なリモート開発環境が手に入ります。
+この記事から学べるのは、discord.py、asyncio、subprocessの非同期管理、launchd運用、そしてClaude Code CLIの`--allowed-tools`による安全なAI実行制御です。約800行のPythonで、実用的なリモート開発環境が手に入ります。
 
 ソースコードは今後GitHubで公開予定です。
 

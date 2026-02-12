@@ -20,9 +20,9 @@ publication_name: "correlate_dev"
 
 最初に検討したのは、どのクラウドに寄せるかという問題。AWSもAzureも候補でしたが、GCPを選んだ理由は3つあります。
 
-1. **BigQueryの無料枠が強力**: 毎月10GBストレージ + 1TBクエリが無料。1人法人のデータ量なら余裕で収まる
-2. **Cloud Runの従量課金**: リクエストがないときはコストゼロ。常駐Bot用にmin-instances=1にしても月額数ドル
-3. **Google Workspaceとの親和性**: Calendar、Sheets、Driveとの連携がネイティブに近い
+1. BigQueryの無料枠が強力 -- 毎月10GBストレージ + 1TBクエリが無料。1人法人のデータ量なら余裕で収まる
+2. Cloud Runの従量課金 -- リクエストがないときはコストゼロ。常駐Bot用にmin-instances=1にしても月額数ドル
+3. Google Workspaceとの親和性 -- Calendar、Sheets、Driveとの連携がネイティブに近い
 
 要するに、「ほぼ無料でエンタープライズ級の分析基盤が手に入る」という点が決め手でした。
 
@@ -42,7 +42,7 @@ graph LR
     BQ --> LS[Looker Studio<br/>可視化]
 ```
 
-ポイントは**Cloud Runのコンテナ1つに全機能を載せている**こと。APIサーバー、Discord Bot、定期バッチ処理、SaaS連携のすべてが1つのFastAPIアプリケーションに統合されています。
+ポイントはCloud Runのコンテナ1つに全機能を載せていること。APIサーバー、Discord Bot、定期バッチ処理、SaaS連携のすべてが1つのFastAPIアプリケーションに統合されています。
 
 ## Cloud Run: 1つのコンテナに全部載せる
 
@@ -154,11 +154,11 @@ syncエンドポイントは5本稼働中。freee、Google Sheets（GAS経由）
 
 配信内容は以下の5つのEmbed（色分けされたカード）で構成されます。
 
-1. **今日のカレンダー**（青）: Google Calendarから予定を取得
-2. **アラート**（赤）: 未入金請求書、納期接近、補助金期限
-3. **KPIサマリー**（緑）: 可処分キャッシュ月数、売上、手残り率
-4. **タスク進捗**（黄）: 優先タスク、昨日の完了、遅延リスク
-5. **案件状況**（紫）: 進行中案件の進捗率、工数実績
+1. 今日のカレンダー（青） -- Google Calendarから予定を取得
+2. アラート（赤） -- 未入金請求書、納期接近、補助金期限
+3. KPIサマリー（緑） -- 可処分キャッシュ月数、売上、手残り率
+4. タスク進捗（黄） -- 優先タスク、昨日の完了、遅延リスク
+5. 案件状況（紫） -- 進行中案件の進捗率、工数実績
 
 :::details 朝会Botのデータ収集コード（抜粋）
 ```python
@@ -250,9 +250,9 @@ Cloud Runの`min-instances=0`にすればさらにコストを下げられます
 
 ### ハマったポイント
 
-1. **freee APIのリフレッシュトークン**: 使い捨て方式のため、Cloud Runの再起動で消失するリスクがある。Secret Managerへの永続化が必須（詳細は「[freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate/articles/freee-api-cloud-run)」を参照）
-2. **Cloud Runのコールドスタート**: min-instances=0だとDiscord Botの接続確立に時間がかかる。定時バッチの成功率が下がる
-3. **BigQueryのタイムゾーン**: `CURRENT_DATE()`はUTC基準。日本時間で扱うには全クエリで`CURRENT_DATE('Asia/Tokyo')`を明示する必要がある
+1. freee APIのリフレッシュトークン -- 使い捨て方式のため、Cloud Runの再起動で消失するリスクがある。Secret Managerへの永続化が必須（詳細は「[freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate/articles/freee-api-cloud-run)」を参照）
+2. Cloud Runのコールドスタート -- min-instances=0だとDiscord Botの接続確立に時間がかかる。定時バッチの成功率が下がる
+3. BigQueryのタイムゾーン -- `CURRENT_DATE()`はUTC基準。日本時間で扱うには全クエリで`CURRENT_DATE('Asia/Tokyo')`を明示する必要がある
 
 :::message alert
 GCPの無料枠は魅力的ですが、構築にかかる時間は無料ではありません。コードを書ける前提でも、API認証の設定だけで丸1日かかることもあります。「時間 vs お金」のトレードオフは意識しておくべきでしょう。
