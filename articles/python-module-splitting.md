@@ -249,7 +249,10 @@ app.include_router(ads_router)
 
 ## 参考資料
 
-- [FastAPI - Bigger Applications - Multiple Files](https://fastapi.tiangolo.com/tutorial/bigger-applications/)
-- [How to Structure Your FastAPI Projects](https://medium.com/@amirm.lavasani/how-to-structure-your-fastapi-projects-0219a6600a8f)
-- [FastAPI Best Practices and Conventions (GitHub)](https://github.com/zhanymkanov/fastapi-best-practices)
-- [モジュールをどう分割するのか？（Zenn）](https://zenn.dev/koduki/articles/b413f78b824688)
+https://fastapi.tiangolo.com/tutorial/bigger-applications/
+
+https://medium.com/@amirm.lavasani/how-to-structure-your-fastapi-projects-0219a6600a8f
+
+https://github.com/zhanymkanov/fastapi-best-practices
+
+https://zenn.dev/koduki/articles/b413f78b824688

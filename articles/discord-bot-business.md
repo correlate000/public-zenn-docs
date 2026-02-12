@@ -381,10 +381,16 @@ Discord Botを業務ツールとして活用する具体的な実装方法を、
 
 ## 参考資料
 
-- [discord.py 公式ドキュメント](https://discordpy.readthedocs.io/en/stable/)
-- [Discord Developer Portal - Embed構造](https://discord.com/developers/docs/resources/message#embed-object)
-- [FastAPI 公式ドキュメント](https://fastapi.tiangolo.com/)
-- [Cloud Run ドキュメント](https://cloud.google.com/run/docs)
-- [freee会計API リファレンス](https://developer.freee.co.jp/reference/accounting/reference)
-- [Google Calendar API リファレンス](https://developers.google.com/calendar/api/v3/reference)
-- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate/articles/solo-corp-gcp)（筆者の別記事）
+https://discordpy.readthedocs.io/en/stable/
+
+https://discord.com/developers/docs/resources/message#embed-object
+
+https://fastapi.tiangolo.com/
+
+https://cloud.google.com/run/docs
+
+https://developer.freee.co.jp/reference/accounting/reference
+
+https://developers.google.com/calendar/api/v3/reference
+
+https://zenn.dev/correlate/articles/solo-corp-gcp

@@ -315,9 +315,14 @@ CLAUDE.mdの設計で押さえるべきポイントを振り返ると、以下�
 
 ## 参考資料
 
-- [Manage Claude's memory -- Claude Code公式ドキュメント](https://code.claude.com/docs/en/memory) -- CLAUDE.mdの全仕様（メモリ階層、@import、読み込み順序）
-- [Best practices for agentic coding -- Anthropic公式ブログ](https://www.anthropic.com/engineering/claude-code-best-practices) -- 「LLMにリンターの仕事をさせない」等のベストプラクティス
-- [Claude Code Best Practices -- 公式ドキュメント](https://code.claude.com/docs/en/best-practices) -- WHAT/WHY/HOWフレームワーク
-- [Using CLAUDE.MD files -- Claude公式ブログ](https://claude.com/blog/using-claude-md-files) -- CLAUDE.mdの公式解説記事
-- [Boris Cherny氏の22 Tips](https://x.com/bcherny/status/2017742741636321619) -- Claude Code創設者直伝のTips集
-- [デビルズアドボケイトをAI開発チームに入れたら品質が劇的に改善した話](https://zenn.dev/and_and/articles/devils-advocate-ai-team) -- DA必須ルールの実践記事（筆者）
+https://code.claude.com/docs/en/memory
+
+https://www.anthropic.com/engineering/claude-code-best-practices
+
+https://code.claude.com/docs/en/best-practices
+
+https://claude.com/blog/using-claude-md-files
+
+https://x.com/bcherny/status/2017742741636321619
+
+https://zenn.dev/and_and/articles/devils-advocate-ai-team

@@ -340,9 +340,15 @@ Claude Codeの`@import`構文を使って全Knowledge Filesを`CLAUDE.md`にimpo
 :::
 
 参考資料:
-- [Manage Claude's memory - Claude Code公式ドキュメント](https://code.claude.com/docs/en/memory)
-- [Create plugins - Claude Code公式ドキュメント](https://code.claude.com/docs/en/plugins)
-- [Context Engineering for Coding Agents - Martin Fowler](https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html)
-- [Claude Codeで効率的に開発するための知見管理 - driller](https://zenn.dev/driller/articles/2a23ef94f1d603)
-- [脱・ファット・CLAUDE.md - hono3bono3](https://zenn.dev/smartshopping/articles/refactor-fat-claude-md)
-- [CLAUDE.mdの肥大化を防ぐ！.claude/rules/で動的にルールを読み込む方法 - tmasuyama1114](https://zenn.dev/tmasuyama1114/articles/claude_code_dynamic_rules)
+
+https://code.claude.com/docs/en/memory
+
+https://code.claude.com/docs/en/plugins
+
+https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html
+
+https://zenn.dev/driller/articles/2a23ef94f1d603
+
+https://zenn.dev/smartshopping/articles/refactor-fat-claude-md
+
+https://zenn.dev/tmasuyama1114/articles/claude_code_dynamic_rules

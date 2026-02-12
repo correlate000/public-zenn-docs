@@ -452,7 +452,10 @@ Obsidianは「考える場所」。思考を整理し、知見を蓄積し、次
 
 ## 参考資料
 
-- [bq command-line tool reference（Google Cloud）](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference)
-- [Creating Launch Daemons and Agents（Apple Developer）](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html)
-- [Obsidian YAML Front Matter](https://help.obsidian.md/Advanced+topics/YAML+front+matter)
-- Tiago Forte『Building a Second Brain』--- 「第二の脳」概念の原典
+https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference
+
+https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+
+https://help.obsidian.md/Advanced+topics/YAML+front+matter
+
+https://buildingasecondbrain.com/

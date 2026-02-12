@@ -176,10 +176,16 @@ DDEVが「魔法」から「仕組みの分かるツール」に変わる瞬間�
 
 ## 参考資料
 
-- [DDEV 公式: Get Started](https://ddev.com/get-started/)
-- [DDEV Docker Architecture（公式ブログ）](https://ddev.com/blog/ddev-docker-architecture/)
-- [Docker 公式: Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
-- [Cloud Run クイックスタート: Python（FastAPI）](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-fastapi-service)
-- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate/articles/solo-corp-gcp)（筆者の別記事: Cloud Runデプロイの実例）
-- [FastAPI: コンテナ内のFastAPI](https://fastapi.tiangolo.com/ja/deployment/docker/)
-- [DDEVで始めるPHPローカル開発環境構築（Zenn）](https://zenn.dev/0tofu/articles/c90f5fe46c6720)
+https://ddev.com/get-started/
+
+https://ddev.com/blog/ddev-docker-architecture/
+
+https://docs.docker.com/reference/dockerfile/
+
+https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-fastapi-service
+
+https://zenn.dev/correlate/articles/solo-corp-gcp
+
+https://fastapi.tiangolo.com/ja/deployment/docker/
+
+https://zenn.dev/0tofu/articles/c90f5fe46c6720

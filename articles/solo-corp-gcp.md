@@ -272,11 +272,18 @@ Cloud Run + BigQuery + Discordの組み合わせは、小規模法人にとっ�
 
 ## 参考資料
 
-- [Cloud Run ドキュメント](https://cloud.google.com/run/docs)
-- [Cloud Run の料金](https://cloud.google.com/run/pricing)
-- [BigQuery の概要](https://cloud.google.com/bigquery/docs/introduction?hl=ja)
-- [BigQuery の料金](https://cloud.google.com/bigquery/pricing)
-- [Cloud Scheduler ドキュメント](https://cloud.google.com/scheduler/docs)
-- [discord.py ドキュメント](https://discordpy.readthedocs.io/)
-- [FastAPI ドキュメント](https://fastapi.tiangolo.com/)
-- [freee API リファレンス](https://developer.freee.co.jp/reference/accounting/reference)
+https://cloud.google.com/run/docs
+
+https://cloud.google.com/run/pricing
+
+https://cloud.google.com/bigquery/docs/introduction?hl=ja
+
+https://cloud.google.com/bigquery/pricing
+
+https://cloud.google.com/scheduler/docs
+
+https://discordpy.readthedocs.io/
+
+https://fastapi.tiangolo.com/
+
+https://developer.freee.co.jp/reference/accounting/reference

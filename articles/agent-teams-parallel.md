@@ -408,9 +408,14 @@ agent-2: package.json のscripts更新
 
 ## 参考資料
 
-- [Anthropic Agent Teams 公式ドキュメント](https://code.claude.com/docs/en/agent-teams) -- チーム機能の公式リファレンス（日本語版: [agent-teams](https://code.claude.com/docs/ja/agent-teams)）
-- [Anthropic「Claude Opus 4.6」公式ブログ](https://www.anthropic.com/news/claude-opus-4-6) -- Agent TeamsはOpus 4.6の目玉機能として発表
-- [Addy Osmani「Claude Code Swarms」](https://addyosmani.com/blog/claude-code-agent-teams/) -- GoogleのChrome開発チームによる詳細分析。コンテキスト分離の重要性を指摘
-- [Claude Code Agent Teamsを試す：複数AIエージェントの協調作業（Qiita）](https://qiita.com/nero-15/items/c12a9403a7d7673ae432) -- 実践レポート
-- [Claude Code の Agent teams を使うべき理由（izanami.dev）](https://izanami.dev/post/8628a13f-8cff-47d0-a4fa-be8f2a4551c3) -- 活用メリットの解説
-- [デビルズアドボケイトをAI開発チームに入れたら品質が劇的に改善した話（Zenn）](https://zenn.dev/correlate000/articles/devils-advocate-ai-team) -- DA運用の実績（本シリーズ前回記事）
+https://code.claude.com/docs/en/agent-teams
+
+https://www.anthropic.com/news/claude-opus-4-6
+
+https://addyosmani.com/blog/claude-code-agent-teams/
+
+https://qiita.com/nero-15/items/c12a9403a7d7673ae432
+
+https://izanami.dev/post/8628a13f-8cff-47d0-a4fa-be8f2a4551c3
+
+https://zenn.dev/correlate000/articles/devils-advocate-ai-team

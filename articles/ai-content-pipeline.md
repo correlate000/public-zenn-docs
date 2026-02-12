@@ -159,8 +159,10 @@ AIには「何を書いてほしいか」を伝え、「どう書くか」は任
 
 ## 参考資料
 
-- [Claude Code Agent Teams 公式ドキュメント](https://docs.anthropic.com/en/docs/claude-code/agent-teams)
-- [Google 検索品質評価ガイドライン（2025年1月更新）におけるAI生成コンテンツの扱い](https://www.suzukikenichi.com/blog/ai-generated-content-references-in-the-search-quality-evaluator-guidelines-updated-on-january-2025/)
-- [Google DeepMind「DEVIL'S ADVOCATE」研究](https://ledge.ai/articles/google_deepmind_devils_adovocate)
+https://docs.anthropic.com/en/docs/claude-code/agent-teams
+
+https://www.suzukikenichi.com/blog/ai-generated-content-references-in-the-search-quality-evaluator-guidelines-updated-on-january-2025/
+
+https://ledge.ai/articles/google_deepmind_devils_adovocate
 
 [^1]: Google検索品質評価ガイドライン（2025年1月更新）では、AIで大量生成し人間の監修を経ていないコンテンツを最低品質（Lowest Quality）に分類しています。

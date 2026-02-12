@@ -233,10 +233,16 @@ Google Driveの設定で、開発フォルダを同期対象から除外する�
 
 ## 参考資料
 
-- [Apple File Provider Framework公式ドキュメント](https://developer.apple.com/documentation/fileprovider) -- macOSのクラウドストレージ統合フレームワーク
-- [Apple's File Provider Forces Mac Cloud Storage Changes (TidBITS)](https://tidbits.com/2023/03/10/apples-file-provider-forces-mac-cloud-storage-changes/) -- File Provider APIへの移行義務化の解説
-- [What is fileproviderd on Mac & Why Does it Use High CPU? (OSXDaily)](https://osxdaily.com/2024/03/16/what-is-fileproviderd-on-mac-why-does-it-use-high-cpu/) -- fileproviderdの解説と対処法
-- [Google Drive causing 'fileproviderd' to use huge amounts of CPU (Google Drive Community)](https://support.google.com/drive/thread/255503539) -- Google Drive + fileproviderd問題のコミュニティ報告
-- [Solving painful syncing of node_modules (Medium)](https://medium.com/@bozzified/solving-painful-syncing-of-node-modules-when-using-dropbox-or-google-drive-a77c2ab0c97c) -- node_modules同期問題の解決策
-- [How to Exclude node_modules from Dropbox or Google Drive (Adam Shaw)](https://arshaw.com/exclude-node-modules-dropbox-google-drive) -- node_modules除外の具体的方法
-- [Syncthing公式サイト](https://syncthing.net/) -- オープンソースP2Pファイル同期ツール
+https://developer.apple.com/documentation/fileprovider
+
+https://tidbits.com/2023/03/10/apples-file-provider-forces-mac-cloud-storage-changes/
+
+https://osxdaily.com/2024/03/16/what-is-fileproviderd-on-mac-why-does-it-use-high-cpu/
+
+https://support.google.com/drive/thread/255503539
+
+https://medium.com/@bozzified/solving-painful-syncing-of-node-modules-when-using-dropbox-or-google-drive-a77c2ab0c97c
+
+https://arshaw.com/exclude-node-modules-dropbox-google-drive
+
+https://syncthing.net/

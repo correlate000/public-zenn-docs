@@ -250,15 +250,22 @@ AIエージェントは優秀なシェフです。レシピの手順ではなく
 
 ### 参考資料
 
-- [Claude Code: Best practices for agentic coding](https://www.anthropic.com/engineering/claude-code-best-practices) -- Anthropic公式
-- [How to write a good spec for AI agents](https://addyosmani.com/blog/good-spec/) -- Addy Osmani
-- [Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) -- Martin Fowler / Birgitta Boeckeler
-- [Spec-driven development: Unpacking one of 2025's key new engineering practices](https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices) -- Thoughtworks
-- [My LLM coding workflow going into 2026](https://addyosmani.com/blog/ai-coding-workflow/) -- Addy Osmani
-- [From vibe coding to context engineering: 2025 in software development](https://www.thoughtworks.com/en-us/insights/blog/machine-learning-and-ai/vibe-coding-context-engineering-2025-software-development) -- Thoughtworks
+https://www.anthropic.com/engineering/claude-code-best-practices
+
+https://addyosmani.com/blog/good-spec/
+
+https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+
+https://www.thoughtworks.com/en-us/insights/blog/agile-engineering-practices/spec-driven-development-unpacking-2025-new-engineering-practices
+
+https://addyosmani.com/blog/ai-coding-workflow/
+
+https://www.thoughtworks.com/en-us/insights/blog/machine-learning-and-ai/vibe-coding-context-engineering-2025-software-development
 
 ### 関連記事
 
-- [CLAUDE.md設計ガイド - AIエージェントに環境を理解させる15セクション](https://zenn.dev/correlate_dev/articles/claude-md-guide)
-- [CLAUDE.mdを「ルーティングテーブル」に進化させる - 12のKnowledge Filesで67%スリム化した実践記録](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)
-- [Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)
+https://zenn.dev/correlate_dev/articles/claude-md-guide
+
+https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files
+
+https://zenn.dev/correlate_dev/articles/ai-content-pipeline

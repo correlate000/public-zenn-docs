@@ -194,13 +194,22 @@ Discordのセキュリティ。Discordは本来ゲーマー向けのプラット
 
 ## 参考資料
 
-- [BigQuery の概要](https://cloud.google.com/bigquery/docs/introduction?hl=ja)
-- [BigQuery の料金](https://cloud.google.com/bigquery/pricing)
-- [Google Cloud Free Tier](https://cloud.google.com/free)
-- [Cloud Run の料金](https://cloud.google.com/run/pricing)
-- [discord.py ドキュメント](https://discordpy.readthedocs.io/)
-- [Obsidian 公式サイト](https://obsidian.md/)
-- [個人開発のサービスへ大胆にBigQueryを選定した理由（Zenn）](https://zenn.dev/igz0/articles/8888bbc309f3d6)
-- [なぜObsidianが2025年になって注目されているのか（gihyo.jp）](https://gihyo.jp/article/2025/05/obsidian-05)
-- [Notionデータベースの速度・パフォーマンステスト（2万件）](https://scr.marketing-wizard.biz/notion/notion-db-performance-test)
-- [Slack無料版のメッセージ上限変更](https://auto-worker.com/blog/?p=6174)
+https://cloud.google.com/bigquery/docs/introduction?hl=ja
+
+https://cloud.google.com/bigquery/pricing
+
+https://cloud.google.com/free
+
+https://cloud.google.com/run/pricing
+
+https://discordpy.readthedocs.io/
+
+https://obsidian.md/
+
+https://zenn.dev/igz0/articles/8888bbc309f3d6
+
+https://gihyo.jp/article/2025/05/obsidian-05
+
+https://scr.marketing-wizard.biz/notion/notion-db-performance-test
+
+https://auto-worker.com/blog/?p=6174

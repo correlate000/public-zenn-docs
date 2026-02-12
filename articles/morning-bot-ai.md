@@ -259,10 +259,16 @@ DAレビューのプロンプト例:
 
 ## 参考資料
 
-- [Cloud Run ドキュメント](https://cloud.google.com/run/docs)
-- [Cloud Scheduler でサービスをスケジュール実行](https://docs.cloud.google.com/run/docs/triggering/using-scheduler)
-- [discord.py ドキュメント](https://discordpy.readthedocs.io/)
-- [Claude Codeで実現する仕様駆動開発(SDD)](https://zenn.dev/luup_developers/articles/server-jang-20251215)
-- [freee API リファレンス](https://developer.freee.co.jp/reference/accounting/reference)
-- [freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate/articles/freee-api-cloud-run)（筆者の別記事）
-- [1人法人がDiscord Botを業務ツールにしたら想像以上に便利だった話](https://zenn.dev/correlate/articles/discord-bot-business)（筆者の別記事）
+https://cloud.google.com/run/docs
+
+https://docs.cloud.google.com/run/docs/triggering/using-scheduler
+
+https://discordpy.readthedocs.io/
+
+https://zenn.dev/luup_developers/articles/server-jang-20251215
+
+https://developer.freee.co.jp/reference/accounting/reference
+
+https://zenn.dev/correlate/articles/freee-api-cloud-run
+
+https://zenn.dev/correlate/articles/discord-bot-business

@@ -291,11 +291,18 @@ Google Driveでのフリーズ事件から学んだのは、「万能な同期�
 
 ## 参考資料
 
-- [Syncthing公式サイト](https://syncthing.net/) -- オープンソースP2Pファイル同期ツール
-- [Syncthing公式ドキュメント](https://docs.syncthing.net/) -- 設定・運用の詳細リファレンス
-- [syncthing-macos (GitHub)](https://github.com/syncthing/syncthing-macos) -- macOS向けネイティブアプリケーション
-- [Ignoring Files -- Syncthing documentation](https://docs.syncthing.net/users/ignoring.html) -- .stignoreの仕様と書き方
-- [Security Principles -- Syncthing documentation](https://docs.syncthing.net/users/security.html) -- 暗号化・認証の仕組み
-- [Configuration Tuning -- Syncthing documentation](https://docs.syncthing.net/users/tuning.html) -- パフォーマンスチューニング
-- [Useful .stignore Patterns (Syncthing Community Forum)](https://forum.syncthing.net/t/useful-stignore-patterns/1175) -- コミュニティで共有されている除外パターン集
-- [Resolve Syncthing conflicts using three-way merge](https://www.rafa.ee/articles/resolve-syncthing-conflicts-using-three-way-merge/) -- コンフリクト自動解決の手法
+https://syncthing.net/
+
+https://docs.syncthing.net/
+
+https://github.com/syncthing/syncthing-macos
+
+https://docs.syncthing.net/users/ignoring.html
+
+https://docs.syncthing.net/users/security.html
+
+https://docs.syncthing.net/users/tuning.html
+
+https://forum.syncthing.net/t/useful-stignore-patterns/1175
+
+https://www.rafa.ee/articles/resolve-syncthing-conflicts-using-three-way-merge/

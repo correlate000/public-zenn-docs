@@ -209,25 +209,32 @@ Digital Gardenが「公開の意志」に依存するのに対し、パイプラ
 
 ### 思想的基盤
 
-- Andy Matuschak「[Work with the garage door up](https://notes.andymatuschak.org/Work_with_the_garage_door_up)」
-- Andy Matuschak「[Evergreen notes](https://notes.andymatuschak.org/Evergreen_notes)」
-- Maggie Appleton「[Growing the Evergreens](https://maggieappleton.com/evergreens)」
-- Maggie Appleton「[A Brief History & Ethos of the Digital Garden](https://maggieappleton.com/garden-history)」
-- Tiago Forte「[Building a Second Brain](https://buildingasecondbrain.com/)」
-- Zettelkasten.de「[The Complete Guide to Atomic Note-Taking](https://zettelkasten.de/atomicity/guide/)」
+https://notes.andymatuschak.org/Work_with_the_garage_door_up
+
+https://notes.andymatuschak.org/Evergreen_notes
+
+https://maggieappleton.com/evergreens
+
+https://maggieappleton.com/garden-history
+
+https://buildingasecondbrain.com/
+
+https://zettelkasten.de/atomicity/guide/
 
 ### パイプライン設計に関する議論
 
-- Jeffrey Webber「[Knowledge Pipelines -- Are They Too Complex?](https://medium.com/@jeffreywebber_/knowledge-pipelines-are-they-too-complex-bbf4eba1b007)」
-- NoteLab「[Why You're Not Just an Architect or Gardener](https://notelab.hypotheses.org/2336)」
+https://medium.com/@jeffreywebber_/knowledge-pipelines-are-they-too-complex-bbf4eba1b007
+
+https://notelab.hypotheses.org/2336
 
 ### AI x コンテンツ生成トレンド
 
-- Google 検索品質評価ガイドライン（2025年1月更新）における[AI生成コンテンツの扱い](https://www.suzukikenichi.com/blog/ai-generated-content-references-in-the-search-quality-evaluator-guidelines-updated-on-january-2025/)
+https://www.suzukikenichi.com/blog/ai-generated-content-references-in-the-search-quality-evaluator-guidelines-updated-on-january-2025/
 
 ### 関連記事（著者）
 
-- 「[Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)」
-- 「[Obsidian × Claude Codeで作業ログを自動蓄積する仕組み](https://zenn.dev/correlate_dev/articles/obsidian-claude-code)」
+https://zenn.dev/correlate_dev/articles/ai-content-pipeline
+
+https://zenn.dev/correlate_dev/articles/obsidian-claude-code
 
 [^1]: Google検索品質評価ガイドライン（2025年1月更新）では、AIで大量生成されたコンテンツが「努力なし・独自性なし・付加価値なし」の場合に最低品質（Lowest Quality）と評価されると明記されている。

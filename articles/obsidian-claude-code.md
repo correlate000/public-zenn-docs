@@ -392,7 +392,10 @@ graph TD
 
 ## 参考資料
 
-- [Claude Code Memory管理 公式ドキュメント](https://code.claude.com/docs/en/memory) -- CLAUDE.md、auto memory、session memoryの仕組み（階層的メモリシステムの全体像）
-- [ballred/obsidian-claude-pkm（GitHub）](https://github.com/ballred/obsidian-claude-pkm) -- Obsidian + Claude Code PKMスターターキット
-- [Agentic Knowledge Management: The Next Evolution of PKM](https://www.dsebastien.net/agentic-knowledge-management-the-next-evolution-of-pkm/) -- PKMの次の進化としてのAIエージェント連携
-- [thedotmack/claude-mem（GitHub）](https://github.com/thedotmack/claude-mem) -- Claude Codeの自動セッション記録プラグイン
+https://code.claude.com/docs/en/memory
+
+https://github.com/ballred/obsidian-claude-pkm
+
+https://www.dsebastien.net/agentic-knowledge-management-the-next-evolution-of-pkm/
+
+https://github.com/thedotmack/claude-mem

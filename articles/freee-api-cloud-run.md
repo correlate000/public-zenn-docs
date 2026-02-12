@@ -320,6 +320,8 @@ freee APIとCloud Runの組み合わせで、小規模法人の経理作業を�
 
 ## 参考資料
 
-- [freee会計API リファレンス](https://developer.freee.co.jp/reference/accounting/reference)
-- [Cloud Run ドキュメント](https://cloud.google.com/run/docs)
-- [httpx - 非同期HTTPクライアント](https://www.python-httpx.org/)
+https://developer.freee.co.jp/reference/accounting/reference
+
+https://cloud.google.com/run/docs
+
+https://www.python-httpx.org/

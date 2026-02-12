@@ -266,12 +266,20 @@ Claude Maxの$200/月は、2026年2月時点でもまだ十分にペイする投
 
 ## 参考資料
 
-- [Ollama公式サイト](https://ollama.com/)
-- [Ollama Anthropic API互換ドキュメント](https://docs.ollama.com/api/anthropic-compatibility)
-- [LM Studio公式サイト](https://lmstudio.ai/)
-- [Qwen3-Coder公式ブログ](https://qwenlm.github.io/blog/qwen3-coder/)
-- [Qwen3-Coder-Next公式ブログ](https://qwen.ai/blog?id=qwen3-coder-next)
-- [LLM APIコストまとめ（2026年2月更新）](https://qiita.com/SH2/items/39314152c0a6f9a7b681)
-- [Mac mini M4 Pro (64GB) はローカルLLMの夢を見るか？](https://blog.mosuke.tech/entry/2025/04/04/mac-mini-local-llm/)
-- [2026年のローカルLLM事情を整理してみた](https://dev.classmethod.jp/articles/local-llm-guide-2026/)
-- [朝会ボットを設計書から実装まで全部AIにやらせた話](https://zenn.dev/correlate/articles/morning-bot-ai)（筆者の別記事: Claude Code活用事例）
+https://ollama.com/
+
+https://docs.ollama.com/api/anthropic-compatibility
+
+https://lmstudio.ai/
+
+https://qwenlm.github.io/blog/qwen3-coder/
+
+https://qwen.ai/blog?id=qwen3-coder-next
+
+https://qiita.com/SH2/items/39314152c0a6f9a7b681
+
+https://blog.mosuke.tech/entry/2025/04/04/mac-mini-local-llm/
+
+https://dev.classmethod.jp/articles/local-llm-guide-2026/
+
+https://zenn.dev/correlate/articles/morning-bot-ai

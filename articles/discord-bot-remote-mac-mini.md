@@ -602,10 +602,16 @@ Mac miniにDiscord Botを常駐させることで、スマホからClaude Code�
 
 ## 参考資料
 
-- [discord.py 公式ドキュメント](https://discordpy.readthedocs.io/en/stable/)
-- [Claude Code CLI リファレンス](https://docs.anthropic.com/en/docs/claude-code/cli-reference)
-- [Apple: Creating Launch Daemons and Agents](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html)
-- [psutil ドキュメント](https://psutil.readthedocs.io/)
-- [Discord Bot Token Security Guide](https://vibecord.dev/blog/discord-bot-token-security-guide)
-- [mizchi: discordからclaude-codeを操作する](https://zenn.dev/mizchi/articles/discord-claude-code-interface)
-- [Clawdbot/OpenClaw](https://clawd.bot/)
+https://discordpy.readthedocs.io/en/stable/
+
+https://docs.anthropic.com/en/docs/claude-code/cli-reference
+
+https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+
+https://psutil.readthedocs.io/
+
+https://vibecord.dev/blog/discord-bot-token-security-guide
+
+https://zenn.dev/mizchi/articles/discord-claude-code-interface
+
+https://clawd.bot/

@@ -283,10 +283,16 @@ Mac 2台を使い分けている方、あるいはこれからデスクトップ
 
 ## 参考資料
 
-- [Tailscale公式サイト](https://tailscale.com/) - WireGuardベースのメッシュVPN
-- [Tailscale SSH ドキュメント](https://tailscale.com/kb/1193/tailscale-ssh) - SSHキー不要のセキュアなSSH接続
-- [Tailscale Pricing](https://tailscale.com/pricing) - 個人利用は無料（Personal プラン）
-- [Syncthing公式サイト](https://syncthing.net/) - オープンソースP2Pファイル同期ツール
-- [Google Driveで開発フォルダを同期したら167GB書き込まれた話](https://zenn.dev/correlate000/articles/google-drive-incident) - 本記事の前提となる失敗談
-- [TailScaleをもっと早く使っていればよかった...（Zenn）](https://zenn.dev/ikumasudo/articles/08550be5edcd7e) - Tailscale導入の体験記
-- [Mac 2台とTailscaleで実現する、いつでもどこでも自室環境へのアクセス（Note）](https://note.com/cozy_in_da_house/n/nf0cb09a0cf28) - Mac 2台構成の事例
+https://tailscale.com/
+
+https://tailscale.com/kb/1193/tailscale-ssh
+
+https://tailscale.com/pricing
+
+https://syncthing.net/
+
+https://zenn.dev/correlate000/articles/google-drive-incident
+
+https://zenn.dev/ikumasudo/articles/08550be5edcd7e
+
+https://note.com/cozy_in_da_house/n/nf0cb09a0cf28

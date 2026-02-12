@@ -281,8 +281,12 @@ TaskUpdate: addBlockedBy: [task-1, task-2, task-3, task-4]
 
 ## 参考資料
 
-- [Qodo「State of AI code quality」レポート](https://www.qodo.ai/reports/state-of-ai-code-quality/) -- AIレビュー統合で品質改善81%（なし55%）、600名超の開発者調査（2025年）
-- [Anthropic Agent Teams公式ドキュメント](https://code.claude.com/docs/en/agent-teams) -- Claude Code Agent Teamsの機能・設定・ユースケース
-- [richiethomas/claude-devils-advocate（GitHub）](https://github.com/richiethomas/claude-devils-advocate) -- Claude Code用DAスラッシュコマンド（PR前の多ラウンドレビュー）
-- [Google DeepMind「Devil's Advocate: Anticipatory Reflection for LLM Agents」](https://arxiv.org/abs/2405.16334) -- LLMエージェントの事前反省手法（EMNLP 2024 Findings採録）
-- [DORA 2025 State of AI-assisted Software Development](https://dora.dev/research/2025/dora-report/) -- AI採用率90%、ただし組織レベルのデリバリー指標は横ばい
+https://www.qodo.ai/reports/state-of-ai-code-quality/
+
+https://code.claude.com/docs/en/agent-teams
+
+https://github.com/richiethomas/claude-devils-advocate
+
+https://arxiv.org/abs/2405.16334
+
+https://dora.dev/research/2025/dora-report/
