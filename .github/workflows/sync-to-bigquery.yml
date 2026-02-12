@@ -49,7 +49,6 @@ jobs:
           from pathlib import Path
 
           ARTICLES_DIR = Path("articles")
-          PLATFORM = "zenn"
           ZENN_BASE_URL = "https://zenn.dev/correlate/articles"
           API_URL = os.environ.get("SYNC_API_URL", "")
           ID_TOKEN = os.environ.get("ID_TOKEN", "")
@@ -89,27 +88,29 @@ jobs:
               topics = meta.get("topics", [])
               published = meta.get("published", False)
               published_at_raw = meta.get("published_at", None)
+              publication_name = meta.get("publication_name", "")
 
               status = "published" if published else "draft"
+              platform = "zenn_idea" if article_type == "idea" else "zenn_tech"
               source_tags = ",".join(topics) if isinstance(topics, list) else str(topics)
               published_url = f"{ZENN_BASE_URL}/{slug}" if published else ""
 
               article = {
                   "id": f"zenn-{slug}",
                   "title": title,
+                  "platform": platform,
                   "article_type": article_type,
                   "status": status,
                   "source_content_id": slug,
                   "source_tags": source_tags,
                   "published_url": published_url,
+                  "published_at": str(published_at_raw) if published_at_raw else "",
+                  "publication_name": publication_name,
                   "word_count": count_words(body),
                   "code_example_count": count_code_examples(body),
                   "da_review_count": 0,
                   "da_feedback": "",
               }
-
-              if published_at_raw:
-                  article["published_at"] = str(published_at_raw)
 
               articles.append(article)
 
@@ -120,7 +121,7 @@ jobs:
           if not API_URL:
               print("SYNC_API_URL not set. Dry run only.")
           else:
-              payload = json.dumps({"articles": articles, "platform": PLATFORM}).encode("utf-8")
+              payload = json.dumps({"articles": articles}).encode("utf-8")
               headers = {"Content-Type": "application/json"}
               if ID_TOKEN:
                   headers["Authorization"] = f"Bearer {ID_TOKEN}"
