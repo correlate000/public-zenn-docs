@@ -8,6 +8,7 @@ topics:
   - refactoring
   - architecture
 published: true
+publication_name: "correlate_dev"
 published_at: 2026-02-09 12:30
 ---
 

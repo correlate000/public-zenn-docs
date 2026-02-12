@@ -4,6 +4,7 @@ emoji: "💥"
 type: "tech"
 topics: ["GoogleDrive", "Mac", "開発環境", "失敗談"]
 published: true
+publication_name: "correlate_dev"
 ---
 
 ## はじめに

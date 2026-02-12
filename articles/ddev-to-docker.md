@@ -4,6 +4,7 @@ emoji: "🐳"
 type: "tech"
 topics: ["docker", "ddev", "wordpress", "cloudrun", "開発環境"]
 published: true
+publication_name: "correlate_dev"
 published_at: "2026-02-11 19:00"
 ---
 
