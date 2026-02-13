@@ -73,9 +73,31 @@ def schedule_article(file_path: Path, published_at: str):
         f.write(content)
 
 
+def get_existing_scheduled_times() -> set:
+    """既存記事のpublished_atを取得（競合チェック用）"""
+    scheduled_times = set()
+
+    for article_file in ARTICLES_DIR.glob("*.md"):
+        with open(article_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # published_at を抽出
+        match = re.search(r'^published_at:\s*["\']?([^"\']+)["\']?', content, re.MULTILINE)
+        if match:
+            scheduled_times.add(match.group(1).strip())
+
+    return scheduled_times
+
+
 def calculate_next_slots(count: int) -> List[str]:
-    """次の公開スロットを計算（08:00, 12:30, 19:00）"""
+    """次の公開スロットを計算（既存記事と競合しないように）"""
     now = datetime.now()
+    existing_times = get_existing_scheduled_times()
+
+    print(f"既存の予約記事: {len(existing_times)}件")
+    if existing_times:
+        print(f"  例: {list(existing_times)[:3]}")
+
     slots = []
     time_slots = [
         (8, 0),   # 08:00
@@ -84,7 +106,7 @@ def calculate_next_slots(count: int) -> List[str]:
     ]
 
     current_day = now.date()
-    days_to_check = 7
+    days_to_check = 14  # 2週間分チェック（余裕を持たせる）
 
     for day_offset in range(days_to_check):
         check_date = current_day + timedelta(days=day_offset)
@@ -94,8 +116,16 @@ def calculate_next_slots(count: int) -> List[str]:
                 hour=hour, minute=minute
             )
 
-            if slot_time > now:
-                slots.append(slot_time.strftime("%Y-%m-%d %H:%M"))
+            # 未来の時刻のみ
+            if slot_time <= now:
+                continue
+
+            slot_str = slot_time.strftime("%Y-%m-%d %H:%M")
+
+            # 既存の予約と重複していないスロットのみ
+            if slot_str not in existing_times:
+                slots.append(slot_str)
+                print(f"  空きスロット発見: {slot_str}")
 
             if len(slots) >= count:
                 return slots

@@ -4,7 +4,7 @@ emoji: "🧭"
 type: "idea"
 topics: ["claudecode", "ai", "promptengineering", "sdd"]
 published: true
-published_at: "2026-02-13 12:30"
+published_at: "2026-02-16 12:30"
 publication_name: "correlate_dev"
 slug: "what-not-how-prompt-philosophy"
 ---

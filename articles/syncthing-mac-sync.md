@@ -4,7 +4,7 @@ emoji: "🔄"
 type: "tech"
 topics: ["syncthing", "macos", "devtools", "productivity", "sync"]
 published: true
-published_at: "2026-02-09 19:00"
+published_at: "2026-02-16 08:00"
 publication_name: "correlate_dev"
 ---
 
