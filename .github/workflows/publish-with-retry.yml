@@ -1,0 +1,74 @@
+name: Publish Scheduled Articles with Retry
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # 6時間毎に実行（レートリミット考慮）
+  workflow_dispatch:  # 手動実行
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      # Step 1: リトライキューの記事を処理
+      - name: Process retry queue
+        run: |
+          python3 .github/scripts/zenn-retry-failed.py --max 3
+        continue-on-error: true
+
+      # Step 2: 予約公開記事を処理
+      - name: Publish scheduled articles
+        id: publish
+        uses: x-color/zenn-post-scheduler@v1.0.0
+        with:
+          path: articles
+          target_key: published_at
+        continue-on-error: true  # 失敗しても続行
+
+      # Step 3: 変更をコミット
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: 予約記事を自動公開'
+          file_pattern: 'articles/ .github/scripts/.zenn-retry-queue.json'
+
+      # Step 4: 公開状態を検証（デプロイから5分待機）
+      - name: Wait for Zenn deployment
+        run: sleep 300  # 5分待機
+
+      - name: Verify published status
+        id: verify
+        run: |
+          python3 .github/scripts/zenn-verify-published.py --fix
+        continue-on-error: true
+
+      # Step 5: 検証結果をコミット（published フラグがロールバックされている場合）
+      - name: Commit rollback changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'fix: デプロイ失敗記事のpublishedフラグをロールバック'
+          file_pattern: articles/
+
+      # Step 6: 失敗時のDiscord通知（verify.pyが自動送信するので不要だが、念のため）
+      - name: Notify on failure
+        if: steps.publish.outcome == 'failure' || steps.verify.outcome == 'failure'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_CONTENT }}
+        run: |
+          curl -X POST "$DISCORD_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "content": "⚠️ **Zenn自動公開ワークフローで問題が発生しました**\n\nGitHub Actions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\n確認してください。"
+            }'
