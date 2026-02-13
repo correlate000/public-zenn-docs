@@ -3,7 +3,7 @@ title: "小規模事業者のナレッジ管理、NotionよりBigQueryが向く�
 emoji: "🗄️"
 type: "tech"
 topics: ["bigquery", "notion", "obsidian", "claudecode", "ナレッジ管理"]
-published: true
+published: false
 published_at: "2026-02-14 19:00"
 publication_name: "correlate_dev"
 ---
