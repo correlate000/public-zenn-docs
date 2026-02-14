@@ -3,8 +3,7 @@ title: "コンテンツパイプラインという思想 -- 日常から記事�
 emoji: "🌱"
 type: "idea"
 topics: ["obsidian", "ai", "pkm", "claudecode", "writing"]
-published: true
-published_at: "2026-02-15 12:30"
+published: false
 publication_name: "correlate_dev"
 slug: "content-pipeline-philosophy"
 ---

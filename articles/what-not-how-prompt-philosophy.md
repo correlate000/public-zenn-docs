@@ -3,8 +3,7 @@ title: "「What, not How」-- AIエージェント時代のプロンプト設計
 emoji: "🧭"
 type: "idea"
 topics: ["claudecode", "ai", "promptengineering", "sdd"]
-published: true
-published_at: "2026-02-16 19:00"
+published: false
 publication_name: "correlate_dev"
 slug: "what-not-how-prompt-philosophy"
 ---

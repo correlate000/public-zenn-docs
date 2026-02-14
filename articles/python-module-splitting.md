@@ -7,8 +7,7 @@ topics:
   - fastapi
   - refactoring
   - architecture
-published: true
-published_at: "2026-02-17 12:30"
+published: false
 publication_name: "correlate_dev"
 ---
 
