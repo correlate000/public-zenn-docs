@@ -5,7 +5,6 @@ type: "tech"
 topics: ["discord", "python", "cloudrun", "fastapi", "bot"]
 published: true
 publication_name: "correlate_dev"
-published_at: "2026-02-11 08:00"
 ---
 
 ## 毎朝6つのサービスを開くところから始まっていた

@@ -10,7 +10,6 @@ topics:
   - oauth
 published: true
 publication_name: "correlate_dev"
-published_at: 2026-02-09 08:00
 ---
 
 ## 毎月の経理に半日費やしていた
