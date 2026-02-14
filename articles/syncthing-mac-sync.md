@@ -3,7 +3,8 @@ title: "Mac 2台の開発環境同期ベストプラクティス — Syncthing�
 emoji: "🔄"
 type: "tech"
 topics: ["syncthing", "macos", "devtools", "productivity", "sync"]
-published: false
+published: true
+published_at: "2026-02-16 19:00"
 publication_name: "correlate_dev"
 ---
 

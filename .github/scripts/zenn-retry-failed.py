@@ -158,7 +158,7 @@ def main():
 
     print(f"\n処理する記事: {len(to_process)}件")
     for i, article in enumerate(to_process):
-        file_path = WORKSPACE / article['file']
+        file_path = WORKSPACE / article.get('file_path', article.get('file', ''))
         if not file_path.exists():
             print(f"  ❌ {article['slug']}: ファイルが見つかりません")
             continue

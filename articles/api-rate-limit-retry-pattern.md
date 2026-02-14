@@ -3,7 +3,8 @@ title: "APIレートリミット対策の設計パターン — 自動リトラ�
 emoji: "🔄"
 type: "tech"
 topics: ["api", "githubactions", "python", "automation", "errorhandling"]
-published: false
+published: true
+published_at: "2026-02-15 08:00"
 publication_name: "correlate_dev"
 ---
 
@@ -60,6 +61,7 @@ APIを利用した自動化を実装していると、必ず直面するのが**
 
 ```yaml
 published: true
+published_at: "2026-02-15 08:00"
 ```
 
 GitHub Actions上でも「デプロイ成功」と表示されていましたが、実際にZenn上で記事を確認すると**404 Not Found**でした。
