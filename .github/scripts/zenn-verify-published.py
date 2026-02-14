@@ -58,14 +58,23 @@ def check_published_on_zenn(slug: str, username: str = "correlate") -> bool:
 
 
 def rollback_published_flag(file_path: Path):
-    """published: true → false にロールバック"""
+    """published: true → false にロールバック + published_at も削除"""
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
+    # published: true → false
     updated = re.sub(
         r'^published:\s*true',
         'published: false',
         content,
+        flags=re.MULTILINE
+    )
+
+    # published_at も削除（published: false + published_at は無効な組み合わせ）
+    updated = re.sub(
+        r'^published_at:.*\n',
+        '',
+        updated,
         flags=re.MULTILINE
     )
 
