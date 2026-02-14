@@ -4,7 +4,6 @@ emoji: "🌱"
 type: "idea"
 topics: ["obsidian", "ai", "pkm", "claudecode", "writing"]
 published: false
-published_at: "2026-02-15 12:30"
 publication_name: "correlate_dev"
 slug: "content-pipeline-philosophy"
 ---
