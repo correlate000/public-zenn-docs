@@ -60,7 +60,6 @@ APIを利用した自動化を実装していると、必ず直面するのが**
 
 ```yaml
 published: true
-published_at: "2026-02-14 08:00"
 ```
 
 GitHub Actions上でも「デプロイ成功」と表示されていましたが、実際にZenn上で記事を確認すると**404 Not Found**でした。
