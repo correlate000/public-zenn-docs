@@ -5,7 +5,6 @@ type: "tech"
 topics: ["tailscale", "macos", "syncthing", "ssh"]
 published: false
 publication_name: "correlate_dev"
-published_at: "2026-02-15 19:00"
 ---
 
 ## カフェからMac miniのターミナルを開く

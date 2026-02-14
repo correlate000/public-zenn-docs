@@ -4,7 +4,6 @@ emoji: "🧭"
 type: "idea"
 topics: ["bigquery", "discord", "obsidian", "gcp", "solo"]
 published: false
-published_at: "2026-02-16 19:00"
 publication_name: "correlate_dev"
 slug: "solo-corp-info-platform"
 ---
