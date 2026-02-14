@@ -4,7 +4,7 @@ emoji: "🏗️"
 type: "tech"
 topics: ["gcp", "cloudrun", "bigquery", "discord", "個人開発"]
 published: true
-published_at: "2026-02-16 08:00"
+published_at: "2026-02-15 08:00"
 publication_name: "correlate_dev"
 ---
 
