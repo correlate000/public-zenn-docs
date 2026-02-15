@@ -3,7 +3,7 @@ title: "APIレートリミット対策の設計パターン — 自動リトラ�
 emoji: "🔄"
 type: "tech"
 topics: ["api", "githubactions", "python", "automation", "errorhandling"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
@@ -59,7 +59,7 @@ APIを利用した自動化を実装していると、必ず直面するのが**
 ローカルのMarkdownファイルでは以下のように設定されていました。
 
 ```yaml
-published: false
+published: true
 ```
 
 GitHub Actions上でも「デプロイ成功」と表示されていましたが、実際にZenn上で記事を確認すると**404 Not Found**でした。
