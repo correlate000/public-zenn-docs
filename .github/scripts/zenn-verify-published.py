@@ -16,7 +16,7 @@ import requests
 import os
 from pathlib import Path
 from typing import List, Dict
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 # 設定（GitHub Actions環境対応）
 WORKSPACE = Path(os.getenv("GITHUB_WORKSPACE", "."))
@@ -43,15 +43,15 @@ def extract_front_matter(file_path: Path) -> Dict[str, str]:
     return front_matter
 
 
-def check_published_on_zenn(slug: str, username: str = "correlate") -> bool:
-    """Zennで実際に公開されているか確認"""
+def check_published_on_zenn(slug: str, username: str = "correlate") -> bool | None:
+    """Zennで実際に公開されているか確認. ネットワークエラー時は None."""
     url = f"https://zenn.dev/{username}/articles/{slug}"
     try:
         response = requests.head(url, timeout=10, allow_redirects=True)
         return response.status_code in [200, 301]
     except Exception as e:
         print(f"  [WARN] Failed to check {slug}: {e}", file=sys.stderr)
-        return False
+        return None
 
 
 def rollback_published_flag(file_path: Path):
@@ -136,7 +136,8 @@ def main():
     failed_articles = []
     retry_queue = load_retry_queue()
 
-    now = datetime.now()
+    JST = timezone(timedelta(hours=9))
+    now = datetime.now(JST)
 
     for article_file in ARTICLES_DIR.glob("*.md"):
         front_matter = extract_front_matter(article_file)
@@ -148,10 +149,11 @@ def main():
         title = front_matter.get('title', slug)
 
         # published_at が未来の場合はスキップ（予約公開待ち）
+        # published_at は JST で記載されている前提
         published_at_str = front_matter.get('published_at', '')
         if published_at_str:
             try:
-                published_at = datetime.strptime(published_at_str, "%Y-%m-%d %H:%M")
+                published_at = datetime.strptime(published_at_str, "%Y-%m-%d %H:%M").replace(tzinfo=JST)
                 if published_at > now:
                     print(f"Checking: {slug}... ⏳ SCHEDULED ({published_at_str})")
                     continue
@@ -160,15 +162,18 @@ def main():
 
         print(f"Checking: {slug}...", end=" ")
 
-        if check_published_on_zenn(slug):
+        result = check_published_on_zenn(slug)
+        if result is True:
             print("✅ OK")
+        elif result is None:
+            print("⚠️ NETWORK ERROR (skipped)")
         else:
             print("❌ NOT PUBLISHED")
             failed_articles.append({
                 "slug": slug,
                 "title": title,
                 "file": str(article_file.relative_to(WORKSPACE)),
-                "detected_at": datetime.now().isoformat(),
+                "detected_at": datetime.now(JST).isoformat(),
             })
 
             if fix_mode:

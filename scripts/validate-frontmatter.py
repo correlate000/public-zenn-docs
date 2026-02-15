@@ -61,7 +61,7 @@ def parse_frontmatter(filepath: Path) -> tuple[dict, list[str]]:
 
 
 def check_quoting(fm: dict, filepath: Path) -> list[str]:
-    """type, publication_name の引用符チェック."""
+    """type, publication_name の引用符 + 値チェック."""
     errors = []
     raw = "\n".join(fm.get("_raw_lines", []))
 
@@ -71,6 +71,10 @@ def check_quoting(fm: dict, filepath: Path) -> list[str]:
         val = type_match.group(1).strip()
         if not (val.startswith('"') and val.endswith('"')):
             errors.append(f"  [FORMAT] type は引用符必須: type: \"{val}\" にすべき")
+        # 値チェック
+        type_val = val.strip('"').strip("'")
+        if type_val not in VALID_TYPES:
+            errors.append(f"  [VALUE] type は {VALID_TYPES} のいずれか: 現在 \"{type_val}\"")
 
     # publication_name should be quoted
     pub_match = re.search(r'^publication_name:\s*(\S.*)$', raw, re.MULTILINE)
@@ -78,6 +82,10 @@ def check_quoting(fm: dict, filepath: Path) -> list[str]:
         val = pub_match.group(1).strip()
         if not (val.startswith('"') and val.endswith('"')):
             errors.append(f'  [FORMAT] publication_name は引用符必須: publication_name: "{val}" にすべき')
+        # 値チェック
+        pub_val = val.strip('"').strip("'")
+        if pub_val != VALID_PUBLICATION:
+            errors.append(f'  [VALUE] publication_name は "{VALID_PUBLICATION}": 現在 "{pub_val}"')
 
     return errors
 
@@ -250,6 +258,14 @@ def main():
             print(f"\n{fixed_count} 件修正しました")
         else:
             print("修正対象なし")
+        # 修正後にバリデーション再実行（スケジュール重複等は --fix で直せないため警告）
+        remaining_errors = []
+        remaining_errors.extend(schedule_errors)
+        remaining_errors.extend(daily_errors)
+        if remaining_errors:
+            print("\n⚠️  --fix では修正できない問題が残っています:")
+            for e in remaining_errors:
+                print(e)
         return
 
     print(f"=== Zenn Front Matter Validation ({len(articles)} articles) ===\n")
