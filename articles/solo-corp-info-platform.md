@@ -3,9 +3,8 @@ title: "1人法人の情報基盤設計 -- BigQuery + Discord + Obsidianで何�
 emoji: "🧭"
 type: "idea"
 topics: ["bigquery", "discord", "obsidian", "gcp", "solo"]
-published: true
+published: false
 publication_name: "correlate_dev"
-published_at: "2026-02-17 08:00"
 slug: "solo-corp-info-platform"
 ---
 

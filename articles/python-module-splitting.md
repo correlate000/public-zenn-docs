@@ -7,9 +7,8 @@ topics:
   - fastapi
   - refactoring
   - architecture
-published: true
+published: false
 publication_name: "correlate_dev"
-published_at: "2026-02-17 12:30"
 ---
 
 ## 約3500行のmain.pyに新機能を追加することになった
