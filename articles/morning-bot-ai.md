@@ -1,5 +1,5 @@
 ---
-title: "朝会ボットを設計書から実装まで全部AIにやらせた話"
+title:" "朝会ボットを設計書から実装まで全部AIにやらせた話""
 emoji: "🌅"
 type: "tech"
 topics: ["claudecode", "discord", "cloudrun", "python", "ai"]

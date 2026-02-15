@@ -1,5 +1,5 @@
 ---
-title: "Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法"
+title:" "Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法""
 emoji: "🚀"
 type: "tech"
 topics: ["claudecode", "agentteams", "zenn", "obsidian", "ai"]

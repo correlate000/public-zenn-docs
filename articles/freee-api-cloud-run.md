@@ -1,6 +1,6 @@
 ---
-title: freee APIをCloud Runで動かして経理作業を月2時間に減らした話
-emoji: 🧾
+title:" "freee APIをCloud Runで動かして経理作業を月2時間に減らした話""
+emoji: "🧾"
 type: "tech"
 topics: ["freee", "cloudrun", "python", "fastapi", "oauth"]
 published: true

@@ -1,5 +1,5 @@
 ---
-title: "APIレートリミット対策の設計パターン — 自動リトライ機構の実装"
+title:" "APIレートリミット対策の設計パターン — 自動リトライ機構の実装""
 emoji: "🔄"
 type: "tech"
 topics: ["api", "githubactions", "python", "automation", "errorhandling"]

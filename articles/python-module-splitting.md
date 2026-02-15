@@ -1,6 +1,6 @@
 ---
-title: 1ファイル3500行超のPythonを恐れずにモジュール分割した話
-emoji: 🧩
+title:" "1ファイル3500行超のPythonを恐れずにモジュール分割した話""
+emoji: "🧩"
 type: "tech"
 topics: ["python", "fastapi", "refactoring", "architecture"]
 published: true

@@ -1,6 +1,6 @@
 ---
-title: 小規模事業者のナレッジ管理、NotionよりBigQueryが向くケース
-emoji: 🗄️
+title:" "小規模事業者のナレッジ管理、NotionよりBigQueryが向くケース""
+emoji: "🗄️"
 type: "tech"
 topics: ["bigquery", "notion", "obsidian", "claudecode", "ナレッジ管理"]
 published: true

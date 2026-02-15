@@ -1,5 +1,5 @@
 ---
-title: "Google Driveで開発フォルダを同期したら167GB書き込まれた話"
+title:" "Google Driveで開発フォルダを同期したら167GB書き込まれた話""
 emoji: "💥"
 type: "tech"
 topics: ["GoogleDrive", "Mac", "開発環境", "失敗談"]

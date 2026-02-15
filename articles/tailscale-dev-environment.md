@@ -1,5 +1,5 @@
 ---
-title: "Mac miniとMBPをTailscale+Syncthingで同期したら開発効率が激変した話"
+title:" "Mac miniとMBPをTailscale+Syncthingで同期したら開発効率が激変した話""
 emoji: "🔗"
 type: "tech"
 topics: ["tailscale", "macos", "syncthing", "ssh"]

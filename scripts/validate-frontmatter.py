@@ -14,7 +14,7 @@
   python3 scripts/validate-frontmatter.py --ci      # CI用（エラー時 exit 1）
 
 pre-commit hook としても動作:
-  .git/hooks/pre-commit から呼び出し
+  .githooks/pre-commit から呼び出し（git config core.hooksPath .githooks）
 """
 
 import re
@@ -58,6 +58,21 @@ def parse_frontmatter(filepath: Path) -> tuple[dict, list[str]]:
             fm[key] = val
 
     return fm, lines
+
+
+def check_title_emoji_quoting(fm: dict, filepath: Path) -> list[str]:
+    """title, emoji の引用符チェック."""
+    errors = []
+    raw = "\n".join(fm.get("_raw_lines", []))
+
+    for field in ("title", "emoji"):
+        m = re.search(rf'^{field}:\s*(\S.*)$', raw, re.MULTILINE)
+        if m:
+            val = m.group(1).strip()
+            if not (val.startswith('"') and val.endswith('"')):
+                errors.append(f'  [FORMAT] {field} は引用符必須: {field}: "{val}" にすべき')
+
+    return errors
 
 
 def check_quoting(fm: dict, filepath: Path) -> list[str]:
@@ -170,6 +185,24 @@ def fix_frontmatter(filepath: Path) -> bool:
     content = filepath.read_text(encoding="utf-8")
     original = content
 
+    # Fix unquoted title
+    content = re.sub(
+        r'^(title:\s*)(?!")(.+)$',
+        r'\1"\2"',
+        content,
+        count=1,
+        flags=re.MULTILINE,
+    )
+
+    # Fix unquoted emoji
+    content = re.sub(
+        r'^(emoji:\s*)(?!")(\S+)\s*$',
+        r'\1"\2"',
+        content,
+        count=1,
+        flags=re.MULTILINE,
+    )
+
     # Fix unquoted type
     content = re.sub(
         r'^(type:\s*)(?!")(\w+)\s*$',
@@ -218,6 +251,10 @@ def main():
     fix_mode = "--fix" in sys.argv
     ci_mode = "--ci" in sys.argv
 
+    if fix_mode and ci_mode:
+        print("⚠️  --fix と --ci は同時指定できません。--fix を優先します。")
+        ci_mode = False
+
     if not ARTICLES_DIR.exists():
         print(f"ERROR: {ARTICLES_DIR} が見つかりません")
         sys.exit(1)
@@ -236,6 +273,7 @@ def main():
         errors = []
         errors.extend(check_required_fields(fm, article))
         errors.extend(check_published_combo(fm, article))
+        errors.extend(check_title_emoji_quoting(fm, article))
         errors.extend(check_quoting(fm, article))
         errors.extend(check_topics_format(fm, article))
 

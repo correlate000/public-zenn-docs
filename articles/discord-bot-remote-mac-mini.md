@@ -1,5 +1,5 @@
 ---
-title: "Mac miniにDiscord Botを常駐させて、どこからでもClaude Codeを遠隔操作する"
+title:" "Mac miniにDiscord Botを常駐させて、どこからでもClaude Codeを遠隔操作する""
 emoji: "🖥️"
 type: "tech"
 topics: ["discord", "python", "claude", "macos", "security"]

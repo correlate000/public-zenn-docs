@@ -1,5 +1,5 @@
 ---
-title: "DDEV使いがDockerを理解したら世界が変わった話"
+title:" "DDEV使いがDockerを理解したら世界が変わった話""
 emoji: "🐳"
 type: "tech"
 topics: ["docker", "ddev", "wordpress", "cloudrun", "開発環境"]
@@ -27,7 +27,7 @@ DDEVに乗り換えてからは、`.ddev/config.yaml` に数行書くだけで�
 
 ```yaml
 name: client-site
-type: wordpress
+type: "wordpress"
 docroot: web
 php_version: "8.2"
 webserver_type: nginx-fpm
