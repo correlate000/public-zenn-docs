@@ -1,13 +1,9 @@
 ---
 title: 1ファイル3500行超のPythonを恐れずにモジュール分割した話
 emoji: 🧩
-type: tech
-topics:
-  - python
-  - fastapi
-  - refactoring
-  - architecture
-published: false
+type: "tech"
+topics: ["python", "fastapi", "refactoring", "architecture"]
+published: true
 publication_name: "correlate_dev"
 ---
 
