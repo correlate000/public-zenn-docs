@@ -22,10 +22,7 @@ from datetime import datetime
 WORKSPACE = Path(os.getenv("GITHUB_WORKSPACE", "."))
 ARTICLES_DIR = WORKSPACE / "articles"
 RETRY_QUEUE_FILE = WORKSPACE / ".github/scripts/.zenn-retry-queue.json"
-DISCORD_WEBHOOK_URL = os.getenv(
-    "DISCORD_WEBHOOK_URL_CONTENT",
-    "https://discordapp.com/api/webhooks/1471532255363993745/J6-1wN1WdV_wnkZU9nVSxcm4gX_WeQ6O-CaNKyMH4S32lB-OgiodvSnuFNYnZ_J70kjy"
-)
+DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL_CONTENT", "")
 
 
 def extract_front_matter(file_path: Path) -> Dict[str, str]:
@@ -139,6 +136,8 @@ def main():
     failed_articles = []
     retry_queue = load_retry_queue()
 
+    now = datetime.now()
+
     for article_file in ARTICLES_DIR.glob("*.md"):
         front_matter = extract_front_matter(article_file)
 
@@ -147,6 +146,17 @@ def main():
 
         slug = front_matter.get('slug', article_file.stem)
         title = front_matter.get('title', slug)
+
+        # published_at が未来の場合はスキップ（予約公開待ち）
+        published_at_str = front_matter.get('published_at', '')
+        if published_at_str:
+            try:
+                published_at = datetime.strptime(published_at_str, "%Y-%m-%d %H:%M")
+                if published_at > now:
+                    print(f"Checking: {slug}... ⏳ SCHEDULED ({published_at_str})")
+                    continue
+            except ValueError:
+                pass  # パースできない場合は通常チェック
 
         print(f"Checking: {slug}...", end=" ")
 
