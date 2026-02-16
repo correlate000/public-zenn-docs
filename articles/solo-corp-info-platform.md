@@ -34,6 +34,7 @@ slug: "solo-corp-info-platform"
 この3層モデルに当てはめると、各ツールの役割が自然に決まっていく。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TD
     subgraph Layer1["📥 集める層"]
         O[Obsidian<br/>ローカルMarkdown]
@@ -169,6 +170,7 @@ Obsidian（集める）→ BigQuery（蓄める）→ Discord（見る）
 具体的にはこんなことが日常になりました。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph LR
     subgraph Sources["📊 データソース"]
         S1[Google Calendar API]

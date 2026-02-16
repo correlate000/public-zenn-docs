@@ -43,6 +43,7 @@ Claude Code対話（`/claude run`）:
 ## 全体アーキテクチャ
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph TB
     User["スマホ<br/>Discord アプリ"] -->|Discord API| Bot["Mac mini<br/>Discord Bot<br/>常駐プロセス"]
 
@@ -360,6 +361,7 @@ if safety_val == 'standard':
 「自宅のマシンをインターネット経由で操作する」以上、セキュリティは最も重要な設計ポイントです。5層の防御を実装しています。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph TB
     Request["Discord<br/>スラッシュコマンド"] --> L1["Layer 1<br/>Guild ID制限<br/>指定サーバーのみ"]
     L1 --> L2["Layer 2<br/>User ID<br/>ホワイトリスト"]

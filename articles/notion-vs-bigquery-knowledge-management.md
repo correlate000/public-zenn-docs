@@ -97,6 +97,7 @@ Claude Codeは後者を得意とします。プロンプトで「BigQueryにこ�
 ただし、Claude Code時代では「SQL操作が人間の作業」とは限りません。AIエージェントにSQLを書かせれば、インターフェースの差は縮まります。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart LR
     subgraph "Notion"
         A1["非エンジニア"] --> B1["GUIエディタ"]
@@ -271,6 +272,7 @@ export async function getKnowledgeStats() {
 他社がこの構成を真似する場合、以下のフローをおすすめします。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TD
     A["Obsidian<br>執筆・編集"] -->|Git管理| B["Git Repository"]
     B -->|"launchd自動同期<br>bq CLI"| C["BigQuery<br>蓄積・分析"]

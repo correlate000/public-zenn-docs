@@ -33,6 +33,7 @@ AIエージェントとの関係も同じです。Claude CodeやCursorのよう�
 この違いが「What, not How」という設計哲学の本質です。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart LR
     subgraph Bad["❌ How指示（手順書）"]
         H1["1. git statusを実行"]
@@ -143,6 +144,7 @@ CLAUDE.mdを「設定ファイル」ではなく「仕様書」として捉え�
 この3層すべてが「What」を記述しています。「How」はClaude Code（AIエージェント）が自律的に決定します。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph TD
     subgraph Context["📚 Context Engineering（文脈全体設計）"]
         direction TB
@@ -255,6 +257,7 @@ Hookに記述しているのは「旧ドメインの使用を禁止する」と�
 これがContext Engineering（文脈全体の設計）の実践です。「一回のプロンプトをどう書くか」ではなく、「エージェントが必要とする文脈情報をどう構造化するか」を設計する。Prompt Engineeringの進化形として、[注目を集めている](https://www.thoughtworks.com/en-us/insights/blog/machine-learning-and-ai/vibe-coding-context-engineering-2025-software-development)概念です。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 sequenceDiagram
     participant H as 人間
     participant C as CLAUDE.md

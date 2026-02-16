@@ -136,6 +136,7 @@ async def collect_data(self) -> dict:
 `return_exceptions=True`を指定しているのがポイントです。6つのうち1つが失敗しても、残り5つのデータは正常に取得できる。部分的に失敗した場合は、取得できたデータだけでブリーフィングを配信し、失敗したデータソースはエラーEmbedで明示する設計にしています。これもDAレビューで追加された仕様です。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 sequenceDiagram
     participant Main as collect_data()
     participant C as Calendar API
@@ -205,6 +206,7 @@ async def is_already_delivered_today(self) -> bool:
 スケジューリングにはCloud Schedulerを使用。毎朝7時（JST）にHTTP POSTリクエストをCloud Runに送信します。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TD
     A["Cloud Scheduler<br>07:00 JST"] -->|"HTTP POST<br>+ OIDCトークン"| B["Cloud Run<br>correlate-api"]
 

@@ -41,6 +41,7 @@ freee APIの認証にはOAuth2を使います。ここで最大のハマりど�
 :::
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 sequenceDiagram
     participant App as Cloud Run API
     participant freee as freee API
@@ -240,6 +241,7 @@ async def create_freee_expense(
 :::
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph TB
     Input["Discord入力<br/>経費 交通費 1500 電車代"]
 

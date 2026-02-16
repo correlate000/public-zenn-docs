@@ -34,6 +34,7 @@ LLMからは「東京都の人口推移を教えて」と自然言語で問い�
 一見便利ですが、ここには**APIラッパー特有のリスク**が存在します。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart LR
     subgraph "MCP経由"
         A1["LLM<br>ChatGPT/Claude"] -->|"自然言語<br>「東京都の人口は？」"| B1["MCPサーバー<br>AI HYVE"]
@@ -98,6 +99,7 @@ flowchart LR
 MCPサーバーを経由すると、**クエリ内容が中間サーバーに送信**されます。これはMCPアーキテクチャの構造上、避けられません。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 sequenceDiagram
     participant User as ユーザー
     participant LLM as ChatGPT/Claude

@@ -86,6 +86,7 @@ Express問題が起きる理由は3つあると考えている。
 つまりExpress問題とは、意志力や時間管理の問題ではない。「メモから記事への変換パイプラインが存在しない」という構造的な問題なのです。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph TD
     subgraph "Digital Garden"
         DG1["Seedlings<br/>種"] --> DG2["Budding<br/>芽"]
@@ -138,6 +139,7 @@ Phase 6: フィードバック → Phase 1に戻る
 Phase 6のフィードバックがPhase 1に戻るのは何を意味するか。パイプラインが閉じたループを形成していることを示している。リサーチ中に次の記事ネタが見つかる。公開後の反応が新しい知見になる。記事を書く行為自体が次の記事の素材を生む。この循環構造こそが、「ネタ切れ」を構造的に防ぐ仕組みです。
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 graph LR
     A["Phase 1<br/>候補発見<br/>#content-candidate"] --> B["Phase 2<br/>Deep Research<br/>必須ゲート"]
     B --> C["Phase 3<br/>執筆<br/>AI Agent活用"]
