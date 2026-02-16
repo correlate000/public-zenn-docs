@@ -39,7 +39,7 @@ main.py（約3500行）の内訳
 Discord Botセクションだけで2,272行。ファイル全体の64%を占めています。AIチャット応答、経理フロー、スレッド管理、キャッシュ処理――Botの中にさらに複数の責務が混在する状態。
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','pie1':'#0D47A1','pie2':'#1565C0','pie3':'#1976D2','pie4':'#1E88E5','pie5':'#2196F3','pie6':'#42A5F5','pie7':'#64B5F6','pie8':'#90CAF9','pie9':'#BBDEFB','pieTitleTextColor':'#212121','pieSectionTextColor':'#212121','pieStrokeColor':'#ffffff','pieStrokeWidth':'2px','pieOuterStrokeWidth':'2px'}}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','pie1':'#0D47A1','pie2':'#1565C0','pie3':'#1976D2','pie4':'#1E88E5','pie5':'#2196F3','pie6':'#42A5F5','pie7':'#64B5F6','pie8':'#90CAF9','pie9':'#BBDEFB','pieTitleTextColor':'#212121','pieSectionTextColor':'#212121','pieStrokeColor':'#ffffff','pieStrokeWidth':'2px','pieOuterStrokeWidth':'2px'}, 'themeCSS': '.pieCircle { background: #ffffff !important; } svg { background: #ffffff !important; }'}}%%
 pie title "main.py 内訳（約3500行）"
     "Discord Bot本体" : 2272
     "freee API" : 266
