@@ -39,6 +39,7 @@ main.py（約3500行）の内訳
 Discord Botセクションだけで2,272行。ファイル全体の64%を占めています。AIチャット応答、経理フロー、スレッド管理、キャッシュ処理――Botの中にさらに複数の責務が混在する状態。
 
 ```mermaid
+%%{init: {'theme':'default', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','textColor':'#212121','titleColor':'#212121','pieStrokeColor':'#ffffff','pieStrokeWidth':'2px'}}}%%
 pie title "main.py 内訳（約3500行）"
     "Discord Bot本体" : 2272
     "freee API" : 266
