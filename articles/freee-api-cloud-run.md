@@ -40,6 +40,30 @@ freee APIの認証にはOAuth2を使います。ここで最大のハマりど�
 `FREEE_CLIENT_ID`、`FREEE_CLIENT_SECRET`は環境変数またはGoogle Cloud Secret Managerで管理し、コードにハードコードしないでください。
 :::
 
+```mermaid
+sequenceDiagram
+    participant App as Cloud Run API
+    participant freee as freee API
+    participant User as ユーザー<br/>Discord
+
+    Note over App: 起動時に環境変数から<br/>初期リフレッシュトークンを読み込み
+
+    User->>App: 請求書作成コマンド
+    App->>App: アクセストークン有効期限確認<br/>（5分前にリフレッシュ）
+
+    alt トークンが期限切れ or 期限間近
+        App->>freee: POST /token<br/>grant_type=refresh_token
+        freee->>App: 新アクセストークン<br/>+ 新リフレッシュトークン
+        Note over App: ⚠️ 重要: 新リフレッシュトークンを<br/>メモリに即座に保存<br/>旧トークンは無効化される
+    end
+
+    App->>freee: POST /invoices<br/>Authorization: Bearer {token}
+    freee->>App: 請求書作成成功
+    App->>User: Discord通知
+
+    Note over App: コンテナ再起動時は<br/>環境変数の初期トークンを使用<br/>長期運用には永続ストレージ推奨
+```
+
 freeeはリフレッシュトークンを「使い捨て」にする仕様です。
 
 一般的なOAuth2では、リフレッシュトークンは何度でも再利用できるケースが多いですが、freeeでは新しいアクセストークンを取得するたびに、リフレッシュトークンも新しいものが発行されます。古いリフレッシュトークンは無効になるため、新しいトークンを確実に保存しなければなりません。
@@ -214,6 +238,35 @@ async def create_freee_expense(
 :::message
 勘定科目IDはfreeeの事業所ごとに異なります。上記のIDは一例であり、実際にはfreee APIの`account_items`エンドポイントから自分の事業所の勘定科目一覧を取得して設定してください。
 :::
+
+```mermaid
+graph TB
+    Input["Discord入力<br/>経費 交通費 1500 電車代"]
+
+    Input --> Parse["parse_amount<br/>金額パース"]
+    Parse --> Amount["1500円"]
+
+    Input --> Category["勘定科目判定"]
+    Category --> Map{"account_map<br/>マッピング"}
+
+    Map -->|交通費| Traffic["旅費交通費<br/>ID: 4"]
+    Map -->|会議費| Meeting["会議費<br/>ID: 5"]
+    Map -->|接待費| Entertain["接待交際費<br/>ID: 6"]
+    Map -->|通信費| Comm["通信費<br/>ID: 8"]
+    Map -->|その他| Default["消耗品費<br/>ID: 7<br/>フォールバック"]
+
+    Traffic --> API["freee API<br/>POST /deals"]
+    Meeting --> API
+    Entertain --> API
+    Comm --> API
+    Default --> API
+
+    Amount --> API
+
+    API --> Result["経費登録完了<br/>Discord通知"]
+
+    style Default fill:#ffffcc
+```
 
 ## 日本語の金額表記にも対応する
 

@@ -42,21 +42,27 @@ Claude Code対話（`/claude run`）:
 
 ## 全体アーキテクチャ
 
-```
-┌──────────┐     Discord API     ┌──────────────────┐
-│  スマホ   │ ◄────────────────► │  Mac mini (常駐)   │
-│  Discord  │                    │                    │
-│  アプリ   │                    │  Discord Bot       │
-└──────────┘                    │    ├─ /mac status  │
-                                │    ├─ /mac jobs    │
-                                │    ├─ /mac errors  │
-                                │    ├─ /claude run  │
-                                │    ├─ /claude end  │
-                                │    └─ /claude cancel│
-                                │                    │
-                                │  Claude Code CLI   │
-                                │  (subprocess)      │
-                                └──────────────────┘
+```mermaid
+graph TB
+    User["スマホ<br/>Discord アプリ"] -->|Discord API| Bot["Mac mini<br/>Discord Bot<br/>常駐プロセス"]
+
+    Bot --> Commands["コマンド処理"]
+
+    Commands --> Mac["/mac status<br/>/mac jobs<br/>/mac errors"]
+    Commands --> Claude["/claude run<br/>/claude end<br/>/claude cancel"]
+
+    Mac --> System["system_monitor.py<br/>psutil"]
+    Mac --> Launchd["launchd<br/>ジョブ管理"]
+
+    Claude --> Executor["claude_executor.py<br/>subprocess"]
+    Executor --> CLI["Claude Code CLI<br/>--allowed-tools<br/>--resume"]
+
+    CLI --> Tools["Read/Glob/Grep<br/>Edit/Write<br/>Bash ❌"]
+
+    Bot -.->|launchd常駐| Plist["com.correlate.mac-mini-bot.plist<br/>KeepAlive: true<br/>RunAtLoad: true"]
+
+    style Bot fill:#ccffcc
+    style Tools fill:#ffcccc
 ```
 
 ファイル構成（7ファイル、実効コード約800行）:
@@ -353,13 +359,28 @@ if safety_val == 'standard':
 
 「自宅のマシンをインターネット経由で操作する」以上、セキュリティは最も重要な設計ポイントです。5層の防御を実装しています。
 
+```mermaid
+graph TB
+    Request["Discord<br/>スラッシュコマンド"] --> L1["Layer 1<br/>Guild ID制限<br/>指定サーバーのみ"]
+    L1 --> L2["Layer 2<br/>User ID<br/>ホワイトリスト"]
+    L2 --> L3["Layer 3<br/>プロンプト<br/>サニタイズ<br/>26パターン検査"]
+    L3 --> L4["Layer 4<br/>ディレクトリ<br/>ホワイトリスト<br/>realpath解決"]
+    L4 --> L5["Layer 5<br/>Claude CLI<br/>--allowed-tools<br/>Bash ❌"]
+    L5 --> Execute["コマンド実行"]
+
+    L1 -.->|不正| Reject1["監査ログ記録<br/>拒否"]
+    L2 -.->|不正| Reject2["監査ログ記録<br/>拒否"]
+    L3 -.->|危険パターン| Reject3["ブロック"]
+    L4 -.->|範囲外| Reject4["拒否"]
+
+    style L1 fill:#ffffcc
+    style L2 fill:#ffffcc
+    style L3 fill:#ffddcc
+    style L4 fill:#ffddcc
+    style L5 fill:#ffcccc
 ```
-Layer 1: Discord Guild ID制限
-Layer 2: User IDホワイトリスト
-Layer 3: プロンプトサニタイズ（20+パターン）
-Layer 4: ディレクトリホワイトリスト + realpath解決
-Layer 5: Claude CLI --allowed-tools（Bash常時ブロック）
-```
+
+
 
 ### Layer 1 & 2: 誰が操作できるか
 

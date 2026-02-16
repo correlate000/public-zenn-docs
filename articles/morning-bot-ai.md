@@ -135,6 +135,36 @@ async def collect_data(self) -> dict:
 
 `return_exceptions=True`を指定しているのがポイントです。6つのうち1つが失敗しても、残り5つのデータは正常に取得できる。部分的に失敗した場合は、取得できたデータだけでブリーフィングを配信し、失敗したデータソースはエラーEmbedで明示する設計にしています。これもDAレビューで追加された仕様です。
 
+```mermaid
+sequenceDiagram
+    participant Main as collect_data()
+    participant C as Calendar API
+    participant T as Tasks API
+    participant P as Projects API
+    participant K as BigQuery KPI
+    participant W as Work Logs
+    participant A as Alerts
+
+    Main->>C: fetch_calendar_events()
+    Main->>T: fetch_tasks()
+    Main->>P: fetch_projects()
+    Main->>K: fetch_kpi()
+    Main->>W: fetch_work_logs()
+    Main->>A: fetch_alerts()
+
+    Note over Main: 並列実行<br>asyncio.gather()
+
+    C-->>Main: 予定データ
+    T--xMain: エラー
+    P-->>Main: 案件データ
+    K-->>Main: KPIデータ
+    W-->>Main: 工数データ
+    A-->>Main: アラートデータ
+
+    Note over Main: return_exceptions=True<br>1つ失敗でも継続
+    Main-->>Main: 成功データのみ処理
+```
+
 ### Discord Embed 5連結の色分け設計
 
 朝のブリーフィングは一目で優先順位が分かることが重要。5つのEmbedを色分けして連結する設計にしました。
@@ -174,25 +204,34 @@ async def is_already_delivered_today(self) -> bool:
 
 スケジューリングにはCloud Schedulerを使用。毎朝7時（JST）にHTTP POSTリクエストをCloud Runに送信します。
 
-```
-Cloud Scheduler (07:00 JST)
-    |
-    | HTTP POST + OIDCトークン
-    v
-Cloud Run (correlate-api)
-    |
-    +-- morning_briefing.py
-    |       |
-    |       +-- Google Calendar API  → 今日の予定
-    |       +-- GAS API /tasks       → タスク一覧
-    |       +-- GAS API /projects    → 案件状況
-    |       +-- BigQuery             → KPI, 工数
-    |       +-- freee API            → 未入金チェック
-    |       |
-    |       +-- Discord Embed構築
-    |       v
-    +-- Discord #日次レポート へ送信
-            └── 自動スレッド作成
+```mermaid
+flowchart TD
+    A["Cloud Scheduler<br>07:00 JST"] -->|"HTTP POST<br>+ OIDCトークン"| B["Cloud Run<br>correlate-api"]
+
+    B --> C["morning_briefing.py"]
+
+    C -->|並列取得| D["データソース<br>6箇所"]
+    D --> E1["Google Calendar API<br>今日の予定"]
+    D --> E2["GAS API /tasks<br>タスク一覧"]
+    D --> E3["GAS API /projects<br>案件状況"]
+    D --> E4["BigQuery<br>KPI, 工数"]
+    D --> E5["freee API<br>未入金チェック"]
+    D --> E6["BigQuery<br>アラート"]
+
+    E1 --> F["Discord Embed構築<br>5連結・色分け"]
+    E2 --> F
+    E3 --> F
+    E4 --> F
+    E5 --> F
+    E6 --> F
+
+    F --> G["Discord<br>#日次レポート"]
+    G --> H["自動スレッド作成"]
+
+    style A fill:#E3F2FD
+    style B fill:#C8E6C9
+    style D fill:#FFF9C4
+    style G fill:#F3E5F5
 ```
 
 認証にはOIDCトークン方式を採用しています。Cloud Schedulerが専用のサービスアカウント（`scheduler-sa`）でOIDCトークンを発行し、Cloud Run側はIAMレベルでトークンを検証する。アプリケーションコードに認証ロジックを書く必要がないため、先述の認証バグのような問題が構造的に発生しません。

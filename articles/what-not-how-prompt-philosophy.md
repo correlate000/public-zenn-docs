@@ -32,6 +32,37 @@ AIエージェントとの関係も同じです。Claude CodeやCursorのよう�
 
 この違いが「What, not How」という設計哲学の本質です。
 
+```mermaid
+flowchart LR
+    subgraph Bad["❌ How指示（手順書）"]
+        H1["1. git statusを実行"]
+        H2["2. 変更ファイルをgit add"]
+        H3["3. git commit -m 'feat: ...'"]
+        H4["4. git push"]
+        H1 --> H2 --> H3 --> H4
+
+        style H1 fill:#ffcccc
+        style H2 fill:#ffcccc
+        style H3 fill:#ffcccc
+        style H4 fill:#ffcccc
+    end
+
+    subgraph Good["✅ What指示（仕様）"]
+        W1["コミット形式:<br/>Conventional Commits"]
+        W2["ルール:<br/>1コミット1機能"]
+        W3["制約:<br/>main直接push禁止"]
+
+        style W1 fill:#ccffcc
+        style W2 fill:#ccffcc
+        style W3 fill:#ccffcc
+    end
+
+    Bad -.x|"状況変化で<br/>書き直し必要"| Bad
+    Good -.o|"エージェントが<br/>状況判断"| Agent["🤖 AI Agent"]
+
+    style Agent fill:#e3f2fd
+```
+
 CLAUDE.mdが300行を超えて肥大化する原因の多くは、「How」の記述にあります。手順書のような記述は一見丁寧に見えますが、トークンを浪費し、エージェントの自律的判断を阻害し、状況が変わるたびに書き直しが必要になります。
 
 本記事では、この「What, not How」の哲学を体系的に論じます。なぜこの原則が重要なのか、どう実践するのか、そしてこれがAIエージェント時代の開発者にとってどんな意味を持つのかを考えていきます。
@@ -111,6 +142,45 @@ CLAUDE.mdを「設定ファイル」ではなく「仕様書」として捉え�
 
 この3層すべてが「What」を記述しています。「How」はClaude Code（AIエージェント）が自律的に決定します。
 
+```mermaid
+graph TD
+    subgraph Context["📚 Context Engineering（文脈全体設計）"]
+        direction TB
+
+        subgraph Layer1["💡 知識層 - Knowledge Files"]
+            K1["bigquery-patterns.md"]
+            K2["vercel-patterns.md"]
+            K3["coding-standards.md"]
+            K1 -.-> |"トリガー条件で<br/>必要時のみ読込"| K
+        end
+
+        subgraph Layer2["⚡ 行動層 - Commands / Skills"]
+            C1["/session-start"]
+            C2["/da-review"]
+            C3["/content-research"]
+            C1 -.-> |"ワークフロー<br/>の仕様"| C
+        end
+
+        subgraph Layer3["🛡️ 制約層 - Hooks"]
+            H1["PreToolUse: check-domain"]
+            H2["PostToolUse: lint-check"]
+            H1 -.-> |"決定論的<br/>ガードレール"| H
+        end
+    end
+
+    K["What:<br/>何を知っているか"] --> Agent
+    C["What:<br/>何をするか"] --> Agent
+    H["What:<br/>何を守るか"] --> Agent
+
+    Agent["🤖 AI Agent"] --> |"How:<br/>どう実現するか"| Execute["実行"]
+
+    style K fill:#e1f5ff
+    style C fill:#fff4e1
+    style H fill:#ffebee
+    style Agent fill:#e8f5e9
+    style Execute fill:#f3e5f5
+```
+
 ### 知識層（Knowledge Files）: 「何を知っているか」
 
 Knowledge Filesは、エージェントがドメイン知識を必要なときだけ参照するための仕組みです。
@@ -183,6 +253,46 @@ Hookに記述しているのは「旧ドメインの使用を禁止する」と�
 総行数は増えています。119 + 109 + 736 = 964行。元の500行より多い。しかし、ポイントは常時読み込まれるのはCLAUDE.mdの119行だけということです。Knowledge Filesの736行は、該当するトリガー条件に合致したときだけ読み込まれます。
 
 これがContext Engineering（文脈全体の設計）の実践です。「一回のプロンプトをどう書くか」ではなく、「エージェントが必要とする文脈情報をどう構造化するか」を設計する。Prompt Engineeringの進化形として、[注目を集めている](https://www.thoughtworks.com/en-us/insights/blog/machine-learning-and-ai/vibe-coding-context-engineering-2025-software-development)概念です。
+
+```mermaid
+sequenceDiagram
+    participant H as 人間
+    participant C as CLAUDE.md
+    participant K as Knowledge Files
+    participant S as Commands/Skills
+    participant G as Hooks
+    participant A as AI Agent
+
+    Note over H,A: Context Engineering フロー
+
+    H->>C: タスク指示
+    C->>A: 基本仕様を提供
+
+    Note over A: トリガー条件判定
+
+    alt BigQuery操作時
+        A->>K: bigquery-patterns.mdを読込
+        K-->>A: ドメイン知識提供
+    end
+
+    alt 定型ワークフロー
+        A->>S: /session-start実行
+        S-->>A: ワークフロー仕様提供
+    end
+
+    alt ファイル書き込み前
+        A->>G: check-domain Hook発動
+        G-->>A: 制約チェック結果
+    end
+
+    Note over A: 必要な文脈だけを<br/>組み合わせて判断
+
+    A->>H: 実行結果
+
+    rect rgb(230, 245, 255)
+        Note over C,K: 常時読込: 119行のみ<br/>条件読込: 736行（必要時のみ）
+    end
+```
 
 ## 5. バイブコーディングとの決定的な違い
 

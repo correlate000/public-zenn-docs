@@ -38,6 +38,19 @@ main.py（約3500行）の内訳
 
 Discord Botセクションだけで2,272行。ファイル全体の64%を占めています。AIチャット応答、経理フロー、スレッド管理、キャッシュ処理――Botの中にさらに複数の責務が混在する状態。
 
+```mermaid
+pie title "main.py 内訳（約3500行）"
+    "Discord Bot本体" : 2272
+    "freee API" : 266
+    "GAS API ヘルパー" : 250
+    "デプロイ管理" : 158
+    "Drive同期" : 149
+    "FastAPI エンドポイント" : 139
+    "Google Ads API" : 136
+    "Discord 対話保存" : 85
+    "import + 設定変数" : 67
+```
+
 「分割したほうがいい」のは誰が見ても明らかでしたが、動いているものを触るリスクと、分割に費やす工数を天秤にかけると、つい「今のままでも動くし……」となる。この先延ばしが約3500行を生んだ根本原因です。
 
 ## 分割のきっかけは「新機能の追加」
@@ -165,6 +178,44 @@ results = await asyncio.gather(
 :::
 
 ## Before / After
+
+```mermaid
+flowchart LR
+    subgraph Before["Before: 1ファイルに全機能混在"]
+        A["main.py<br/>(約3500行)"]
+        A --> B1["Google Ads API"]
+        A --> B2["freee API"]
+        A --> B3["デプロイ管理"]
+        A --> B4["FastAPI EP"]
+        A --> B5["GAS API"]
+        A --> B6["Discord 対話"]
+        A --> B7["Discord Bot<br/>(2272行/64%)"]
+        A --> B8["Drive同期"]
+        A --> B9["朝会機能<br/>(実装なし)"]
+
+        style A fill:#ffcccc
+        style B7 fill:#ff9999
+    end
+
+    subgraph After["After: 新機能は独立モジュール"]
+        C["main.py<br/>(約3550行)"]
+        D["morning_briefing.py<br/>(773行)"]
+
+        C --> E1["既存8機能<br/>(変更なし)"]
+        C --> E2["薄いエンドポイント<br/>(10行)"]
+        E2 -.DI注入.-> D
+
+        D --> F1["データ収集"]
+        D --> F2["Embed構築"]
+        D --> F3["Discord送信"]
+        D --> F4["冪等性チェック"]
+
+        style C fill:#ccffcc
+        style D fill:#99ff99
+    end
+
+    Before ==> |"新規コードから分離"| After
+```
 
 | 観点 | Before | After |
 |:-----|:-------|:------|

@@ -33,6 +33,24 @@ LLMからは「東京都の人口推移を教えて」と自然言語で問い�
 
 一見便利ですが、ここには**APIラッパー特有のリスク**が存在します。
 
+```mermaid
+flowchart LR
+    subgraph "MCP経由"
+        A1["LLM<br>ChatGPT/Claude"] -->|"自然言語<br>「東京都の人口は？」"| B1["MCPサーバー<br>AI HYVE"]
+        B1 -->|API呼び出し| C1["行政API<br>e-Stat等"]
+        C1 -->|データ| B1
+        B1 -->|"要約・集計<br>（精度劣化リスク）"| A1
+    end
+
+    subgraph "直接API呼び出し"
+        A2["アプリ<br>Python/TS"] -->|"HTTPリクエスト<br>SQL等"| C2["行政API<br>e-Stat等"]
+        C2 -->|"生データ<br>（高精度）"| A2
+    end
+
+    style B1 fill:#FFEBEE
+    style C2 fill:#E8F5E9
+```
+
 ## β版MCPサーバーに依存する3つのリスク
 
 ### リスク1: 提供企業の継続性
@@ -78,6 +96,24 @@ LLMからは「東京都の人口推移を教えて」と自然言語で問い�
 ### リスク3: セキュリティリスク
 
 MCPサーバーを経由すると、**クエリ内容が中間サーバーに送信**されます。これはMCPアーキテクチャの構造上、避けられません。
+
+```mermaid
+sequenceDiagram
+    participant User as ユーザー
+    participant LLM as ChatGPT/Claude
+    participant MCP as MCPサーバー<br>AI HYVE
+    participant API as 行政API<br>e-Stat等
+
+    User->>LLM: 「渋谷区の不動産価格は？」
+    LLM->>MCP: クエリ送信<br>（ログ保存？）
+    Note over MCP: 認証方式・<br>ログ保管ポリシー<br>非公開
+    MCP->>API: API呼び出し
+    API-->>MCP: データ
+    MCP-->>LLM: 要約結果
+    LLM-->>User: 回答
+
+    Note over User,API: クエリパターンが<br>事業情報になり得る
+```
 
 トレンドマイクロの調査（2025年）によると、認証なしで公開されているMCPサーバーが492件発見されました。また、GMO Flatt Securityの解説では、**MCP一般のセキュリティリスク**として以下のような攻撃手法が指摘されています:
 

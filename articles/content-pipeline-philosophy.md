@@ -85,6 +85,31 @@ Express問題が起きる理由は3つあると考えている。
 
 つまりExpress問題とは、意志力や時間管理の問題ではない。「メモから記事への変換パイプラインが存在しない」という構造的な問題なのです。
 
+```mermaid
+graph TD
+    subgraph "Digital Garden"
+        DG1["Seedlings<br/>種"] --> DG2["Budding<br/>芽"]
+        DG2 --> DG3["Evergreens<br/>常緑樹"]
+        DG3 -.-> DG4["Express問題<br/>記事への変換が不明確"]
+    end
+
+    subgraph "Second Brain"
+        SB1["Capture<br/>収集"] --> SB2["Organize<br/>整理"]
+        SB2 --> SB3["Distill<br/>蒸留"]
+        SB3 -.-> SB4["Express問題<br/>最も曖昧なステップ"]
+    end
+
+    subgraph "Zettelkasten"
+        ZK1["1ノート1アイデア"] --> ZK2["リンク構造"]
+        ZK2 --> ZK3["内省・蓄積"]
+        ZK3 -.-> ZK4["Express問題<br/>出力の仕組みなし"]
+    end
+
+    style DG4 fill:#ffcccc
+    style SB4 fill:#ffcccc
+    style ZK4 fill:#ffcccc
+```
+
 ## 3. パイプラインという設計思想
 
 ### ソフトウェア工学からの借用
@@ -111,6 +136,19 @@ Phase 6: フィードバック → Phase 1に戻る
 各フェーズの間に「ゲート」が設定されている点がポイント。特にPhase 2のDeep Research（競合調査・参考資料収集）は、体験型の記事であっても省略禁止としている。類似記事を調べずに書くと車輪の再発明になるリスクがあり、差別化ポイントはリサーチからしか見えてこないためだ。
 
 Phase 6のフィードバックがPhase 1に戻るのは何を意味するか。パイプラインが閉じたループを形成していることを示している。リサーチ中に次の記事ネタが見つかる。公開後の反応が新しい知見になる。記事を書く行為自体が次の記事の素材を生む。この循環構造こそが、「ネタ切れ」を構造的に防ぐ仕組みです。
+
+```mermaid
+graph LR
+    A["Phase 1<br/>候補発見<br/>#content-candidate"] --> B["Phase 2<br/>Deep Research<br/>必須ゲート"]
+    B --> C["Phase 3<br/>執筆<br/>AI Agent活用"]
+    C --> D["Phase 4<br/>DAレビュー<br/>品質ゲート"]
+    D --> E["Phase 5<br/>公開<br/>Zenn/Note"]
+    E --> F["Phase 6<br/>フィードバック"]
+    F --> A
+
+    style B fill:#ff9999
+    style D fill:#ff9999
+```
 
 ### Gardener x Architect のハイブリッド
 

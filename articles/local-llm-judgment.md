@@ -60,6 +60,18 @@ Apple Silicon上ではMLX形式のモデルを選ぶのがベストプラクテ�
 
 LM Studioを使う場合はMLXモデルが自動選択される場合が多く、Ollamaでも最近のバージョンではMLX対応が進んでいます。
 
+```mermaid
+graph LR
+    A["モデル選択"] --> B{"Apple Silicon?"}
+    B -->|Yes| C["MLX形式<br>推論速度: 1.0x<br>メモリ効率: 高"]
+    B -->|No| D["GGUF形式<br>推論速度: 0.77x<br>メモリ: +9GB"]
+    C --> E["Ollama/LM Studio"]
+    D --> F["llama.cpp"]
+
+    style C fill:#C8E6C9
+    style D fill:#FFECB3
+```
+
 ### 動作可能なモデルの目安
 
 Mac mini M4 Pro 64GBの場合、メモリ帯域幅273GB/sというスペックを活かせます。
@@ -87,6 +99,22 @@ Mac mini M4 Pro 64GBの場合、メモリ帯域幅273GB/sというスペック�
 2. プライバシー要件 -- データを外部に送信できるか
 3. レイテンシ許容度 -- 応答速度がどの程度重要か
 4. コスト感度 -- API利用枠の消費を抑えたいか
+
+```mermaid
+flowchart TD
+    Start["タスク受信"] --> Q1{"推論品質が<br>結果に直結？"}
+    Q1 -->|Yes| Cloud["Claude Cloud<br>を使用"]
+    Q1 -->|No| Q2{"機密データ<br>を含む？"}
+    Q2 -->|Yes| Local["ローカルLLM<br>を使用"]
+    Q2 -->|No| Q3{"パターンマッチ<br>で十分？"}
+    Q3 -->|Yes| Local
+    Q3 -->|No| Q4{"オフライン<br>環境？"}
+    Q4 -->|Yes| Local
+    Q4 -->|No| Cloud
+
+    style Cloud fill:#E3F2FD
+    style Local fill:#FFF3E0
+```
 
 ### タスク別 推奨環境マトリクス
 

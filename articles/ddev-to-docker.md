@@ -82,6 +82,28 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
 
 こう並べると、DDEVがどれだけ多くのことを「自動」でやってくれていたか分かる。DDEVユーザーが無意識に享受していた機能を、Dockerfileでは1行ずつ明示的に書く必要があるのです。
 
+```mermaid
+graph LR
+    subgraph "DDEV Before"
+        B1["config.yaml<br/>php_version: 8.2<br/>docroot: web"]
+        B2["ddev start<br/>魔法のコマンド"]
+        B1 --> B2
+        B2 --> B3["環境起動<br/>何が起きているか不明"]
+    end
+
+    subgraph "Docker After"
+        A1["Dockerfile"]
+        A2["FROM php:8.2-slim<br/>WORKDIR /app<br/>COPY ...<br/>RUN pip install ...<br/>CMD uvicorn ..."]
+        A1 --> A2
+        A2 --> A3["docker build"]
+        A3 --> A4["docker run"]
+        A4 --> A5["環境起動<br/>各ステップを理解"]
+    end
+
+    style B3 fill:#ffcccc
+    style A5 fill:#ccffcc
+```
+
 ### イメージとコンテナ: 「レシピ」と「料理」
 
 Docker理解で最初に混乱したのが「イメージ」と「コンテナ」の関係でした。
@@ -116,6 +138,35 @@ DDEVのdocker-composeファイルは `.ddev/.ddev-docker-compose-base.yaml` に�
 ## DDEVの裏側を解き明かす
 
 Dockerを理解してから、DDEVの `.ddev` フォルダを改めて見てみました。
+
+```mermaid
+graph TB
+    subgraph "DDEV環境"
+        Config["config.yaml<br/>ユーザー設定<br/>数行のみ"]
+        Config --> Generate["DDEV自動生成"]
+        Generate --> Base[".ddev-docker-compose-base.yaml<br/>完全なdocker-compose設定"]
+        Base --> Services["複数コンテナ"]
+
+        subgraph Services
+            Web["Nginx + PHP-FPM<br/>Webサーバー"]
+            DB["MariaDB<br/>データベース"]
+            Router["ddev-router<br/>Traefik Proxy"]
+        end
+    end
+
+    subgraph "Docker直接利用"
+        Dockerfile["Dockerfile<br/>環境の設計図"]
+        Dockerfile --> Build["docker build"]
+        Build --> Image["Docker Image<br/>レシピ"]
+        Image --> Run["docker run"]
+        Run --> Container["Container<br/>実行中"]
+    end
+
+    style Config fill:#ccffcc
+    style Dockerfile fill:#ccccff
+```
+
+
 
 ```
 .ddev/
