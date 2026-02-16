@@ -1,5 +1,5 @@
 ---
-title:" "「What, not How」-- AIエージェント時代のプロンプト設計哲学""
+title: "「What, not How」-- AIエージェント時代のプロンプト設計哲学"
 emoji: "🧭"
 type: "idea"
 topics: ["claudecode", "ai", "promptengineering", "sdd"]

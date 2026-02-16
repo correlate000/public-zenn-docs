@@ -1,5 +1,5 @@
 ---
-title:" "コンテンツパイプラインという思想 -- 日常から記事が生まれる仕組みの設計""
+title: "コンテンツパイプラインという思想 -- 日常から記事が生まれる仕組みの設計"
 emoji: "🌱"
 type: "idea"
 topics: ["obsidian", "ai", "pkm", "claudecode", "writing"]

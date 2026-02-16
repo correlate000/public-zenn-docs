@@ -185,9 +185,9 @@ def fix_frontmatter(filepath: Path) -> bool:
     content = filepath.read_text(encoding="utf-8")
     original = content
 
-    # Fix unquoted title
+    # Fix unquoted title (\s+ prevents backtracking past the space)
     content = re.sub(
-        r'^(title:\s*)(?!")(.+)$',
+        r'^(title:\s+)(?!")(.+)$',
         r'\1"\2"',
         content,
         count=1,
@@ -196,7 +196,7 @@ def fix_frontmatter(filepath: Path) -> bool:
 
     # Fix unquoted emoji
     content = re.sub(
-        r'^(emoji:\s*)(?!")(\S+)\s*$',
+        r'^(emoji:\s+)(?!")(\S+)\s*$',
         r'\1"\2"',
         content,
         count=1,

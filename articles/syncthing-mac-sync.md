@@ -1,5 +1,5 @@
 ---
-title:" "Mac 2台の開発環境同期ベストプラクティス — Syncthing実践ガイド""
+title: "Mac 2台の開発環境同期ベストプラクティス — Syncthing実践ガイド"
 emoji: "🔄"
 type: "tech"
 topics: ["syncthing", "macos", "devtools", "productivity", "sync"]

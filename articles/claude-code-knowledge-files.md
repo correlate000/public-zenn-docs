@@ -1,5 +1,5 @@
 ---
-title:" "CLAUDE.mdを「ルーティングテーブル」に進化させる - 12のKnowledge Filesで67%スリム化した実践記録""
+title: "CLAUDE.mdを「ルーティングテーブル」に進化させる - 12のKnowledge Filesで67%スリム化した実践記録"
 emoji: "🗂️"
 type: "tech"
 topics: ["claudecode", "ai", "開発効率化", "contextengineering"]
