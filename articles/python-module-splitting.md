@@ -39,17 +39,12 @@ main.py（約3500行）の内訳
 Discord Botセクションだけで2,272行。ファイル全体の64%を占めています。AIチャット応答、経理フロー、スレッド管理、キャッシュ処理――Botの中にさらに複数の責務が混在する状態。
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','pie1':'#0D47A1','pie2':'#1565C0','pie3':'#1976D2','pie4':'#1E88E5','pie5':'#2196F3','pie6':'#42A5F5','pie7':'#64B5F6','pie8':'#90CAF9','pie9':'#BBDEFB','pieTitleTextColor':'#212121','pieSectionTextColor':'#212121','pieStrokeColor':'#ffffff','pieStrokeWidth':'2px','pieOuterStrokeWidth':'2px'}, 'themeCSS': '.pieCircle { background: #ffffff !important; } svg { background: #ffffff !important; }'}}%%
-pie title "main.py 内訳（約3500行）"
-    "Discord Bot本体" : 2272
-    "freee API" : 266
-    "GAS API ヘルパー" : 250
-    "デプロイ管理" : 158
-    "Drive同期" : 149
-    "FastAPI エンドポイント" : 139
-    "Google Ads API" : 136
-    "Discord 対話保存" : 85
-    "import + 設定変数" : 67
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','xyChart':{'backgroundColor':'#ffffff','titleColor':'#212121','xAxisLabelColor':'#212121','yAxisLabelColor':'#212121','plotColorPalette':'#0D47A1,#1565C0,#1976D2,#1E88E5,#2196F3,#42A5F5,#64B5F6,#90CAF9,#BBDEFB'}}}}%%
+xychart-beta horizontal
+    title "main.py 内訳（約3500行）"
+    x-axis ["Discord Bot", "freee API", "GAS API", "デプロイ", "Drive", "FastAPI", "Ads API", "対話", "import"]
+    y-axis "行数" 0 --> 2500
+    bar [2272, 266, 250, 158, 149, 139, 136, 85, 67]
 ```
 
 「分割したほうがいい」のは誰が見ても明らかでしたが、動いているものを触るリスクと、分割に費やす工数を天秤にかけると、つい「今のままでも動くし……」となる。この先延ばしが約3500行を生んだ根本原因です。

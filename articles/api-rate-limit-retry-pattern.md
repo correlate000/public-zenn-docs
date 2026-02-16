@@ -110,11 +110,18 @@ article-1, article-2, article-3, article-4, article-5, article-6, article-7, art
 レートリミット失敗を自動で回復するには、以下の4ステップが必要です。
 
 ```mermaid
-graph TD
-    A[1. 検証 Verification] --> B[2. ロールバック Rollback]
-    B --> C[3. キューイング Queueing]
-    C --> D[4. スケジューリング Scheduling]
-    D --> E[リトライ実行]
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
+flowchart LR
+    A["📋 1. 検証<br/>Verification<br/><small>API成功確認</small>"] --> B["↩️ 2. ロールバック<br/>Rollback<br/><small>失敗時に復元</small>"]
+    B --> C["📥 3. キューイング<br/>Queueing<br/><small>再試行待機列</small>"]
+    C --> D["⏰ 4. スケジューリング<br/>Scheduling<br/><small>次回実行予約</small>"]
+    D --> E["🔄 リトライ実行"]
+
+    style A fill:#E3F2FD,stroke:#1565C0,stroke-width:2px
+    style B fill:#FFF3E0,stroke:#F57C00,stroke-width:2px
+    style C fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
+    style D fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
+    style E fill:#FFEBEE,stroke:#C62828,stroke-width:2px
 ```
 
 それぞれのステップを詳しく見ていきます。

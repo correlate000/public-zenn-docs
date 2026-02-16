@@ -272,22 +272,21 @@ export async function getKnowledgeStats() {
 他社がこの構成を真似する場合、以下のフローをおすすめします。
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
-flowchart TD
-    A["Obsidian<br>執筆・編集"] -->|Git管理| B["Git Repository"]
-    B -->|"launchd自動同期<br>bq CLI"| C["BigQuery<br>蓄積・分析"]
-    C -->|"Cloud Run API経由"| D["Next.jsダッシュボード<br>可視化・外部共有"]
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
+flowchart LR
+    A["📝 Obsidian<br/><small>執筆・編集</small><br/><small>✅ リッチエディタ</small>"]
+    B["📦 Git<br/><small>バージョン管理</small><br/><small>✅ 履歴・復元</small>"]
+    C["📊 BigQuery<br/><small>蓄積・分析</small><br/><small>✅ SQL分析</small>"]
+    D["🌐 Next.js<br/><small>ダッシュボード</small><br/><small>✅ 外部共有</small>"]
 
-    subgraph "メリット"
-        E1["✅ リッチエディタ<br>Obsidian"]
-        E2["✅ SQL分析<br>BigQuery"]
-        E3["✅ 外部共有<br>Next.js"]
-        E4["✅ バージョン管理<br>Git"]
-    end
+    A -->|"Git管理"| B
+    B -->|"launchd自動同期<br/>bq CLI"| C
+    C -->|"Cloud Run API"| D
 
-    style A fill:#E8F5E9
-    style C fill:#E3F2FD
-    style D fill:#F3E5F5
+    style A fill:#E8F5E9,stroke:#388E3C,stroke-width:2px
+    style B fill:#FFF3E0,stroke:#F57C00,stroke-width:2px
+    style C fill:#E3F2FD,stroke:#1565C0,stroke-width:2px
+    style D fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
 ```
 
 これなら：
