@@ -34,7 +34,7 @@ slug: "solo-corp-info-platform"
 この3層モデルに当てはめると、各ツールの役割が自然に決まっていく。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart TD
     subgraph Layer1["📥 集める層"]
         O[Obsidian<br/>ローカルMarkdown]
@@ -170,7 +170,7 @@ Obsidian（集める）→ BigQuery（蓄める）→ Discord（見る）
 具体的にはこんなことが日常になりました。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 graph LR
     subgraph Sources["📊 データソース"]
         S1[Google Calendar API]

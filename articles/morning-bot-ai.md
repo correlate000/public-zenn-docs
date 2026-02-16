@@ -136,7 +136,7 @@ async def collect_data(self) -> dict:
 `return_exceptions=True`を指定しているのがポイントです。6つのうち1つが失敗しても、残り5つのデータは正常に取得できる。部分的に失敗した場合は、取得できたデータだけでブリーフィングを配信し、失敗したデータソースはエラーEmbedで明示する設計にしています。これもDAレビューで追加された仕様です。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 sequenceDiagram
     participant Main as collect_data()
     participant C as Calendar API
@@ -206,7 +206,7 @@ async def is_already_delivered_today(self) -> bool:
 スケジューリングにはCloud Schedulerを使用。毎朝7時（JST）にHTTP POSTリクエストをCloud Runに送信します。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart TD
     A["Cloud Scheduler<br>07:00 JST"] -->|"HTTP POST<br>+ OIDCトークン"| B["Cloud Run<br>correlate-api"]
 

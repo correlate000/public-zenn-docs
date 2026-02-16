@@ -34,7 +34,7 @@ LLMからは「東京都の人口推移を教えて」と自然言語で問い�
 一見便利ですが、ここには**APIラッパー特有のリスク**が存在します。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart LR
     subgraph "MCP経由"
         A1["LLM<br>ChatGPT/Claude"] -->|"自然言語<br>「東京都の人口は？」"| B1["MCPサーバー<br>AI HYVE"]
@@ -99,7 +99,7 @@ flowchart LR
 MCPサーバーを経由すると、**クエリ内容が中間サーバーに送信**されます。これはMCPアーキテクチャの構造上、避けられません。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 sequenceDiagram
     participant User as ユーザー
     participant LLM as ChatGPT/Claude

@@ -97,7 +97,7 @@ Claude Codeは後者を得意とします。プロンプトで「BigQueryにこ�
 ただし、Claude Code時代では「SQL操作が人間の作業」とは限りません。AIエージェントにSQLを書かせれば、インターフェースの差は縮まります。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart LR
     subgraph "Notion"
         A1["非エンジニア"] --> B1["GUIエディタ"]
@@ -272,7 +272,7 @@ export async function getKnowledgeStats() {
 他社がこの構成を真似する場合、以下のフローをおすすめします。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart TD
     A["Obsidian<br>執筆・編集"] -->|Git管理| B["Git Repository"]
     B -->|"launchd自動同期<br>bq CLI"| C["BigQuery<br>蓄積・分析"]

@@ -61,7 +61,7 @@ Apple Silicon上ではMLX形式のモデルを選ぶのがベストプラクテ�
 LM Studioを使う場合はMLXモデルが自動選択される場合が多く、Ollamaでも最近のバージョンではMLX対応が進んでいます。
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 graph LR
     A["モデル選択"] --> B{"Apple Silicon?"}
     B -->|Yes| C["MLX形式<br>推論速度: 1.0x<br>メモリ効率: 高"]
@@ -102,7 +102,7 @@ Mac mini M4 Pro 64GBの場合、メモリ帯域幅273GB/sというスペック�
 4. コスト感度 -- API利用枠の消費を抑えたいか
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart TD
     Start["タスク受信"] --> Q1{"推論品質が<br>結果に直結？"}
     Q1 -->|Yes| Cloud["Claude Cloud<br>を使用"]

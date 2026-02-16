@@ -39,7 +39,6 @@ main.py（約3500行）の内訳
 Discord Botセクションだけで2,272行。ファイル全体の64%を占めています。AIチャット応答、経理フロー、スレッド管理、キャッシュ処理――Botの中にさらに複数の責務が混在する状態。
 
 ```mermaid
-%%{init: {'theme':'default'}}%%
 pie title "main.py 内訳（約3500行）"
     "Discord Bot本体" : 2272
     "freee API" : 266
@@ -181,7 +180,7 @@ results = await asyncio.gather(
 ## Before / After
 
 ```mermaid
-%%{init: {'theme':'neutral'}}%%
+%%{init: {'theme':'base', 'themeVariables': {'background':'#ffffff','mainBkg':'#ffffff','primaryColor':'#e3f2fd','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','secondaryColor':'#fff3e0','secondaryTextColor':'#212121','secondaryBorderColor':'#f57c00','tertiaryColor':'#f5f5f5','tertiaryTextColor':'#212121','tertiaryBorderColor':'#616161','lineColor':'#424242','textColor':'#212121','nodeBorder':'#1565c0','clusterBkg':'#e8eaf6','clusterBorder':'#3949ab','titleColor':'#212121','edgeLabelBackground':'#ffffff','nodeTextColor':'#212121'}}}%%
 flowchart LR
     subgraph Before["Before: 1ファイルに全機能混在"]
         A["main.py<br/>(約3500行)"]
