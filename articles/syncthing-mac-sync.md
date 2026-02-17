@@ -3,9 +3,8 @@ title: "Mac 2台の開発環境同期ベストプラクティス — Syncthing�
 emoji: "🔄"
 type: "tech"
 topics: ["syncthing", "macos", "devtools", "productivity", "sync"]
-published: true
+published: false
 publication_name: "correlate_dev"
-published_at: "2026-02-17 08:00"
 ---
 
 ## Mac 2台で開発していると、必ずぶつかる壁
