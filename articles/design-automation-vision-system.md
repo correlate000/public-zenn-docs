@@ -3,7 +3,7 @@ title: "「売上KPIカード」と入力するだけで本番品質のUIがで�
 emoji: "🎨"
 type: "tech"
 topics: ["claude", "mcp", "pencil", "design", "ai"]
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 
