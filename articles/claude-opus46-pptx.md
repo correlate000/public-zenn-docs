@@ -11,11 +11,11 @@ publication_name: "correlate_dev"
 
 2026年1月、Anthropic が Claude Opus 4.6 をリリースしました。その中で最も注目すべき機能が **PowerPoint 統合** です。
 
-Microsoft 社が公開した記事「Claude Opus4.6はどのようにPPTXを生成しているか」では、Claude が Web 検索 → スライド生成 → PDF 化 → 品質検証という 8 段階のワークフローを使用していることが明かされています。
+Zenn に公開された記事「Claude Opus4.6はどのようにPPTXを生成しているか」（著者: 07JP27 氏）では、Claude が Web 検索 → スライド生成 → PDF 化 → 品質検証という 8 段階のワークフローを使用していることと読み取れます。
 
 では、どのようにしてこのようなワークフロー が実現されているのか？
 
-**本記事では、Microsoft 記事から逆算して、Opus 4.6 PPTX 生成の背後にある「Agentic AI 設計パターン」を解明します。** 実装例を通じて、他のLLMやタスクにも応用可能な汎用的なアーキテクチャを学ぶことができます。
+**本記事では、公開記事から逆算して、Opus 4.6 PPTX 生成の背後にある「Agentic AI 設計パターン」を解明します。** 実装例を通じて、他のLLMやタスクにも応用可能な汎用的なアーキテクチャを学ぶことができます。
 
 ---
 
@@ -56,11 +56,11 @@ Claude Opus 4.6 PPTX 生成は、この3要素をシームレスに統合した�
 
 ---
 
-## 2. Microsoft 記事から読み取る PPTX 生成アーキテクチャ
+## 2. 公開記事から読み取る PPTX 生成アーキテクチャ
 
 ### 8 ステップの逆算分析
 
-Microsoft 公開記事では、Opus 4.6 が以下の 8 ステップを実行していることが明かされています：
+公開記事では、Opus 4.6 が以下の 8 ステップを実行していることと推測されます：
 
 ```
 Step 1: タスク受け取り
@@ -162,9 +162,9 @@ slide1.addText("AI Trends 2026", {
 // スライド 2: 内容
 let slide2 = prs.addSlide();
 slide2.addText("Main Trends", { x: 0.5, y: 0.5, w: 9, h: 0.5, fontSize: 28 });
-slide2.addBulletText("Agentic AI", 1, { x: 0.5, y: 1.2 });
-slide2.addBulletText("Multimodal Models", 1, { x: 0.5, y: 1.6 });
-slide2.addBulletText("Cost Optimization", 1, { x: 0.5, y: 2.0 });
+slide2.addText("Agentic AI", { x: 0.5, y: 1.2, w: 9, h: 0.4, bullet: true, fontSize: 18 });
+slide2.addText("Multimodal Models", { x: 0.5, y: 1.6, w: 9, h: 0.4, bullet: true, fontSize: 18 });
+slide2.addText("Cost Optimization", { x: 0.5, y: 2.0, w: 9, h: 0.4, bullet: true, fontSize: 18 });
 
 prs.writeFile({ fileName: "presentation.pptx" });
 ```
@@ -197,7 +197,7 @@ def validate_slide_quality(pptx_path):
             image_data = base64.standard_b64encode(img_file.read()).decode("utf-8")
 
         response = client.messages.create(
-            model="claude-opus-4-vision",
+            model="claude-opus-4-6",
             max_tokens=1024,
             messages=[{
                 "role": "user",
@@ -259,12 +259,13 @@ class AgenticPPTXGenerator:
 
     def design_outline(self, topic: str, search_results: list):
         """Claude に スライド構成を設計させる"""
+        search_summary = '\n'.join([r['snippet'] for r in search_results[:3]])
         prompt = f"""
         以下のトピックで PowerPoint のアウトラインを設計してください。
         トピック: {topic}
 
         参考情報:
-        {'\n'.join([r['snippet'] for r in search_results[:3]])}
+        {search_summary}
 
         出力フォーマット:
         # タイトル: ...
@@ -275,7 +276,7 @@ class AgenticPPTXGenerator:
         """
 
         response = self.client.messages.create(
-            model="claude-opus-4.6",
+            model="claude-opus-4-6",
             max_tokens=2000,
             messages=[{"role": "user", "content": prompt}]
         )
@@ -342,11 +343,12 @@ async function generatePresentation(topic) {
         fontSize: 28, bold: true
       });
 
-      for (const bullet of slide.bullets) {
-        pptxSlide.addBulletText(bullet, 1, {
-          x: 0.5, y: 1.2 + (0.4 * slide.bullets.indexOf(bullet))
+      slide.bullets.forEach((bullet, index) => {
+        pptxSlide.addText(bullet, {
+          x: 0.5, y: 1.2 + (0.4 * index), w: 9, h: 0.4,
+          bullet: true, fontSize: 18
         });
-      }
+      });
     }
   }
 
@@ -398,15 +400,15 @@ generatePresentation("AI Trends 2026");
 
 ---
 
-## 6. Correlate での応用：slide-generator との連携
+## 6. 実践例：Agentic PPTXパイプラインの全体像
 
-我々の slide-generator スキルでは、このアーキテクチャを採用しています：
+Agentic PPTXパイプラインを実際のシステムに組み込む場合、以下のような構成が典型的です：
 
 ```
 User: "営業提案資料を作成してください"
   ↓
 ① タスク理解（Agent）
-  → タピック：営業提案
+  → トピック：営業提案
   → 要件：顧客向け、3-5スライド
   ↓
 ② 情報収集（Tool: Web/DB）
@@ -430,7 +432,7 @@ User: "営業提案資料を作成してください"
 Output: presentation.pptx
 ```
 
-この設計により、自社のワークスペース内で **Agentic PPTX 生成** が可能になりました。
+この設計により、**Agentic PPTX 生成**パイプラインを構築できます。各ステップが独立したモジュールとして機能するため、特定のステップをカスタマイズしたり、他のドキュメント形式（PDF、Word等）に差し替えることも容易です。
 
 ---
 
@@ -485,7 +487,7 @@ Claude Opus 4.6 の PPTX 生成機能は、単なる新機能ではありませ�
 
 ### 今後の展開
 
-2026年は、**「Agentic が当たり前」の時代** へ突入します。
+2026年現在、**「Agentic が当たり前」の時代** が当たり前になりつつあります。
 
 - **生産性ツール**: Agentic PPTX生成、Agentic レポート作成
 - **開発支援**: Agentic テスト生成、Agentic バグ修正
