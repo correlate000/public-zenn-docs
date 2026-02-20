@@ -3,7 +3,7 @@ title: "デザインクオリティ基準値：ビジュアル心理効果の実
 emoji: "📝"
 type: "tech"
 topics: ['プログラミング']
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 ---
