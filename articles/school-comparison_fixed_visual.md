@@ -3,7 +3,7 @@ title: "プログラミングスクール厳選比較【2026年版】目的別�
 emoji: "📝"
 type: "tech"
 topics: ['プログラミング']
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 > **2026年2月時点の情報に基づいています。料金・給付金条件は変更される場合があるため、必ず公式サイトでご確認ください。**
