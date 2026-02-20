@@ -3,7 +3,7 @@ title: "自分専用の「AI編集部」を作る - Watchdog + Qwen + Launchd �
 emoji: "🤖"
 type: "tech"
 topics: ["Python", "LLM", "Automation", "Mac", "個人開発"]
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 
