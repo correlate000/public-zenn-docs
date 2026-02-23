@@ -11,4 +11,6 @@
 # 追記時のコマンド例:
 #   echo "old-slug-name  # リネーム (2026-02-23)" >> scripts/retired-slugs.txt
 
-claude-code-agent-teams  # リネーム→claude-code-agent-teams-guide (2026-02-23)
+claude-code-agent-teams       # リネーム→claude-code-parallel-agents (2026-02-23)
+claude-code-agent-teams-guide # リネーム→claude-code-parallel-agents (2026-02-23) / Zenn側で既に登録済み
+obsidian-claude-code          # git履歴に存在、現在は削除済み (2026-02-23)
