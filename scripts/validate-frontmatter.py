@@ -29,6 +29,9 @@ REQUIRED_FIELDS = {"title", "emoji", "type", "topics", "published", "publication
 VALID_TYPES = {"tech", "idea"}
 VALID_PUBLICATION = "correlate_dev"
 MAX_PER_DAY = 5  # Zenn rate limit: 24h に 5本
+SLUG_MIN_LEN = 12
+SLUG_MAX_LEN = 50
+SLUG_PATTERN = re.compile(r'^[a-z0-9_-]+$')
 
 
 def parse_frontmatter(filepath: Path) -> tuple[dict, list[str]]:
@@ -121,6 +124,24 @@ def check_topics_format(fm: dict, filepath: Path) -> list[str]:
                 errors.append("  [FORMAT] topics はインライン配列形式にすべき: topics: [\"a\", \"b\"]")
             break
 
+    return errors
+
+
+def check_slug_format(name: str) -> list[str]:
+    """slug（ファイル名）の形式チェック: 12〜50文字、a-z0-9/_/-のみ."""
+    errors = []
+    if len(name) < SLUG_MIN_LEN:
+        errors.append(
+            f"  [SLUG] slug が短すぎます（{len(name)}文字）: {SLUG_MIN_LEN}文字以上必要"
+        )
+    if len(name) > SLUG_MAX_LEN:
+        errors.append(
+            f"  [SLUG] slug が長すぎます（{len(name)}文字）: {SLUG_MAX_LEN}文字以下必要"
+        )
+    if not SLUG_PATTERN.match(name):
+        errors.append(
+            f"  [SLUG] slug に使用できない文字が含まれています: a-z0-9/_/- のみ使用可"
+        )
     return errors
 
 
@@ -298,6 +319,7 @@ def main():
         all_fm[name] = fm
 
         errors = []
+        errors.extend(check_slug_format(name))
         errors.extend(check_required_fields(fm, article))
         errors.extend(check_published_combo(fm, article))
         errors.extend(check_title_emoji_quoting(fm, article))
