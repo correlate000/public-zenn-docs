@@ -1,5 +1,5 @@
 ---
-title: "Python dataclass完全ガイド — __post_init__・field・slots・frozenで型安全なデータクラスを設計する"
+title: "Python dataclass完全ガイド — field・slots・frozen・継承で型安全なデータクラスを設計"
 emoji: "📦"
 type: "tech"
 topics: ["python", "dataclass", "typing", "pydantic", "design"]

@@ -12,7 +12,7 @@ typescript-utility-types
 vercel-edge-functions
 python-uv-guide
 context-ownership-model-claude-code
-claude-code-hooks-guide
+claude-code-hooks-complete-guide
 
 # === Tier 2: TypeScript・Next.js・Terraform（高需要）===
 react-query-patterns

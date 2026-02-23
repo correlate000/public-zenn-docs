@@ -1,5 +1,5 @@
 ---
-title: "Google Cloud Armor × Cloud Load BalancingでWAFを構築する — DDoS対策・IPフィルタリング・カスタムルールの実践"
+title: "Google Cloud ArmorでWAFを構築する — DDoS対策・IPフィルタリング・カスタムルール"
 emoji: "🛡️"
 type: "tech"
 topics: ["gcp", "cloudarmor", "security", "waf", "loadbalancing"]

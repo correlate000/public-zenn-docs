@@ -14,3 +14,4 @@
 claude-code-agent-teams       # リネーム→claude-code-parallel-agents (2026-02-23)
 claude-code-agent-teams-guide # リネーム→claude-code-parallel-agents (2026-02-23) / Zenn側で既に登録済み
 obsidian-claude-code          # git履歴に存在、現在は削除済み (2026-02-23)
+claude-code-hooks-guide       # slug衝突→claude-code-hooks-complete-guide にリネーム (2026-02-23)
