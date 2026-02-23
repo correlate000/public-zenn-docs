@@ -23,6 +23,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ARTICLES_DIR = Path(__file__).resolve().parent.parent / "articles"
+RETIRED_SLUGS_FILE = Path(__file__).resolve().parent / "retired-slugs.txt"
 
 REQUIRED_FIELDS = {"title", "emoji", "type", "topics", "published", "publication_name"}
 VALID_TYPES = {"tech", "idea"}
@@ -120,6 +121,32 @@ def check_topics_format(fm: dict, filepath: Path) -> list[str]:
                 errors.append("  [FORMAT] topics はインライン配列形式にすべき: topics: [\"a\", \"b\"]")
             break
 
+    return errors
+
+
+def load_retired_slugs() -> set[str]:
+    """retired-slugs.txt からリタイア済み slug セットを読み込む."""
+    if not RETIRED_SLUGS_FILE.exists():
+        return set()
+    slugs = set()
+    for line in RETIRED_SLUGS_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#"):
+            slug = line.split()[0]  # コメント部分を除去
+            slugs.add(slug)
+    return slugs
+
+
+def check_retired_slugs(all_articles: dict, retired: set[str]) -> list[str]:
+    """リタイア済み slug を再利用している記事を検出する.
+    Zenn に一度登録された slug を再利用するとデプロイエラーになる。"""
+    errors = []
+    for name in all_articles:
+        if name in retired:
+            errors.append(
+                f"  [SLUG] {name}.md の slug は Zenn に登録済みのためデプロイ失敗の可能性あり\n"
+                f"         → ファイルをリネームして slug を変更し、retired-slugs.txt に旧 slug を追記してください"
+            )
     return errors
 
 
@@ -282,6 +309,8 @@ def main():
             total_errors += len(errors)
 
     # Cross-article checks
+    retired = load_retired_slugs()
+    retired_errors = check_retired_slugs(all_fm, retired)
     schedule_errors = check_schedule_conflicts(all_fm)
     daily_errors = check_daily_limits(all_fm)
 
@@ -308,13 +337,19 @@ def main():
 
     print(f"=== Zenn Front Matter Validation ({len(articles)} articles) ===\n")
 
-    if not all_errors and not schedule_errors and not daily_errors:
+    if not all_errors and not retired_errors and not schedule_errors and not daily_errors:
         print("ALL PASS — 全記事の front matter が正常です")
         sys.exit(0)
 
     for name, errors in sorted(all_errors.items()):
         print(f"{name}.md:")
         for e in errors:
+            print(e)
+        print()
+
+    if retired_errors:
+        print("Retired Slug (デプロイ失敗リスク):")
+        for e in retired_errors:
             print(e)
         print()
 
@@ -330,7 +365,8 @@ def main():
             print(e)
         print()
 
-    print(f"--- {total_errors + len(schedule_errors) + len(daily_errors)} issues found ---")
+    total_issues = total_errors + len(retired_errors) + len(schedule_errors) + len(daily_errors)
+    print(f"--- {total_issues} issues found ---")
 
     if ci_mode:
         sys.exit(1)

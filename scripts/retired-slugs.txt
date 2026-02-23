@@ -1,0 +1,14 @@
+# retired-slugs.txt
+# Zenn に一度でも登録された slug の記録
+# （削除・リネームされた記事の slug を含む）
+#
+# 目的: 将来の記事作成時にこれらの slug を再利用してスラッグ衝突エラーを防ぐ
+# 管理ルール:
+#   - 記事ファイルを削除またはリネームした場合、元の slug をここに追記する
+#   - 追記フォーマット: <slug>  # 理由（YYYY-MM-DD）
+#   - validate-frontmatter.py がこのファイルを参照して pre-commit で警告を出す
+#
+# 追記時のコマンド例:
+#   echo "old-slug-name  # リネーム (2026-02-23)" >> scripts/retired-slugs.txt
+
+claude-code-agent-teams  # リネーム→claude-code-agent-teams-guide (2026-02-23)

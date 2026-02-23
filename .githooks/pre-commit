@@ -1,10 +1,15 @@
 #!/bin/sh
-# Zenn front matter validation pre-commit hook
-# スケジュール重複・形式不統一・禁止組み合わせを自動検出
+# Zenn pre-commit hook
+# チェック1: front matter 形式バリデーション（スケジュール重複・形式不統一・禁止組み合わせ）
+# チェック2: マークダウン太字（**）lint（テーブル内・日本語隣接・閉じ忘れ）
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 # articles/ に変更がある場合のみ実行
 if git diff --cached --name-only | grep -q "^articles/"; then
-    python3 "$(git rev-parse --show-toplevel)/scripts/validate-frontmatter.py" --ci
+
+    # --- チェック1: front matter バリデーション ---
+    python3 "$REPO_ROOT/scripts/validate-frontmatter.py" --ci
     if [ $? -ne 0 ]; then
         echo ""
         echo "Front matter validation failed."
@@ -12,4 +17,19 @@ if git diff --cached --name-only | grep -q "^articles/"; then
         echo ""
         exit 1
     fi
+
+    # --- チェック2: マークダウン太字 lint ---
+    CHANGED_MD=$(git diff --cached --name-only | grep "^articles/.*\.md$")
+    if [ -n "$CHANGED_MD" ]; then
+        python3 ~/dev/scripts/lint-markdown-bold.py $CHANGED_MD
+        LINT_EXIT=$?
+        if [ $LINT_EXIT -ne 0 ]; then
+            echo ""
+            echo "Markdown bold lint failed (** ERROR detected)."
+            echo "Run: python3 ~/dev/scripts/lint-markdown-bold.py <file>"
+            echo ""
+            exit 1
+        fi
+    fi
+
 fi
