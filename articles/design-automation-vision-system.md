@@ -130,6 +130,7 @@ Phase 3: 自動是正と多様性
 | Government | Blue + Gray | 7:1 | 24px | 56px | AAA |
 
 :::message alert
+
 **※ WCAG AA基準（4.5:1）未満の業界について**: Healthcare（3.3:1）やTech/SaaS（3.7:1）は、業界慣行としての実測値です。Healthcareでは重要情報には7:1を適用します。WCAG準拠が必要な場合は、各値を4.5:1以上に調整してください。
 :::
 
@@ -205,10 +206,12 @@ title=I(container, {{
 *Pencil MCPの`batch_design`で自動生成されたKPIカード*
 
 :::message alert
+
 **ハマりポイント1**: Pencilの`batch_design`は`#`コメントを解釈できません。コメント付きの操作を渡すと`SyntaxError`になります。
 :::
 
 :::message alert
+
 **ハマりポイント2**: `fontWeight`はCSS数値（700）ではなく文字列（"bold"）で指定する必要があります。
 :::
 
@@ -247,6 +250,7 @@ message = client.messages.create(
 スコアが90点以上で「approved」、未満で「needs_improvement」と判定し、改善フィードバックを生成します。
 
 :::message
+
 **現状**: 品質スコアリングはモックモード（固定値返却）が中心です。実際のVision APIによる分析は、ANTHROPIC_API_KEY設定後に実運用化予定です。以降のスコアはモック分析による暫定値です。
 :::
 

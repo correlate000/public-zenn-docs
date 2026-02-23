@@ -175,6 +175,7 @@ Agent Teamsを使用するには以下が必要です。
 - split-paneモードを使う場合: tmuxまたはiTerm2
 
 :::message
+
 **実験的機能について**
 Agent Teamsは本記事執筆時点で「Research Preview（実験的機能）」です。仕様は予告なく変更される可能性があります。
 

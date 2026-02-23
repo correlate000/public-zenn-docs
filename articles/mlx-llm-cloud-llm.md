@@ -11,6 +11,7 @@ publication_name: "correlate_dev"
 > 本記事のAPI価格情報は2024年12月時点のものです。LLM APIの価格は頻繁に改定されます。最新価格は[OpenAI公式サイト](https://openai.com/pricing)をご確認ください。
 
 :::message
+
 **この記事で学べること**
 - MLX環境のセットアップ（所要時間: 約15分）
 - タスク複雑度に基づくルーティング設計

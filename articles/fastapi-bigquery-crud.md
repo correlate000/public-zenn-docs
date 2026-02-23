@@ -85,7 +85,7 @@ sequenceDiagram
     D-->>FA: bigquery.Client
     FA->>BQ: QueryJob (parametrized SQL)
     BQ-->>FA: RowIterator
-    FA->>FA: [Item(**dict(row)) for row in rows]
+    FA->>FA: RowIterator → Item変換（辞書展開）
     FA-->>C: JSON [{"id": ..., "name": ...}]
 ```
 
@@ -438,6 +438,7 @@ async def create_item(
 ```
 
 :::message
+
 **ストリーミングAPIは避けること**
 
 BigQueryには `insert_rows_json()` というストリーミングAPIがありますが、本番での通常CRUD用途には推奨しません。理由は以下の通りです。

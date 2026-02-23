@@ -16,6 +16,7 @@ Tailwind CSS v4は単なるマイナーアップデートではありません�
 この記事では、Next.js 15 + shadcn/ui + Tailwind CSS v4 の構成における移行手順を、実際に詰まったポイントとその対処法を交えて解説します。
 
 :::message
+
 **この記事で対象とするバージョン**
 - Tailwind CSS: v4.x（v4.0以降）
 - shadcn/ui: 最新版（Tailwind v4対応済み）

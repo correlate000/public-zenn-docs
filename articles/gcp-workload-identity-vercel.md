@@ -167,6 +167,7 @@ gcloud iam workload-identity-pools providers create-oidc "vercel-provider" \
 6. 属性マッピングを設定して「保存」
 
 :::message
+
 **allowed-audiencesについて**
 `https://gcp.vercel-oidc.vercel.app` はVercelのGCP連携で使用する標準的なaudience値です。Vercelのドキュメントに記載されている値を使用してください。カスタムaudienceを設定する場合は、後述のNext.js実装側でも同じ値を指定する必要があります。
 :::
@@ -223,6 +224,7 @@ gcloud iam service-accounts add-iam-policy-binding \
 ```
 
 :::message
+
 **principalSetの絞り込みについて**
 `attribute.team_id` でVercelのチームIDに絞ることで、自分のVercelチームからのトークンのみを受け入れます。さらに厳密に絞り込む場合は `attribute.project_id` でVercelプロジェクトを特定できます。
 
@@ -242,6 +244,7 @@ Vercelダッシュボードで以下の設定を行います。
 3. Issuer Mode: **Team** を選択（GCPプロバイダー設定のissuer URLと一致させる）
 
 :::message alert
+
 **Issuer ModeはTeamを選択してください**
 Project モードの場合、issuer URLが `https://oidc.vercel.com/PROJECT_ID` となり、GCP側の設定と一致しなくなります。チーム全体で共通の設定にするため、Team モードを推奨します。
 :::
@@ -282,6 +285,7 @@ npm install google-auth-library
 `lib/gcp-auth.ts` として共通モジュールを作成します。
 
 :::message
+
 **audience（対象者）の設定について**
 audienceにはWIFプロバイダーのリソース名を指定します。プロジェクトIDではなく**プロジェクト番号**が必要なため注意してください。以下のコマンドで確認できます。
 
@@ -391,6 +395,7 @@ export async function POST(request: NextRequest) {
 ```
 
 :::message
+
 **WIFクライアントとIDトークンについて**
 `getIdTokenClient` はWIFクライアントとも連携します。`ExternalAccountClient` はGCPのサービスアカウントに成り代わった後、そのサービスアカウントのIDトークンを発行できます。`GoogleAuth` を初期化せずに `getGcpAuthClient()` が返すクライアントを直接使う場合は、`generateIdToken` エンドポイントを手動で呼び出す方法もあります。
 :::
@@ -483,6 +488,7 @@ CLOUD_RUN_URL=https://your-service-XXXXXXXX-an.a.run.app
 前述のコードでは `VERCEL_OIDC_TOKEN` の有無で認証フローを分岐させているため、ローカルでは自動的にADCが使用されます。
 
 :::message
+
 **サービスアカウントへの権限確認**
 ローカル開発でADCを使う場合、ログインしたGoogleアカウントに必要なIAMロールが付与されている必要があります。サービスアカウントと同じロールを開発者のアカウントにも付与するか、ADC実行時にサービスアカウントの権限を使う（`--impersonate-service-account`）方法があります。
 
