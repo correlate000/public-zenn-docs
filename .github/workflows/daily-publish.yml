@@ -1,0 +1,53 @@
+name: Daily Auto Publish
+
+on:
+  schedule:
+    # 毎日 09:00 JST (00:00 UTC) に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: '公開本数（デフォルト: 3）'
+        required: false
+        default: '3'
+      dry_run:
+        description: 'Dry run（true: 確認のみ）'
+        required: false
+        default: 'false'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run daily publish script
+        id: publish
+        run: |
+          COUNT="${{ github.event.inputs.count || '3' }}"
+          DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
+
+          if [ "$DRY_RUN" = "true" ]; then
+            python3 scripts/daily-publish.py --count "$COUNT" --dry-run
+          else
+            python3 scripts/daily-publish.py --count "$COUNT"
+          fi
+
+      - name: Validate front matter
+        run: python3 scripts/validate-frontmatter.py --ci
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: 自動公開 — daily-publish.py による定期公開'
+          file_pattern: 'articles/*.md'
+          commit_options: '--no-verify'

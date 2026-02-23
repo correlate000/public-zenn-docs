@@ -1,0 +1,92 @@
+# 自動公開キュー — 優先度順（1行1スラグ、# はコメント）
+# 毎日3本ずつ published: false → true に変更
+# 除外: dmm-webcamp_fixed_visual / school-comparison_fixed_visual / design-quality-standards_fixed_visual（アフィリ・内部資料）
+
+# === Tier 1: AI/Claude Code・最新技術（検索需要最高）===
+claude-code-memory-design
+cursor-vs-claude-code
+nextjs-app-router-patterns
+python-type-hints-advanced
+mcp-custom-server
+typescript-utility-types
+vercel-edge-functions
+python-uv-guide
+context-ownership-model-claude-code
+claude-code-hooks-guide
+
+# === Tier 2: TypeScript・Next.js・Terraform（高需要）===
+react-query-patterns
+typescript-zod-validation
+terraform-gcp-intro
+gcp-cloud-tasks-queue
+nextjs-i18n-routing
+bigquery-ml-intro
+python-celery-redis
+gcp-pubsub-patterns
+claude-code-hooks-session-guard
+claude-code-slash-commands
+
+# === Tier 3: GCP・Cloud（実務需要）===
+gcp-cloud-armor-waf
+gcp-iam-best-practices
+python-dataclass-advanced
+gcp-workload-identity-vercel
+github-actions-gcp-deploy
+gcp-secret-manager
+cloud-run-cold-start
+cloud-run-autoscaling
+cloud-scheduler-patterns
+nextjs-middleware-auth
+
+# === Tier 4: フロントエンド・バックエンド（実践）===
+shadcn-tailwind-v4
+bigquery-views-materialized
+nextjs-bigquery-rsc
+python-asyncio-api
+fastapi-bigquery-crud
+python-pydantic-settings
+python-structlog-json
+bq-partition-clustering
+discord-slash-commands
+discord-bot-cloud-run
+
+# === Tier 5: インフラ・ツール（実用）===
+nodejs-streaming-api
+nextjs-server-actions
+launchagent-macos-cron
+git-worktree-parallel
+google-drive-dev-sync
+syncthing-mac-sync
+anthropic-api-cost-optimizer
+freee-webhook-bigquery
+freee-api-cloud-run-automation
+mcp-registry-api-prompt-injection
+
+# === Tier 6: ビジネス・AI活用（個人向け）===
+engineer-solo-corp
+solo-corp-accounting-ai
+local-llm-2025
+local-llm-cost-analysis
+mlx-llm-cloud-llm
+session-end-auto-publish-pipeline
+claude-code-do-command-orchestration
+claude-code-parallel-agents
+agent-teams-benchmark
+ai-agent-school-diagnosis-build
+
+# === Tier 7: その他（分析・広告・コンテンツ）===
+google-ad-grants-api-setup
+google-ads-rsa-char-validation
+bq-cloudrun-asp-dashboard
+estat-api-complete-guide
+estat-article-driven-platform
+bigquery-merge-idempotent
+api-rate-limit-retry-pattern
+zenn-rate-limit-retry
+zenn-note-dual-publish
+design-automation-vision-system
+single-html-marketing-dashboard
+slide-design-best-practices
+claude-opus46-pptx
+watchdogqwensonnet
+qwen-hybrid-ai-operations
