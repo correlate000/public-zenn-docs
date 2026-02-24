@@ -17,7 +17,7 @@ claude-code-hooks-complete-guide
 # === Tier 2: TypeScript・Next.js・Terraform（高需要）===
 react-query-patterns
 typescript-zod-validation
-terraform-gcp-intro
+terraform-gcp-iac-basics
 gcp-cloud-tasks-queue
 nextjs-i18n-routing
 bigquery-ml-intro

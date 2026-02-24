@@ -26,7 +26,7 @@ git add articles/my-article.md && git commit -m "feat: 記事追加" && git push
 
 ## 制限
 
-- **1日最大3本**を推奨（Zennのレートリミット対策、最大5本まで可能）
+- **1日最大3本** を推奨（Zennのレートリミット対策、最大5本まで可能）
 - GitHub Actionsのcronは30分間隔のため、公開時刻に最大30分の誤差あり
 - `published_at` はJST（Asia/Tokyo）で指定
 

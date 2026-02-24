@@ -11,7 +11,12 @@
 # 追記時のコマンド例:
 #   echo "old-slug-name  # リネーム (2026-02-23)" >> scripts/retired-slugs.txt
 
+# === 自リポジトリのリタイア済みスラッグ ===
 claude-code-agent-teams       # リネーム→claude-code-parallel-agents (2026-02-23)
 claude-code-agent-teams-guide # リネーム→claude-code-parallel-agents (2026-02-23) / Zenn側で既に登録済み
 obsidian-claude-code          # git履歴に存在、現在は削除済み (2026-02-23)
-claude-code-hooks-guide       # slug衝突→claude-code-hooks-complete-guide にリネーム (2026-02-23)
+
+# === 外部衝突スラッグ（他アカウントが既に使用中 → デプロイ失敗で判明）===
+# 再生成時に絶対使用不可（validate-frontmatter.py が検知）
+claude-code-hooks-guide       # 他アカウントが使用中→claude-code-hooks-complete-guide (2026-02-23)
+terraform-gcp-intro           # 他アカウントが使用中→terraform-gcp-iac-basics (2026-02-24)
