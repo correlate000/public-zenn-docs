@@ -11,7 +11,7 @@ publication_name: "correlate_dev"
 
 FastAPI でバックエンドAPIを構築する際、多くの記事では SQLAlchemy + PostgreSQL の組み合わせが紹介されます。しかし、Google Cloud Platform を利用している場合、BigQuery をAPIのデータバックエンドとして使うパターンが非常に有効です。
 
-本記事では、**FastAPI × google-cloud-bigquery を使ってCRUD APIを実装する実践的なパターン**を解説します。
+本記事では、 **FastAPI × google-cloud-bigquery を使ってCRUD APIを実装する実践的なパターン** を解説します。
 
 ### BigQueryをAPIバックエンドに使うメリット・デメリット
 
@@ -362,7 +362,7 @@ async def get_item(
 
 ## POSTエンドポイント（INSERT・冪等MERGE）
 
-BigQueryでINSERTを実装する際は、**同じリクエストが2回来ても重複しない冪等なMERGE文**を使うことを強く推奨します。通常のINSERTは再試行によって重複行が発生するリスクがあります。
+BigQueryでINSERTを実装する際は、 **同じリクエストが2回来ても重複しない冪等なMERGE文** を使うことを強く推奨します。通常のINSERTは再試行によって重複行が発生するリスクがあります。
 
 ### 冪等INSERT（MERGE文を使った upsert）
 
@@ -533,7 +533,7 @@ async def update_item(
 
 ## DELETEエンドポイント
 
-BigQueryでは物理削除よりも**論理削除**（`is_deleted = TRUE`）が推奨されます。理由は以下の通りです。
+BigQueryでは物理削除よりも **論理削除** （`is_deleted = TRUE`）が推奨されます。理由は以下の通りです。
 
 - パーティション化されたテーブルでは物理DELETE後のストレージ解放に時間がかかる
 - 誤削除時のリカバリーが容易

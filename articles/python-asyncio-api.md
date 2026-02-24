@@ -32,7 +32,7 @@ results = await asyncio.gather(*[call_api(text) for text in texts])
 
 ### async/await とコルーチン
 
-asyncioでは、`async def` で定義した関数を**コルーチン**と呼びます。コルーチンはI/O待ち（ネットワーク通信など）の間に制御をイベントループに返し、他のコルーチンを実行させます。
+asyncioでは、`async def` で定義した関数を **コルーチン** と呼びます。コルーチンはI/O待ち（ネットワーク通信など）の間に制御をイベントループに返し、他のコルーチンを実行させます。
 
 ```python
 import asyncio

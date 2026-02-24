@@ -562,7 +562,7 @@ logging.basicConfig(
 
 | 手段 | スマホUX | セットアップ | セキュリティ制御 | AI統合 | コスト |
 |:--|:--|:--|:--|:--|:--|
-| **Discord Bot（本記事）** | 最高 | 中 | 完全に自分で制御 | Claude Code CLI | 無料 |
+| Discord Bot（本記事） | 最高 | 中 | 完全に自分で制御 | Claude Code CLI | 無料 |
 | SSH + Tailscale | 中（Termius等） | 低 | 公開鍵認証 | なし | 無料 |
 | Clawdbot/OpenClaw | 高 | 中〜高 | OSSだが複雑 | Multi-model | 無料 |
 | TeamViewer | 高 | 低 | パスワード/2FA | なし | 無料 |

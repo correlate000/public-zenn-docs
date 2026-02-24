@@ -11,7 +11,7 @@ publication_name: "correlate_dev"
 
 Next.js App Router の登場で、データ取得の設計が大きく変わりました。従来は「フロントエンド → REST API → DB」という三層構成が一般的でしたが、React Server Components（RSC）を使えばサーバーコンポーネント内で直接データソースにアクセスできます。
 
-BigQuery もその恩恵を受けられるデータソースの一つです。本記事では、**Next.js 15 の App Router から `@google-cloud/bigquery` を使って直接クエリを実行するパターン**を解説します。
+BigQuery もその恩恵を受けられるデータソースの一つです。本記事では、 **Next.js 15 の App Router から `@google-cloud/bigquery` を使って直接クエリを実行するパターン** を解説します。
 
 ### 従来の REST API 経由パターンとの比較
 
@@ -30,7 +30,7 @@ RSC パターンの主なメリットは以下のとおりです。
 - **型安全**: TypeScript の型定義をフロントとバックエンドで共有する必要がない
 - **コスト削減**: API サーバーの維持コストがなくなる（BigQuery のクエリコストは別途かかる）
 
-ただし、BigQuery はスキャン量に応じて課金されるため、**キャッシュ戦略が非常に重要**になります。本記事ではその点も詳しく解説します。
+ただし、BigQuery はスキャン量に応じて課金されるため、 **キャッシュ戦略が非常に重要** になります。本記事ではその点も詳しく解説します。
 
 ---
 
@@ -161,7 +161,7 @@ GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
 
 ### 本番環境: Workload Identity Federation（推奨）
 
-Cloud Run などの GCP 環境では、**Workload Identity Federation** を使うことでサービスアカウントキーのファイルを持つ必要がありません。GCP のメタデータサーバーから自動的に認証情報を取得します。
+Cloud Run などの GCP 環境では、 **Workload Identity Federation** を使うことでサービスアカウントキーのファイルを持つ必要がありません。GCP のメタデータサーバーから自動的に認証情報を取得します。
 
 ```bash
 # Cloud Run のサービスアカウントに BigQuery 権限を付与
@@ -862,4 +862,4 @@ export const getSales = unstable_cache(_getSales, ["sales"], {
 
 **型変換**: BigQuery の DATE 型は `BigQueryDate` オブジェクト（`.value` プロパティが文字列）として返ってくるため、素直に `string` として扱えません。変換ユーティリティを用意しておくと安全です。
 
-RSC × BigQuery のパターンは、特に**データ分析・ダッシュボード系のアプリケーション**で威力を発揮します。API レイヤーを省略することでアーキテクチャがシンプルになり、Next.js のキャッシュ機能と組み合わせることで BigQuery のコストも抑えられます。ぜひ試してみてください。
+RSC × BigQuery のパターンは、特に **データ分析・ダッシュボード系のアプリケーション** で威力を発揮します。API レイヤーを省略することでアーキテクチャがシンプルになり、Next.js のキャッシュ機能と組み合わせることで BigQuery のコストも抑えられます。ぜひ試してみてください。

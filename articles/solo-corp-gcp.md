@@ -211,7 +211,7 @@ Discord Botからだけでなく、REST APIとしても各種データにアク�
 | Cloud Scheduler | $0 | 3ジョブ（無料枠内。超過分は$0.10/ジョブ） |
 | Artifact Registry | $0〜1 | Dockerイメージ保管 |
 | Secret Manager | $0 | 少量のシークレット管理 |
-| **合計** | **$2〜6程度** | 無料枠の活用が鍵 |
+| 合計 | $2〜6程度 | 無料枠の活用が鍵 |
 
 :::message
 Cloud Runの`min-instances=0`にすればさらにコストを下げられますが、Discord Botの常時接続が切れるトレードオフがあります。Botが不要であれば、Cloud Schedulerからの定時呼び出しだけで運用でき、月額$1以下も十分可能。

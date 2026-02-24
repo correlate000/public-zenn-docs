@@ -135,7 +135,7 @@ gcloud iam workload-identity-pools describe "vercel-pool" \
 
 ### 手順3: OIDCプロバイダーを作成
 
-VercelのissuerモードはデフォルトではProject単位ですが、**Team単位（issuerMode: "team"）** を使うとチーム全体で共通のissuer URLになります。
+VercelのissuerモードはデフォルトではProject単位ですが、 **Team単位（issuerMode: "team"）** を使うとチーム全体で共通のissuer URLになります。
 
 Vercelのissuer URLの形式は以下の通りです。
 
@@ -287,7 +287,7 @@ npm install google-auth-library
 :::message
 
 **audience（対象者）の設定について**
-audienceにはWIFプロバイダーのリソース名を指定します。プロジェクトIDではなく**プロジェクト番号**が必要なため注意してください。以下のコマンドで確認できます。
+audienceにはWIFプロバイダーのリソース名を指定します。プロジェクトIDではなく **プロジェクト番号** が必要なため注意してください。以下のコマンドで確認できます。
 
 ```bash
 gcloud projects describe YOUR_PROJECT_ID --format="value(projectNumber)"
@@ -582,7 +582,7 @@ gcloud iam service-accounts get-iam-policy \
 # 正しい形式: principalSet://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/attribute.team_id/TEAM_ID
 ```
 
-principalSetの `PROJECT_NUMBER` がプロジェクトIDではなく**数字のプロジェクト番号**であることを確認してください。
+principalSetの `PROJECT_NUMBER` がプロジェクトIDではなく **数字のプロジェクト番号** であることを確認してください。
 
 ---
 
@@ -601,7 +601,7 @@ VercelダッシュボードでOIDC Federationが有効化されていないか�
 1. Vercelダッシュボード → チームSettings → Security
 2. 「Secure Backend Access」が有効になっているか確認
 3. Issuer Mode: **Team** が選択されているか確認
-4. 設定変更後に**再デプロイ**が必要
+4. 設定変更後に **再デプロイ** が必要
 
 ---
 
@@ -613,7 +613,7 @@ WIF設定のaudienceでエラーが発生する。
 
 **対処法**
 
-audienceの形式には**プロジェクト番号（数字）** を使用します。
+audienceの形式には **プロジェクト番号（数字）** を使用します。
 
 ```bash
 # プロジェクト番号を取得

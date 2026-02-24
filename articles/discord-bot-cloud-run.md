@@ -11,7 +11,7 @@ publication_name: "correlate_dev"
 
 Discord BotをCloud Runにデプロイする記事を探すと、多くはHerokuやVPSでの「常時起動型」の解説です。常時起動型はWebSocket接続を維持し続けるため、Cloud Runのゼロスケール機能と相性が悪く、最小インスタンス数を1以上に設定しなければなりません。
 
-本記事では、**HTTP Interaction型**と呼ばれる別のBotアーキテクチャを使い、Cloud Runのゼロスケールを活かしたコスト最小構成を実装します。さらにDiscordの3秒タイムアウト問題の解決策（deferred response）と、Claude APIを使ったAIコマンドの実装まで解説します。
+本記事では、 **HTTP Interaction型** と呼ばれる別のBotアーキテクチャを使い、Cloud Runのゼロスケールを活かしたコスト最小構成を実装します。さらにDiscordの3秒タイムアウト問題の解決策（deferred response）と、Claude APIを使ったAIコマンドの実装まで解説します。
 
 ### WebSocket型 vs HTTP型の違い
 
@@ -75,7 +75,7 @@ BOT_TOKEN        = Botのアクセストークン（MTxxxxxxx...形式）
 
 HTTP Interaction型では、DiscordがBotの代わりに「中継サーバー」として機能します。ユーザーがスラッシュコマンドを実行すると、DiscordはDeveloper Portalに登録した「Interactions Endpoint URL」へHTTP POSTを送信します。
 
-リクエストのボディはJSON形式で、コマンド名やオプション値が含まれます。アプリは**3秒以内**に応答を返す必要があります。
+リクエストのボディはJSON形式で、コマンド名やオプション値が含まれます。アプリは **3秒以内** に応答を返す必要があります。
 
 ### ACK応答の種類
 
@@ -122,7 +122,7 @@ httpx>=0.27.0
 
 ## 4. 署名検証の実装（セキュリティ必須）
 
-HTTP Interaction型で最も重要なのが**署名検証**です。DiscordはすべてのリクエストにEd25519署名を付与します。この検証を省略すると、悪意のある第三者が任意のデータをBotに送り込むことができてしまいます。
+HTTP Interaction型で最も重要なのが **署名検証** です。DiscordはすべてのリクエストにEd25519署名を付与します。この検証を省略すると、悪意のある第三者が任意のデータをBotに送り込むことができてしまいます。
 
 `utils/discord_verify.py`:
 
@@ -161,7 +161,7 @@ async def verify_discord_signature(request: Request) -> bytes:
 ```
 
 :::message alert
-署名検証は**絶対に省略しないでください**。Discordも公式ドキュメントで必須要件として明記しています。検証を省くと、不正なコマンドを外部から実行されるリスクがあります。
+署名検証は **絶対に省略しないでください** 。Discordも公式ドキュメントで必須要件として明記しています。検証を省くと、不正なコマンドを外部から実行されるリスクがあります。
 :::
 
 ---
@@ -384,14 +384,14 @@ async def call_claude_and_followup(question: str, interaction_token: str) -> Non
 ```
 
 :::message
-`BackgroundTasks` はFastAPIがレスポンスを返した**後に**実行されます。そのためCloud Runのリクエストタイムアウト設定に注意が必要です。デフォルトは300秒ですが、長い処理が必要な場合は `--timeout` オプションで延長できます（最大3600秒）。
+`BackgroundTasks` はFastAPIがレスポンスを返した **後に** 実行されます。そのためCloud Runのリクエストタイムアウト設定に注意が必要です。デフォルトは300秒ですが、長い処理が必要な場合は `--timeout` オプションで延長できます（最大3600秒）。
 :::
 
 ---
 
 ## 9. スラッシュコマンドの登録
 
-スラッシュコマンドはDiscord APIに登録が必要です。**Guildコマンド**（特定サーバー限定）は即座に反映され、開発時に便利です。
+スラッシュコマンドはDiscord APIに登録が必要です。 **Guildコマンド** （特定サーバー限定）は即座に反映され、開発時に便利です。
 
 `register_commands.py`:
 
@@ -625,7 +625,7 @@ FastAPIの `BackgroundTasks` はCloud Runのリクエスト処理とは独立し
 
 **シークレットの更新**
 
-Secret Managerの `latest` バージョンを使っている場合、シークレットを更新しても**Cloud Runの再デプロイは不要**です。次のリクエスト時に自動的に最新値が使われます。
+Secret Managerの `latest` バージョンを使っている場合、シークレットを更新しても **Cloud Runの再デプロイは不要** です。次のリクエスト時に自動的に最新値が使われます。
 
 **Guildコマンドからグローバルコマンドへの移行**
 

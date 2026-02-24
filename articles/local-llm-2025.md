@@ -32,12 +32,12 @@ publication_name: "correlate_dev"
 
 | 要素 | クラウド（Claude/GPT-4） | ローカルLLM |
 |-----|---------------------|----------|
-| **月額費用** | $20～（個人プラン）/ $200+（API大量利用） | $0（ハード購入のみ） |
-| **セットアップ** | 即時 | 数時間～数日 |
-| **機密性** | サーバー保管 | ローカルのみ |
-| **推論速度** | 中程度（API遅延） | 高速（ローカル処理） |
-| **応答品質** | 最高（Claude Opus 4など） | 良好（Qwen 2.5など） |
-| **カスタマイズ** | 不可 | ファインチューニング可 |
+| 月額費用 | $20～（個人プラン）/ $200+（API大量利用） | $0（ハード購入のみ） |
+| セットアップ | 即時 | 数時間～数日 |
+| 機密性 | サーバー保管 | ローカルのみ |
+| 推論速度 | 中程度（API遅延） | 高速（ローカル処理） |
+| 応答品質 | 最高（Claude Opus 4など） | 良好（Qwen 2.5など） |
+| カスタマイズ | 不可 | ファインチューニング可 |
 
 **ローカルLLMが活躍するシーン:**
 - データ分類、テキスト抽出、簡易翻訳（定型タスク）
@@ -60,10 +60,10 @@ publication_name: "correlate_dev"
 
 | 項目 | 最小限 | 推奨 | 理想 |
 |------|--------|------|------|
-| **OS** | macOS 12+ / Windows 11 / Ubuntu 22+ | macOS 13+ (Apple Silicon) | macOS 14+ M3/M4 |
-| **CPU** | 8コア | 10コア以上 | M4 (8core P + 4core E) |
-| **メモリ** | 8GB | 16GB | 32GB+ |
-| **ストレージ** | SSD 256GB | SSD 512GB+ | SSD 1TB+ |
+| OS | macOS 12+ / Windows 11 / Ubuntu 22+ | macOS 13+ (Apple Silicon) | macOS 14+ M3/M4 |
+| CPU | 8コア | 10コア以上 | M4 (8core P + 4core E) |
+| メモリ | 8GB | 16GB | 32GB+ |
+| ストレージ | SSD 256GB | SSD 512GB+ | SSD 1TB+ |
 
 **Apple Silicon 推奨の理由:**
 - 統合メモリアーキテクチャで、GPU/CPU 間のコピーオーバーヘッドが無い
@@ -83,11 +83,11 @@ publication_name: "correlate_dev"
 
 | モデル | パラメータ | 日本語 | 推論速度（M4 Pro 24GB） | メモリ要件 | 用途 | ライセンス |
 |--------|----------|--------|---------|-----------|------|---------|
-| **Qwen 2.5** | 7B/32B | ⭐⭐⭐⭐ | 28 tok/s | 8GB/24GB | 日本語特化 | Apache 2.0 |
-| **Gemma 3** | 9B/27B | ⭐⭐⭐ | 25 tok/s | 9GB/28GB | マルチモーダル可 | Gemma License |
-| **Llama 3.3** | 8B/70B | ⭐⭐⭐ | 22 tok/s | 8GB/70GB | 汎用・高精度 | Llama License |
-| **DeepSeek-R1** | 7B/14B | ⭐⭐ | 20 tok/s | 7GB/16GB | 推論・数学 | MIT |
-| **Phi-4** | 14B | ⭐⭐ | 18 tok/s | 14GB | 高品質・Microsoft製 | MIT |
+| Qwen 2.5 | 7B/32B | ⭐⭐⭐⭐ | 28 tok/s | 8GB/24GB | 日本語特化 | Apache 2.0 |
+| Gemma 3 | 9B/27B | ⭐⭐⭐ | 25 tok/s | 9GB/28GB | マルチモーダル可 | Gemma License |
+| Llama 3.3 | 8B/70B | ⭐⭐⭐ | 22 tok/s | 8GB/70GB | 汎用・高精度 | Llama License |
+| DeepSeek-R1 | 7B/14B | ⭐⭐ | 20 tok/s | 7GB/16GB | 推論・数学 | MIT |
+| Phi-4 | 14B | ⭐⭐ | 18 tok/s | 14GB | 高品質・Microsoft製 | MIT |
 
 ※計測条件: M4 Pro 24GB、Ollama、context 2048、Q4量子化
 ※2024年12月にLlama 3.3がリリース済み。執筆時点（2026年2月）ではLlama 3.xの最新版を確認してください。
