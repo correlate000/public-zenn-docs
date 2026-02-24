@@ -3,7 +3,7 @@ title: "Next.js App Router実践パターン集 — RSC・Server Actions・キ�
 emoji: "▲"
 type: "tech"
 topics: ["nextjs", "react", "typescript", "appRouter", "servercomponents"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 

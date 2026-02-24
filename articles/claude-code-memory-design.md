@@ -3,7 +3,7 @@ title: "Claude Code のメモリ設計 ─ CLAUDE.md・knowledge files・auto me
 emoji: "🧠"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "productivity", "開発環境"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
