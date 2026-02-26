@@ -3,7 +3,7 @@ title: "TypeScriptユーティリティ型完全ガイド — Partial・Omit・R
 emoji: "🔧"
 type: "tech"
 topics: ["typescript", "type", "javascript", "nextjs", "frontend"]
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 
