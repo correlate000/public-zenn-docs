@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       count:
-        description: '公開本数（デフォルト: 3）'
+        description: '公開本数（デフォルト: 2）'
         required: false
-        default: '3'
+        default: '2'
       dry_run:
         description: 'Dry run（true: 確認のみ）'
         required: false
@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,7 +35,7 @@ jobs:
       - name: Run daily publish script
         id: publish
         run: |
-          COUNT="${{ github.event.inputs.count || '3' }}"
+          COUNT="${{ github.event.inputs.count || '2' }}"
           DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
 
           if [ "$DRY_RUN" = "true" ]; then
@@ -49,5 +51,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: 自動公開 — daily-publish.py による定期公開'
-          file_pattern: 'articles/*.md'
+          file_pattern: 'articles/*.md scripts/.publish-failures.json'
           commit_options: '--no-verify'

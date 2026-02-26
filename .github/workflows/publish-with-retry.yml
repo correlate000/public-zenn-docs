@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -42,7 +44,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: 予約記事を自動公開'
-          file_pattern: 'articles/ .github/scripts/.zenn-retry-queue.json'
+          file_pattern: 'articles/ .github/scripts/.zenn-retry-queue.json scripts/.publish-failures.json'
 
       # Step 4: 公開状態を検証（デプロイから5分待機）
       - name: Wait for Zenn deployment
@@ -59,7 +61,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'fix: デプロイ失敗記事のpublishedフラグをロールバック'
-          file_pattern: articles/
+          file_pattern: 'articles/ scripts/.publish-failures.json'
 
       # Step 6: 失敗時のDiscord通知（verify.pyが自動送信するので不要だが、念のため）
       - name: Notify on failure
