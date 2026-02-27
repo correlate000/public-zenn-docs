@@ -3,7 +3,7 @@ title: "Python uv 完全ガイド ─ pip/poetry より10倍速いパッケー�
 emoji: "⚡"
 type: "tech"
 topics: ["python", "uv", "パッケージ管理", "開発環境", "pip"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
