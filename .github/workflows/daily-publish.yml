@@ -48,8 +48,16 @@ jobs:
         run: python3 scripts/validate-frontmatter.py --ci
 
       - name: Commit and push
+        id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: 自動公開 — daily-publish.py による定期公開'
           file_pattern: 'articles/*.md scripts/.publish-failures.json'
           commit_options: '--no-verify'
+
+      - name: Notify Discord
+        if: steps.publish.outputs.published_count != '' && steps.commit.outputs.changes_detected == 'true'
+        env:
+          DISCORD_WEBHOOK_CONTENT: ${{ secrets.DISCORD_WEBHOOK_CONTENT }}
+          PUBLISHED_SLUGS: ${{ steps.publish.outputs.published_slugs }}
+        run: python3 scripts/notify-discord-publish.py

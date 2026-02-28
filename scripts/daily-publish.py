@@ -14,6 +14,7 @@ daily-publish.py — 優先度キューから毎日N本ずつ published: false �
 """
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -168,6 +169,13 @@ def main():
             print(f"  ✗ {slug}: 変更失敗（前後確認を）", file=sys.stderr)
 
     print(f"\n完了: {len(published)} 本を公開しました")
+
+    # 公開スラッグを GitHub Actions output に書き出し（通知は commit 成功後に別ステップで実行）
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output and published:
+        with open(github_output, "a", encoding="utf-8") as f:
+            f.write(f"published_slugs={','.join(published)}\n")
+            f.write(f"published_count={len(published)}\n")
 
 
 if __name__ == "__main__":
