@@ -2,5 +2,13 @@
   "vercel-edge-functions": {
     "count": 1,
     "last_failed": "2026-02-27T22:01:19.108396+09:00"
+  },
+  "claude-code-hooks-complete-guide": {
+    "count": 1,
+    "last_failed": "2026-02-28T21:46:52.089910+09:00"
+  },
+  "anthropic-api-cost-optimizer_fixed_visual": {
+    "count": 1,
+    "last_failed": "2026-02-28T21:47:02.175766+09:00"
   }
 }

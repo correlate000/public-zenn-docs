@@ -3,7 +3,7 @@ title: "Anthropic API コスト最適化実践 ─ プロンプトキャッシ�
 emoji: "🔌"
 type: "tech"
 topics: ['api']
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 ## はじめに
