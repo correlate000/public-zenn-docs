@@ -3,7 +3,7 @@ title: "Claude Codeの7つの拡張機能を「所有権モデル」で整理す
 emoji: "🗂️"
 type: "tech"
 topics: ["claudecode", "contextengineering", "ai", "llm", "開発効率化"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 

@@ -3,7 +3,7 @@ title: "Claude Code Hooks 完全ガイド ─ PreToolUse/PostToolUse でAIエー
 emoji: "🪝"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "自動化", "開発効率化"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
