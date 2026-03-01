@@ -10,5 +10,13 @@
   "anthropic-api-cost-optimizer_fixed_visual": {
     "count": 1,
     "last_failed": "2026-02-28T21:47:02.175766+09:00"
+  },
+  "typescript-zod-validation": {
+    "count": 1,
+    "last_failed": "2026-03-01T21:49:28.070710+09:00"
+  },
+  "react-query-patterns": {
+    "count": 1,
+    "last_failed": "2026-03-01T21:49:32.811033+09:00"
   }
 }
