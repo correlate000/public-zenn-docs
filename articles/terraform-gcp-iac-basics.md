@@ -3,7 +3,7 @@ title: "Terraform × GCP入門 — インフラをコードで管理してデプ
 emoji: "🏗️"
 type: "tech"
 topics: ["terraform", "gcp", "iac", "cloudrun", "devops"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
