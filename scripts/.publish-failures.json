@@ -3,10 +3,6 @@
     "count": 2,
     "last_failed": "2026-03-02T16:01:21.168576+09:00"
   },
-  "claude-code-hooks-complete-guide": {
-    "count": 1,
-    "last_failed": "2026-02-28T21:46:52.089910+09:00"
-  },
   "anthropic-api-cost-optimizer_fixed_visual": {
     "count": 1,
     "last_failed": "2026-02-28T21:47:02.175766+09:00"
@@ -18,5 +14,9 @@
   "react-query-patterns": {
     "count": 1,
     "last_failed": "2026-03-01T21:49:32.811033+09:00"
+  },
+  "gcp-cloud-tasks-queue": {
+    "count": 1,
+    "last_failed": "2026-03-04T16:01:42.319710+09:00"
   }
 }
