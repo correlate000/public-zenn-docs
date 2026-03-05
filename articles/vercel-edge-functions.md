@@ -3,7 +3,7 @@ title: "Vercel Edge Functions完全ガイド — エッジコンピューティ�
 emoji: "⚡"
 type: "tech"
 topics: ["vercel", "edge", "nextjs", "typescript", "webperformance"]
-published: false
+published: true
 publication_name: "correlate_dev"
 ---
 
