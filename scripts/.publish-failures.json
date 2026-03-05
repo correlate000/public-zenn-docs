@@ -1,7 +1,7 @@
 {
   "vercel-edge-functions": {
-    "count": 2,
-    "last_failed": "2026-03-02T16:01:21.168576+09:00"
+    "count": 3,
+    "last_failed": "2026-03-05T22:17:18.020275+09:00"
   },
   "anthropic-api-cost-optimizer_fixed_visual": {
     "count": 1,
@@ -10,10 +10,6 @@
   "typescript-zod-validation": {
     "count": 1,
     "last_failed": "2026-03-01T21:49:28.070710+09:00"
-  },
-  "react-query-patterns": {
-    "count": 1,
-    "last_failed": "2026-03-01T21:49:32.811033+09:00"
   },
   "gcp-cloud-tasks-queue": {
     "count": 1,
