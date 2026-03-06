@@ -8,8 +8,8 @@
     "last_failed": "2026-02-28T21:47:02.175766+09:00"
   },
   "typescript-zod-validation": {
-    "count": 1,
-    "last_failed": "2026-03-01T21:49:28.070710+09:00"
+    "count": 2,
+    "last_failed": "2026-03-06T22:12:29.474467+09:00"
   },
   "gcp-cloud-tasks-queue": {
     "count": 1,

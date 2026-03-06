@@ -3,7 +3,7 @@ title: "TypeScript × Zod でランタイムバリデーション ─ API・フ�
 emoji: "✅"
 type: "tech"
 topics: ["typescript", "zod", "react", "nextjs", "バリデーション"]
-published: true
+published: false
 publication_name: "correlate_dev"
 ---
 
