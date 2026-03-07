@@ -5,13 +5,15 @@ Zenn公開状態検証スクリプト（GitHub Actions用）
 published: true の記事が実際にZennに公開されているか確認し、
 公開されていない記事をリトライキューに追加する。
 
-レートリミット対策:
+方針（2026-03-08 改訂）:
+  - ロールバック廃止: rate-limited 記事は published: true のまま維持。
+    次回 push 時に Zenn が自動リトライするため、ロールバック不要。
+    ロールバックすると publish→rollback→republish の無限ループが発生する。
   - 猶予期間: 最終変更から6時間以内の記事はスキップ（デプロイ待ち）
-  - 失敗記録: ロールバック時に .publish-failures.json に記録
-  - daily-publish.py が失敗記事を48hクールダウンで回避
+  - 失敗記録: .publish-failures.json に記録（監視・Discord通知用）
 
 Usage:
-    python3 zenn-verify-published.py [--fix]
+    python3 zenn-verify-published.py [--fix]  # --fix は後方互換のため残存、動作は同じ
 """
 
 import json
@@ -159,7 +161,8 @@ def send_discord_notification(failed_articles: List[Dict]):
 
 {article_list}
 
-**対処**: ロールバック + 48hクールダウン適用済み。自動リトライされます。
+**対処**: published: true のまま維持。次回push時にZennが自動リトライします。
+（ロールバックは廃止 — publish→rollback→republish ループ防止のため）
 
 **確認**: https://zenn.dev/dashboard
 """
@@ -237,12 +240,9 @@ def main():
                 }
             )
 
-            # 失敗記録
+            # 失敗記録（ロールバックは廃止: published: true のまま維持し次回pushでリトライ）
             record_failure(slug, failures)
-
-            if fix_mode:
-                rollback_published_flag(article_file)
-                print(f"  → Rolled back to published: false")
+            print(f"  → published: true を維持（次回push時にZennが自動リトライ）")
 
     # 失敗ログの肥大化防止: 失敗10回以上の記事は手動対応案件として除外
     permanent_failures = [

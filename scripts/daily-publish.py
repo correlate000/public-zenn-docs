@@ -110,7 +110,7 @@ def is_in_cooldown(slug: str, failures: dict) -> bool:
 def main():
     parser = argparse.ArgumentParser(description="Zenn 下書き記事を自動公開")
     parser.add_argument("--dry-run", action="store_true", help="変更せずに確認のみ")
-    parser.add_argument("--count", type=int, default=2, help="公開本数（デフォルト: 2）")
+    parser.add_argument("--count", type=int, default=1, help="公開本数（デフォルト: 1）")
     args = parser.parse_args()
 
     # レートリミット計算
