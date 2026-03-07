@@ -12,7 +12,11 @@
     "last_failed": "2026-03-06T22:12:29.474467+09:00"
   },
   "gcp-cloud-tasks-queue": {
+    "count": 2,
+    "last_failed": "2026-03-07T22:03:17.985373+09:00"
+  },
+  "bigquery-ml-intro": {
     "count": 1,
-    "last_failed": "2026-03-04T16:01:42.319710+09:00"
+    "last_failed": "2026-03-07T22:03:15.215839+09:00"
   }
 }
