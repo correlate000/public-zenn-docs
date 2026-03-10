@@ -3,10 +3,6 @@
     "count": 1,
     "last_failed": "2026-02-28T21:47:02.175766+09:00"
   },
-  "gcp-cloud-tasks-queue": {
-    "count": 3,
-    "last_failed": "2026-03-10T22:18:22.315511+09:00"
-  },
   "bigquery-ml-intro": {
     "count": 1,
     "last_failed": "2026-03-07T22:03:15.215839+09:00"
