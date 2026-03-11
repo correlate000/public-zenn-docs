@@ -4,6 +4,7 @@ emoji: "🎨"
 type: "tech"
 topics: ["tailwindcss", "shadcnui", "nextjs", "react", "typescript"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

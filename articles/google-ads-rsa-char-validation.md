@@ -4,6 +4,7 @@ emoji: "🔢"
 type: "tech"
 topics: ["GoogleAds", "Python", "API", "広告運用", "自動化"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

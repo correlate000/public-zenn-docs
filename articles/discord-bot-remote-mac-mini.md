@@ -4,6 +4,7 @@ emoji: "🖥️"
 type: "tech"
 topics: ["discord", "python", "claude", "macos", "security"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

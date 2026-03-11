@@ -4,6 +4,7 @@ emoji: "🚀"
 type: "tech"
 topics: ["claudecode", "agentteams", "zenn", "obsidian", "ai"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

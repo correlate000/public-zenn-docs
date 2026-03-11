@@ -4,6 +4,7 @@ emoji: "📊"
 type: "tech"
 topics: ["HTML", "JavaScript", "Mermaid", "マーケティング", "アクセシビリティ"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🗄️"
 type: "tech"
 topics: ["fastapi", "bigquery", "gcp", "python", "api"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

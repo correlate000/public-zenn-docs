@@ -4,6 +4,7 @@ emoji: "🔐"
 type: "tech"
 topics: ["vercel", "gcp", "oidc", "nextjs", "cloudrun"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

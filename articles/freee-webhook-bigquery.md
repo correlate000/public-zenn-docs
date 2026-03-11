@@ -4,6 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["freee", "bigquery", "cloudrun", "webhook", "python"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

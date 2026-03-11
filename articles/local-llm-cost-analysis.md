@@ -4,6 +4,7 @@ emoji: "💸"
 type: "tech"
 topics: ["llm", "localllm", "コスト最適化", "mlx", "claude"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

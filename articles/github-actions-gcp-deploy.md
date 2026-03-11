@@ -4,6 +4,7 @@ emoji: "🚀"
 type: "tech"
 topics: ["githubactions", "gcp", "cloudrun", "cicd", "docker"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

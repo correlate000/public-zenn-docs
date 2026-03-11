@@ -4,6 +4,7 @@ emoji: "🧩"
 type: "tech"
 topics: ["python", "fastapi", "refactoring", "architecture"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

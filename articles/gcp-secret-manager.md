@@ -4,6 +4,7 @@ emoji: "🔑"
 type: "tech"
 topics: ["gcp", "secretmanager", "cloudrun", "セキュリティ", "python"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

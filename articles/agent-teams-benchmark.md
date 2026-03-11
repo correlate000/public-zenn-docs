@@ -4,6 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["ClaudeCode", "AI", "AgentTeams", "開発効率化", "並列処理"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

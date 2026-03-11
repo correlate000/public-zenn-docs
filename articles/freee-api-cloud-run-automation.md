@@ -4,6 +4,7 @@ emoji: "💰"
 type: "tech"
 topics: ["freee", "cloudrun", "python", "api", "automation"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

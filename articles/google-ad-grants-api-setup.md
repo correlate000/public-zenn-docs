@@ -4,6 +4,7 @@ emoji: "📢"
 type: "tech"
 topics: ["googleads", "python", "googleadsapi", "nonprofit", "ga4"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

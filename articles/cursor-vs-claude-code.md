@@ -4,6 +4,7 @@ emoji: "⚔️"
 type: "tech"
 topics: ["claudecode", "cursor", "ai", "開発環境", "vscode"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

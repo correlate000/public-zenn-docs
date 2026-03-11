@@ -4,6 +4,7 @@ emoji: "📋"
 type: "tech"
 topics: ["gcp", "cloudtasks", "cloudrun", "python", "asyncprocessing"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

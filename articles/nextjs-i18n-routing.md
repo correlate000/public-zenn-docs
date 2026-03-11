@@ -4,6 +4,7 @@ emoji: "🌍"
 type: "tech"
 topics: ["nextjs", "i18n", "typescript", "react", "nextintl"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

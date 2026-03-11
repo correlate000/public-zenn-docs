@@ -4,6 +4,7 @@ emoji: "🗂️"
 type: "tech"
 topics: ["claudecode", "ai", "開発効率化", "contextengineering"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🎨"
 type: "tech"
 topics: ["claude", "mcp", "pencil", "design", "ai"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

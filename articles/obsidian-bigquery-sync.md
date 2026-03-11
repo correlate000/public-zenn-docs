@@ -4,6 +4,7 @@ emoji: "🧠"
 type: "tech"
 topics: ["obsidian", "bigquery", "python", "gcp", "pkm"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 slug: "obsidian-bigquery-sync"
 ---

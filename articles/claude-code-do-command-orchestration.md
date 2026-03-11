@@ -4,6 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["claudecode", "ai", "開発効率化", "agent", "orchestration"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

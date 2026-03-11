@@ -4,6 +4,7 @@ emoji: "🖥"
 type: "tech"
 topics: ["llm", "ai", "macos", "ollama", "localllm"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

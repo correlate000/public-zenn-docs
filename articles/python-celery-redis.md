@@ -4,6 +4,7 @@ emoji: "🌸"
 type: "tech"
 topics: ["python", "celery", "redis", "fastapi", "asyncprocessing"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

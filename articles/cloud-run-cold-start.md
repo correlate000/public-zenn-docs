@@ -4,6 +4,7 @@ emoji: "🥶"
 type: "tech"
 topics: ["cloudrun", "gcp", "docker", "パフォーマンス", "python"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

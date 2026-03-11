@@ -4,6 +4,7 @@ emoji: "🔌"
 type: "tech"
 topics: ["MCP", "API", "オープンデータ", "行政API", "セキュリティ"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "⏱️"
 type: "tech"
 topics: ["gcp", "cloudrun", "cloudscheduler", "python", "bigquery"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

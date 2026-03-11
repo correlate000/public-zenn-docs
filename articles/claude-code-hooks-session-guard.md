@@ -4,6 +4,7 @@ emoji: "🔒"
 type: "tech"
 topics: ["claudecode", "hooks", "bash", "ai", "開発効率化"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

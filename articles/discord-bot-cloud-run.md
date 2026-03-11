@@ -4,6 +4,7 @@ emoji: "🤖"
 type: "tech"
 topics: ["discord", "cloudrun", "gcp", "python", "ai"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

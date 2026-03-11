@@ -4,6 +4,7 @@ emoji: "⚙️"
 type: "tech"
 topics: ["claudecode", "python", "automation", "zenn", "llm"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

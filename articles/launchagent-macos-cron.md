@@ -4,6 +4,7 @@ emoji: "⏰"
 type: "tech"
 topics: ["macos", "python", "自動化", "launchagent", "バックグラウンドジョブ"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🔧"
 type: "tech"
 topics: ["typescript", "type", "javascript", "nextjs", "frontend"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

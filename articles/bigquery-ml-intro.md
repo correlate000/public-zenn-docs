@@ -4,6 +4,7 @@ emoji: "🤖"
 type: "tech"
 topics: ["bigquery", "machinelearning", "gcp", "sql", "dataengineering"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

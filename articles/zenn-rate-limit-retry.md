@@ -4,6 +4,7 @@ emoji: "🔁"
 type: "tech"
 topics: ["zenn", "githubactions", "python", "automation", "ci"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

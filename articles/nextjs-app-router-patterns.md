@@ -4,6 +4,7 @@ emoji: "▲"
 type: "tech"
 topics: ["nextjs", "react", "typescript", "appRouter", "servercomponents"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

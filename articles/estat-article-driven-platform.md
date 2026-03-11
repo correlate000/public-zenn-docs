@@ -4,6 +4,7 @@ emoji: "📊"
 type: "tech"
 topics: ["estat", "nextjs", "typescript", "opendata", "architecture"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

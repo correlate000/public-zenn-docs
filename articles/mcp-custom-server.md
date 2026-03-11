@@ -4,6 +4,7 @@ emoji: "🔌"
 type: "tech"
 topics: ["mcp", "claude", "python", "ai", "claudecode"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

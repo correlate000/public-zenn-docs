@@ -4,6 +4,7 @@ emoji: "🏗️"
 type: "tech"
 topics: ["terraform", "gcp", "iac", "cloudrun", "devops"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

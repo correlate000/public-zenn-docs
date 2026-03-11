@@ -4,6 +4,7 @@ emoji: "📦"
 type: "tech"
 topics: ["python", "dataclass", "typing", "pydantic", "design"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

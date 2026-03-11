@@ -4,6 +4,7 @@ emoji: "🚀"
 type: "tech"
 topics: ["GoogleCloud", "Docker", "GitHubActions", "Python", "CI/CD"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

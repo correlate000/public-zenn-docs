@@ -4,6 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["python", "uv", "パッケージ管理", "開発環境", "pip"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

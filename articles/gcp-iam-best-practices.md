@@ -4,6 +4,7 @@ emoji: "🔐"
 type: "tech"
 topics: ["gcp", "iam", "cloudrun", "githubactions", "セキュリティ"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

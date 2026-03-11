@@ -4,6 +4,7 @@ emoji: "🧾"
 type: "tech"
 topics: ["freee", "cloudrun", "python", "fastapi", "oauth"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

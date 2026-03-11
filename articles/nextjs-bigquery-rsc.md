@@ -4,6 +4,7 @@ emoji: "🗄️"
 type: "tech"
 topics: ["nextjs", "bigquery", "react", "gcp", "typescript"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

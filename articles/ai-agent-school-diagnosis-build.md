@@ -4,6 +4,7 @@ emoji: "🏫"
 type: "tech"
 topics: ["ClaudeCode", "AI", "AIエージェント", "Next.js", "TypeScript"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

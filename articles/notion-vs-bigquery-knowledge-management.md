@@ -4,6 +4,7 @@ emoji: "🗄️"
 type: "tech"
 topics: ["bigquery", "notion", "obsidian", "claudecode", "ナレッジ管理"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

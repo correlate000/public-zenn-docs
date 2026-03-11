@@ -4,6 +4,7 @@ emoji: "🌱"
 type: "idea"
 topics: ["obsidian", "ai", "pkm", "claudecode", "writing"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 slug: "content-pipeline-philosophy"
 ---

@@ -4,6 +4,7 @@ emoji: "🤖"
 type: "tech"
 topics: ["Python", "LLM", "Automation", "Mac", "個人開発"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

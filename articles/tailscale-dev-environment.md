@@ -4,6 +4,7 @@ emoji: "🔗"
 type: "tech"
 topics: ["tailscale", "macos", "syncthing", "ssh"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 published_at: "2026-02-16 19:00"
 ---

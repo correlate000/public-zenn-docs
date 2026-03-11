@@ -4,6 +4,7 @@ emoji: "💾"
 type: "tech"
 topics: ["googledrive", "macos", "syncthing", "rsync", "開発環境"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

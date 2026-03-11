@@ -4,6 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["react", "typescript", "tanstackquery", "nextjs", "フロントエンド"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

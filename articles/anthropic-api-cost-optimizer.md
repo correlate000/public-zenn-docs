@@ -4,6 +4,7 @@ emoji: "💰"
 type: "tech"
 topics: ["anthropic", "claude", "api", "コスト最適化", "python"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🤖"
 type: "tech"
 topics: ["llm", "claudecode", "ollama", "ai", "mac"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

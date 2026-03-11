@@ -4,6 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["vercel", "edge", "nextjs", "typescript", "webperformance"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🐍"
 type: "tech"
 topics: ["python", "mypy", "pyright", "typescript", "typing"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "📊"
 type: "tech"
 topics: ["bigquery", "gcp", "sql", "データ分析", "コスト最適化"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

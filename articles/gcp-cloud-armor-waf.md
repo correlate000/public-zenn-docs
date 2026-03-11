@@ -4,6 +4,7 @@ emoji: "🛡️"
 type: "tech"
 topics: ["gcp", "cloudarmor", "security", "waf", "loadbalancing"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🚀"
 type: "tech"
 topics: ["cloudrun", "gcp", "インフラ", "docker", "サーバーレス"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

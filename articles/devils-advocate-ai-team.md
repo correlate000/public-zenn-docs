@@ -4,6 +4,7 @@ emoji: "😈"
 type: "tech"
 topics: ["Claude", "AI", "品質管理", "開発手法"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

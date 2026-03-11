@@ -4,6 +4,7 @@ emoji: "🧾"
 type: "tech"
 topics: ["freee", "claude", "bigquery", "自動化", "1人法人"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

@@ -4,6 +4,7 @@ emoji: "🔄"
 type: "tech"
 topics: ["api", "githubactions", "python", "automation", "errorhandling"]
 published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 

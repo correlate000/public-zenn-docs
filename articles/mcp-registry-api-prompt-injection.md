@@ -4,6 +4,7 @@ emoji: "🔍"
 type: "tech"
 topics: ["mcp", "claude", "security", "claudecode", "api"]
 published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
