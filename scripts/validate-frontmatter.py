@@ -28,6 +28,7 @@ RETIRED_SLUGS_FILE = Path(__file__).resolve().parent / "retired-slugs.txt"
 REQUIRED_FIELDS = {"title", "emoji", "type", "topics", "published", "publication_name"}
 VALID_TYPES = {"tech", "idea"}
 VALID_PUBLICATION = "correlate_dev"
+VALID_STATUSES = {"draft", "approved", "publish-ready", "published"}
 MAX_PER_DAY = 5  # Zenn rate limit: 24h に 5本
 SLUG_MIN_LEN = 12
 SLUG_MAX_LEN = 50
@@ -219,6 +220,37 @@ def check_published_combo(fm: dict, filepath: Path) -> list[str]:
     return errors
 
 
+def check_status_field(fm: dict, filepath: Path) -> list[str]:
+    """status フィールドの整合性チェック（任意フィールド）."""
+    errors = []
+    status = fm.get("status", "").strip('"').strip("'")
+
+    if not status:
+        return errors  # status 未設定は許容（後方互換）
+
+    if status not in VALID_STATUSES:
+        errors.append(f"  [VALUE] status は {VALID_STATUSES} のいずれか: 現在 \"{status}\"")
+        return errors
+
+    published = fm.get("published", "").strip('"').strip("'")
+
+    # published: true なのに status が published 以外
+    if published == "true" and status != "published":
+        errors.append(
+            f'  [INVALID] published: true だが status: "{status}" — '
+            f'status を "published" に更新するか、published: false に戻してください'
+        )
+
+    # published: false なのに status が published
+    if published == "false" and status == "published":
+        errors.append(
+            '  [INVALID] published: false だが status: "published" — '
+            'published: true に変更するか、status を修正してください'
+        )
+
+    return errors
+
+
 def check_required_fields(fm: dict, filepath: Path) -> list[str]:
     """必須フィールド存在チェック."""
     errors = []
@@ -325,6 +357,7 @@ def main():
         errors.extend(check_title_emoji_quoting(fm, article))
         errors.extend(check_quoting(fm, article))
         errors.extend(check_topics_format(fm, article))
+        errors.extend(check_status_field(fm, article))
 
         if errors:
             all_errors[name] = errors
@@ -347,10 +380,15 @@ def main():
             print(f"\n{fixed_count} 件修正しました")
         else:
             print("修正対象なし")
-        # 修正後にバリデーション再実行（スケジュール重複等は --fix で直せないため警告）
+        # 修正後にバリデーション再実行（--fix で直せない問題を警告）
         remaining_errors = []
         remaining_errors.extend(schedule_errors)
         remaining_errors.extend(daily_errors)
+        # status 不整合も --fix では修正されないため警告対象に含める
+        for name, errors in all_errors.items():
+            for e in errors:
+                if "[INVALID]" in e and "status" in e:
+                    remaining_errors.append(f"  {name}.md: {e.strip()}")
         if remaining_errors:
             print("\n⚠️  --fix では修正できない問題が残っています:")
             for e in remaining_errors:

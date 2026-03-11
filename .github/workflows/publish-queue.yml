@@ -1,0 +1,78 @@
+name: Publish Queue (Approval-based)
+
+# 承認キュー方式: status: publish-ready の記事を1日1本、ランダム時刻に公開
+# Zenn AI コンテンツガイドライン（2026-03-10）対応
+# 公開承認は人間が行い、実行タイミングのみ自動化する
+
+on:
+  schedule:
+    # 毎時00分に実行（スクリプト内で日次ハッシュにより公開時刻を決定）
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '時刻/休日チェックをスキップして即公開'
+        required: false
+        default: 'false'
+      dry_run:
+        description: 'Dry run（確認のみ）'
+        required: false
+        default: 'false'
+
+concurrency:
+  group: publish-queue
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run publish queue
+        id: publish
+        run: |
+          FORCE="${{ github.event.inputs.force || 'false' }}"
+          DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
+
+          ARGS=""
+          if [ "$FORCE" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+
+          python3 scripts/publish-queue-v2.py $ARGS
+
+      - name: Validate front matter
+        if: steps.publish.outputs.published == 'true'
+        run: python3 scripts/validate-frontmatter.py --ci
+
+      - name: Commit and push
+        if: steps.publish.outputs.published == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: 承認キュー公開 — publish-queue-v2.py'
+          file_pattern: 'articles/*.md scripts/.publish-history.json scripts/.publish-failures.json'
+
+      - name: Notify Discord
+        if: steps.publish.outputs.published == 'true'
+        env:
+          DISCORD_WEBHOOK_CONTENT: ${{ secrets.DISCORD_WEBHOOK_CONTENT }}
+          PUBLISHED_SLUGS: ${{ steps.publish.outputs.published_slug }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK_CONTENT" ] && [ -n "$PUBLISHED_SLUGS" ]; then
+            python3 scripts/notify-discord-publish.py
+          fi

@@ -1,4 +1,8 @@
-# 自動公開キュー — 優先度順（1行1スラグ、# はコメント）
+# [DEPRECATED] 自動公開キュー — 2026-03-12 に承認キュー方式（publish-queue-v2.py）に移行
+# このファイルは publish-queue-v2.py からは参照されない（記録目的のみ保持）
+# 新方式では status: "publish-ready" の frontmatter フィールドが公開キューとして機能する
+#
+# 旧設定（参考用）:
 # 毎日3本ずつ published: false → true に変更
 # 除外: dmm-webcamp_fixed_visual / school-comparison_fixed_visual / design-quality-standards_fixed_visual（アフィリ・内部資料）
 

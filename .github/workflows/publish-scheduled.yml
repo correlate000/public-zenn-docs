@@ -1,8 +1,9 @@
 name: Publish Scheduled Articles
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'  # 30分毎に実行
+  # schedule は無効化（承認キュー方式に移行 — 2026-03-12）
+  # Zenn AI コンテンツガイドライン対応: publish-queue.yml に統合
+  # - cron: '*/30 * * * *'
   workflow_dispatch:  # 手動実行
 
 jobs:
