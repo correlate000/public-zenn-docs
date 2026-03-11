@@ -1,9 +1,9 @@
 name: Publish Scheduled Articles with Retry
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'  # 6時間毎に実行（レートリミット考慮）
-  workflow_dispatch:  # 手動実行
+  # schedule は無効化（ロールバックループ防止 — 2026-03-11）
+  # - cron: '0 */6 * * *'
+  workflow_dispatch:  # 手動実行のみ
 
 jobs:
   publish:

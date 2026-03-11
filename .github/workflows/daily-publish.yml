@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       count:
-        description: '公開本数（デフォルト: 1）'
+        description: '公開本数（デフォルト: 2）'
         required: false
-        default: '1'
+        default: '2'
       dry_run:
         description: 'Dry run（true: 確認のみ）'
         required: false
@@ -35,7 +35,7 @@ jobs:
       - name: Run daily publish script
         id: publish
         run: |
-          COUNT="${{ github.event.inputs.count || '1' }}"
+          COUNT="${{ github.event.inputs.count || '2' }}"
           DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
 
           if [ "$DRY_RUN" = "true" ]; then
