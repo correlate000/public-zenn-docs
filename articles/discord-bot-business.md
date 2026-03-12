@@ -1,6 +1,6 @@
 ---
-title: "1人法人がDiscord Botを業務ツールにしたら想像以上に便利だった話"
-emoji: "🤖"
+title: "1人法人がDiscord Botを業務ツールにしたら便利だった話"
+emoji: "💼"
 type: "tech"
 topics: ["discord", "python", "cloudrun", "fastapi", "bot"]
 published: true

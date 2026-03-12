@@ -1,8 +1,8 @@
 ---
-title: "CLAUDE.mdを「ルーティングテーブル」に進化させる - 12のKnowledge Filesで67%スリム化した実践記録"
+title: "CLAUDE.mdをKnowledge Files化して67%スリム化した実践記録"
 emoji: "🗂️"
 type: "tech"
-topics: ["claudecode", "ai", "開発効率化", "contextengineering"]
+topics: ["claudecode", "ai", "llm", "contextengineering"]
 published: true
 status: "published"
 publication_name: "correlate_dev"
@@ -24,7 +24,7 @@ SNSでこんなCLAUDE.mdを見かけました。
 運用を続けて気づいたのは、15セクション構成にも問題があるということです。BigQuery操作をしている最中にfreee APIのルールが読み込まれ、セッション管理の作業中にCSS命名規則がコンテキストを占有する。15セクション全てが常時読み込まれるため、今の作業に関係ない情報が毎回コンテキストウィンドウを消費している状態でした。
 
 :::message
-CLAUDE.mdの役割は、全情報を詰め込むことでも、設定を1行メモすることでもありません。必要な知識に最短でたどり着くための **ルーティングテーブル** です。
+CLAUDE.mdの役割は、全情報を詰め込むことでも、設定を1行メモすることでもありません。必要な知識に最短でたどり着くための ** ルーティングテーブル ** です。
 :::
 
 本記事では、15セクション構成のCLAUDE.mdをルーティングテーブルに進化させ、12個のKnowledge Filesに知識を分離した実践記録を共有します。

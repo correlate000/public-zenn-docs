@@ -1,8 +1,8 @@
 ---
-title: "BigQuery MLではじめる機械学習 — SQLだけでモデル構築・予測・評価を完全攻略"
-emoji: "🤖"
+title: "BigQuery MLではじめる機械学習 — SQLだけでモデル構築・予測・評価"
+emoji: "🔮"
 type: "tech"
-topics: ["bigquery", "machinelearning", "gcp", "sql", "dataengineering"]
+topics: ["bigquery", "ml", "gcp", "sql", "data"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

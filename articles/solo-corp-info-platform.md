@@ -1,5 +1,5 @@
 ---
-title: "1人法人の情報基盤設計 -- BigQuery + Discord + Obsidianで何ができるか"
+title: "1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法"
 emoji: "🧭"
 type: "idea"
 topics: ["bigquery", "discord", "obsidian", "gcp", "solo"]

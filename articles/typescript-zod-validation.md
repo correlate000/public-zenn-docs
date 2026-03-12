@@ -1,5 +1,5 @@
 ---
-title: "TypeScript × Zod でランタイムバリデーション ─ API・フォーム・環境変数の型安全を一括実現"
+title: "TypeScript × Zodで型安全なランタイムバリデーションを実現する"
 emoji: "✅"
 type: "tech"
 topics: ["typescript", "zod", "react", "nextjs", "バリデーション"]

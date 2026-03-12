@@ -1,8 +1,8 @@
 ---
-title: "Next.js App Router実践パターン集 — RSC・Server Actions・キャッシュ戦略を完全マスター"
+title: "Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略"
 emoji: "▲"
 type: "tech"
-topics: ["nextjs", "react", "typescript", "appRouter", "servercomponents"]
+topics: ["nextjs", "react", "typescript", "approuter", "rsc"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

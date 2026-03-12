@@ -1,5 +1,5 @@
 ---
-title: "Claude Code のメモリ設計 ─ CLAUDE.md・knowledge files・auto memoryの3層で長期記憶を実現"
+title: "Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する"
 emoji: "🧠"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "productivity", "開発環境"]

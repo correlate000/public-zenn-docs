@@ -1,8 +1,8 @@
 ---
-title: "Google Cloud Tasksで非同期処理を実装する — キュー管理とリトライ戦略"
-emoji: "📋"
+title: "Cloud Tasksで非同期処理を実装する — キュー管理とリトライ戦略"
+emoji: "⏱️"
 type: "tech"
-topics: ["gcp", "cloudtasks", "cloudrun", "python", "asyncprocessing"]
+topics: ["gcp", "cloudrun", "python", "async", "queue"]
 published: true
 status: "published"
 publication_name: "correlate_dev"
@@ -913,11 +913,11 @@ gcloud tasks queues resume image-resize-queue \
 
 Cloud Tasks は単純なキューサービスを超え、非同期処理の信頼性・制御性を高めるための充実した機能を持っています。本記事で扱った内容を振り返ります。
 
-- アーキテクチャの面では、Producer・Queue・Worker の分離により、スケーラビリティと信頼性が高まります。
-- Pub/Sub との使い分けについては、タスクの実行制御（レート・リトライ・スケジュール）が必要なら Cloud Tasks、複数コンシューマーへのブロードキャストなら Pub/Sub が適切です。
-- 実装面では、OIDC 認証を使った Cloud Run ワーカーと Python クライアントの組み合わせが現在のベストプラクティスといえます。
-- 運用面では、Dead Letter Queue の設定とログサンプリングレートの有効化が失敗タスクを見逃さないための鍵になります。
-- Cloud Scheduler との組み合わせにより、「スケジュール起動→大量タスク生成→レート制限して順次処理」という堅牢なバッチパターンが構築できます。
+- **アーキテクチャ**: Producer・Queue・Worker の3層分離。スケーラビリティと信頼性の土台となる設計だ。
+- **Pub/Sub との使い分け**: タスクの実行制御（レート・リトライ・スケジュール）が必要なら Cloud Tasks、複数コンシューマーへのブロードキャストなら Pub/Sub が適切です。
+- **実装のベストプラクティス**: OIDC 認証を使った Cloud Run ワーカーと Python クライアントの組み合わせ。
+- **運用の要**: Dead Letter Queue の設定とログサンプリングレートの有効化が、失敗タスクを見逃さないための鍵になります。
+- Cloud Scheduler との組み合わせで、「スケジュール起動→大量タスク生成→レート制限して順次処理」という堅牢なバッチパターンを構築できる。
 
 Cloud Tasks はシンプルに始められますが、その設定の奥には細かいチューニングの余地が多く残っています。まずは基本的な HTTP タスクキューから実装を始め、運用データを見ながらレート制限やリトライポリシーを調整していくアプローチが実践的です。
 

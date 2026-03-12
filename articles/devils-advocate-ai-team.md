@@ -1,8 +1,8 @@
 ---
-title: "デビルズアドボケイトをAI開発チームに入れたら品質が劇的に改善した話"
+title: "AIチームにデビルズアドボケイトを入れたら品質が改善した話"
 emoji: "😈"
 type: "tech"
-topics: ["Claude", "AI", "品質管理", "開発手法"]
+topics: ["claude", "ai", "品質管理", "開発手法"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

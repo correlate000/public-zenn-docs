@@ -1,8 +1,8 @@
 ---
 title: "「What, not How」-- AIエージェント時代のプロンプト設計哲学"
-emoji: "🧭"
+emoji: "💡"
 type: "idea"
-topics: ["claudecode", "ai", "promptengineering", "sdd"]
+topics: ["claudecode", "ai", "prompt", "sdd"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

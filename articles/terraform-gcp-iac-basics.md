@@ -1,6 +1,6 @@
 ---
-title: "Terraform × GCP入門 — インフラをコードで管理してデプロイを再現可能にする"
-emoji: "🏗️"
+title: "Terraform × GCP入門 — インフラをコードで再現可能にする"
+emoji: "🔧"
 type: "tech"
 topics: ["terraform", "gcp", "iac", "cloudrun", "devops"]
 published: true

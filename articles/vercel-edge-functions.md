@@ -1,8 +1,8 @@
 ---
-title: "Vercel Edge Functions完全ガイド — エッジコンピューティングで超高速APIを実現する"
-emoji: "⚡"
+title: "Vercel Edge Functions完全ガイド — エッジで超高速APIを実現"
+emoji: "🌐"
 type: "tech"
-topics: ["vercel", "edge", "nextjs", "typescript", "webperformance"]
+topics: ["vercel", "edge", "nextjs", "typescript", "performance"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

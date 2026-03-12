@@ -1,5 +1,5 @@
 ---
-title: "TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnTypeを使いこなして型安全を極める"
+title: "TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType"
 emoji: "🔧"
 type: "tech"
 topics: ["typescript", "type", "javascript", "nextjs", "frontend"]

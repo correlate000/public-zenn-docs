@@ -1,5 +1,5 @@
 ---
-title: "Next.js国際化（i18n）完全ガイド — App RouterでMulti-Locale対応サイトを構築する"
+title: "Next.js i18n完全ガイド — App RouterでMulti-Locale対応する"
 emoji: "🌍"
 type: "tech"
 topics: ["nextjs", "i18n", "typescript", "react", "nextintl"]

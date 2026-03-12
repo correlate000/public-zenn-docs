@@ -1,6 +1,6 @@
 ---
-title: "Obsidian → BigQuery ナレッジ同期パイプライン — 1人法人の「第二の脳」をデータベース化する"
-emoji: "🧠"
+title: "Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する"
+emoji: "📊"
 type: "tech"
 topics: ["obsidian", "bigquery", "python", "gcp", "pkm"]
 published: true
