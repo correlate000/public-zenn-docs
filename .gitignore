@@ -3,3 +3,7 @@ node_modules
 .env
 .env.*
 .env.local
+
+# ローカル作業用ファイル（Zenn公開対象外）
+*_fixed_visual*
+scripts/__pycache__/
