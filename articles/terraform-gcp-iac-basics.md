@@ -12,7 +12,7 @@ publication_name: "correlate_dev"
 
 クラウドインフラを「手でポチポチ」構築した経験は誰にでもあるでしょう。GCP コンソールから Cloud Run サービスを作り、Cloud Storage バケットを追加し、BigQuery データセットを設定する。最初は手軽ですが、環境が増えるにつれて問題が浮上します。「開発環境と本番環境で何が違うのかわからない」「メンバーが誤って本番リソースを削除した」「同じ構成を別プロジェクトに再現するのに 2 時間かかった」── これらはすべて Infrastructure as Code（IaC）で解消できる問題です。
 
-IaC とは、インフラの構成をコードとして記述・管理するアプローチです。コードはバージョン管理でき、レビューでき、テストでき、自動化できます。手動操作とは根本的に異なる再現性と安全性をもたらします。
+IaC とは、インフラの構成をコードとして記述・管理するアプローチです。コードはバージョン管理でき、レビューでき、テストでき、自動化できます。手動操作とは根本的に異なる再現性と安全性——これが IaC のもたらす本質だ。
 
 ### Terraform とは
 
@@ -63,7 +63,7 @@ sudo apt update && sudo apt install terraform
 
 ### gcloud 認証の設定
 
-GCP Provider が使用する認証情報を設定します。ローカル開発では Application Default Credentials（ADC）を使うのが推奨です。サービスアカウントキーをファイルに保存する方法は現在非推奨となっており、ADC + 権限借用（Impersonation）が安全なベストプラクティスです。
+GCP Provider が使用する認証情報を設定します。ローカル開発では Application Default Credentials（ADC）を使うのが推奨です。サービスアカウントキーをファイルに保存する方法は現在非推奨となっており、ADC + 権限借用（Impersonation）が安全なベストプラクティスだ。
 
 ```bash
 # Google Cloud CLI のインストール（未インストールの場合）
@@ -192,7 +192,7 @@ terraform destroy -target=google_storage_bucket.assets
 
 Terraform は現在のインフラの状態を `terraform.tfstate` というファイルに記録します。このファイルがあることで、Terraform は「実際に何が存在するか」を把握し、次回の `plan` 時に差分だけを計算できます。
 
-ローカルに `terraform.tfstate` を置いたままチーム開発するとすぐに問題が発生します。誰かが古い state で `apply` すると、他のメンバーが作ったリソースが削除される危険があります。そこでリモートバックエンドとして GCS を使います。
+ローカルに `terraform.tfstate` を置いたままチーム開発するとすぐに問題が発生します。誰かが古い state で `apply` すると、他のメンバーが作ったリソースが削除される危険があります。そこでリモートバックエンドとして GCS を使う。
 
 ```mermaid
 flowchart LR
@@ -246,7 +246,7 @@ terraform init -reconfigure
 
 ### ロック機能について
 
-GCS バックエンドはデフォルトでロック機能が有効です。`terraform apply` 中に別の誰かが同時に `apply` しようとしてもロックで弾かれます。GCS はオブジェクトの世代番号を使った楽観的ロックで実現しているため、追加の DynamoDB テーブル（AWS の場合に必要）などは不要です。
+GCS バックエンドはデフォルトでロック機能が有効です。`terraform apply` 中に別の誰かが同時に `apply` しようとしてもロックで弾かれます。GCS はオブジェクトの世代番号を使った楽観的ロックで実現しているため、追加の DynamoDB テーブル（AWS の場合に必要）などは不要だ。
 
 Terraform がクラッシュしてロックが残った場合は以下で解除できます。
 
@@ -642,7 +642,7 @@ flowchart TD
     D --> F["environments/dev/\nenvironments/staging/\nenvironments/prod/"]
 ```
 
-実務では「ディレクトリ分割」が推奨されます。ワークスペースは state を切り替えるだけなので、環境間で設定値を誤って適用するリスクがあります。ディレクトリ分割なら構成ファイル自体が分離されているため安全です。
+実務では「ディレクトリ分割」が推奨されます。ワークスペースは state を切り替えるだけなので、環境間で設定値を誤って適用するリスクがあります。ディレクトリ分割なら構成ファイル自体が分離されているため安全だ。
 
 ### environments/prod/terraform.tfvars
 

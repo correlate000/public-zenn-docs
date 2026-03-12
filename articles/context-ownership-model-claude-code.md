@@ -10,7 +10,7 @@ publication_name: "correlate_dev"
 
 ## はじめに
 
-Claude Codeには、エージェントの動作をカスタマイズするための拡張機能が7つ存在します。CLAUDE.md、Rules、Skills、Commands、Hooks、MCP、Agentsです。これらをどう使い分けるかは、実際に導入しようとすると意外と悩むポイントです。
+Claude Codeには、エージェントの動作をカスタマイズするための拡張機能が7つ存在します。CLAUDE.md、Rules、Skills、Commands、Hooks、MCP、Agentsです。これらをどう使い分けるかは、実際に導入しようとすると意外と悩むポイントだ。
 
 本記事はClaude Codeを使い始めて拡張機能の使い分けに迷っている方を主な対象としています。Fowlerの論文を読んだことがなくても理解できるよう構成しています。
 
@@ -205,7 +205,7 @@ CLAUDE.mdやRulesとの違いは「何を記述するか」にあります。CLA
 
 #### Commands
 
-CommandsはClaude Codeに対してユーザーが明示的に呼び出すカスタムコマンドです。スラッシュコマンド（`/コマンド名`）の形式で実行します。ファイルとしては、`.claude/commands/` ディレクトリ以下にMarkdownファイルとして定義するのが一般的な構造です。
+CommandsはClaude Codeに対してユーザーが明示的に呼び出すカスタムコマンドです。スラッシュコマンド（`/コマンド名`）の形式で実行します。ファイルとしては、`.claude/commands/` ディレクトリ以下にMarkdownファイルとして定義するのが一般的な構造だ。
 
 「毎回同じ指示を書いているな」と感じる操作がCommandsの候補です。たとえば以下のようなケースです。
 

@@ -16,12 +16,12 @@ Claude Codeを使い始めて数週間が経ったころ、こんな経験をし
 
 「前回のセッションで途中まで進めた実装、Claudeに説明するところから始めないといけない」
 
-Claude Codeはセッションをまたぐと記憶が消える。これはLLMの基本的な制約です。しかし「記憶が消える」と諦める必要はありません。Claude Codeには、情報の性質に応じた複数のメモリ機構が用意されています。
+Claude Codeはセッションをまたぐと記憶が消える。これはLLMの基本的な制約です。しかし「記憶が消える」と諦める必要はない。Claude Codeには、情報の性質に応じた複数のメモリ機構が用意されています。
 
 本記事では、Claude Codeのメモリを3つの層に整理し、それぞれの仕組みと使い分け基準を解説します。
 
 :::message
-本記事は「CLAUDE.md設計ガイド」シリーズの第3弾です。第1弾（[CLAUDE.md設計ガイド](https://zenn.dev/correlate_dev/articles/claude-md-guide)）でCLAUDE.mdの設計思想、第2弾（[Knowledge Files分離](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)）でルーティングテーブル設計を扱いました。本記事ではそれらを踏まえ、3種類のメモリ機構を組み合わせた「長期記憶設計」に焦点を当てます。
+本記事は「CLAUDE.md設計ガイド」シリーズの第3弾です。第1弾（[CLAUDE.md設計ガイド](https://zenn.dev/correlate_dev/articles/claude-md-guide)）でCLAUDE.mdの設計思想、第2弾（[Knowledge Files分離](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)）でルーティングテーブル設計を扱いました。本記事ではそれらを踏まえ、3種類のメモリ機構を組み合わせた「長期記憶設計」に焦点を当てる。
 :::
 
 ## Claude Codeのメモリ階層
@@ -180,7 +180,7 @@ auto memoryは`~/.claude/projects/<hash>/memory/`に保存されます。`<hash>
         └── error-log.md       # エラー記録（オンデマンド）
 ```
 
-MEMORY.mdの先頭200行は、セッション開始時にシステムプロンプトへ自動的に読み込まれます。200行を超えた部分は読み込まれません。トピック別ファイルはClaude自身が「これが必要だ」と判断した時にオンデマンドで読みます。
+MEMORY.mdの先頭200行は、セッション開始時にシステムプロンプトへ自動的に読み込まれます。200行を超えた部分は読み込まれません。トピック別ファイルはClaude自身が「これが必要だ」と判断した時にオンデマンドで読む仕組みだ。
 
 ### MEMORY.mdに書くべき内容
 

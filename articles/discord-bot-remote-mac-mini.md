@@ -272,7 +272,7 @@ async def run(self, prompt, directory=None, safety='readonly',
 
 1つ目は`--allowed-tools`でツールを制限すること。
 
-Claude Code CLIには`--allowed-tools`フラグ（`--allowedTools`でも可）があり、使用可能なツールをカンマ区切りで指定できます。`readonly`モードでは`Read,Glob,Grep`のみを許可し、ファイルの読み取りと検索だけに限定します。`standard`モードでも`Edit,Write`を追加するだけで、Bashツールは常にブロックします。
+Claude Code CLIには`--allowed-tools`フラグ（`--allowedTools`でも可）があり、使用可能なツールをカンマ区切りで指定できます。`readonly`モードでは`Read,Glob,Grep`のみを許可し、ファイルの読み取りと検索だけに限定します。`standard`モードでも`Edit,Write`を追加するだけで、Bashツールは常にブロックする方針だ。
 
 Discord経由でシェルコマンドが実行可能になるのは、どんなに制限してもリスクが高いためです。
 
@@ -462,7 +462,7 @@ _TOOLS_BY_SAFETY = {
 }
 ```
 
-BashツールはどのSafetyレベルでも許可しません。これが最も重要な判断です。Bashが使えると`os.system`呼び出しやパイプ経由での任意コマンド実行が理論的に可能になります。Claude Codeにおいてもファイル操作は`Edit`/`Write`ツールで十分で、Bashが必要になるケースはSSHで直接接続すれば対応できます。
+BashツールはどのSafetyレベルでも許可しません。これが最も重要な判断です。Bashが使えると`os.system`呼び出しやパイプ経由での任意コマンド実行が理論的に可能になります。Claude Codeにおいてもファイル操作は`Edit`/`Write`ツールで十分であり、Bashが必要になるケースはSSHで直接接続すれば対応できる。
 
 ## Step 5: launchd常駐化
 
@@ -568,7 +568,7 @@ logging.basicConfig(
 | Clawdbot/OpenClaw | 高 | 中〜高 | OSSだが複雑 | Multi-model | 無料 |
 | TeamViewer | 高 | 低 | パスワード/2FA | なし | 無料 |
 
-Discord Botの最大の強みはスマホUXです。すでに日常使いしているDiscordアプリから、スラッシュコマンドのサジェスト付きで操作できます。新しいアプリをインストールする必要がありません。
+Discord Botの最大の強みはスマホUXです。すでに日常使いしているDiscordアプリから、スラッシュコマンドのサジェスト付きで操作できます。新しいアプリのインストールも不要だ。
 
 一方、Clawdbot（現OpenClaw）は50以上のプラットフォームと連携する多機能ツールで、「とにかく高機能なAI執事が欲しい」場合に最適です。本記事のBotは約800行のミニマルな実装ですが、セキュリティの全レイヤーを自分で把握・制御できることが強みです。
 
@@ -585,7 +585,7 @@ await interaction.response.defer()
 # 3秒を超えて「Unknown interaction」エラーが出る
 ```
 
-これは実際にハマったポイントです。バリデーション処理をdefer()の前に置いていたところ、プロンプトが長い場合に3秒を超えて`Unknown interaction`エラーが頻発しました。defer()は必ず最初に呼ぶのが鉄則です。バリデーションエラーは`followup.send()`で後から返します。
+これは実際にハマったポイントです。バリデーション処理をdefer()の前に置いていたところ、プロンプトが長い場合に3秒を超えて`Unknown interaction`エラーが頻発しました。defer()は必ず最初に呼ぶのが鉄則だ。バリデーションエラーは`followup.send()`で後から返します。
 
 ### Bot Tokenの多重接続問題
 

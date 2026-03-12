@@ -409,7 +409,7 @@ export function TodoList({ initialTodos }: Props) {
 
 ### Next.js 15 のキャッシュの考え方
 
-Next.js 15 ではキャッシュのデフォルト挙動が変更されました。14 以前では `fetch` はデフォルトでキャッシュされましたが、15 では `no-store`（動的）がデフォルトになっています。意図的にキャッシュするコードを書く方向に変わりました。
+Next.js 15 ではキャッシュのデフォルト挙動が変更されました。14 以前では `fetch` はデフォルトでキャッシュされましたが、15 では `no-store`（動的）がデフォルトになっています。意図的にキャッシュするコードを書く方向への転換だ。
 
 ```mermaid
 flowchart TD
@@ -666,7 +666,7 @@ export default function Layout({ children, dashboard, analytics }: Props) {
 
 ### モーダルパターン（Intercepting Routes との組み合わせ）
 
-Parallel Routes の最も強力なユースケースはモーダルです。Intercepting Routes と組み合わせることで、URL を持つ本格的なモーダルを実装できます。詳細は次のセクションで説明します。
+Parallel Routes の最も強力なユースケースはモーダルです。Intercepting Routes と組み合わせることで、URL を持つ本格的なモーダルを実装できます。詳細は次のセクションで解説する。
 
 ```
 app/
