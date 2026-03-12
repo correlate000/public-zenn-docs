@@ -462,7 +462,7 @@ _TOOLS_BY_SAFETY = {
 }
 ```
 
-BashツールはどのSafetyレベルでも許可しません。これが最も重要な判断です。Bashが使えると`os.system`呼び出しやパイプ経由での任意コマンド実行が理論的に可能になります。Claude Codeにおいてもファイル操作は`Edit`/`Write`ツールで十分であり、Bashが必要になるケースはSSHで直接接続すれば対応できる。
+BashツールはどのSafetyレベルでも許可しない。これが最も重要な判断です。Bashが使えると`os.system`呼び出しやパイプ経由での任意コマンド実行が理論的に可能になる。Claude Codeにおいてもファイル操作は`Edit`/`Write`ツールで十分であり、Bashが必要になるケースはSSHで直接接続すれば対応できます。
 
 ## Step 5: launchd常駐化
 
