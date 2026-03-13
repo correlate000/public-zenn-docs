@@ -41,6 +41,16 @@ JST = timezone(timedelta(hours=9))
 
 # 公開時間帯（JST）
 PUBLISH_HOUR_MIN = 8
+
+# 未完成記事の検出パターン（本文にこれらが含まれる記事はスキップ）
+DRAFT_MARKERS = [
+    "ドラフトはここで終端",
+    "TODO:",
+    "FIXME:",
+    "WIP:",
+    "【未完成】",
+    "別途追記が必要",
+]
 PUBLISH_HOUR_MAX = 21
 
 
@@ -114,16 +124,34 @@ def parse_frontmatter(filepath: Path) -> dict:
     return fm
 
 
+def has_draft_markers(filepath: Path) -> str | None:
+    """記事本文に未完成マーカーが含まれていないかチェック.
+
+    見つかった場合はマーカー文字列を返し、なければ None。
+    """
+    content = filepath.read_text(encoding="utf-8")
+    for marker in DRAFT_MARKERS:
+        if marker in content:
+            return marker
+    return None
+
+
 def find_publishable_articles() -> list[tuple[str, Path]]:
     """公開対象の記事を取得（ファイル名順）.
 
     status: publish-ready を優先し、次に draft を対象にする。
+    未完成マーカーを含む記事はスキップする。
     """
     ready = []
     drafts = []
     for article in sorted(ARTICLES_DIR.glob("*.md")):
         fm = parse_frontmatter(article)
         if fm.get("published") != "false":
+            continue
+        # 未完成マーカーチェック
+        marker = has_draft_markers(article)
+        if marker:
+            print(f"  スキップ（未完成）: {article.stem} — 「{marker}」を検出")
             continue
         status = fm.get("status", "draft")
         if status == "publish-ready":
