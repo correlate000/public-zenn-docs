@@ -257,7 +257,7 @@ def is_in_cooldown(slug: str, failures: dict) -> bool:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="承認キュー方式の Zenn 記事公開")
+    parser = argparse.ArgumentParser(description="Zenn記事の自動公開（タイミング制御付き）")
     parser.add_argument("--dry-run", action="store_true", help="変更せずに確認のみ")
     parser.add_argument("--force", action="store_true", help="時刻/休日チェックをスキップ")
     parser.add_argument("--list", action="store_true", help="publish-ready 一覧を表示")
@@ -310,7 +310,7 @@ def main():
         print("レートリミットに到達済み。本日の公開をスキップします。")
         sys.exit(0)
 
-    # publish-ready 記事を検索
+    # 公開対象の記事を検索
     articles = find_publishable_articles()
     failures = load_failures()
 
@@ -323,7 +323,7 @@ def main():
         eligible.append((slug, path))
 
     if not eligible:
-        print("公開待ち記事なし（publish-ready が 0 件、またはクールダウン中）")
+        print("公開対象なし（対象記事 0 件、またはクールダウン中）")
         sys.exit(0)
 
     # 1本だけ選ぶ（日付ハッシュで決定的ランダム選択）
