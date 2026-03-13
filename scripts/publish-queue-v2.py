@@ -114,14 +114,23 @@ def parse_frontmatter(filepath: Path) -> dict:
     return fm
 
 
-def find_publish_ready_articles() -> list[tuple[str, Path]]:
-    """status: publish-ready の記事を取得（ファイル名順）"""
-    articles = []
+def find_publishable_articles() -> list[tuple[str, Path]]:
+    """公開対象の記事を取得（ファイル名順）.
+
+    status: publish-ready を優先し、次に draft を対象にする。
+    """
+    ready = []
+    drafts = []
     for article in sorted(ARTICLES_DIR.glob("*.md")):
         fm = parse_frontmatter(article)
-        if fm.get("status") == "publish-ready" and fm.get("published") == "false":
-            articles.append((article.stem, article))
-    return articles
+        if fm.get("published") != "false":
+            continue
+        status = fm.get("status", "draft")
+        if status == "publish-ready":
+            ready.append((article.stem, article))
+        elif status == "draft":
+            drafts.append((article.stem, article))
+    return ready + drafts
 
 
 def publish_article(article_path: Path) -> bool:
@@ -150,10 +159,10 @@ def publish_article(article_path: Path) -> bool:
         if re.match(r"^published:\s*false\s*$", lines[i]):
             lines[i] = re.sub(r"^(published:\s*)false", r"\1true", lines[i])
             published_changed = True
-        # status: "publish-ready" → "published"
-        if re.match(r'^status:\s*"?publish-ready"?\s*$', lines[i]):
+        # status: "publish-ready" or "draft" → "published"
+        if re.match(r'^status:\s*"?(publish-ready|draft)"?\s*$', lines[i]):
             lines[i] = re.sub(
-                r'^(status:\s*)"?publish-ready"?',
+                r'^(status:\s*)"?(publish-ready|draft)"?',
                 r'\1"published"',
                 lines[i],
             )
@@ -220,11 +229,11 @@ def main():
 
     # --list: 一覧表示のみ
     if args.list:
-        articles = find_publish_ready_articles()
+        articles = find_publishable_articles()
         if not articles:
-            print("publish-ready の記事はありません")
+            print("公開対象の記事はありません")
         else:
-            print(f"publish-ready: {len(articles)} 本")
+            print(f"公開対象: {len(articles)} 本")
             for slug, path in articles:
                 print(f"  - {slug}")
         sys.exit(0)
@@ -263,7 +272,7 @@ def main():
         sys.exit(0)
 
     # publish-ready 記事を検索
-    articles = find_publish_ready_articles()
+    articles = find_publishable_articles()
     failures = load_failures()
 
     # クールダウン中の記事を除外
