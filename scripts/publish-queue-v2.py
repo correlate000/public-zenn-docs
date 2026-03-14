@@ -290,9 +290,9 @@ def main():
             print(f"{MAX_CONSECUTIVE_DAYS}日連続公開済み — 本日は休止")
             sys.exit(0)
 
-        # 時刻チェック
+        # 時刻チェック（公開時刻以降なら実行。重複は「既に公開済み」チェックで防止）
         publish_hour = get_publish_hour(now)
-        if now.hour != publish_hour:
+        if now.hour < publish_hour:
             print(f"本日の公開時刻は {publish_hour}:00 JST（現在 {now.hour}:00）— スキップ")
             sys.exit(0)
 
