@@ -3,8 +3,8 @@ title: "データレイク設計のアンチパターン：「沼」に落ちな
 emoji: "🏞"
 type: "tech"
 topics: ["datalake", "dataengineering", "bigquery", "spark", "apacheiceberg"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
