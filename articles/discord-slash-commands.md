@@ -3,8 +3,8 @@ title: "Discord スラッシュコマンド実装ガイド ─ discord.py × Clo
 emoji: "🤖"
 type: "tech"
 topics: ["discord", "python", "cloudrun", "bot", "discordpy"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
