@@ -18,6 +18,7 @@ pre-commit hook としても動作:
 """
 
 import re
+import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -339,7 +340,15 @@ def main():
         print(f"ERROR: {ARTICLES_DIR} が見つかりません")
         sys.exit(1)
 
-    articles = sorted(ARTICLES_DIR.glob("*.md"))
+    # git管理下のファイルのみ検査（.gitignoreで除外されたファイルをスキップ）
+    try:
+        tracked = subprocess.run(
+            ["git", "ls-files", "articles/*.md"],
+            capture_output=True, text=True, cwd=ARTICLES_DIR.parent
+        ).stdout.strip().splitlines()
+        articles = sorted(ARTICLES_DIR.parent / f for f in tracked if f)
+    except Exception:
+        articles = sorted(ARTICLES_DIR.glob("*.md"))
     all_fm = {}
     all_errors = {}
     total_errors = 0
