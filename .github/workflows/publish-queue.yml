@@ -60,12 +60,19 @@ jobs:
         if: steps.publish.outputs.published == 'true'
         run: python3 scripts/validate-frontmatter.py --ci
 
-      - name: Commit and push
+      - name: Commit and push (publish)
         if: steps.publish.outputs.published == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: 承認キュー公開 — publish-queue-v2.py'
           file_pattern: 'articles/*.md scripts/.publish-history.json scripts/.publish-failures.json'
+
+      - name: Commit and push (cleanup)
+        if: steps.publish.outputs.cleanup == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'fix: Zenn未デプロイ記事を非公開に戻す — publish-queue-v2.py'
+          file_pattern: 'articles/*.md'
 
       - name: Notify Discord
         if: steps.publish.outputs.published == 'true'

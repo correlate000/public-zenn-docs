@@ -26,7 +26,9 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
+import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -35,6 +37,7 @@ ARTICLES_DIR = REPO_ROOT / "articles"
 FAILURE_LOG = Path(__file__).parent / ".publish-failures.json"
 PUBLISH_HISTORY = Path(__file__).parent / ".publish-history.json"
 DAILY_LIMIT = 4  # Zenn公式上限5、安全マージン1
+ZENN_PUBLICATION = "correlate_dev"
 COOLDOWN_HOURS = 48
 MAX_CONSECUTIVE_DAYS = 3
 JST = timezone(timedelta(hours=9))
@@ -221,6 +224,74 @@ def publish_article(article_path: Path) -> bool:
     return True
 
 
+def check_zenn_status(slug: str) -> int:
+    """Zennでの記事公開状態をHTTPステータスで返す.
+
+    200: 公開済み, 403: 登録済み未公開, 404: 未登録
+    """
+    url = f"https://zenn.dev/{ZENN_PUBLICATION}/articles/{slug}"
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        req.add_header("User-Agent", "publish-queue-v2/1.0")
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            return resp.status
+    except urllib.error.HTTPError as e:
+        return e.code
+    except Exception:
+        return -1  # ネットワークエラー等
+
+
+def find_undeployed_articles() -> list[tuple[str, Path]]:
+    """published: true だがZennに未デプロイの記事を検出.
+
+    publish-history に記録があり（スクリプトが公開処理済み）、
+    かつ Zenn で 200 が返らない記事を「未デプロイ」と判定する。
+    """
+    history = load_publish_history()
+    published_dates = set(history.get("dates", []))
+    if not published_dates:
+        return []
+
+    undeployed = []
+    for article in sorted(ARTICLES_DIR.glob("*.md")):
+        fm = parse_frontmatter(article)
+        if fm.get("published") != "true":
+            continue
+        if fm.get("status") != "published":
+            continue
+        slug = article.stem
+        status = check_zenn_status(slug)
+        if status != 200:
+            print(f"  未デプロイ検出: {slug} (HTTP {status})")
+            undeployed.append((slug, article))
+    return undeployed
+
+
+def revert_article(article_path: Path) -> bool:
+    """published: true → false, status: published → draft に戻す"""
+    content = article_path.read_text(encoding="utf-8")
+    lines = content.split("\n")
+    if not lines or lines[0].strip() != "---":
+        return False
+    fm_end = None
+    for i, line in enumerate(lines[1:], 1):
+        if line.strip() == "---":
+            fm_end = i
+            break
+    if fm_end is None:
+        return False
+    changed = False
+    for i in range(1, fm_end):
+        if re.match(r"^published:\s*true\s*$", lines[i]):
+            lines[i] = re.sub(r"^(published:\s*)true", r"\1false", lines[i])
+            changed = True
+        if re.match(r'^status:\s*"?published"?\s*$', lines[i]):
+            lines[i] = re.sub(r'^(status:\s*)"?published"?', r'\1"draft"', lines[i])
+    if changed:
+        article_path.write_text("\n".join(lines), encoding="utf-8")
+    return changed
+
+
 def count_recent_deploys() -> int:
     """当日に公開された記事数を .publish-history.json から取得.
 
@@ -300,6 +371,35 @@ def main():
         if today_str in history.get("dates", []):
             print("本日は既に公開済み — スキップ")
             sys.exit(0)
+
+    # 未デプロイ記事のクリーンアップ
+    # published: true だが Zenn に公開されていない記事を検出し、
+    # published: false に戻す。新規公開はクリーンアップ後に別の実行で行う。
+    print("Zennデプロイ状態を確認中...")
+    undeployed = find_undeployed_articles()
+    if undeployed:
+        print(f"\n⚠ 未デプロイ記事 {len(undeployed)} 件を検出 — published: false に戻します")
+        for slug, path in undeployed:
+            if args.dry_run:
+                print(f"  [DRY RUN] 戻す予定: {slug}")
+            else:
+                if revert_article(path):
+                    print(f"  ✓ {slug}: published → false に戻しました")
+                else:
+                    print(f"  ✗ {slug}: 戻し失敗", file=sys.stderr)
+        if not args.dry_run:
+            print("\nクリーンアップ完了。新規公開は次回の実行で行います。")
+            # GitHub Actions output（commit対象があることを通知）
+            github_output = os.environ.get("GITHUB_OUTPUT")
+            if github_output:
+                reverted_slugs = ",".join(s for s, _ in undeployed)
+                with open(github_output, "a", encoding="utf-8") as f:
+                    f.write(f"reverted_slugs={reverted_slugs}\n")
+                    f.write(f"published=false\n")
+                    f.write(f"cleanup=true\n")
+        sys.exit(0)
+
+    print("  全記事デプロイ確認OK")
 
     # レートリミット確認
     recent_deploys = count_recent_deploys()
