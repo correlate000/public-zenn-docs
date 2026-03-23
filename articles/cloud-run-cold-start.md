@@ -3,8 +3,8 @@ title: "Cloud Run コールドスタート対策完全ガイド ─ 原因分析
 emoji: "🥶"
 type: "tech"
 topics: ["cloudrun", "gcp", "docker", "パフォーマンス", "python"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
