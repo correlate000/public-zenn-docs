@@ -298,3 +298,13 @@ https://zenn.dev/correlate000/articles/google-drive-incident
 https://zenn.dev/ikumasudo/articles/08550be5edcd7e
 
 https://note.com/cozy_in_da_house/n/nf0cb09a0cf28
+
+---
+
+**関連記事**
+
+- [Discord BotでMac miniをどこからでもClaude Code遠隔操作する](https://zenn.dev/correlate_dev/articles/discord-bot-remote-mac-mini)
+- [Google Driveで開発フォルダを同期したら167GB書き込まれた話](https://zenn.dev/correlate_dev/articles/google-drive-incident)
+- [DDEV使いがDockerを理解したら世界が変わった話](https://zenn.dev/correlate_dev/articles/ddev-to-docker)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

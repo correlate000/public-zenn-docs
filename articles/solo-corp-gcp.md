@@ -250,7 +250,7 @@ Cloud Runの`min-instances=0`にすればさらにコストを下げられます
 
 ### ハマったポイント
 
-1. freee APIのリフレッシュトークン -- 使い捨て方式のため、Cloud Runの再起動で消失するリスクがある。Secret Managerへの永続化が必須（詳細は「[freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate/articles/freee-api-cloud-run)」を参照）
+1. freee APIのリフレッシュトークン -- 使い捨て方式のため、Cloud Runの再起動で消失するリスクがある。Secret Managerへの永続化が必須（詳細は「[freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate_dev/articles/freee-api-cloud-run)」を参照）
 2. Cloud Runのコールドスタート -- min-instances=0だとDiscord Botの接続確立に時間がかかる。定時バッチの成功率が下がる
 3. BigQueryのタイムゾーン -- `CURRENT_DATE()`はUTC基準。日本時間で扱うには全クエリで`CURRENT_DATE('Asia/Tokyo')`を明示する必要がある
 
@@ -287,3 +287,13 @@ https://discordpy.readthedocs.io/
 https://fastapi.tiangolo.com/
 
 https://developer.freee.co.jp/reference/accounting/reference
+
+---
+
+**関連記事**
+
+- [1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
+- [freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate_dev/articles/freee-api-cloud-run)
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

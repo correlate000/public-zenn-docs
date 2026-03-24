@@ -336,3 +336,13 @@ flowchart TD
 :::message
 本記事の情報は2026年2月時点のものです。料金・機能は各ツールの公式サイトで最新情報をご確認ください。
 :::
+
+---
+
+**関連記事**
+
+- [CLAUDE.md設計ガイド — AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
+- [「What, not How」-- AIエージェント時代のプロンプト設計哲学](https://zenn.dev/correlate_dev/articles/what-not-how-prompt-philosophy)
+- [Claude Code x ローカルLLM: いつ切り替えるべきかの判断基準](https://zenn.dev/correlate_dev/articles/local-llm-judgment)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

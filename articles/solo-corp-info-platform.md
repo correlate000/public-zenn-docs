@@ -291,3 +291,13 @@ https://gihyo.jp/article/2025/05/obsidian-05
 https://scr.marketing-wizard.biz/notion/notion-db-performance-test
 
 https://auto-worker.com/blog/?p=6174
+
+---
+
+**関連記事**
+
+- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
+- [Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
+- [1人法人がDiscord Botを業務ツールにしたら便利だった話](https://zenn.dev/correlate_dev/articles/discord-bot-business)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

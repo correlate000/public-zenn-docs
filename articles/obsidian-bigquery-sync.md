@@ -459,3 +459,13 @@ https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSy
 https://help.obsidian.md/Advanced+topics/YAML+front+matter
 
 https://buildingasecondbrain.com/
+
+---
+
+**関連記事**
+
+- [小規模事業者のナレッジ管理、NotionよりBigQueryが向くケース](https://zenn.dev/correlate_dev/articles/notion-vs-bigquery-knowledge-management)
+- [1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
+- [コンテンツパイプラインという思想 — 記事が生まれる仕組みの設計](https://zenn.dev/correlate_dev/articles/content-pipeline-philosophy)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

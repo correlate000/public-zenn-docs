@@ -902,3 +902,13 @@ MCPの強みは「一度実装すれば複数のAIクライアントで使い回
 - [MCP Python SDK（GitHub）](https://github.com/modelcontextprotocol/python-sdk)
 - [MCP Inspector（デバッグツール）](https://github.com/modelcontextprotocol/inspector)
 - [Claude Desktop設定ガイド](https://modelcontextprotocol.io/quickstart/user)
+
+---
+
+**関連記事**
+
+- [MCPサーバーより直接APIを叩くべき3つの理由](https://zenn.dev/correlate_dev/articles/mcp-vs-direct-api)
+- [Claude Code Hooks完全ガイド — AIエージェントに安全ガードを設ける](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)
+- [Claude Codeの7つの拡張機能を「所有権モデル」で整理する](https://zenn.dev/correlate_dev/articles/context-ownership-model-claude-code)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

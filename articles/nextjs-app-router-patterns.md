@@ -1066,3 +1066,13 @@ App Router は「何をサーバーで、何をクライアントで行うか」
 - [Directives: use cache](https://nextjs.org/docs/app/api-reference/directives/use-cache)
 - [File-system conventions: Parallel Routes](https://nextjs.org/docs/app/api-reference/file-conventions/parallel-routes)
 - [File-system conventions: Intercepting Routes](https://nextjs.org/docs/app/api-reference/file-conventions/intercepting-routes)
+
+---
+
+**関連記事**
+
+- [TanStack Query実践パターン — キャッシュ・楽観的更新・無限スクロール](https://zenn.dev/correlate_dev/articles/react-query-patterns)
+- [TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
+- [TypeScript × Zodで型安全なランタイムバリデーションを実現する](https://zenn.dev/correlate_dev/articles/typescript-zod-validation)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

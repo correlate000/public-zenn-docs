@@ -248,3 +248,13 @@ https://medium.com/@bozzified/solving-painful-syncing-of-node-modules-when-using
 https://arshaw.com/exclude-node-modules-dropbox-google-drive
 
 https://syncthing.net/
+
+---
+
+**関連記事**
+
+- [TailscaleでMac miniとMBPを同期して開発効率を激変させた話](https://zenn.dev/correlate_dev/articles/tailscale-dev-environment)
+- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
+- [DDEV使いがDockerを理解したら世界が変わった話](https://zenn.dev/correlate_dev/articles/ddev-to-docker)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

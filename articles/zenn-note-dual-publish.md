@@ -313,3 +313,13 @@ dist/
 ```
 
 認証情報（noteのログイン
+
+---
+
+**関連記事**
+
+- [Zennレートリミットで7本が全滅 — 自動リトライ機構の実装](https://zenn.dev/correlate_dev/articles/zenn-rate-limit-retry)
+- [Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)
+- [コンテンツパイプラインという思想 — 記事が生まれる仕組みの設計](https://zenn.dev/correlate_dev/articles/content-pipeline-philosophy)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

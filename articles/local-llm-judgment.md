@@ -312,4 +312,14 @@ https://blog.mosuke.tech/entry/2025/04/04/mac-mini-local-llm/
 
 https://dev.classmethod.jp/articles/local-llm-guide-2026/
 
-https://zenn.dev/correlate/articles/morning-bot-ai
+https://zenn.dev/correlate_dev/articles/morning-bot-ai
+
+---
+
+**関連記事**
+
+- [Cursor vs Claude Code — 2026年版AIコーディングツール使い分けガイド](https://zenn.dev/correlate_dev/articles/cursor-vs-claude-code)
+- [Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する](https://zenn.dev/correlate_dev/articles/claude-code-memory-design)
+- [Python asyncio で複数API並列呼び出し ─ LLM API のレートリミット対策まで](https://zenn.dev/correlate_dev/articles/python-asyncio-api)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

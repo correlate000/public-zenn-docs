@@ -688,3 +688,13 @@ TypeScript のユーティリティ型を体系的にまとめると、以下の
 - [TypeScript 公式ドキュメント - Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
 - [TypeScript 公式ドキュメント - Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)
 - [TypeScript 公式ドキュメント - Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
+
+---
+
+**関連記事**
+
+- [TypeScript × Zodで型安全なランタイムバリデーションを実現する](https://zenn.dev/correlate_dev/articles/typescript-zod-validation)
+- [Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
+- [Python型ヒント実践ガイド — mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

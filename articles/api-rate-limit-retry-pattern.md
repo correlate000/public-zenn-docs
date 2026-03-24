@@ -890,3 +890,13 @@ python zenn-retry-failed.py --dry-run
 - [GitHub REST API Rate Limits](https://docs.github.com/en/rest/overview/rate-limits)
 - [Twitter API Rate Limits](https://developer.twitter.com/en/docs/twitter-api/rate-limits)
 - [OpenAI API Error Codes](https://platform.openai.com/docs/guides/error-codes)
+
+---
+
+**関連記事**
+
+- [Python asyncio で複数API並列呼び出し ─ LLM API のレートリミット対策まで](https://zenn.dev/correlate_dev/articles/python-asyncio-api)
+- [MCPカスタムサーバーをPythonで実装する — Claudeに自前APIを接続](https://zenn.dev/correlate_dev/articles/mcp-custom-server)
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

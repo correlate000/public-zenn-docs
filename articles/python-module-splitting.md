@@ -301,3 +301,13 @@ https://medium.com/@amirm.lavasani/how-to-structure-your-fastapi-projects-0219a6
 https://github.com/zhanymkanov/fastapi-best-practices
 
 https://zenn.dev/koduki/articles/b413f78b824688
+
+---
+
+**関連記事**
+
+- [Python asyncio で複数API並列呼び出し ─ LLM API のレートリミット対策まで](https://zenn.dev/correlate_dev/articles/python-asyncio-api)
+- [Python型ヒント実践ガイド — mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
+- [Python uv完全ガイド — pip/poetryより10倍速いパッケージ管理](https://zenn.dev/correlate_dev/articles/python-uv-guide)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

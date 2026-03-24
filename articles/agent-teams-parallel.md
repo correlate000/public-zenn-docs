@@ -421,3 +421,13 @@ https://qiita.com/nero-15/items/c12a9403a7d7673ae432
 https://izanami.dev/post/8628a13f-8cff-47d0-a4fa-be8f2a4551c3
 
 https://zenn.dev/correlate000/articles/devils-advocate-ai-team
+
+---
+
+**関連記事**
+
+- [Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)
+- [Claude Code Hooks完全ガイド — AIエージェントに安全ガードを設ける](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)
+- [朝会ボットを設計書から実装まで全部AIにやらせた話](https://zenn.dev/correlate_dev/articles/morning-bot-ai)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

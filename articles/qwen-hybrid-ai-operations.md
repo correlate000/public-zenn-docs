@@ -370,3 +370,13 @@ spark.sql("""
 - **Apache Kafka → S3 の構成** ：Kafka Connect の S3 Sink Connector を使用し、`flush.size`（レコード数によるフラッシュ閾値）や `rotate.interval.ms`（時間によるローテーション間隔）でバッファリングを制御するのが主要な対策です。
 - **Spark Structured Streaming の構成** ：`trigger(processingTime='1 hour')` でバッチ間隔を広げる方法もありますが、より現代的なアプローチとして `trigger(availableNow=True)` を使い、溜まったデータをバッチ的に処理する設計パターンも有効です。
 - **リアルタイム性要件がある場合** ：バッファ時間を長くすることは遅延許容度との兼ね合いになります。厳格なリアルタイム性が求められるシステムでは、Compactionによる後処理を前提とした設計が現実的な落とし所となります。
+
+---
+
+**関連記事**
+
+- [BigQuery MLではじめる機械学習 — SQLだけでモデル構築・予測・評価](https://zenn.dev/correlate_dev/articles/bigquery-ml-intro)
+- [Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
+- [1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

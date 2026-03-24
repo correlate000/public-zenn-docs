@@ -376,3 +376,13 @@ https://developer.freee.co.jp/reference/accounting/reference
 https://cloud.google.com/run/docs
 
 https://www.python-httpx.org/
+
+---
+
+**関連記事**
+
+- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
+- [1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
+- [Cloud Run コールドスタート対策完全ガイド ─ 原因分析からDockerfile最適化・CPU Boostまで](https://zenn.dev/correlate_dev/articles/cloud-run-cold-start)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

@@ -445,3 +445,13 @@ uv の主なメリットを整理します。
 poetry や pip からの移行は `uv sync` を起点に比較的スムーズに行えます。既存プロジェクトでも `uv pip install -r requirements.txt` から始めて段階的に移行することができます。
 
 公式ドキュメント（https://docs.astral.sh/uv/）には本記事で触れていない詳細な設定オプションも掲載されています。ぜひ参照してみてください。
+
+---
+
+**関連記事**
+
+- [1ファイル3500行超のPythonを恐れずにモジュール分割した話](https://zenn.dev/correlate_dev/articles/python-module-splitting)
+- [Python型ヒント実践ガイド — mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
+- [DDEV使いがDockerを理解したら世界が変わった話](https://zenn.dev/correlate_dev/articles/ddev-to-docker)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

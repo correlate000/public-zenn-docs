@@ -327,3 +327,13 @@ https://www.suzukikenichi.com/blog/ai-generated-content-references-in-the-search
 https://ledge.ai/articles/google_deepmind_devils_adovocate
 
 [^1]: Google検索品質評価ガイドライン（2025年1月更新）では、AIで大量生成し人間の監修を経ていないコンテンツを最低品質（Lowest Quality）に分類しています。
+
+---
+
+**関連記事**
+
+- [Claude Code Agent Teamsで開発タスクを並列処理した実践ガイド](https://zenn.dev/correlate_dev/articles/agent-teams-parallel)
+- [コンテンツパイプラインという思想 — 記事が生まれる仕組みの設計](https://zenn.dev/correlate_dev/articles/content-pipeline-philosophy)
+- [CLAUDE.mdをKnowledge Files化して67%スリム化した実践記録](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

@@ -996,3 +996,13 @@ Sources:
 - [next-intl vs next-i18next 比較（Intlayer Blog）](https://intlayer.org/blog/next-i18next-vs-next-intl-vs-intlayer)
 - [Next.js 公式 i18n ガイド](https://nextjs.org/docs/app/guides/internationalization)
 - [next-intl Middleware ドキュメント](https://next-intl.dev/docs/routing/middleware)
+
+---
+
+**関連記事**
+
+- [Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
+- [TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
+- [Vercel Edge Functions完全ガイド — エッジで超高速APIを実現](https://zenn.dev/correlate_dev/articles/vercel-edge-functions)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

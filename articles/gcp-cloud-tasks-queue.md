@@ -927,3 +927,13 @@ Sources:
 - [Choose Cloud Tasks or Pub/Sub | Google Cloud Documentation](https://cloud.google.com/tasks/docs/comp-pub-sub)
 - [Configure Cloud Tasks queues | Google Cloud Documentation](https://docs.cloud.google.com/tasks/docs/configuring-queues)
 - [Create HTTP tasks with authentication | Cloud Tasks | Google Cloud Documentation](https://cloud.google.com/tasks/docs/samples/cloud-tasks-create-http-task-with-token)
+
+---
+
+**関連記事**
+
+- [Cloud Run コールドスタート対策完全ガイド ─ 原因分析からDockerfile最適化・CPU Boostまで](https://zenn.dev/correlate_dev/articles/cloud-run-cold-start)
+- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

@@ -353,3 +353,13 @@ https://zenn.dev/driller/articles/2a23ef94f1d603
 https://zenn.dev/smartshopping/articles/refactor-fat-claude-md
 
 https://zenn.dev/tmasuyama1114/articles/claude_code_dynamic_rules
+
+---
+
+**関連記事**
+
+- [CLAUDE.md設計ガイド — AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
+- [Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する](https://zenn.dev/correlate_dev/articles/claude-code-memory-design)
+- [Claude Codeの7つの拡張機能を「所有権モデル」で整理する](https://zenn.dev/correlate_dev/articles/context-ownership-model-claude-code)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

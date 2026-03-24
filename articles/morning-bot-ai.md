@@ -311,6 +311,16 @@ https://zenn.dev/luup_developers/articles/server-jang-20251215
 
 https://developer.freee.co.jp/reference/accounting/reference
 
-https://zenn.dev/correlate/articles/freee-api-cloud-run
+https://zenn.dev/correlate_dev/articles/freee-api-cloud-run
 
-https://zenn.dev/correlate/articles/discord-bot-business
+https://zenn.dev/correlate_dev/articles/discord-bot-business
+
+---
+
+**関連記事**
+
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+- [Claude Code Agent Teamsで開発タスクを並列処理した実践ガイド](https://zenn.dev/correlate_dev/articles/agent-teams-parallel)
+- [Claude Code Hooksで開発ワークフローを完全自動化する](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

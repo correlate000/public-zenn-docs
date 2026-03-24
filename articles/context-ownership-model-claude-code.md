@@ -322,3 +322,13 @@ graph TD
 Agentsは、親エージェントから子エージェントを起動する仕組みです。Fowlerの論文では「context fork」という概念で説明されており、 ** コンテキストを分岐させながら並列・逐次的にサブタスクを処理 ** します。
 
 たとえば「フロントエンドのコード修正」と「バックエンドのAPI修正」を独立したコンテキストで並列処理させることで、コンテキスト汚染を防ぎながら効率的にタスクを進めることができます。
+
+---
+
+**関連記事**
+
+- [Claude Code Hooks完全ガイド — AIエージェントに安全ガードを設ける](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)
+- [CLAUDE.mdをKnowledge Files化して67%スリム化した実践記録](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)
+- [Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する](https://zenn.dev/correlate_dev/articles/claude-code-memory-design)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

@@ -538,3 +538,13 @@ flowchart TD
 ---
 
 姉妹記事「[Cloud Run オートスケーリング徹底解説](/articles/cloud-run-autoscaling)」では、min-instances・max-instances・concurrency の全体的な設定とコスト計算の詳細を扱っています。コールドスタート以外のスケーリングチューニングはそちらを参照してください。
+
+---
+
+**関連記事**
+
+- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+- [Terraform × GCP入門 — インフラをコードで再現可能にする](https://zenn.dev/correlate_dev/articles/terraform-gcp-iac-basics)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

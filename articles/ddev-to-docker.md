@@ -238,8 +238,18 @@ https://docs.docker.com/reference/dockerfile/
 
 https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-fastapi-service
 
-https://zenn.dev/correlate/articles/solo-corp-gcp
+https://zenn.dev/correlate_dev/articles/solo-corp-gcp
 
 https://fastapi.tiangolo.com/ja/deployment/docker/
 
 https://zenn.dev/0tofu/articles/c90f5fe46c6720
+
+---
+
+**関連記事**
+
+- [Cloud Run コールドスタート対策完全ガイド ─ 原因分析からDockerfile最適化・CPU Boostまで](https://zenn.dev/correlate_dev/articles/cloud-run-cold-start)
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+- [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

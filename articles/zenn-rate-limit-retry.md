@@ -492,3 +492,13 @@ if __name__ == "__main__":
 - `ARTICLES_PER_DAY = 4` は公式上限5本に対する安全マージンです。状況に応じて調整してください
 - Zenn非公式APIのエンドポイントは予告なく変更される可能性があります。スクリプトが動作しなくなった場合はまずこの点を確認してください
 - GitHub Actionsの定期実行（`schedule`トリガー）を組み合わせることで、完全自動化を実現できます
+
+---
+
+**関連記事**
+
+- [ZennとNoteに同時投稿するGitHub Actions自動化パイプライン](https://zenn.dev/correlate_dev/articles/zenn-note-dual-publish)
+- [APIレートリミット対策の設計パターン — 自動リトライ機構の実装](https://zenn.dev/correlate_dev/articles/api-rate-limit-retry-pattern)
+- [Python asyncio で複数API並列呼び出し ─ LLM API のレートリミット対策まで](https://zenn.dev/correlate_dev/articles/python-asyncio-api)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

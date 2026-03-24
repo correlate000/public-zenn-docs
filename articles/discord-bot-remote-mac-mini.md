@@ -638,3 +638,13 @@ https://vibecord.dev/blog/discord-bot-token-security-guide
 https://zenn.dev/mizchi/articles/discord-claude-code-interface
 
 https://clawd.bot/
+
+---
+
+**関連記事**
+
+- [1人法人がDiscord Botを業務ツールにしたら便利だった話](https://zenn.dev/correlate_dev/articles/discord-bot-business)
+- [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
+- [TailscaleでMac miniとMBPを同期して開発効率を激変させた話](https://zenn.dev/correlate_dev/articles/tailscale-dev-environment)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

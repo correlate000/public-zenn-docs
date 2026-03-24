@@ -551,3 +551,13 @@ DevTools では各クエリの状態（fresh / stale / inactive / fetching）、
 TanStack Query は「データ取得ライブラリ」というより「サーバー状態管理ライブラリ」として設計されています。ローカル状態（UI の開閉、フォームの入力値など）は引き続き `useState` や Zustand で管理し、サーバーのデータは TanStack Query に任せるという役割分担を意識すると、コードが整理されます。
 
 v5 ではフック名の変更（`cacheTime` → `gcTime`、`suspense` オプション廃止）がいくつかあります。既存プロジェクトを移行する際は公式のマイグレーションガイドを参照してください。
+
+---
+
+**関連記事**
+
+- [Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
+- [TypeScript × Zodで型安全なランタイムバリデーションを実現する](https://zenn.dev/correlate_dev/articles/typescript-zod-validation)
+- [TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

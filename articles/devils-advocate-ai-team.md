@@ -292,3 +292,13 @@ https://github.com/richiethomas/claude-devils-advocate
 https://arxiv.org/abs/2405.16334
 
 https://dora.dev/research/2025/dora-report/
+
+---
+
+**関連記事**
+
+- [Claude Code Agent Teamsで開発タスクを並列処理した実践ガイド](https://zenn.dev/correlate_dev/articles/agent-teams-parallel)
+- [Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)
+- [「What, not How」-- AIエージェント時代のプロンプト設計哲学](https://zenn.dev/correlate_dev/articles/what-not-how-prompt-philosophy)
+
+> [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。
