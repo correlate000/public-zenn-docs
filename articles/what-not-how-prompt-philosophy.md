@@ -388,7 +388,6 @@ https://zenn.dev/correlate_dev/articles/ai-content-pipeline
 
 **関連記事**
 
-- [CLAUDE.md設計ガイド — AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
 - [AIチームにデビルズアドボケイトを入れたら品質が改善した話](https://zenn.dev/correlate_dev/articles/devils-advocate-ai-team)
 - [Cursor vs Claude Code — 2026年版AIコーディングツール使い分けガイド](https://zenn.dev/correlate_dev/articles/cursor-vs-claude-code)
 

@@ -23,7 +23,7 @@ ssh mac-mini
 
 この環境を手に入れるまでに、私は一度盛大に失敗しています。Google Drive for Desktopで開発フォルダを同期しようとして、167GBのディスク書き込みを発生させました[^1]。あの経験があったからこそ、「正しいツールを正しい用途に使う」という当たり前の原則に立ち返れたのだと思います。
 
-[^1]: 詳しくは[Google Driveで開発フォルダを同期したら167GB書き込まれた話](https://zenn.dev/correlate000/articles/google-drive-incident)をご覧ください。
+[^1]: 詳しくは[Google Driveで開発フォルダを同期したら167GB書き込まれた話](https://zenn.dev/correlate_dev/articles/google-drive-incident)をご覧ください。
 
 ## 2台のMacを使い分けたい、でも同期が難しい
 
@@ -293,7 +293,7 @@ https://tailscale.com/pricing
 
 https://syncthing.net/
 
-https://zenn.dev/correlate000/articles/google-drive-incident
+https://zenn.dev/correlate_dev/articles/google-drive-incident
 
 https://zenn.dev/ikumasudo/articles/08550be5edcd7e
 

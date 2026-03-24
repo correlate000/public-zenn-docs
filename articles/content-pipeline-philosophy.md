@@ -275,15 +275,12 @@ https://www.suzukikenichi.com/blog/ai-generated-content-references-in-the-search
 
 https://zenn.dev/correlate_dev/articles/ai-content-pipeline
 
-https://zenn.dev/correlate_dev/articles/obsidian-claude-code
-
 [^1]: Google検索品質評価ガイドライン（2025年1月更新）では、AIで大量生成されたコンテンツが「努力なし・独自性なし・付加価値なし」の場合に最低品質（Lowest Quality）と評価されると明記されている。
 
 ---
 
 **関連記事**
 
-- [Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)
 - [Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
 - [小規模事業者のナレッジ管理、NotionよりBigQueryが向くケース](https://zenn.dev/correlate_dev/articles/notion-vs-bigquery-knowledge-management)
 

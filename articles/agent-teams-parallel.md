@@ -21,7 +21,7 @@ Agent Teamsは2026年2月5日、Claude Opus 4.6と同時にリリースされた
 本記事では、3つのチームで計13エージェントを運用した実体験から、Agent Teamsの構築方法と実践的なノウハウを共有します。「使ってみた」で終わらず、どうタスクを分割し、どう依存関係を設計すれば並列化の恩恵を最大化できるかに踏み込んだ内容。
 
 :::message alert
-前回の記事「[デビルズアドボケイトをAI開発チームに入れたら品質が劇的に改善した話](https://zenn.dev/correlate000/articles/devils-advocate-ai-team)」の続編です。DAをAgent Teamsにどう組み込むかも扱うので、未読の方はそちらも併せてどうぞ。
+前回の記事「[デビルズアドボケイトをAI開発チームに入れたら品質が劇的に改善した話](https://zenn.dev/correlate_dev/articles/devils-advocate-ai-team)」の続編です。DAをAgent Teamsにどう組み込むかも扱うので、未読の方はそちらも併せてどうぞ。
 :::
 
 ## Agent Teamsとは
@@ -420,7 +420,7 @@ https://qiita.com/nero-15/items/c12a9403a7d7673ae432
 
 https://izanami.dev/post/8628a13f-8cff-47d0-a4fa-be8f2a4551c3
 
-https://zenn.dev/correlate000/articles/devils-advocate-ai-team
+https://zenn.dev/correlate_dev/articles/devils-advocate-ai-team
 
 ---
 

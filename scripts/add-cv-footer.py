@@ -16,7 +16,7 @@ RELATED_MAP = {
     "claude-code-memory-design": ["claude-code-knowledge-files", "claude-md-guide", "context-ownership-model-claude-code"],
     "claude-md-guide": ["claude-code-knowledge-files", "claude-code-memory-design", "what-not-how-prompt-philosophy"],
     "cloud-run-cold-start": ["solo-corp-gcp", "discord-bot-cloud-run", "terraform-gcp-iac-basics"],
-    "content-pipeline-philosophy": ["ai-content-pipeline", "obsidian-bigquery-sync", "notion-vs-bigquery-knowledge-management"],
+    "content-pipeline-philosophy": ["obsidian-bigquery-sync", "notion-vs-bigquery-knowledge-management"],
     "context-ownership-model-claude-code": ["claude-code-hooks-complete-guide", "claude-code-knowledge-files", "claude-code-memory-design"],
     "cursor-vs-claude-code": ["claude-md-guide", "what-not-how-prompt-philosophy", "local-llm-judgment"],
     "ddev-to-docker": ["cloud-run-cold-start", "discord-bot-cloud-run", "solo-corp-gcp"],
@@ -48,7 +48,7 @@ RELATED_MAP = {
     "typescript-utility-types": ["typescript-zod-validation", "nextjs-app-router-patterns", "python-type-hints-advanced"],
     "typescript-zod-validation": ["typescript-utility-types", "react-query-patterns", "nextjs-app-router-patterns"],
     "vercel-edge-functions": ["nextjs-app-router-patterns", "nextjs-i18n-routing", "cloud-run-cold-start"],
-    "what-not-how-prompt-philosophy": ["claude-md-guide", "devils-advocate-ai-team", "cursor-vs-claude-code"],
+    "what-not-how-prompt-philosophy": ["devils-advocate-ai-team", "cursor-vs-claude-code"],
     "zenn-note-dual-publish": ["zenn-rate-limit-retry", "ai-content-pipeline", "content-pipeline-philosophy"],
     "zenn-rate-limit-retry": ["zenn-note-dual-publish", "api-rate-limit-retry-pattern", "python-asyncio-api"],
 }
@@ -70,7 +70,10 @@ FOOTER_TEMPLATE = """
 FOOTER_MARKER = f"> [{PUBLICATION}]({PUBLICATION_URL})"
 
 # 旧URLパターン → 新URLパターン
-OLD_URL_PATTERN = "zenn.dev/correlate/articles/"
+OLD_URL_PATTERNS = [
+    "zenn.dev/correlate/articles/",
+    "zenn.dev/correlate000/articles/",
+]
 NEW_URL_PATTERN = f"zenn.dev/{PUBLICATION}/articles/"
 
 
@@ -92,9 +95,12 @@ def atomic_write(path: Path, content: str) -> None:
 
 def fix_old_urls(content: str) -> tuple[str, int]:
     """旧URLを新URLに置換する。変更件数を返す。"""
-    new_content = content.replace(OLD_URL_PATTERN, NEW_URL_PATTERN)
-    count = content.count(OLD_URL_PATTERN)
-    return new_content, count
+    total_count = 0
+    new_content = content
+    for pattern in OLD_URL_PATTERNS:
+        total_count += new_content.count(pattern)
+        new_content = new_content.replace(pattern, NEW_URL_PATTERN)
+    return new_content, total_count
 
 
 def build_title_map(articles_dir: Path) -> dict[str, str]:
