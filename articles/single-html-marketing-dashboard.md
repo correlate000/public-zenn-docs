@@ -3,8 +3,8 @@ title: "3,871行の単一HTMLでインタラクティブなマーケティング
 emoji: "📊"
 type: "tech"
 topics: ["HTML", "JavaScript", "Mermaid", "マーケティング", "アクセシビリティ"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
