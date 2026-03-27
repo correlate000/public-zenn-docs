@@ -3,8 +3,8 @@ title: "1人で作る公的データプラットフォーム -- e-Stat APIと記
 emoji: "📊"
 type: "tech"
 topics: ["estat", "nextjs", "typescript", "opendata", "architecture"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
