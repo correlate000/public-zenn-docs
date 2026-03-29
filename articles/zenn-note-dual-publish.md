@@ -214,7 +214,7 @@ title: "記事タイトル"
 emoji: "📝"
 type: "tech"        # tech or idea
 topics: ["python", "github-actions"]
-published: true
+published: false
 ---
 ```
 
