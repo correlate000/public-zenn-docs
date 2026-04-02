@@ -3,8 +3,8 @@ title: "セッション記録ベースのコンテンツ候補自動抽出シス
 emoji: "🤖"
 type: "tech"
 topics: ["python", "llm", "ai", "automation", "contentpipeline"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
