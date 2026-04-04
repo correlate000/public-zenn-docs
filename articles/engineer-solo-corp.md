@@ -3,8 +3,8 @@ title: "エンジニアが1人法人を始めて分かった5つのこと"
 emoji: "🏢"
 type: "idea"
 topics: ["法人設立", "フリーランス", "1人会社", "AI活用", "freee"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
