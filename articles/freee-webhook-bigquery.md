@@ -3,8 +3,8 @@ title: "freee Webhook × BigQuery リアルタイム同期 ─ 帳票・支払�
 emoji: "⚡"
 type: "tech"
 topics: ["freee", "bigquery", "cloudrun", "webhook", "python"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
