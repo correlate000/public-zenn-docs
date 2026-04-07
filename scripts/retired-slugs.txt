@@ -24,3 +24,7 @@ discord-slash-commands  # slug衝突 → discord-slash-commands-cloudrun-guide (
 claude-code-agent-teams       # リネーム→claude-code-agent-teams-parallel-dev (2026-04-08)
 claude-code-hooks-guide       # リネーム→claude-code-hooks-complete-setup (2026-04-08)
 claude-code-skills-design-patterns-progressive-disclosure  # slug長すぎ→claude-code-skills-progressive-disclosure (2026-04-08)
+nodejs-api                # slug短すぎ→nodejs-streaming-api-patterns (2026-04-08)
+zennnote                  # slug短すぎ→zenn-note-multiplatform-publish (2026-04-08)
+discord-slash-commands    # 他アカウント使用中→discord-slash-commands-cloudrun-bot (2026-04-08)
+obsidian-claude-code      # 他アカウント使用中→obsidian-claude-code-auto-logging (2026-04-08)
