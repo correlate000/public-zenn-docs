@@ -21,3 +21,6 @@ obsidian-claude-code          # git履歴に存在、現在は削除済み (2026
 claude-code-hooks-guide       # 他アカウントが使用中→claude-code-hooks-complete-guide (2026-02-23)
 terraform-gcp-intro           # 他アカウントが使用中→terraform-gcp-iac-basics (2026-02-24)
 discord-slash-commands  # slug衝突 → discord-slash-commands-cloudrun-guide (2026-03-19)
+claude-code-agent-teams       # リネーム→claude-code-agent-teams-parallel-dev (2026-04-08)
+claude-code-hooks-guide       # リネーム→claude-code-hooks-complete-setup (2026-04-08)
+claude-code-skills-design-patterns-progressive-disclosure  # slug長すぎ→claude-code-skills-progressive-disclosure (2026-04-08)
