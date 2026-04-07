@@ -34,7 +34,7 @@ v17 以前の SDK では以下のように書けていました：
 campaign.maximize_clicks.target_cpa_micros = 0
 ```
 
-しかし v23 では Campaign オブジェクトに `maximize_clicks` というフィールドが**直接存在しない**ため、AttributeError になります。
+しかし v23 では Campaign オブジェクトに `maximize_clicks` というフィールドが ** 直接存在しない ** ため、AttributeError になります。
 
 ### v23 での正しい書き方：target_spend を使う
 
@@ -126,7 +126,7 @@ client.copy_from(campaign_operation.update_mask, update_mask)
 
 Ad Grants を開始してすぐに「コンバージョン数の最大化」に設定したところ、インプレッションが激減しました。
 
-原因は単純で、**コンバージョンデータが蓄積されていない状態では MAXIMIZE_CONVERSIONS が機能しない**ためです。Google の機械学習が「何がコンバージョンかわからない」状態で最適化しようとして、結果的に何も配信しなくなります。
+原因は単純で、 ** コンバージョンデータが蓄積されていない状態では MAXIMIZE_CONVERSIONS が機能しない ** ためです。Google の機械学習が「何がコンバージョンかわからない」状態で最適化しようとして、結果的に何も配信しなくなります。
 
 ```
 Ad Grants 開始直後の推奨順序：
@@ -265,7 +265,7 @@ Ad Grants には独自の制約があります：
 
 ### 運用フェーズ別の推奨戦略
 
-**フェーズ1：開始直後（コンバージョンデータ0件）**
+** フェーズ1：開始直後（コンバージョンデータ0件） **
 
 ```python
 # TARGET_SPEND + $2.00 CPC上限
@@ -274,7 +274,7 @@ set_target_spend(client, customer_id, campaign_id, cpc_bid_ceiling_micros=2_000_
 
 この段階ではクリックを集めてコンバージョンデータを蓄積することが最優先です。
 
-**フェーズ2：コンバージョンデータ蓄積後（30件以上）**
+** フェーズ2：コンバージョンデータ蓄積後（30件以上） **
 
 MAXIMIZE_CONVERSIONS への切り替えを検討します。ただし Ad Grants では $2.00 CPC 制約があるため、コンバージョン単価目標（tCPA）を設定しないと制約に引っかかる場合があります。
 

@@ -14,10 +14,10 @@ Discord Botの開発において、スラッシュコマンドはユーザー体
 
 しかし、discord.py v2.x で導入された `app_commands` モジュールは、v1.x までの `commands.Bot` と設計が大きく異なります。コマンドツリー（CommandTree）・Cog設計・Autocomplete・Modalといった概念を整理しないまま実装を進めると、コマンドが反映されない・シンクが重複するといった問題に悩まされます。
 
-本記事では、discord.py v2.x を使ったスラッシュコマンドの**設計パターン**を体系的に解説します。Cog分割によるスケーラブルなアーキテクチャを軸に、Autocomplete・Modal・Embedまで実践的なコード例を交えて紹介します。
+本記事では、discord.py v2.x を使ったスラッシュコマンドの ** 設計パターン ** を体系的に解説します。Cog分割によるスケーラブルなアーキテクチャを軸に、Autocomplete・Modal・Embedまで実践的なコード例を交えて紹介します。
 
 :::message
-本記事は **WebSocket型（Gateway接続）** のBot実装に特化しています。Cloud RunのゼロスケールとHTTP Interaction型を組み合わせたコスト最適構成については、別記事「Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド」を参照してください。
+本記事は **WebSocket型（Gateway接続） ** のBot実装に特化しています。Cloud RunのゼロスケールとHTTP Interaction型を組み合わせたコスト最適構成については、別記事「Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド」を参照してください。
 :::
 
 ---
@@ -28,7 +28,7 @@ Discord Botの開発において、スラッシュコマンドはユーザー体
 
 v2.x では、スラッシュコマンドの管理に `discord.app_commands.CommandTree` を使います。`commands.Bot` がデフォルトで `CommandTree` を内包しており、`bot.tree` としてアクセスできます。
 
-コマンドは `tree.sync()` で Discord API に登録されて初めて利用可能になります。**ファイルを保存しただけでは反映されない点**が、プレフィックスコマンドとの最大の違いです。
+コマンドは `tree.sync()` で Discord API に登録されて初めて利用可能になります。 ** ファイルを保存しただけでは反映されない点 ** が、プレフィックスコマンドとの最大の違いです。
 
 ### グローバル vs ギルドコマンドの使い分け
 
@@ -253,7 +253,7 @@ async def setup(bot: commands.Bot):
 
 ### defer() と followup の使い分け
 
-Discord は、インタラクション受信後 **3秒以内** に応答しないとタイムアウトします。外部API呼び出しや重い処理がある場合は `defer()` を使って応答を延長（最大15分）してください。
+Discord は、インタラクション受信後 **3秒以内 ** に応答しないとタイムアウトします。外部API呼び出しや重い処理がある場合は `defer()` を使って応答を延長（最大15分）してください。
 
 ```python
 # 処理が3秒以内に終わる場合

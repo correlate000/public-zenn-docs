@@ -39,7 +39,7 @@ Cloud Scheduler（日次）
 - エラー時の再起動が手動になる
 - 複数プロセスの協調が難しい
 
-`launchd` はmacOS標準のジョブスケジューラーです。Cronと異なり、macがスリープから復帰した際に「スキップした実行」を補完できます。また、プロセスのクラッシュ時の自動再起動もサポートしています。
+`launchd` はmacOS標準のジョブスケジューラーです。Cronと異なり、macがスリープから復帰した際に「スキップした実行」を補完できます。また、プロセスのクラッシュ時には自動再起動もサポート。
 
 `watchdog` はPythonのファイルシステム監視ライブラリです。ファイルの作成・変更をリアルタイムに検知し、コールバックを実行できます。
 
@@ -284,19 +284,19 @@ destination: {suggestion['destination']}
 
 # {suggestion['title']}
 
-**生成日**: {timestamp}
-**ステータス**: 候補検出（Deep Research待ち）
+** 生成日 **: {timestamp}
+** ステータス **: 候補検出（Deep Research待ち）
 **BQ ID**: {suggestion['suggestion_id']}
-**スコア**: {suggestion['score']}
+** スコア **: {suggestion['score']}
 
 ---
 
 ## コンテンツ候補情報
 
-- **タイトル**: {suggestion['title']}
+- ** タイトル **: {suggestion['title']}
 - **Slug**: {slug}
-- **推薦理由**: {suggestion['reason']}
-- **関連トレンド**: {', '.join(suggestion.get('trend_keywords', []))}
+- ** 推薦理由 **: {suggestion['reason']}
+- ** 関連トレンド **: {', '.join(suggestion.get('trend_keywords', []))}
 """
 
     file_path = RESEARCH_DIR / f"research-{slug}.md"
@@ -492,10 +492,10 @@ def get_bq_client() -> bigquery.Client:
 
 実装後にDAレビュー（Devil's Advocate）を実施し、以下の問題が指摘されました。
 
-1. **watchdog重複発火**：前述の通り、TTLセットで解決
-2. **BQクライアント生成コスト**：シングルトンで解決
-3. **Zenn slug制約違反**：サニタイズ処理の追加で解決
-4. **launchdのPATH問題**：Pythonのフルパス指定で解決
+1. **watchdog重複発火 ** ：前述の通り、TTLセットで解決
+2. **BQクライアント生成コスト ** ：シングルトンで解決
+3. **Zenn slug制約違反 ** ：サニタイズ処理の追加で解決
+4. **launchdのPATH問題 ** ：Pythonのフルパス指定で解決
 
 ---
 

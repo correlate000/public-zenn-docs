@@ -10,23 +10,23 @@ publication_name: "correlate_dev"
 
 ## はじめに
 
-GA4のコンバージョン設定は、ブラウザのUIから手動でポチポチするのが一般的です。しかし、複数のプロパティを管理していたり、CI/CDでGA4設定を自動化したかったりする場合、**Python で Admin API を使いたい**という場面が出てきます。
+GA4のコンバージョン設定は、ブラウザのUIから手動でポチポチするのが一般的です。しかし、複数のプロパティを管理していたり、CI/CDでGA4設定を自動化したかったりする場合、 **Python で Admin API を使いたい ** という場面が出てきます。
 
-この記事では、GA4 Admin API を Python で操作する際の**最大の落とし穴**である「v1alpha と v1beta の使い分け」を解説します。403エラーで詰まっている方にも参考になるはずです。
+この記事では、GA4 Admin API を Python で操作する際の ** 最大の落とし穴 ** である「v1alpha と v1beta の使い分け」を解説します。403エラーで詰まっている方にも参考になるはずです。
 
 ---
 
 ## 結論から先に
 
-GA4 Admin API には v1alpha と v1beta の2バージョンがあり、**機能によって使い分けが必要**です。
+GA4 Admin API には v1alpha と v1beta の2バージョンがあり、 ** 機能によって使い分けが必要 ** です。
 
 | 機能 | 使うバージョン |
 |------|-------------|
-| `eventCreateRules`（イベント作成ルール） | **v1alpha のみ** |
-| `conversionEvents`（コンバージョン登録） | **v1beta** |
+| `eventCreateRules`（イベント作成ルール） | v1alpha のみ |
+| `conversionEvents`（コンバージョン登録） | v1beta |
 | プロパティ一覧・詳細 | v1beta |
 
-`eventCreateRules` は v1beta に**存在しません**。v1beta でアクセスすると 404 が返ります。公式ドキュメントも分かりにくいので、この差異を知らずにハマる人が多いです。
+`eventCreateRules` は v1beta に ** 存在しません ** 。v1beta でアクセスすると 404 が返ります。公式ドキュメントも分かりにくいので、この差異を知らずにハマる人が多いです。
 
 ---
 
@@ -122,7 +122,7 @@ for rule in rules:
 
 ### イベント作成ルールの追加
 
-ここで注意が必要なのが **フィールド名** です。
+ここで注意が必要なのが ** フィールド名 ** です。
 
 「受信イベント名」のフィールドは `destination_event` であり、`event_name` ではありません。公式ドキュメントのサンプルコードが古かったり、フィールド名が混在していたりするので注意してください。
 
@@ -238,7 +238,7 @@ def list_conversion_events(
 
 イベント作成ルールとコンバージョンを設定した後、Realtime API で動作確認することがあります。ここにも落とし穴があります。
 
-**`start_minutes_ago` の最大値は 29 です。30 以上を指定すると 400 エラーになります。**
+**`start_minutes_ago` の最大値は 29 です。30 以上を指定すると 400 エラーになります。 **
 
 ```python
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
@@ -339,9 +339,9 @@ def apply_ga4_config(config_path: str, credentials):
 
 GA4 Admin API を Python で扱う際の重要ポイントを整理します：
 
-1. **v1alpha と v1beta を使い分ける** — `eventCreateRules` は v1alpha のみ、`conversionEvents` は v1beta
-2. **認証は SA + `analytics.edit` スコープ** — gcloud デフォルト認証では403になる
-3. **フィールド名は `destination_event`** — `event_name` ではない
+1. **v1alpha と v1beta を使い分ける ** — `eventCreateRules` は v1alpha のみ、`conversionEvents` は v1beta
+2. ** 認証は SA + `analytics.edit` スコープ ** — gcloud デフォルト認証では403になる
+3. ** フィールド名は `destination_event`** — `event_name` ではない
 4. **Realtime API の `start_minutes_ago` は最大29** — 30以上は400エラー
 
 ブラウザUIでの手動設定からコード管理に移行することで、複数プロパティの一括管理や CI/CD での設定管理が可能になります。設定のバージョン管理もできるので、「いつ誰が何を変えたか」の追跡も容易になります。

@@ -12,10 +12,10 @@ publication_name: "correlate_dev"
 
 Claude Code Hooksの概要については[Claude Code Hooks完全ガイド](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)で解説しました。本記事は実践編として、実際の業務で使っているHooksパターンを4つのユースケースに整理して紹介します。
 
-- **セキュリティ**：危険コマンドのブロックと多段階確認
-- **品質ゲート**：コミット前のLint・テスト強制
-- **外部通知**：Discord/Slack連携
-- **コスト管理**：APIコスト追跡とセッション記録
+- ** セキュリティ ** ：危険コマンドのブロックと多段階確認
+- ** 品質ゲート ** ：コミット前のLint・テスト強制
+- ** 外部通知 ** ：Discord/Slack連携
+- ** コスト管理 ** ：APIコスト追跡とセッション記録
 
 各パターンはコピーして即使えるbashスクリプトとして提供します。
 
@@ -613,7 +613,7 @@ echo '{"tool_name": "Write", "tool_input": {"file_path": "src/components/Button.
 | Discord/Slack通知 | Notification | 長時間タスクの完了把握 |
 | コスト追跡 | Stop | 予算管理・月次レポート |
 
-Hooksの設計で重要なのは「エラーの重大度に応じたexitコード」です。全てをブロック（exit 1）にしてしまうと、AIの作業が頻繁に中断されます。警告（exit 2）と組み合わせることで、安全性と作業効率のバランスが取れます。
+Hooksの設計で重要なのは「エラーの重大度に応じたexitコード」です。全てをブロック（exit 1）にしてしまうと、AIの作業が頻繁に中断されます。警告（exit 2）と組み合わせることが、安全性と作業効率のバランスを保つ鍵です。
 
 ### 関連記事
 

@@ -10,7 +10,7 @@ publication_name: "correlate_dev"
 
 副業・個人開発をしていると、「席を離れると開発が止まる」という問題に必ずぶつかります。
 
-Claude Code は対話式 CLI として使うのが一般的ですが、外部シグナルからプロセスを制御する「Remote Control」構成にすることで、**自分がいない間も AI がタスクを進め続ける**環境が作れます。
+Claude Code は対話式 CLI として使うのが一般的ですが、外部シグナルからプロセスを制御する「Remote Control」構成にすることで、 ** 自分がいない間も AI がタスクを進め続ける ** 環境が作れます。
 
 この記事では、Claude Code をバックグラウンド常駐させ、GitHub / Slack / cron などの外部トリガーから制御する実装パターンを、実際に動かして確認したコードとともに紹介します。
 
@@ -25,7 +25,7 @@ Remote Control 構成のアーキテクチャはシンプルです。
  cron スケジュール →  シェルスクリプト     →                         →  Pushover通知
 ```
 
-中核となるのは **「tmux 常駐 + named pipe (FIFO) での stdin 制御」** です。Claude Code のプロセスを永続的に立ち上げておき、外部からパイプ経由で指示を流し込む構成になります。
+中核となるのは ** 「tmux 常駐 + named pipe (FIFO) での stdin 制御」 ** です。Claude Code のプロセスを永続的に立ち上げておき、外部からパイプ経由で指示を流し込む構成になります。
 
 ---
 
@@ -141,7 +141,7 @@ log show --predicate 'process == "launchd"' --last 1h | grep claude-agent
 
 GitHub の Issue や PR コメントをトリガーにする構成です。ローカルマシンに Webhook を受信するサーバーを立て、ngrok や Cloudflare Tunnel で公開します。
 
-**受信サーバーの実装（Python + Flask）:**
+** 受信サーバーの実装（Python + Flask）:**
 
 ```python
 # scripts/webhook-server.py

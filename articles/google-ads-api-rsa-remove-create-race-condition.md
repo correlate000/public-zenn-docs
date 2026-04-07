@@ -40,7 +40,7 @@ google.ads.googleads.errors.GoogleAdsException:
 
 ### RSA更新の非アトミック性
 
-Google Ads API では、RSA（Responsive Search Ad）の headlines や final_urls は **IMMUTABLE フィールド** です。広告文を変更するには、必ず以下の2ステップが必要です。
+Google Ads API では、RSA（Responsive Search Ad）の headlines や final_urls は **IMMUTABLE フィールド ** です。広告文を変更するには、必ず以下の2ステップが必要です。
 
 ```
 Step 1: REMOVE（既存広告の削除）
@@ -55,7 +55,7 @@ Step 2: CREATE（新しい広告の作成）
 
 ## 即時リカバリ手順
 
-競合エラー発生時のリカバリは、**CREATE-onlyの再実行**です。
+競合エラー発生時のリカバリは、 **CREATE-onlyの再実行 ** です。
 
 ```python
 # リカバリ用：REMOVEせずにCREATEのみ再実行
@@ -246,17 +246,17 @@ if __name__ == "__main__":
 - パイプがハングした場合に予期しない挙動になる
 - スクリプトが「対話的実行を想定している」のか「非対話的実行を想定している」のか曖昧になる
 
-正しいアプローチは **明示的なフラグ** で制御することです。非対話実行したい場合は `--no-confirm` を渡す。この設計ならコードを読んだ人間が意図を理解できます。
+正しいアプローチは ** 明示的なフラグ ** で制御することです。非対話実行したい場合は `--no-confirm` を渡す。この設計ならコードを読んだ人間が意図を理解できます。
 
 ### REMOVE+CREATE はトランザクションではない
 
-Google Ads API には、複数操作を1つのアトミックなトランザクションにまとめる手段がありません（少なくともRSAの場合）。設計上の前提として、**REMOVE と CREATE の間には必ずダウンタイムが生じる**ことを受け入れる必要があります。
+Google Ads API には、複数操作を1つのアトミックなトランザクションにまとめる手段がありません（少なくともRSAの場合）。設計上の前提として、 **REMOVE と CREATE の間には必ずダウンタイムが生じる ** ことを受け入れる必要があります。
 
 このリスクを最小化するためには：
 
-1. **同時実行を防ぐ**（fcntl.flock）
-2. **失敗時に素早くリカバリできる設計**（--create-only フラグ）
-3. **競合時にリトライする**（exponential backoff）
+1. ** 同時実行を防ぐ ** （fcntl.flock）
+2. ** 失敗時に素早くリカバリできる設計 ** （--create-only フラグ）
+3. ** 競合時にリトライする ** （exponential backoff）
 
 の3層で対策することが有効です。
 

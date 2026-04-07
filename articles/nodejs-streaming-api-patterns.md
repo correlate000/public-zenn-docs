@@ -8,7 +8,7 @@ status: "draft"
 publication_name: "correlate_dev"
 ---
 
-> **本記事のコードはすべて ESM（`"type": "module"` 設定済み）、Node.js v18 以上を前提とします。**
+> ** 本記事のコードはすべて ESM（`"type": "module"` 設定済み）、Node.js v18 以上を前提とします。 **
 > `node:` プレフィックスは v14.18 以降で利用可能です。`pipe()` との比較も扱いますが、実装では `pipeline()` を中心に解説します。
 
 ---
@@ -21,9 +21,9 @@ publication_name: "correlate_dev"
 
 | 課題 | 非ストリーム | ストリーム |
 |------|-------------|-----------|
-| **メモリ効率** | ファイル全体をメモリに展開 | チャンク単位で処理 |
-| **TTFB（最初のバイト到達時間）** | 全データ処理後にレスポンス | 生成と同時に送信 |
-| **合成可能性** | 単一の変換処理 | 複数ストリームをチェーン接続 |
+| メモリ効率 | ファイル全体をメモリに展開 | チャンク単位で処理 |
+| TTFB（最初のバイト到達時間） | 全データ処理後にレスポンス | 生成と同時に送信 |
+| 合成可能性 | 単一の変換処理 | 複数ストリームをチェーン接続 |
 
 100 MB のファイルを `readFile` で読んだ場合、RSS（Resident Set Size）は一気に 100 MB 以上増加します。一方 `createReadStream` を使うと、`highWaterMark`（デフォルト 64 KB）単位でメモリ使用量がほぼ一定に保たれます。
 
@@ -35,7 +35,7 @@ publication_name: "correlate_dev"
 
 Readable には **paused mode** と **flowing mode** の 2 つの動作モードがあります。
 
-- **paused mode（デフォルト）**: `read()` を明示的に呼ぶか、`for await...of` で消費する
+- **paused mode（デフォルト） **: `read()` を明示的に呼ぶか、`for await...of` で消費する
 - **flowing mode**: `data` イベントリスナーを登録すると自動的に切り替わる
 
 現代的なコードでは `for await...of` を推奨します。
@@ -161,7 +161,7 @@ class JsonLinesParser extends Transform {
 
 ### Duplex Stream ─ 双方向通信
 
-Duplex は Readable と Writable が完全に独立して動作するストリームです。`net.Socket`（TCP ソケット）がその代表例で、受信（Readable）と送信（Writable）が並行して機能します。カスタム実装が必要な場面はネットワークプロトコルの低レイヤー実装などに限られるため、本記事では概念の把握にとどめます。
+Duplex は Readable と Writable が完全に独立して動作するストリームです。`net.Socket`（TCP ソケット）がその代表例で、受信（Readable）と送信（Writable）が並行して機能します。カスタム実装が必要な場面はネットワークプロトコルの低レイヤー実装などに限られるため、本記事では概念の把握にとどめる。
 
 ---
 
@@ -176,9 +176,9 @@ readStream.pipe(transformStream).pipe(writeStream);
 
 `pipe()` には以下の欠点があります。
 
-1. **エラーが自動伝播しない**: 中間ストリームでエラーが発生しても、上流・下流のストリームは閉じられない
-2. **クリーンアップが手動**: ストリームが中断されたとき、すべてのストリームを個別に `destroy()` する必要がある
-3. **Promise と組み合わせにくい**: callback ベースのため、async/await コードに混ぜると複雑になる
+1. ** エラーが自動伝播しない **: 中間ストリームでエラーが発生しても、上流・下流のストリームは閉じられない
+2. ** クリーンアップが手動 **: ストリームが中断されたとき、すべてのストリームを個別に `destroy()` する必要がある
+3. **Promise と組み合わせにくい **: callback ベースのため、async/await コードに混ぜると複雑になる
 
 ### `stream.pipeline()` ─ 推奨パターン
 
@@ -197,7 +197,7 @@ await pipeline(
 console.log('圧縮完了');
 ```
 
-`node:stream/promises` の `pipeline()` は Promise を返します。エラーが発生すると reject され、連結されたすべてのストリームが自動的に `destroy()` されます。これによってメモリリークを防げます。
+`node:stream/promises` の `pipeline()` は Promise を返します。エラーが発生すると reject され、連結されたすべてのストリームが自動的に `destroy()` されます。メモリリーク防止の重要な仕組みだ。
 
 エラーハンドリングは try/catch で簡潔に書けます。
 

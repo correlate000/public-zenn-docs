@@ -10,7 +10,7 @@ publication_name: "correlate_dev"
 
 ## はじめに
 
-LangChainやLlamaIndexを使ったRAG実装の記事は多いですが、Vertex AI SDKを直接使いつつ**追加インフラゼロ**でRAGを完成させた実践事例は意外と少ないと感じました。
+LangChainやLlamaIndexを使ったRAG実装の記事は多いですが、Vertex AI SDKを直接使いつつ ** 追加インフラゼロ ** でRAGを完成させた実践事例は意外と少ないと感じました。
 
 この記事では、以下の構成でRAGシステムを構築・本番デプロイした際の実装詳細とハマりポイントを共有します。
 
@@ -245,7 +245,7 @@ async def list_chunks(_=Depends(verify_admin_token)):
 
 ## シードスクリプトの冪等性設計
 
-知識ベースの初期データ投入スクリプトです。**必ず冪等性ガードを先に実装してください。**
+知識ベースの初期データ投入スクリプトです。 ** 必ず冪等性ガードを先に実装してください。 **
 
 ```python
 #!/usr/bin/env python3
@@ -305,7 +305,7 @@ if __name__ == "__main__":
     seed(dry_run=args.dry_run)
 ```
 
-冪等性ガードを後から追加したため、今回は26行の重複が発生しました。BQのstreaming insertは**INSERT後90分はDELETE不可**という制約があるため、重複の事後削除もすぐにはできません。**シードスクリプトは最初から冪等性を設計する**ことを強くお勧めします。
+冪等性ガードを後から追加したため、今回は26行の重複が発生しました。BQのstreaming insertは **INSERT後90分はDELETE不可 ** という制約があるため、重複の事後削除もすぐにはできません。 ** シードスクリプトは最初から冪等性を設計する ** ことが鉄則だ。
 
 ---
 
@@ -329,7 +329,7 @@ gcloud services enable aiplatform.googleapis.com
 
 ### 2. X-Admin-Token vs Authorization ヘッダーの競合
 
-Cloud Runの認証（`--no-allow-unauthenticated`設定時）では、`Authorization: Bearer <OIDC_TOKEN>` ヘッダーを使います。管理系APIで `Authorization: Bearer <ADMIN_TOKEN>` を使うと**Cloud RunのIAM認証と競合**して予期しない動作になります。
+Cloud Runの認証（`--no-allow-unauthenticated`設定時）では、`Authorization: Bearer <OIDC_TOKEN>` ヘッダーを使います。管理系APIで `Authorization: Bearer <ADMIN_TOKEN>` を使うと **Cloud RunのIAM認証と競合 ** して予期しない動作になります。
 
 解決策は専用ヘッダーを使うことです。
 
@@ -349,7 +349,7 @@ def verify_admin_token(x_admin_token: str = Header(...)):
 
 Vertex AIのEmbedding APIはネットワーク遅延で60秒以上ブロックすることがあります。非同期FastAPIでも、`run_in_executor` なしで同期関数を呼ぶとイベントループがブロックします。
 
-さらに重要なのは、`retrieve_knowledge`（検索時）だけ対策して `add_chunk`（追加時）を忘れるパターンです。どちらも同じ `generate_embedding()` を呼ぶため、**両方にタイムアウトが必要**です。
+さらに重要なのは、`retrieve_knowledge`（検索時）だけ対策して `add_chunk`（追加時）を忘れるパターンです。どちらも同じ `generate_embedding()` を呼ぶため、 ** 両方にタイムアウトが必要 ** です。
 
 ```python
 # 全ての generate_embedding 呼び出しに ThreadPoolExecutor + タイムアウト
@@ -365,7 +365,7 @@ async def generate_embedding(text: str, timeout: int = 10) -> list[float]:
 
 ### 4. BQ Streaming Bufferの90分DELETE制約
 
-BigQueryのStreaming Insertは便利ですが、**INSERT後約90分はDELETE不可**という制約があります。
+BigQueryのStreaming Insertは便利ですが、 **INSERT後約90分はDELETE不可 ** という制約があります。
 
 ```sql
 -- これがストリーミングバッファ期間中は失敗する
