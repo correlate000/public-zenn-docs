@@ -3,8 +3,8 @@ title: "freee API + Cloud Run で月次経費処理を自動化した話"
 emoji: "💰"
 type: "tech"
 topics: ["freee", "cloudrun", "python", "api", "automation"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
