@@ -3,8 +3,8 @@ title: "WordPressパーマリンク変更で301リダイレクトが効かない
 emoji: "🔁"
 type: "tech"
 topics: ["wordpress", "htaccess", "apache", "redirect", "seo"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
