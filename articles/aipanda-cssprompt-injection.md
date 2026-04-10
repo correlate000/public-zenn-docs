@@ -3,8 +3,8 @@ title: "Panda CSS移行×AI生成コードのセキュリティ設計 — Prompt
 emoji: "🐼"
 type: "tech"
 topics: ["pandacss", "claudecode", "security", "frontend", "ai"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
