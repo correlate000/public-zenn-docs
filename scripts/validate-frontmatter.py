@@ -7,6 +7,7 @@
   3. front matter 形式統一（type/publication_name の引用符、topics のインライン配列形式）
   4. 24時間あたり5本上限チェック
   5. 必須フィールド存在確認
+  6. タイトル文字数上限（70文字）チェック
 
 使い方:
   python3 scripts/validate-frontmatter.py          # 全記事チェック
@@ -34,6 +35,7 @@ MAX_PER_DAY = 5  # Zenn rate limit: 24h に 5本
 SLUG_MIN_LEN = 12
 SLUG_MAX_LEN = 50
 SLUG_PATTERN = re.compile(r'^[a-z0-9_-]+$')
+TITLE_MAX_LEN = 70  # Zenn上限: 70文字
 
 
 def parse_frontmatter(filepath: Path) -> tuple[dict, list[str]]:
@@ -261,6 +263,18 @@ def check_required_fields(fm: dict, filepath: Path) -> list[str]:
     return errors
 
 
+def check_title_length(fm: dict, filepath: Path) -> list[str]:
+    """タイトル文字数チェック（Zenn上限: 70文字）."""
+    errors = []
+    title = fm.get("title", "").strip('"').strip("'")
+    if len(title) > TITLE_MAX_LEN:
+        errors.append(
+            f"  [TITLE] タイトルが長すぎます（{len(title)}文字）: "
+            f"{TITLE_MAX_LEN}文字以内にしてください"
+        )
+    return errors
+
+
 def fix_frontmatter(filepath: Path) -> bool:
     """front matter を自動修正. 変更があれば True."""
     content = filepath.read_text(encoding="utf-8")
@@ -362,6 +376,7 @@ def main():
         errors = []
         errors.extend(check_slug_format(name))
         errors.extend(check_required_fields(fm, article))
+        errors.extend(check_title_length(fm, article))
         errors.extend(check_published_combo(fm, article))
         errors.extend(check_title_emoji_quoting(fm, article))
         errors.extend(check_quoting(fm, article))
