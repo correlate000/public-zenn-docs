@@ -1,5 +1,5 @@
 ---
-title: "月5,000円→月0円を達成した話 ─ Claude Code Agent + freee API + BigQuery の完全無料化パターン"
+title: "月5,000円→月0円達成 ─ Claude Code + freee API + BigQueryの無料化パターン"
 emoji: "💸"
 type: "tech"
 topics: ["claudecode", "bigquery", "gcp", "freee", "costreduction"]

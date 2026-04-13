@@ -1,5 +1,5 @@
 ---
-title: "Claude Code × BigQuery で月次経営ダッシュボードを完全自動化した話 — Agent Teamsと定期実行パイプラインの設計"
+title: "Claude Code × BigQueryで月次経営ダッシュボードを完全自動化した話"
 emoji: "📊"
 type: "tech"
 topics: ["claudecode", "bigquery", "agentteams", "googlecloud", "llm"]

@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Agent Teamsを実務投入して分かったこと — デビルズアドボケイト必須パターンと CLAUDE.md 設計の関係"
+title: "Claude Code Agent Teams実務投入——DA必須パターンとCLAUDE.md設計"
 emoji: "🧑‍💻"
 type: "tech"
 topics: ["claudecode", "ai", "multiagent", "agentteams"]

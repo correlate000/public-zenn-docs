@@ -1,5 +1,5 @@
 ---
-title: "GCP IAM 最小権限設計 ─ サービスアカウント・Workload Identity・条件付きバインディングの実践"
+title: "GCP IAM最小権限設計 ─ SA・Workload Identity・条件付きバインディング"
 emoji: "🔐"
 type: "tech"
 topics: ["gcp", "iam", "cloudrun", "githubactions", "セキュリティ"]

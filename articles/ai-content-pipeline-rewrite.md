@@ -1,5 +1,5 @@
 ---
-title: "【詳細版】Claude Code × Agent Teams コンテンツパイプライン完全解説 — 設定・DAレビュー・承認キューの全工程"
+title: "Claude Code × Agent Teams コンテンツパイプライン完全解説"
 emoji: "🏭"
 type: "tech"
 topics: ["claudecode", "agentteams", "zenn", "obsidian", "ai"]

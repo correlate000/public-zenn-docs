@@ -1,5 +1,5 @@
 ---
-title: "Figma MCP × Claude Code でデザインワークフローを構造化する——Constraint-First プロンプトと品質ゲート設計"
+title: "Figma MCP × Claude Codeでデザインワークフローを構造化する方法"
 emoji: "🏗️"
 type: "tech"
 topics: ["figma", "mcp", "claudecode", "ai", "design"]
