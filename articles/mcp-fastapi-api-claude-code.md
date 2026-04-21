@@ -3,8 +3,8 @@ title: "FastAPIでMCPサーバーをゼロから作る──Claude Codeに自分
 emoji: "🔌"
 type: "tech"
 topics: ["mcp", "fastapi", "claudecode", "python", "api"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
