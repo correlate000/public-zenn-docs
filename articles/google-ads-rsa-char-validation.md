@@ -3,8 +3,8 @@ title: "Google Ads RSA 日本語文字数制限と事前バリデーション実
 emoji: "🔢"
 type: "tech"
 topics: ["GoogleAds", "Python", "API", "広告運用", "自動化"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
