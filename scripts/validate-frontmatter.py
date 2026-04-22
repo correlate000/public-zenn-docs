@@ -425,18 +425,38 @@ def main():
     schedule_errors = check_schedule_conflicts(all_fm)
     daily_errors = check_daily_limits(all_fm)
 
-    # Zenn slug衝突チェック（未公開記事のみ、ネットワーク依存）
-    # --ci モードまたは通常モードで実行。--fix モードではスキップ
+    # Zenn slug衝突チェック（ネットワーク依存）
+    # --ci（pre-commit）: git diff --cached の変更記事のみチェック（高速）
+    # 通常実行（--check-all-slugs 指定時）: 全未公開記事をチェック
     slug_collision_errors = []
     if not fix_mode:
-        new_slugs = [
-            name for name, fm in all_fm.items()
-            if fm.get("published", "").strip('"').strip("'") == "false"
-        ]
+        check_all = "--check-all-slugs" in sys.argv
+        if ci_mode:
+            # pre-commit: ステージされた新規/変更記事のみチェック
+            try:
+                staged = subprocess.run(
+                    ["git", "diff", "--cached", "--name-only", "--diff-filter=A"],
+                    capture_output=True, text=True, cwd=ARTICLES_DIR.parent
+                ).stdout.strip().splitlines()
+                new_slugs = [
+                    Path(f).stem for f in staged
+                    if f.startswith("articles/") and f.endswith(".md")
+                ]
+            except Exception:
+                new_slugs = []
+        elif check_all:
+            # 明示指定: 全未公開記事をチェック
+            new_slugs = [
+                name for name, fm in all_fm.items()
+                if fm.get("published", "").strip('"').strip("'") == "false"
+            ]
+        else:
+            new_slugs = []
+
         if new_slugs:
-            print("Zenn slug衝突チェック中...", end=" ", flush=True)
+            print(f"Zenn slug衝突チェック中（{len(new_slugs)}件）...", end=" ", flush=True)
             slug_collision_errors = check_zenn_slug_collision(new_slugs)
-            print(f"完了（{len(new_slugs)}件チェック、{len(slug_collision_errors)}件衝突）")
+            print(f"完了（{len(slug_collision_errors)}件衝突）")
 
     # Output
     if fix_mode:
