@@ -241,6 +241,26 @@ def check_zenn_status(slug: str) -> int:
         return -1  # ネットワークエラー等
 
 
+def check_slug_collision_global(slug: str) -> bool:
+    """slug が Zenn 全体（他アカウント含む）で既に使用されているか確認.
+
+    True = 衝突あり（デプロイ時に全記事ブロックされる）
+    False = 安全（未使用 or 判定不能）
+    """
+    url = f"https://zenn.dev/api/articles/{slug}"
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        req.add_header("User-Agent", "publish-queue-v2/1.0")
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            return resp.status == 200
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return False  # 未使用 = 安全
+        return False  # 判定不能 → 安全側（既存動作を維持）
+    except Exception:
+        return False  # ネットワークエラー → 安全側
+
+
 def find_undeployed_articles() -> list[tuple[str, Path]]:
     """published: true だがZennに未デプロイの記事を検出.
 
@@ -430,6 +450,29 @@ def main():
     idx = date_hash(today_str, "article_select") % len(eligible)
     slug, path = eligible[idx]
     print(f"{'[DRY RUN] ' if args.dry_run else ''}公開予定: {slug}")
+
+    # 公開前: Zenn全体でのslug衝突チェック（dry-runでも実行）
+    print(f"  slug衝突チェック: {slug} ...", end=" ", flush=True)
+    if check_slug_collision_global(slug):
+        print("⚠ 衝突検出!")
+        print(
+            f"\n  ✗ {slug} は Zenn 上で他アカウントが使用中です。\n"
+            f"    デプロイすると全記事がブロックされます。\n"
+            f"    → ファイルをリネームし、retired-slugs.txt に追記してください。"
+        )
+        # 失敗をログに記録（クールダウン保護を有効化）
+        failures = load_failures()
+        failures[slug] = {
+            "count": failures.get(slug, {}).get("count", 0) + 1,
+            "last_failed": now.isoformat(),
+        }
+        try:
+            with open(FAILURE_LOG, "w", encoding="utf-8") as f:
+                json.dump(failures, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
+        sys.exit(1)
+    print("OK")
 
     if args.dry_run:
         print("--dry-run のため変更しません")

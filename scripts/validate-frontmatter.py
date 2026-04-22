@@ -21,6 +21,8 @@ pre-commit hook としても動作:
 import re
 import subprocess
 import sys
+import urllib.request
+import urllib.error
 from collections import defaultdict
 from pathlib import Path
 
@@ -172,6 +174,36 @@ def check_retired_slugs(all_articles: dict, retired: set[str]) -> list[str]:
                 f"  [SLUG] {name}.md の slug は Zenn に登録済みのためデプロイ失敗の可能性あり\n"
                 f"         → ファイルをリネームして slug を変更し、retired-slugs.txt に旧 slug を追記してください"
             )
+    return errors
+
+
+def check_zenn_slug_collision(new_slugs: list[str]) -> list[str]:
+    """新規記事の slug が Zenn 上で既に使用されていないか HTTP で確認.
+
+    Zenn の slug はサイト全体で一意。他アカウントが同じ slug を使用中の場合、
+    デプロイ時に全記事がブロックされる致命的エラーになる。
+
+    新規記事（まだ Zenn にデプロイされていない = published: false）のみチェック。
+    """
+    errors = []
+    for slug in new_slugs:
+        try:
+            url = f"https://zenn.dev/api/articles/{slug}"
+            req = urllib.request.Request(url, method="HEAD")
+            req.add_header("User-Agent", "validate-frontmatter/1.0")
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                if resp.status == 200:
+                    errors.append(
+                        f"  [SLUG] {slug}.md の slug は Zenn で既に使用されています（他アカウント衝突）\n"
+                        f"         → デプロイが全記事ブロックされます。ファイルをリネームしてください\n"
+                        f"         → リネーム後に retired-slugs.txt に旧 slug を追記"
+                    )
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                pass  # 未使用 = OK
+            # 403/429等は判定不能なのでスキップ（安全側）
+        except Exception:
+            pass  # ネットワークエラー時はスキップ（オフライン対応）
     return errors
 
 
@@ -393,6 +425,19 @@ def main():
     schedule_errors = check_schedule_conflicts(all_fm)
     daily_errors = check_daily_limits(all_fm)
 
+    # Zenn slug衝突チェック（未公開記事のみ、ネットワーク依存）
+    # --ci モードまたは通常モードで実行。--fix モードではスキップ
+    slug_collision_errors = []
+    if not fix_mode:
+        new_slugs = [
+            name for name, fm in all_fm.items()
+            if fm.get("published", "").strip('"').strip("'") == "false"
+        ]
+        if new_slugs:
+            print("Zenn slug衝突チェック中...", end=" ", flush=True)
+            slug_collision_errors = check_zenn_slug_collision(new_slugs)
+            print(f"完了（{len(new_slugs)}件チェック、{len(slug_collision_errors)}件衝突）")
+
     # Output
     if fix_mode:
         fixed_count = 0
@@ -421,13 +466,19 @@ def main():
 
     print(f"=== Zenn Front Matter Validation ({len(articles)} articles) ===\n")
 
-    if not all_errors and not retired_errors and not schedule_errors and not daily_errors:
+    if not all_errors and not retired_errors and not schedule_errors and not daily_errors and not slug_collision_errors:
         print("ALL PASS — 全記事の front matter が正常です")
         sys.exit(0)
 
     for name, errors in sorted(all_errors.items()):
         print(f"{name}.md:")
         for e in errors:
+            print(e)
+        print()
+
+    if slug_collision_errors:
+        print("⚠ Zenn Slug Collision (デプロイ全記事ブロック):")
+        for e in slug_collision_errors:
             print(e)
         print()
 
@@ -449,7 +500,7 @@ def main():
             print(e)
         print()
 
-    total_issues = total_errors + len(retired_errors) + len(schedule_errors) + len(daily_errors)
+    total_issues = total_errors + len(retired_errors) + len(schedule_errors) + len(daily_errors) + len(slug_collision_errors)
     print(f"--- {total_issues} issues found ---")
 
     if ci_mode:
