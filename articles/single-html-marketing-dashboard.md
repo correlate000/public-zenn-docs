@@ -2,7 +2,7 @@
 title: "3,871行の単一HTMLでインタラクティブなマーケティング戦略ダッシュボードを構築した話"
 emoji: "📊"
 type: "tech"
-topics: ["HTML", "JavaScript", "Mermaid", "マーケティング", "アクセシビリティ"]
+topics: ["html", "javascript", "mermaid", "marketing", "accessibility"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

@@ -2,7 +2,7 @@
 title: "Claude Code カスタムスラッシュコマンド実装ガイド ─ 繰り返し作業を1コマンドで自動化"
 emoji: "⚡"
 type: "tech"
-topics: ["claudecode", "claude", "ai", "自動化", "開発効率化"]
+topics: ["claudecode", "claude", "ai", "automation", "devproductivity"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

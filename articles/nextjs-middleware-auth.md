@@ -2,7 +2,7 @@
 title: "Next.js Middleware で認証実装 ─ JWT検証・ルートガード・RBAC をEdge Runtimeで実現"
 emoji: "🛡️"
 type: "tech"
-topics: ["nextjs", "typescript", "認証", "jwt", "middleware"]
+topics: ["nextjs", "typescript", "authentication", "jwt", "middleware"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

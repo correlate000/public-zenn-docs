@@ -2,7 +2,7 @@
 title: "1人法人のAI経理自動化 ─ freee × Claude × BigQueryで月の経理作業を3時間に圧縮した話"
 emoji: "🧾"
 type: "tech"
-topics: ["freee", "claude", "bigquery", "自動化", "1人法人"]
+topics: ["freee", "claude", "bigquery", "automation", "solocorp"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

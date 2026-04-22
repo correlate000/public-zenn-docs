@@ -28,3 +28,4 @@ nodejs-api                # slug短すぎ→nodejs-streaming-api-patterns (2026-
 zennnote                  # slug短すぎ→zenn-note-multiplatform-publish (2026-04-08)
 discord-slash-commands    # 他アカウント使用中→discord-slash-commands-cloudrun-bot (2026-04-08)
 obsidian-claude-code      # 他アカウント使用中→obsidian-claude-code-auto-logging (2026-04-08)
+claude-code-remote-control  # 他アカウント使用中→claude-code-remote-control-background-agent (2026-04-22) / 9日間全デプロイをブロック

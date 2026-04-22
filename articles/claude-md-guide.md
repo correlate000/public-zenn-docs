@@ -2,7 +2,7 @@
 title: "CLAUDE.md設計ガイド — AIエージェントに環境を理解させる"
 emoji: "📋"
 type: "tech"
-topics: ["claude", "ai", "開発環境", "自動化"]
+topics: ["claude", "ai", "devenv", "automation"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

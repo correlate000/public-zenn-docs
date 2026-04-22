@@ -2,7 +2,7 @@
 title: "Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する"
 emoji: "🧠"
 type: "tech"
-topics: ["claudecode", "claude", "ai", "productivity", "開発環境"]
+topics: ["claudecode", "claude", "ai", "productivity", "devenv"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

@@ -2,7 +2,7 @@
 title: "BigQuery パーティション×クラスタリング最適化 ─ コスト削減とクエリ高速化の実践設定"
 emoji: "💰"
 type: "tech"
-topics: ["bigquery", "gcp", "sql", "データエンジニアリング", "コスト最適化"]
+topics: ["bigquery", "gcp", "sql", "dataengineering", "costoptimization"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

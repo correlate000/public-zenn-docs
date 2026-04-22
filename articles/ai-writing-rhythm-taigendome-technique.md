@@ -2,7 +2,7 @@
 title: "AI生成記事の「文末同質化」を直す — 体言止め・短文断言でリズムを取り戻す技術"
 emoji: "✍️"
 type: "idea"
-topics: ["ai", "writing", "prompt", "コンテンツ", "日本語"]
+topics: ["ai", "writing", "prompt", "content", "japanese"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

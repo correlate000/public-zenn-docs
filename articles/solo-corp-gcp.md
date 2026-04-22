@@ -2,7 +2,7 @@
 title: "1人法人のGCP業務基盤を月額5ドル以下で構築した話"
 emoji: "🏗️"
 type: "tech"
-topics: ["gcp", "cloudrun", "bigquery", "discord", "個人開発"]
+topics: ["gcp", "cloudrun", "bigquery", "discord", "sideproject"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

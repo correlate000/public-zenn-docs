@@ -2,7 +2,7 @@
 title: "Google Driveで開発フォルダを同期したら167GB書き込まれた話"
 emoji: "💥"
 type: "tech"
-topics: ["googledrive", "mac", "開発環境", "失敗談"]
+topics: ["googledrive", "mac", "devenv", "postmortem"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

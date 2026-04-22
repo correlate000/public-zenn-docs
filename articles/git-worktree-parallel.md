@@ -2,7 +2,7 @@
 title: "Git Worktree で並列開発 ─ ブランチ切り替えゼロ、AIエージェントとの組み合わせまで"
 emoji: "🌿"
 type: "tech"
-topics: ["git", "claudecode", "開発効率化", "並列処理", "workflow"]
+topics: ["git", "claudecode", "devproductivity", "parallelprocessing", "workflow"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

@@ -2,7 +2,7 @@
 title: "Cloud Run コールドスタート対策完全ガイド ─ 原因分析からDockerfile最適化・CPU Boostまで"
 emoji: "🥶"
 type: "tech"
-topics: ["cloudrun", "gcp", "docker", "パフォーマンス", "python"]
+topics: ["cloudrun", "gcp", "docker", "performance", "python"]
 published: true
 status: "published"
 publication_name: "correlate_dev"
@@ -546,5 +546,13 @@ flowchart TD
 - [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
 - [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
 - [Terraform × GCP入門 — インフラをコードで再現可能にする](https://zenn.dev/correlate_dev/articles/terraform-gcp-iac-basics)
+
+:::message
+**2026年4月時点の最新情報**
+
+- **Startup CPU Boost の効果対象が拡大**: 2026年時点では GPU インスタンス（N1 GPU）を使ったサービスでも Startup CPU Boost が利用可能になりました。ML推論サービスなど GPU を使うユースケースでのコールドスタート短縮にも活用できます。
+- **Cloud Run GPU 対応が GA に**: NVIDIA GPU（L4 等）を Cloud Run サービスにアタッチする機能が GA になりました。ML モデルのウォームアップコストが高いため、GPU ワークロードでは `min-instances=1` の設定が特に重要です。
+- **IAP（Identity-Aware Proxy）直接統合が GA に**: Cloud Run への IAP 直接統合が GA になりました。認証レイヤーをサービス側で実装しなくてよくなるため、起動処理をさらにシンプルに保てます。
+:::
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

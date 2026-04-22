@@ -2,7 +2,7 @@
 title: "ローカルLLMで月5000円節約しようとして赤字になった話"
 emoji: "💸"
 type: "tech"
-topics: ["llm", "localllm", "コスト最適化", "mlx", "claude"]
+topics: ["llm", "localllm", "costoptimization", "mlx", "claude"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

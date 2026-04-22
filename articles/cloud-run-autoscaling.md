@@ -2,7 +2,7 @@
 title: "Cloud Run オートスケーリング徹底解説 ─ コールドスタート削減とコスト最適化の実践設定"
 emoji: "🚀"
 type: "tech"
-topics: ["cloudrun", "gcp", "インフラ", "docker", "サーバーレス"]
+topics: ["cloudrun", "gcp", "infrastructure", "docker", "serverless"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"
@@ -578,3 +578,48 @@ gcloud run deploy my-service \
 5. **concurrency はアプリの特性（I/OバウンドかCPUバウンドか）を見て調整** する
 
 Cloud Run のスケーリング設定は「コスト最小化」と「レスポンスタイム最小化」のトレードオフです。本記事の計算例を参考に、自身のサービスの要件に合った設定を見つけてください。
+
+---
+
+## 2026年4月時点の最新情報
+
+Google Cloud Next 2026（4/22〜24、Las Vegas）前後のタイミングで、Cloud Run に以下の機能アップデートがありました。
+
+### GPU 対応が GA（General Availability）に
+
+NVIDIA GPU（L4 等）を Cloud Run サービスにアタッチする機能が GA になりました。ML 推論・画像生成・動画処理など GPU を必要とするワークロードをサーバーレスで実行できます。
+
+```bash
+# GPU付きサービスのデプロイ例（L4 GPU × 1）
+gcloud run deploy my-gpu-service \
+  --image asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/my-repo/my-app:latest \
+  --region us-central1 \
+  --gpu 1 \
+  --gpu-type nvidia-l4 \
+  --cpu 8 \
+  --memory 32Gi \
+  --min-instances 1    # GPU ウォームアップコストが高いため min=1 を推奨
+```
+
+GPU インスタンスはコールドスタート時のウォームアップコストが特に大きいため、`min-instances=1` の設定が通常の HTTP API 以上に重要になります。
+
+### IAP（Identity-Aware Proxy）直接統合が GA に
+
+Cloud Run への IAP 直接統合が GA になりました。これまで Cloud Load Balancing 経由でのみ実現できた IAP 認証を、Cloud Run サービスに直接適用できます。
+
+```bash
+# Cloud Run サービスへの IAP 直接統合（コンソールまたは gcloud）
+gcloud run services update my-service \
+  --region asia-northeast1 \
+  --iap
+```
+
+認証ロジックをアプリ側に実装せずに済むため、コンテナをシンプルに保ちやすくなります。
+
+### マルチリージョン HA（High Availability）が Preview に
+
+単一の Cloud Run サービスを複数リージョンに同時デプロイし、グローバル負荷分散を自動管理するマルチリージョン HA 機能が Preview になりました。障害時の自動フェイルオーバーと低レイテンシ配信を両立できます。GA 後はリージョン障害への対策として有力な選択肢になります。
+
+### Cloud Run ジョブの最大実行時間が 168 時間（7日間）に拡張（Preview）
+
+Cloud Run ジョブの最大実行時間が従来の 24 時間から **168 時間（7日間）** に拡張されました（Preview）。週次の大規模バッチ処理や長時間の機械学習トレーニングをジョブとして実行できるユースケースが広がります。

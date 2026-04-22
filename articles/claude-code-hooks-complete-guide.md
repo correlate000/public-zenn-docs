@@ -2,7 +2,7 @@
 title: "Claude Code Hooks完全ガイド — AIエージェントに安全ガードを設ける"
 emoji: "🪝"
 type: "tech"
-topics: ["claudecode", "claude", "ai", "自動化", "開発効率化"]
+topics: ["claudecode", "claude", "ai", "automation", "devproductivity"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

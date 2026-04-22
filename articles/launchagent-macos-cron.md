@@ -2,7 +2,7 @@
 title: "macOS LaunchAgent × Python定期実行 ─ crontabより信頼性の高いバックグラウンドジョブ設計"
 emoji: "⏰"
 type: "tech"
-topics: ["macos", "python", "自動化", "launchagent", "バックグラウンドジョブ"]
+topics: ["macos", "python", "automation", "launchagent", "backgroundjob"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

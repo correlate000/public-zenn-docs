@@ -2,7 +2,7 @@
 title: "Anthropic API コスト最適化実践 ─ プロンプトキャッシング・モデル選択・バッチAPIで月50%削減"
 emoji: "💰"
 type: "tech"
-topics: ["anthropic", "claude", "api", "コスト最適化", "python"]
+topics: ["anthropic", "claude", "api", "costoptimization", "python"]
 published: false
 status: "publish-ready"
 publication_name: "correlate_dev"

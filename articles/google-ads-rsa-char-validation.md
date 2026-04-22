@@ -2,7 +2,7 @@
 title: "Google Ads RSA 日本語文字数制限と事前バリデーション実装 — 全角2カウント問題で全滅した話"
 emoji: "🔢"
 type: "tech"
-topics: ["GoogleAds", "Python", "API", "広告運用", "自動化"]
+topics: ["googleads", "python", "api", "adops", "automation"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

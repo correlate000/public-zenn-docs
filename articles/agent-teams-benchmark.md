@@ -2,7 +2,7 @@
 title: "Claude Code Agent Teamsの実測値 — 4エージェントで3倍速は本当か"
 emoji: "⚡"
 type: "tech"
-topics: ["ClaudeCode", "AI", "AgentTeams", "開発効率化", "並列処理"]
+topics: ["claudecode", "ai", "agentteams", "devproductivity", "parallelprocessing"]
 published: false
 status: "publish-ready"
 publication_name: "correlate_dev"

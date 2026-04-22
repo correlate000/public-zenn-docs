@@ -2,7 +2,7 @@
 title: "MCPサーバーより直接APIを叩くべき3つの理由"
 emoji: "🔌"
 type: "tech"
-topics: ["mcp", "api", "オープンデータ", "行政api", "セキュリティ"]
+topics: ["mcp", "api", "opendata", "govapi", "security"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

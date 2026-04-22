@@ -2,7 +2,7 @@
 title: "個人開発者のための『最速・最安』CI/CD: GitHub Actions -> Cloud Run (Python) 完全ガイド"
 emoji: "🚀"
 type: "tech"
-topics: ["GoogleCloud", "Docker", "GitHubActions", "Python", "CI/CD"]
+topics: ["googlecloud", "docker", "githubactions", "python", "ci/cd"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

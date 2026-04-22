@@ -2,7 +2,7 @@
 title: "GCP IAM最小権限設計 ─ SA・Workload Identity・条件付きバインディング"
 emoji: "🔐"
 type: "tech"
-topics: ["gcp", "iam", "cloudrun", "githubactions", "セキュリティ"]
+topics: ["gcp", "iam", "cloudrun", "githubactions", "security"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

@@ -2,7 +2,7 @@
 title: "Claude CodeのセッションをHooksで機械的に守る - PIDアンカーシステムの設計と実装"
 emoji: "🔒"
 type: "tech"
-topics: ["claudecode", "hooks", "bash", "ai", "開発効率化"]
+topics: ["claudecode", "hooks", "bash", "ai", "devproductivity"]
 published: false
 status: "publish-ready"
 publication_name: "correlate_dev"

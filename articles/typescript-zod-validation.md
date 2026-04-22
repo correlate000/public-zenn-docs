@@ -2,7 +2,7 @@
 title: "TypeScript × Zodで型安全なランタイムバリデーションを実現する"
 emoji: "✅"
 type: "tech"
-topics: ["typescript", "zod", "react", "nextjs", "バリデーション"]
+topics: ["typescript", "zod", "react", "nextjs", "validation"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

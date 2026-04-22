@@ -2,7 +2,7 @@
 title: "Claude Code /do コマンドで7フェーズ実装を30分で完了した話"
 emoji: "⚡"
 type: "tech"
-topics: ["claudecode", "ai", "開発効率化", "agent", "orchestration"]
+topics: ["claudecode", "ai", "devproductivity", "agent", "orchestration"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

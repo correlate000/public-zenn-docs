@@ -2,7 +2,7 @@
 title: "BigQuery MERGE で冪等アップサート ─ 重複なし・安全な本番BQ更新パターン集"
 emoji: "🔄"
 type: "tech"
-topics: ["bigquery", "gcp", "sql", "データエンジニアリング", "python"]
+topics: ["bigquery", "gcp", "sql", "dataengineering", "python"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

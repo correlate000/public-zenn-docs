@@ -2,7 +2,7 @@
 title: "AIエージェントで最大20問のスクール適性診断機能を1セッションで構築した話"
 emoji: "🏫"
 type: "tech"
-topics: ["ClaudeCode", "AI", "AIエージェント", "Next.js", "TypeScript"]
+topics: ["claudecode", "ai", "aiagent", "nextjs", "typescript"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

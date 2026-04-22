@@ -2,7 +2,7 @@
 title: "GCP Secret Manager 実践ガイド ─ Cloud Run・GitHub Actions・ローカル開発でのシークレット管理"
 emoji: "🔑"
 type: "tech"
-topics: ["gcp", "secretmanager", "cloudrun", "セキュリティ", "python"]
+topics: ["gcp", "secretmanager", "cloudrun", "security", "python"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

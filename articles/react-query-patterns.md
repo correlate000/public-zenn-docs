@@ -2,7 +2,7 @@
 title: "TanStack Query実践パターン — キャッシュ・楽観的更新・無限スクロール"
 emoji: "🔄"
 type: "tech"
-topics: ["react", "typescript", "reactquery", "nextjs", "フロントエンド"]
+topics: ["react", "typescript", "reactquery", "nextjs", "frontend"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

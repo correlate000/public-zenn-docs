@@ -2,7 +2,7 @@
 title: "自分専用の「AI編集部」を作る - Watchdog + Qwen + Launchd で実現する完全自動コンテンツパイプライン"
 emoji: "🤖"
 type: "tech"
-topics: ["Python", "LLM", "Automation", "Mac", "個人開発"]
+topics: ["python", "llm", "automation", "mac", "sideproject"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

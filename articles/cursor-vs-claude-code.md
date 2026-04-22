@@ -2,7 +2,7 @@
 title: "Cursor vs Claude Code — 2026年版AIコーディングツール使い分けガイド"
 emoji: "⚔️"
 type: "tech"
-topics: ["claudecode", "cursor", "ai", "開発環境", "vscode"]
+topics: ["claudecode", "cursor", "ai", "devenv", "vscode"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

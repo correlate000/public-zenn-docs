@@ -2,7 +2,7 @@
 title: "BigQuery ビュー・マテリアライズドビュー完全ガイド ─ 通常ビュー/MV/集計テーブルの使い分けとコスト最適化"
 emoji: "📊"
 type: "tech"
-topics: ["bigquery", "gcp", "sql", "データ分析", "コスト最適化"]
+topics: ["bigquery", "gcp", "sql", "dataanalysis", "costoptimization"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

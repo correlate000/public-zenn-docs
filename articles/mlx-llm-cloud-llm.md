@@ -2,7 +2,7 @@
 title: "MLX ローカルLLM × クラウドLLM ハイブリッド戦略：コスト削減と応答性を両立する設計"
 emoji: "🔀"
 type: "tech"
-topics: ["MLX", "LLM", "AppleSilicon", "OpenAI", "Python"]
+topics: ["mlx", "llm", "applesilicon", "openai", "python"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

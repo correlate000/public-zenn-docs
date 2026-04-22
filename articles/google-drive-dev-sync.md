@@ -2,7 +2,7 @@
 title: "Google Driveで開発フォルダを同期してはいけない理由（fileproviderd 167GB書き込み事件）"
 emoji: "💾"
 type: "tech"
-topics: ["googledrive", "macos", "syncthing", "rsync", "開発環境"]
+topics: ["googledrive", "macos", "syncthing", "rsync", "devenv"]
 published: false
 status: "draft"
 publication_name: "correlate_dev"

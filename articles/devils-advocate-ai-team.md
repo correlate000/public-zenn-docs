@@ -2,7 +2,7 @@
 title: "AIチームにデビルズアドボケイトを入れたら品質が改善した話"
 emoji: "😈"
 type: "tech"
-topics: ["claude", "ai", "品質管理", "開発手法"]
+topics: ["claude", "ai", "qualityassurance", "devmethodology"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

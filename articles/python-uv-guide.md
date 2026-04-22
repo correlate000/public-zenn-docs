@@ -2,7 +2,7 @@
 title: "Python uv完全ガイド — pip/poetryより10倍速いパッケージ管理"
 emoji: "⚡"
 type: "tech"
-topics: ["python", "uv", "パッケージ管理", "開発環境", "pip"]
+topics: ["python", "uv", "packagemanager", "devenv", "pip"]
 published: true
 status: "published"
 publication_name: "correlate_dev"

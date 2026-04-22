@@ -2,7 +2,7 @@
 title: "Claude Code Agent Teamsで開発タスクを並列処理した実践ガイド"
 emoji: "🤖"
 type: "tech"
-topics: ["claude", "ai", "開発効率化", "自動化"]
+topics: ["claude", "ai", "devproductivity", "automation"]
 published: true
 status: "published"
 publication_name: "correlate_dev"
