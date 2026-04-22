@@ -6,8 +6,8 @@ name: Publish Queue (Approval-based)
 
 on:
   schedule:
-    # 毎時00分に実行（スクリプト内で日次ハッシュにより公開時刻を決定）
-    - cron: '0 * * * *'
+    # 毎日09:00 JST（00:00 UTC）に1回実行（月間Actions分節約: 720→30回/月）
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       force:
