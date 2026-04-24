@@ -29,3 +29,18 @@ zennnote                  # slug短すぎ→zenn-note-multiplatform-publish (202
 discord-slash-commands    # 他アカウント使用中→discord-slash-commands-cloudrun-bot (2026-04-08)
 obsidian-claude-code      # 他アカウント使用中→obsidian-claude-code-auto-logging (2026-04-08)
 claude-code-remote-control  # 他アカウント使用中→claude-code-remote-control-background-agent (2026-04-22) / 9日間全デプロイをブロック
+
+# 2026-04-24: 重複テーマ統合によるアーカイブ（git rm）
+claude-code-parallel-agents  # Agent Teams汎用重複→agent-teams-benchmark残し (2026-04-24)
+claude-codeagent-teams  # Agent Teams汎用重複→agent-teams-benchmark残し (2026-04-24)
+claude-code-agent-teams-parallel-dev  # Agent Teams角度重複→agent-teams-benchmark残し (2026-04-24)
+ai-content-pipeline-rewrite  # 公開済みai-content-pipelineの書き直し→不要 (2026-04-24)
+prclaude-code-agent-teams  # PRレビュー重複→pr-claude-code-mcp残し (2026-04-24)
+local-llm-2025-sios  # 2025年版で陳腐化→qwen-hybrid-operations残し (2026-04-24)
+local-llm-2025  # ハイブリッド運用重複→qwen-hybrid-operations残し (2026-04-24)
+llm-vs-claude-api-2025  # 2025年版比較→qwen-hybrid-operations残し (2026-04-24)
+mlx-llm-cloud-llm  # MLX薄い記事→qwen-hybrid-operations残し (2026-04-24)
+claude-code-hooks-complete-setup  # 公開済みcomplete-guideと重複→session-guard残し (2026-04-24)
+zenn-note-dual-publish  # 短縮版→zenn-note-multiplatform-publish残し (2026-04-24)
+nodejs-streaming-api  # 簡易版→nodejs-streaming-api-patterns残し (2026-04-24)
+ai-claude-code  # テスト品質重複→claude-codellm-ai残し (2026-04-24)
