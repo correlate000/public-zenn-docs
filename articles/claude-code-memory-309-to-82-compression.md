@@ -4,7 +4,7 @@ emoji: "🧠"
 type: "tech"
 topics: ["claudecode", "ai", "memory", "productivity", "devtools"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

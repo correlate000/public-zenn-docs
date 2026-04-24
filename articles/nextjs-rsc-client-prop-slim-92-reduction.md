@@ -4,7 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["nextjs", "react", "rsc", "performance", "typescript"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

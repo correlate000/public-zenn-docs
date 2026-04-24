@@ -4,7 +4,7 @@ emoji: "🛡️"
 type: "tech"
 topics: ["claudecode", "security", "permissions", "ai", "devops"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

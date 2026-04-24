@@ -4,7 +4,7 @@ emoji: "💥"
 type: "tech"
 topics: ["vercel", "nextjs", "deployment", "debugging", "performance"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

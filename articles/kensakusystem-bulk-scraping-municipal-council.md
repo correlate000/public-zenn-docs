@@ -4,7 +4,7 @@ emoji: "🏛️"
 type: "tech"
 topics: ["python", "scraping", "opendata", "automation", "bigquery"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

@@ -4,7 +4,7 @@ emoji: "🔖"
 type: "tech"
 topics: ["nextjs", "mdx", "seo", "jsonld", "typescript"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

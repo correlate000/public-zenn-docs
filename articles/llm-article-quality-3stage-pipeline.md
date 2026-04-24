@@ -4,7 +4,7 @@ emoji: "🔍"
 type: "tech"
 topics: ["ai", "llm", "contentpipeline", "qualityassurance", "claudecode"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

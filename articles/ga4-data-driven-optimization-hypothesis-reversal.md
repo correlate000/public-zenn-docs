@@ -4,7 +4,7 @@ emoji: "📊"
 type: "tech"
 topics: ["ga4", "analytics", "nextjs", "ux", "datadriven"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 

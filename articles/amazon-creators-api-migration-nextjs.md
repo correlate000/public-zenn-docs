@@ -4,7 +4,7 @@ emoji: "🛒"
 type: "tech"
 topics: ["amazon", "nextjs", "typescript", "api", "affiliate"]
 published: false
-status: "draft"
+status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 
