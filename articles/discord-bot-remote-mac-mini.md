@@ -8,7 +8,7 @@ status: "published"
 publication_name: "correlate_dev"
 ---
 
-## はじめに — スマホからClaude Codeを使いたい
+## はじめに ： スマホからClaude Codeを使いたい
 
 Mac mini M4 Proを自宅に置いて開発しています。Claude Code（Anthropic公式CLI）を使ったコードリーディングや軽微な修正は日常的な作業ですが、外出先からアクセスする手段が限られていました。
 
@@ -183,7 +183,7 @@ if _env_path.exists():
 
 `chmod 600 .env`を強制するのではなく警告にとどめていますが、ログに残ることで運用時に気づけます。
 
-## Step 2: システム監視コマンド — /mac status
+## Step 2: システム監視コマンド ： /mac status
 
 `psutil`でCPU・メモリ・ディスク・uptimeを取得し、Discord Embedで表示します。
 
@@ -234,7 +234,7 @@ def launchd_jobs() -> list[dict]:
 
 プレフィックスを`com.correlate.`に限定しているのは、他のシステムジョブを誤って表示しないためです。
 
-## Step 3: Claude Code統合 — /claude run
+## Step 3: Claude Code統合 ： /claude run
 
 ここが本記事の核心です。
 

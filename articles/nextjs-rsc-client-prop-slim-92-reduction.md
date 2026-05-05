@@ -8,7 +8,7 @@ status: "publish-ready"
 publication_name: "correlate_dev"
 ---
 
-## 1. 問題の発見 — 自治体ページが 2MB を返していた
+## 1. 問題の発見 ： 自治体ページが 2MB を返していた
 
 マチカルテ（machikarte.isvd.or.jp）は、全国の自治体ごとに健康スコアや施策一覧を表示する Next.js 16 製のサービスです。ある日、東京都豊島区のページを Chrome DevTools で確認したところ、HTTP レスポンスが **2,006,236 bytes（約 2MB）** あることに気づきました。gzip 圧縮後でも 335KB です。
 

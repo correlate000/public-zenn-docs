@@ -26,9 +26,9 @@ Claude Code には Figma との連携方法が2種類あります。
 
 Claude Code の設定画面から「Figma」を選択するだけで使えるコネクタです。特別な設定不要で、以下のようなツールが利用できます。
 
-- `get_figma_data` — ファイル情報を取得する
-- `get_node_by_id` — 特定ノードの詳細を取得する
-- `get_images` — 画像データを取得する
+- `get_figma_data` ： ファイル情報を取得する
+- `get_node_by_id` ： 特定ノードの詳細を取得する
+- `get_images` ： 画像データを取得する
 
 これらはすべて **read-only** のツールです。Figmaファイルを「読む」ことしかできません。
 

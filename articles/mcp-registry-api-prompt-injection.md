@@ -1,5 +1,5 @@
 ---
-title: "Anthropic MCP Registry APIの全容 — 変数名プロンプトインジェクションと公開サーバー26種の実態"
+title: "Anthropic MCP Registry APIの全容 ： 変数名プロンプトインジェクションと公開サーバー26種の実態"
 emoji: "🔍"
 type: "tech"
 topics: ["mcp", "claude", "security", "claudecode", "api"]

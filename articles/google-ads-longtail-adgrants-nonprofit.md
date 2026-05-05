@@ -1,5 +1,5 @@
 ---
-title: "Ad Grantsの$2制限を逆手に取る — ロングテール一括登録戦略と実装"
+title: "Ad Grantsの$2制限を逆手に取る ： ロングテール一括登録戦略と実装"
 emoji: "🎯"
 type: "tech"
 topics: ["googleads", "adgrants", "python", "automation"]

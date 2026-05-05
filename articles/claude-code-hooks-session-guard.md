@@ -239,7 +239,7 @@ bash (フックスクリプト) PID: 99999
         └── get-session-id.sh  # PID特定ヘルパー
 ```
 
-### get-session-id.sh — PID特定ヘルパー
+### get-session-id.sh ： PID特定ヘルパー
 
 プロセスツリーを遡行してClaude Code PIDを返す共通ヘルパーです。フックスクリプトからもBashツールからも同じ結果を返すよう設計しています。
 
@@ -278,7 +278,7 @@ exit 0
 - 最大15回の遡行制限。無限ループ防止
 - `claude`プロセスが見つからない場合でもフォールバック値を返し、スクリプトは正常終了
 
-### session-guard.sh — ガード本体
+### session-guard.sh ： ガード本体
 
 ```bash
 #!/bin/bash

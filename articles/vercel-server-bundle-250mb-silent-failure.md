@@ -1,5 +1,5 @@
 ---
-title: "Vercelサーバーバンドル250MB制限の罠 — 12デプロイがサイレントに失敗していた"
+title: "Vercelサーバーバンドル250MB制限の罠 ： 12デプロイがサイレントに失敗していた"
 emoji: "💥"
 type: "tech"
 topics: ["vercel", "nextjs", "deployment", "debugging", "performance"]

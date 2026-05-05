@@ -545,7 +545,7 @@ flowchart TD
 
 - [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
 - [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
-- [Terraform × GCP入門 — インフラをコードで再現可能にする](https://zenn.dev/correlate_dev/articles/terraform-gcp-iac-basics)
+- [Terraform × GCP入門 ： インフラをコードで再現可能にする](https://zenn.dev/correlate_dev/articles/terraform-gcp-iac-basics)
 
 :::message
 **2026年4月時点の最新情報**

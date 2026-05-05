@@ -1,5 +1,5 @@
 ---
-title: "Claude Code × knip × MCP — 不要コードを検出して自動削除するパイプラインを作った話"
+title: "Claude Code × knip × MCP ： 不要コードを検出して自動削除するパイプラインを作った話"
 emoji: "🧹"
 type: "tech"
 topics: ["claudecode", "typescript", "mcp", "knip", "deadcode"]

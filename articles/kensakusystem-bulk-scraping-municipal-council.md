@@ -1,5 +1,5 @@
 ---
-title: "119自治体の議会議事録を一括スクレイピングする — kensakusystem.jp攻略ガイド"
+title: "119自治体の議会議事録を一括スクレイピングする ： kensakusystem.jp攻略ガイド"
 emoji: "🏛️"
 type: "tech"
 topics: ["python", "scraping", "opendata", "automation", "bigquery"]

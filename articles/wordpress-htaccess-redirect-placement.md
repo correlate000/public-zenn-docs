@@ -1,5 +1,5 @@
 ---
-title: "WordPressパーマリンク変更で301リダイレクトが効かない理由 — .htaccess配置の落とし穴"
+title: "WordPressパーマリンク変更で301リダイレクトが効かない理由 ： .htaccess配置の落とし穴"
 emoji: "🔁"
 type: "tech"
 topics: ["wordpress", "htaccess", "apache", "redirect", "seo"]

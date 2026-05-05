@@ -427,7 +427,7 @@ https://zenn.dev/correlate_dev/articles/devils-advocate-ai-team
 **関連記事**
 
 - [Claude Code × Agent Teamsで1日5本のZenn記事を書いた方法](https://zenn.dev/correlate_dev/articles/ai-content-pipeline)
-- [Claude Code Hooks完全ガイド — AIエージェントに安全ガードを設ける](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)
+- [Claude Code Hooks完全ガイド ： AIエージェントに安全ガードを設ける](https://zenn.dev/correlate_dev/articles/claude-code-hooks-complete-guide)
 - [朝会ボットを設計書から実装まで全部AIにやらせた話](https://zenn.dev/correlate_dev/articles/morning-bot-ai)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

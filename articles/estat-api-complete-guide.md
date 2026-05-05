@@ -1,5 +1,5 @@
 ---
-title: "e-Stat API v3.0 完全活用ガイド — 22万テーブルから必要なデータだけ取る方法"
+title: "e-Stat API v3.0 完全活用ガイド ： 22万テーブルから必要なデータだけ取る方法"
 emoji: "📊"
 type: "tech"
 topics: ["estat", "typescript", "api", "opendata", "nodejs"]
@@ -20,7 +20,7 @@ publication_name: "correlate_dev"
 
 ---
 
-## 2つのAPIを理解する — e-Stat APIと統計ダッシュボードAPI
+## 2つのAPIを理解する ： e-Stat APIと統計ダッシュボードAPI
 
 ```mermaid
 graph TD
@@ -134,7 +134,7 @@ flowchart TD
 
 ---
 
-## 統計ダッシュボードAPI — フロントエンドから直接使う
+## 統計ダッシュボードAPI ： フロントエンドから直接使う
 
 統計ダッシュボードAPIはappId不要・CORS対応のため、ブラウザのJavaScriptから直接呼び出せます。以下に完全失業率を取得する例を示します。
 
@@ -166,7 +166,7 @@ console.log(result);
 
 ---
 
-## e-Stat API v3.0 — appId登録から最初のリクエストまで
+## e-Stat API v3.0 ： appId登録から最初のリクエストまで
 
 ### appIdの登録方法
 
@@ -239,7 +239,7 @@ e-Stat API v3.0の主なエンドポイントは以下のとおりです。
 
 ベースURLは `https://api.e-stat.go.jp/rest/3.0/app/json/` です。
 
-### 最初のリクエスト — TypeScriptによる実装例
+### 最初のリクエスト ： TypeScriptによる実装例
 
 以下に、TypeScriptを使った基本的なデータ取得の実装例を示します。
 
@@ -304,7 +304,7 @@ try {
 
 ---
 
-## 22万テーブルを効率的に探す — metaInfo CLIツールの活用
+## 22万テーブルを効率的に探す ： metaInfo CLIツールの活用
 
 ```mermaid
 flowchart TD

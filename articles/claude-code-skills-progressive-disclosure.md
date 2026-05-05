@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Skills設計パターン — 段階的開示とコンテキスト2%ルール"
+title: "Claude Code Skills設計パターン ： 段階的開示とコンテキスト2%ルール"
 emoji: "🧩"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "promptengineering", "devproductivity"]

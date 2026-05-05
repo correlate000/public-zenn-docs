@@ -1,5 +1,5 @@
 ---
-title: "GA4実データが最適化の前提を覆した日 — Hero 4CTAのROIがゼロだった話"
+title: "GA4実データが最適化の前提を覆した日 ： Hero 4CTAのROIがゼロだった話"
 emoji: "📊"
 type: "tech"
 topics: ["ga4", "analytics", "nextjs", "ux", "datadriven"]

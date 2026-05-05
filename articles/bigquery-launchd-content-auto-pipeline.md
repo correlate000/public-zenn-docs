@@ -547,4 +547,4 @@ BigQuery × launchd × watchdog の組み合わせにより、コンテンツ候
 ### 関連記事
 
 - [ObsidianとBigQueryを繋ぐナレッジパイプライン](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
-- [macのlaunchd完全ガイド — CronからlaunchAgentへ](https://zenn.dev/correlate_dev/articles/launchagent-macos-cron)
+- [macのlaunchd完全ガイド ： CronからlaunchAgentへ](https://zenn.dev/correlate_dev/articles/launchagent-macos-cron)

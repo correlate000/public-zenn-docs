@@ -1,5 +1,5 @@
 ---
-title: "コンテンツパイプラインという思想 — 記事が生まれる仕組みの設計"
+title: "コンテンツパイプラインという思想 ： 記事が生まれる仕組みの設計"
 emoji: "🌱"
 type: "idea"
 topics: ["obsidian", "ai", "pkm", "claudecode", "writing"]
@@ -281,7 +281,7 @@ https://zenn.dev/correlate_dev/articles/ai-content-pipeline
 
 **関連記事**
 
-- [Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
+- [Obsidian→BigQueryナレッジ同期 ： 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
 - [小規模事業者のナレッジ管理、NotionよりBigQueryが向くケース](https://zenn.dev/correlate_dev/articles/notion-vs-bigquery-knowledge-management)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

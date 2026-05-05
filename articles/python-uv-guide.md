@@ -1,5 +1,5 @@
 ---
-title: "Python uv完全ガイド — pip/poetryより10倍速いパッケージ管理"
+title: "Python uv完全ガイド ： pip/poetryより10倍速いパッケージ管理"
 emoji: "⚡"
 type: "tech"
 topics: ["python", "uv", "packagemanager", "devenv", "pip"]
@@ -451,7 +451,7 @@ poetry や pip からの移行は `uv sync` を起点に比較的スムーズに
 **関連記事**
 
 - [1ファイル3500行超のPythonを恐れずにモジュール分割した話](https://zenn.dev/correlate_dev/articles/python-module-splitting)
-- [Python型ヒント実践ガイド — mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
+- [Python型ヒント実践ガイド ： mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
 - [DDEV使いがDockerを理解したら世界が変わった話](https://zenn.dev/correlate_dev/articles/ddev-to-docker)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

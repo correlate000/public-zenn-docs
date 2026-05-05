@@ -1,5 +1,5 @@
 ---
-title: "Claude Code MEMORY.mdを309行→82行に圧縮した方法 — AutoDreamに頼らないメモリ管理術"
+title: "Claude Code MEMORY.mdを309行→82行に圧縮した方法 ： AutoDreamに頼らないメモリ管理術"
 emoji: "🧠"
 type: "tech"
 topics: ["claudecode", "ai", "memory", "productivity", "devtools"]

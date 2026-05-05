@@ -1,5 +1,5 @@
 ---
-title: "Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略"
+title: "Next.js App Router実践パターン ： RSC・Server Actions・キャッシュ戦略"
 emoji: "▲"
 type: "tech"
 topics: ["nextjs", "react", "typescript", "approuter", "rsc"]
@@ -8,7 +8,7 @@ status: "published"
 publication_name: "correlate_dev"
 ---
 
-## 1. はじめに — App Router が変えた Next.js の世界
+## 1. はじめに ： App Router が変えた Next.js の世界
 
 Next.js 13 で App Router が導入され、14・15 と進化を重ねた現在、フロントエンド開発の設計思想は大きく変わりました。Pages Router 時代の `getServerSideProps` / `getStaticProps` という「ページ単位のデータ取得」から、React Server Components (RSC) を核とした「コンポーネント単位のデータ取得」へとパラダイムシフトが起きています。
 
@@ -405,7 +405,7 @@ export function TodoList({ initialTodos }: Props) {
 }
 ```
 
-## 5. キャッシュ戦略 — Static / Dynamic / ISR / PPR
+## 5. キャッシュ戦略 ： Static / Dynamic / ISR / PPR
 
 ### Next.js 15 のキャッシュの考え方
 
@@ -1059,7 +1059,7 @@ App Router は「何をサーバーで、何をクライアントで行うか」
 
 参考資料:
 
-- [Next.js 公式ドキュメント — App Router](https://nextjs.org/docs/app)
+- [Next.js 公式ドキュメント ： App Router](https://nextjs.org/docs/app)
 - [Next.js 15 リリースノート](https://nextjs.org/blog/next-15)
 - [Getting Started: Server and Client Components](https://nextjs.org/docs/app/getting-started/server-and-client-components)
 - [Getting Started: Caching and Revalidating](https://nextjs.org/docs/app/getting-started/caching-and-revalidating)
@@ -1071,8 +1071,8 @@ App Router は「何をサーバーで、何をクライアントで行うか」
 
 **関連記事**
 
-- [TanStack Query実践パターン — キャッシュ・楽観的更新・無限スクロール](https://zenn.dev/correlate_dev/articles/react-query-patterns)
-- [TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
+- [TanStack Query実践パターン ： キャッシュ・楽観的更新・無限スクロール](https://zenn.dev/correlate_dev/articles/react-query-patterns)
+- [TypeScriptユーティリティ型完全ガイド ： Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
 - [TypeScript × Zodで型安全なランタイムバリデーションを実現する](https://zenn.dev/correlate_dev/articles/typescript-zod-validation)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

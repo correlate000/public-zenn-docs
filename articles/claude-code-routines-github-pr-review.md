@@ -1,5 +1,5 @@
 ---
-title: "Claude Code RoutinesでGitHub PRを自動レビューする実装ガイド — プロンプト設計からAPI挙動まで"
+title: "Claude Code RoutinesでGitHub PRを自動レビューする実装ガイド ： プロンプト設計からAPI挙動まで"
 emoji: "🤖"
 type: "tech"
 topics: ["claudecode", "githubactions", "aicodereview", "anthropic", "automation"]

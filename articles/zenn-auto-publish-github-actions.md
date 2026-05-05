@@ -1,5 +1,5 @@
 ---
-title: "Zenn記事を毎日3本自動公開する仕組み — GitHub Actions + Pythonキューで実現"
+title: "Zenn記事を毎日3本自動公開する仕組み ： GitHub Actions + Pythonキューで実現"
 emoji: "📅"
 type: "tech"
 topics: ["zenn", "githubactions", "python", "automation", "contentpipeline"]

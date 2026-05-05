@@ -1,5 +1,5 @@
 ---
-title: "Amazon PA-API → Creators API 移行ガイド — Next.js + TypeScriptで5/15に間に合わせる"
+title: "Amazon PA-API → Creators API 移行ガイド ： Next.js + TypeScriptで5/15に間に合わせる"
 emoji: "🛒"
 type: "tech"
 topics: ["amazon", "nextjs", "typescript", "api", "affiliate"]

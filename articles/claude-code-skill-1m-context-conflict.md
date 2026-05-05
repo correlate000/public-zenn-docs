@@ -1,5 +1,5 @@
 ---
-title: "Claude Code Skill toolがopus-4-6[1M]を壊す落とし穴 — model overrideの衝突"
+title: "Claude Code Skill toolがopus-4-6[1M]を壊す落とし穴 ： model overrideの衝突"
 emoji: "⚠️"
 type: "tech"
 topics: ["claudecode", "ai", "debugging", "anthropic", "devtools"]

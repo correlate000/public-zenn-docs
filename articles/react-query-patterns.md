@@ -1,5 +1,5 @@
 ---
-title: "TanStack Query実践パターン — キャッシュ・楽観的更新・無限スクロール"
+title: "TanStack Query実践パターン ： キャッシュ・楽観的更新・無限スクロール"
 emoji: "🔄"
 type: "tech"
 topics: ["react", "typescript", "reactquery", "nextjs", "frontend"]
@@ -556,8 +556,8 @@ v5 ではフック名の変更（`cacheTime` → `gcTime`、`suspense` オプシ
 
 **関連記事**
 
-- [Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
+- [Next.js App Router実践パターン ： RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
 - [TypeScript × Zodで型安全なランタイムバリデーションを実現する](https://zenn.dev/correlate_dev/articles/typescript-zod-validation)
-- [TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
+- [TypeScriptユーティリティ型完全ガイド ： Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

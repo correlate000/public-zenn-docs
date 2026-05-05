@@ -1,5 +1,5 @@
 ---
-title: "Cloud Tasksで非同期処理を実装する — キュー管理とリトライ戦略"
+title: "Cloud Tasksで非同期処理を実装する ： キュー管理とリトライ戦略"
 emoji: "⏱️"
 type: "tech"
 topics: ["gcp", "cloudrun", "python", "async", "queue"]

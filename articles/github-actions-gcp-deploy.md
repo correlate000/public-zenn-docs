@@ -1,5 +1,5 @@
 ---
-title: "GitHub Actions × GCP キーレス認証デプロイ — Workload Identity + Cloud Run"
+title: "GitHub Actions × GCP キーレス認証デプロイ ： Workload Identity + Cloud Run"
 emoji: "🚀"
 type: "tech"
 topics: ["githubactions", "gcp", "cloudrun", "cicd", "docker"]

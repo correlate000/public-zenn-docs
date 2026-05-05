@@ -1,5 +1,5 @@
 ---
-title: "Cloud Pub/Sub実践パターン — Push/Pull・デッドレタートピック・順序保証を完全攻略"
+title: "Cloud Pub/Sub実践パターン ： Push/Pull・デッドレタートピック・順序保証を完全攻略"
 emoji: "📨"
 type: "tech"
 topics: ["gcp", "pubsub", "cloudrun", "python", "messaging"]

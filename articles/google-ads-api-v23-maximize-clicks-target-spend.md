@@ -322,4 +322,4 @@ Google Ads API はバージョンごとに SDK の設計が変わります。エ
 ## 関連記事
 
 - [Google Ads RSA を Claude + Python で自動生成・自動更新する仕組みを作った](./google-ads-rsa-claude-python-automation)
-- [Google Ads API で広告が消えた15秒間 — REMOVE+CREATE競合エラーのリカバリ手順](./google-ads-api-rsa-remove-create-race-condition)
+- [Google Ads API で広告が消えた15秒間 ： REMOVE+CREATE競合エラーのリカバリ手順](./google-ads-api-rsa-remove-create-race-condition)

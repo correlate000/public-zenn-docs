@@ -1,5 +1,5 @@
 ---
-title: "CLAUDE.md設計ガイド — AIエージェントに環境を理解させる"
+title: "CLAUDE.md設計ガイド ： AIエージェントに環境を理解させる"
 emoji: "📋"
 type: "tech"
 topics: ["claude", "ai", "devenv", "automation"]
@@ -333,7 +333,7 @@ https://zenn.dev/and_and/articles/devils-advocate-ai-team
 **関連記事**
 
 - [CLAUDE.mdをKnowledge Files化して67%スリム化した実践記録](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)
-- [Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する](https://zenn.dev/correlate_dev/articles/claude-code-memory-design)
+- [Claude Codeのメモリ設計 ： 3層構造で長期記憶を実現する](https://zenn.dev/correlate_dev/articles/claude-code-memory-design)
 - [「What, not How」-- AIエージェント時代のプロンプト設計哲学](https://zenn.dev/correlate_dev/articles/what-not-how-prompt-philosophy)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

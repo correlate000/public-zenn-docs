@@ -1,5 +1,5 @@
 ---
-title: "Google Ads API で広告が消えた15秒間 — REMOVE+CREATE競合エラーのリカバリ手順"
+title: "Google Ads API で広告が消えた15秒間 ： REMOVE+CREATE競合エラーのリカバリ手順"
 emoji: "🚨"
 type: "tech"
 topics: ["googleads", "python", "automation", "adgrants"]

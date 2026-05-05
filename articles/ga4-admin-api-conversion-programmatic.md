@@ -1,5 +1,5 @@
 ---
-title: "GA4コンバージョン設定をPythonで自動化 — Admin API v1alpha/v1beta の使い分け"
+title: "GA4コンバージョン設定をPythonで自動化 ： Admin API v1alpha/v1beta の使い分け"
 emoji: "📊"
 type: "tech"
 topics: ["ga4", "python", "gcp", "googleanalytics", "automation"]
@@ -339,9 +339,9 @@ def apply_ga4_config(config_path: str, credentials):
 
 GA4 Admin API を Python で扱う際の重要ポイントを整理します：
 
-1. **v1alpha と v1beta を使い分ける** — `eventCreateRules` は v1alpha のみ、`conversionEvents` は v1beta
-2. **認証は SA + `analytics.edit` スコープ** — gcloud デフォルト認証では403になる
-3. **フィールド名は `destination_event`** — `event_name` ではない
-4. **Realtime API の `start_minutes_ago` は最大29** — 30以上は400エラー
+1. **v1alpha と v1beta を使い分ける** ： `eventCreateRules` は v1alpha のみ、`conversionEvents` は v1beta
+2. **認証は SA + `analytics.edit` スコープ** ： gcloud デフォルト認証では403になる
+3. **フィールド名は `destination_event`** ： `event_name` ではない
+4. **Realtime API の `start_minutes_ago` は最大29** ： 30以上は400エラー
 
 ブラウザUIでの手動設定からコード管理に移行することで、複数プロパティの一括管理や CI/CD での設定管理が可能になります。設定のバージョン管理もできるので、「いつ誰が何を変えたか」の追跡も容易になります。

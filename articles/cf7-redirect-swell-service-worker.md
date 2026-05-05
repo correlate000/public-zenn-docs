@@ -1,5 +1,5 @@
 ---
-title: "SWELL×CF7のService Worker競合を解決する — mu-pluginでリダイレクトを確実に動かす"
+title: "SWELL×CF7のService Worker競合を解決する ： mu-pluginでリダイレクトを確実に動かす"
 emoji: "🔌"
 type: "tech"
 topics: ["wordpress", "contactform7", "swell", "php", "javascript"]

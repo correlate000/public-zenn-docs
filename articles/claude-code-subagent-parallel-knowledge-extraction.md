@@ -1,5 +1,5 @@
 ---
-title: "sonnet×7並列で8MB転写から49知見を30分抽出 — Claude Codeサブエージェント実践"
+title: "sonnet×7並列で8MB転写から49知見を30分抽出 ： Claude Codeサブエージェント実践"
 emoji: "🚀"
 type: "tech"
 topics: ["claudecode", "ai", "parallelprocessing", "youtube", "productivity"]

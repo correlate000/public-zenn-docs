@@ -14,10 +14,10 @@ LangChainやLlamaIndexを使ったRAG実装の記事は多いですが、Vertex 
 
 この記事では、以下の構成でRAGシステムを構築・本番デプロイした際の実装詳細とハマりポイントを共有します。
 
-- **FastAPI (Python 3.12)** — APIサーバー
-- **Vertex AI text-embedding-004** — テキスト埋め込み生成
-- **BigQuery ML.DISTANCE COSINE** — ベクトル検索（Pinecone/Weaviate不要）
-- **Cloud Run** — サーバーレスデプロイ
+- **FastAPI (Python 3.12)** ： APIサーバー
+- **Vertex AI text-embedding-004** ： テキスト埋め込み生成
+- **BigQuery ML.DISTANCE COSINE** ： ベクトル検索（Pinecone/Weaviate不要）
+- **Cloud Run** ： サーバーレスデプロイ
 
 ユースケースは社会的インパクト測定（SDI診断・ロジックモデル生成）ですが、構成とハマりポイントはドメインを問わず再利用できます。
 
@@ -154,7 +154,7 @@ async def retrieve_knowledge(
 
 ## ルーター実装
 
-### routers/knowledge.py — チャンク管理API
+### routers/knowledge.py ： チャンク管理API
 
 チャンクの追加・一覧取得のエンドポイントです。
 

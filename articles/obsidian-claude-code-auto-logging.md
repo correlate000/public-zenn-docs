@@ -8,7 +8,7 @@ status: "draft"
 publication_name: "correlate_dev"
 ---
 
-## はじめに — AIの作業ログはどこに消えるのか
+## はじめに ： AIの作業ログはどこに消えるのか
 
 Claude Codeで何時間もかけてデバッグした。複雑なアーキテクチャの設計判断を下した。難解なエラーの原因をようやく突き止めた。
 
@@ -26,7 +26,7 @@ Claude Codeはセッションをまたいだ記憶を持たない。「あのと
 
 ## なぜMCPを使わないのか
 
-Obsidian × Claude Codeの連携を検索すると、MCP（Model Context Protocol）を使った記事が多く出てきます。MCPのObsidianプラグインを使えば、ノートの読み書きをよりシームレスに行える — それは事実です。
+Obsidian × Claude Codeの連携を検索すると、MCP（Model Context Protocol）を使った記事が多く出てきます。MCPのObsidianプラグインを使えば、ノートの読み書きをよりシームレスに行える ： それは事実です。
 
 ただし、MCPには現実的な課題があります。
 
@@ -119,7 +119,7 @@ duration_min: 0
 
 ---
 
-## 逐次書き込み戦略 — 最も重要な設計判断
+## 逐次書き込み戦略 ： 最も重要な設計判断
 
 Claude Codeのセッションは突然終わることがあります。コンテキスト上限、ネットワーク切断、macOSのスリープ。まとめ書きを採用していると、記録を残す前に全データが消えます。
 
@@ -222,7 +222,7 @@ WHEN MATCHED THEN UPDATE ...
 
 ---
 
-## CLAUDE.mdとの連携 — フィードバックループの核
+## CLAUDE.mdとの連携 ： フィードバックループの核
 
 エラー記録がClaude Codeの行動を変えるためには、`CLAUDE.md`への反映が必要です。
 
@@ -248,7 +248,7 @@ graph LR
 
 ---
 
-## コンテンツパイプライン — 知識が自然に記事になる
+## コンテンツパイプライン ： 知識が自然に記事になる
 
 セッション記録の末尾に`#content-candidate`タグをつける習慣があります。
 
@@ -420,6 +420,6 @@ MCP不要・プラグイン不要で実現できるObsidian × Claude Code連携
 
 ## 参考リソース
 
-- [Claude Code Memory管理 — 公式ドキュメント](https://docs.anthropic.com/en/docs/claude-code/memory)
-- [GitHub: ballred/obsidian-claude-pkm](https://github.com/ballred/obsidian-claude-pkm) — スターターキット
-- [GitHub: thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) — セッションメモリ管理ツール
+- [Claude Code Memory管理 ： 公式ドキュメント](https://docs.anthropic.com/en/docs/claude-code/memory)
+- [GitHub: ballred/obsidian-claude-pkm](https://github.com/ballred/obsidian-claude-pkm) ： スターターキット
+- [GitHub: thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) ： セッションメモリ管理ツール

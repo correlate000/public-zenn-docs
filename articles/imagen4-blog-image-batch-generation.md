@@ -1,5 +1,5 @@
 ---
-title: "Imagen 4.0でブログ画像を一括生成する — Gemini 2.5 Flash + Python で48枚 $2"
+title: "Imagen 4.0でブログ画像を一括生成する ： Gemini 2.5 Flash + Python で48枚 $2"
 emoji: "🖼️"
 type: "tech"
 topics: ["imagen", "gemini", "python", "imagegeneration", "contentautomation"]
@@ -18,11 +18,11 @@ Imagen 4.0（Google の画像生成AI）を使って、Python スクリプトで
 
 ## 使用技術
 
-- **Imagen 4.0** — Google の最新画像生成モデル（`imagen-4.0-generate-preview-05-20`）
-- **Gemini 2.5 Flash** — 記事の内容からプロンプトを生成するために使用
-- **google-genai SDK** — Python からの API アクセス
-- **Pillow** — WebP 変換・リサイズ
-- **python-frontmatter** — MDX ファイルのフロントマター読み書き
+- **Imagen 4.0** ： Google の最新画像生成モデル（`imagen-4.0-generate-preview-05-20`）
+- **Gemini 2.5 Flash** ： 記事の内容からプロンプトを生成するために使用
+- **google-genai SDK** ： Python からの API アクセス
+- **Pillow** ： WebP 変換・リサイズ
+- **python-frontmatter** ： MDX ファイルのフロントマター読み書き
 
 ---
 

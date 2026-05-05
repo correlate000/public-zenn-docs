@@ -540,5 +540,5 @@ Ad Grants の CTR 5%ルールは「守らなければならない制約」です
 
 ## 関連記事
 
-- [Ad Grantsの$2制限を逆手に取る — ロングテール一括登録戦略と実装](./google-ads-longtail-adgrants-nonprofit)
+- [Ad Grantsの$2制限を逆手に取る ： ロングテール一括登録戦略と実装](./google-ads-longtail-adgrants-nonprofit)
 - [Google Ads RSAをClaude + Pythonで自動生成する仕組みを作った](./google-ads-rsa-claude-python-automation)

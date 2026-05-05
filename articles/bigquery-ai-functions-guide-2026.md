@@ -30,7 +30,7 @@ BigQuery AI 関数は大きく2つのカテゴリに分かれます。
 
 ---
 
-## セットアップ — EUCを使った最速の始め方
+## セットアップ ： EUCを使った最速の始め方
 
 ```sql
 -- EUC利用時: 以下のIAMロールをユーザーに付与するだけで利用可能
@@ -153,7 +153,7 @@ FROM `mydataset.raw_customer_data`
 WHERE raw_address IS NOT NULL;
 ```
 
-### 4. 自動分類（AI.CLASSIFY）— Public Preview
+### 4. 自動分類（AI.CLASSIFY）： Public Preview
 
 カテゴリ一覧を渡すだけで自動分類します。
 
@@ -169,7 +169,7 @@ FROM `bigquery-public-data.bbc_news.fulltext`
 LIMIT 100;
 ```
 
-### 5. 自然言語フィルタリング（AI.IF）— Public Preview
+### 5. 自然言語フィルタリング（AI.IF）： Public Preview
 
 WHERE句に自然言語条件を直接書けます。SQLエンジニア以外にも読みやすいクエリになります。
 
@@ -185,7 +185,7 @@ FROM `mydataset.product_images`
 WHERE AI.IF('この画像は屋外で撮影されたものである', image_uri);
 ```
 
-### 6. スコアリング（AI.SCORE）— Public Preview
+### 6. スコアリング（AI.SCORE）： Public Preview
 
 自然言語で記述したルーブリックに基づいてスコアを付与します。採用・コンテンツ評価・優先度付けなどに活用できます。
 
@@ -202,7 +202,7 @@ ORDER BY relevance_score DESC
 LIMIT 20;
 ```
 
-### 7. 集約分析（AI.AGG）— Public Preview
+### 7. 集約分析（AI.AGG）： Public Preview
 
 GROUP BY と組み合わせ、カテゴリごとにAI要約を生成できます。
 
@@ -218,7 +218,7 @@ FROM `mydataset.product_reviews`
 GROUP BY product_category;
 ```
 
-### 8. ベクトル検索（AI.EMBED + VECTOR_SEARCH）— Preview
+### 8. ベクトル検索（AI.EMBED + VECTOR_SEARCH）： Preview
 
 Embeddingを生成してRAG（Retrieval-Augmented Generation）的な検索パイプラインを構築できます。
 
@@ -245,7 +245,7 @@ FROM VECTOR_SEARCH(
 );
 ```
 
-### 9. 自律的埋め込み（AI.SEARCH）— Preview
+### 9. 自律的埋め込み（AI.SEARCH）： Preview
 
 テーブル定義時に Embedding 列を `GENERATED ALWAYS AS` で定義すると、INSERT のたびに自動的に Embedding が生成されます。ETL パイプラインを別途用意する必要がなくなります（[公式ドキュメント: Autonomous embedding generation](https://docs.cloud.google.com/bigquery/docs/autonomous-embedding-generation)）。
 

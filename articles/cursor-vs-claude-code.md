@@ -1,5 +1,5 @@
 ---
-title: "Cursor vs Claude Code — 2026年版AIコーディングツール使い分けガイド"
+title: "Cursor vs Claude Code ： 2026年版AIコーディングツール使い分けガイド"
 emoji: "⚔️"
 type: "tech"
 topics: ["claudecode", "cursor", "ai", "devenv", "vscode"]
@@ -341,7 +341,7 @@ flowchart TD
 
 **関連記事**
 
-- [CLAUDE.md設計ガイド — AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
+- [CLAUDE.md設計ガイド ： AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
 - [「What, not How」-- AIエージェント時代のプロンプト設計哲学](https://zenn.dev/correlate_dev/articles/what-not-how-prompt-philosophy)
 - [Claude Code x ローカルLLM: いつ切り替えるべきかの判断基準](https://zenn.dev/correlate_dev/articles/local-llm-judgment)
 

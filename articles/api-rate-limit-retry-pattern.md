@@ -1,5 +1,5 @@
 ---
-title: "APIレートリミット対策の設計パターン — 自動リトライ機構の実装"
+title: "APIレートリミット対策の設計パターン ： 自動リトライ機構の実装"
 emoji: "🔄"
 type: "tech"
 topics: ["api", "python", "githubactions", "retry", "automation"]
@@ -8,7 +8,7 @@ status: "published"
 publication_name: "correlate_dev"
 ---
 
-## はじめに — APIレートリミットは誰もが直面する問題
+## はじめに ： APIレートリミットは誰もが直面する問題
 
 APIを利用した自動化を実装していると、必ず直面するのが **レートリミット（Rate Limit）** です。
 
@@ -896,7 +896,7 @@ python zenn-retry-failed.py --dry-run
 **関連記事**
 
 - [Python asyncio で複数API並列呼び出し ─ LLM API のレートリミット対策まで](https://zenn.dev/correlate_dev/articles/python-asyncio-api)
-- [MCPカスタムサーバーをPythonで実装する — Claudeに自前APIを接続](https://zenn.dev/correlate_dev/articles/mcp-custom-server)
+- [MCPカスタムサーバーをPythonで実装する ： Claudeに自前APIを接続](https://zenn.dev/correlate_dev/articles/mcp-custom-server)
 - [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

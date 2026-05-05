@@ -1,5 +1,5 @@
 ---
-title: "Claude Codeに「自己修復」を実装する — 自律的再発防止記録システムの設計と実装"
+title: "Claude Codeに「自己修復」を実装する ： 自律的再発防止記録システムの設計と実装"
 emoji: "🔧"
 type: "tech"
 topics: ["claudecode", "ai", "debugging", "automation", "devproductivity"]

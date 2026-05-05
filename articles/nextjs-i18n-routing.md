@@ -1,5 +1,5 @@
 ---
-title: "Next.js i18n完全ガイド — App RouterでMulti-Locale対応する"
+title: "Next.js i18n完全ガイド ： App RouterでMulti-Locale対応する"
 emoji: "🌍"
 type: "tech"
 topics: ["nextjs", "i18n", "typescript", "react", "nextintl"]
@@ -1001,8 +1001,8 @@ Sources:
 
 **関連記事**
 
-- [Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
-- [TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
-- [Vercel Edge Functions完全ガイド — エッジで超高速APIを実現](https://zenn.dev/correlate_dev/articles/vercel-edge-functions)
+- [Next.js App Router実践パターン ： RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
+- [TypeScriptユーティリティ型完全ガイド ： Partial・Omit・ReturnType](https://zenn.dev/correlate_dev/articles/typescript-utility-types)
+- [Vercel Edge Functions完全ガイド ： エッジで超高速APIを実現](https://zenn.dev/correlate_dev/articles/vercel-edge-functions)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

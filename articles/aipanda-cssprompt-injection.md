@@ -1,5 +1,5 @@
 ---
-title: "Panda CSS移行×AI生成コードのセキュリティ設計 — Prompt Injectionを品質ゲートで防ぐ"
+title: "Panda CSS移行×AI生成コードのセキュリティ設計 ： Prompt Injectionを品質ゲートで防ぐ"
 emoji: "🐼"
 type: "tech"
 topics: ["pandacss", "claudecode", "security", "frontend", "ai"]

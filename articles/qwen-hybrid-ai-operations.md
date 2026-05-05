@@ -375,8 +375,8 @@ spark.sql("""
 
 **関連記事**
 
-- [BigQuery MLではじめる機械学習 — SQLだけでモデル構築・予測・評価](https://zenn.dev/correlate_dev/articles/bigquery-ml-intro)
-- [Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
-- [1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
+- [BigQuery MLではじめる機械学習 ： SQLだけでモデル構築・予測・評価](https://zenn.dev/correlate_dev/articles/bigquery-ml-intro)
+- [Obsidian→BigQueryナレッジ同期 ： 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
+- [1人法人の情報基盤設計 ： BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

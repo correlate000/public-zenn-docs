@@ -46,7 +46,7 @@ Karpathyが示したメンタルモデルが直感的に理解しやすいです
 
 コミュニティで整理されてきたフレームワークをもとに、実践的な5つのパターンを紹介します。
 
-### 1. CLAUDE.md — プロジェクト知識の永続化
+### 1. CLAUDE.md ： プロジェクト知識の永続化
 
 Claude Codeにおける `CLAUDE.md` は、プロジェクト固有の知識をAIエージェントに伝える最も基本的な手段です。適切に設計されたCLAUDE.mdは「右高度（Right Altitude）」を目指します。過剰詳細でも過度に曖昧でもなく、柔軟性を保ちながら具体的なシグナルに基づく行動指針を提供します。
 
@@ -87,7 +87,7 @@ CREATE TABLE users (id UUID PRIMARY KEY, ...)
 - MUST: 新機能はfeatureブランチで（main直接push禁止）
 ```
 
-### 2. Hooks — ルールの100%強制
+### 2. Hooks ： ルールの100%強制
 
 CLAUDE.mdが「推奨（約70%遵守）」であるのに対し、Hooksは「強制（100%）」です。[2026年時点でのHooksの種類](https://www.humanlayer.dev/blog/writing-a-good-claude-md)は PreToolUse、PostToolUse、Stop、SessionStart の4種類で、PreToolUseはpermit/deny/ask/deferの4択制御が可能です。
 
@@ -264,9 +264,9 @@ AIエージェントが長期タスクを担い始めた今、コンテキスト
 
 **参考リンク**
 
-- [Effective context engineering for AI agents — Anthropic Engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
-- [How Contexts Fail and How to Fix Them — dbreunig](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html)
-- [How Claude Code Builds a System Prompt — dbreunig](https://www.dbreunig.com/2026/04/04/how-claude-code-builds-a-system-prompt.html)
-- [Writing a Good CLAUDE.md — HumanLayer](https://www.humanlayer.dev/blog/writing-a-good-claude-md)
-- [Agent Skills: Progressive Disclosure — SwirlAI](https://www.newsletter.swirlai.com/p/agent-skills-progressive-disclosure)
-- [Claude Code Source Leak: Memory Architecture — MindStudio](https://www.mindstudio.ai/blog/claude-code-source-leak-memory-architecture)
+- [Effective context engineering for AI agents ： Anthropic Engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+- [How Contexts Fail and How to Fix Them ： dbreunig](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html)
+- [How Claude Code Builds a System Prompt ： dbreunig](https://www.dbreunig.com/2026/04/04/how-claude-code-builds-a-system-prompt.html)
+- [Writing a Good CLAUDE.md ： HumanLayer](https://www.humanlayer.dev/blog/writing-a-good-claude-md)
+- [Agent Skills: Progressive Disclosure ： SwirlAI](https://www.newsletter.swirlai.com/p/agent-skills-progressive-disclosure)
+- [Claude Code Source Leak: Memory Architecture ： MindStudio](https://www.mindstudio.ai/blog/claude-code-source-leak-memory-architecture)

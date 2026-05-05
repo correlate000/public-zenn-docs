@@ -425,10 +425,10 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp
 
 **A.** 以下の2つが主な報告先です。
 
-1. **Figma Forum** — Figma 側の問題（ツールカタログへの未登録など）
+1. **Figma Forum** ： Figma 側の問題（ツールカタログへの未登録など）
    - `https://forum.figma.com/` のカテゴリ「Developers & API」に投稿
 
-2. **Claude Code の GitHub Issues / Discord** — Claude Code 側の問題（MCP 接続の不具合など）
+2. **Claude Code の GitHub Issues / Discord** ： Claude Code 側の問題（MCP 接続の不具合など）
    - Anthropic の公式サポートチャネルを利用
 
 報告時は本記事のデバッグ情報収集スクリプトの出力を添付すると、対応がスムーズになります。

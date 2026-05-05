@@ -292,7 +292,7 @@ https://developer.freee.co.jp/reference/accounting/reference
 
 **関連記事**
 
-- [1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
+- [1人法人の情報基盤設計 ： BigQuery+Discord+Obsidianの活用法](https://zenn.dev/correlate_dev/articles/solo-corp-info-platform)
 - [freee APIをCloud Runで動かして経理作業を月2時間に減らした話](https://zenn.dev/correlate_dev/articles/freee-api-cloud-run)
 - [Discord Bot × Cloud Run ─ スラッシュコマンドとAI連携を含む本番デプロイガイド](https://zenn.dev/correlate_dev/articles/discord-bot-cloud-run)
 

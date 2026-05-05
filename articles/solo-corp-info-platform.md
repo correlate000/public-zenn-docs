@@ -1,5 +1,5 @@
 ---
-title: "1人法人の情報基盤設計 — BigQuery+Discord+Obsidianの活用法"
+title: "1人法人の情報基盤設計 ： BigQuery+Discord+Obsidianの活用法"
 emoji: "🧭"
 type: "idea"
 topics: ["bigquery", "discord", "obsidian", "gcp", "solo"]
@@ -26,11 +26,11 @@ slug: "solo-corp-info-platform"
 
 ツール選定に入る前に、そもそも情報基盤に何を求めているのかを整理しました。行き着いたのは3つの要件。
 
-「集める」— 日々の作業ログ、判断の記録、エラー対処の履歴。散在する情報を1箇所に集約したい。入力の摩擦が小さいこと。思いついた瞬間に書けなければ、情報は失われてしまう。
+「集める」： 日々の作業ログ、判断の記録、エラー対処の履歴。散在する情報を1箇所に集約したい。入力の摩擦が小さいこと。思いついた瞬間に書けなければ、情報は失われてしまう。
 
-「蓄める」— 集めた情報を構造化して、検索・集計・分析ができる形で保存したい。半年後に「あのときどう判断したか」「あの案件の利益率はいくらだったか」をSQLで引き出せること。これが経営判断の土台になります。
+「蓄める」： 集めた情報を構造化して、検索・集計・分析ができる形で保存したい。半年後に「あのときどう判断したか」「あの案件の利益率はいくらだったか」をSQLで引き出せること。これが経営判断の土台になります。
 
-「見る」— 蓄めたデータを、いつでもどこでも確認できるようにしたい。朝起きてスマホを開けば、今日やるべきことがわかる。出先でも経営状況を一目で把握できる。そういう体験を目指しました。
+「見る」： 蓄めたデータを、いつでもどこでも確認できるようにしたい。朝起きてスマホを開けば、今日やるべきことがわかる。出先でも経営状況を一目で把握できる。そういう体験を目指しました。
 
 この3層モデルに当てはめると、各ツールの役割が自然に決まっていく。
 
@@ -262,9 +262,9 @@ Discordのセキュリティ。Discordは本来ゲーマー向けのプラット
 
 1人法人の情報基盤設計で考えたのは、テクノロジーの選択そのものよりも「なぜそれを選ぶのか」という思想の部分でした。
 
-- BigQuery — 無料枠・SQL・サーバーレスという3つの理由で「蓄める」を担当
-- Discord — 無制限の履歴・強力なBot API・スマホアクセスで「見る」を担当
-- Obsidian — ローカルファイル・Markdown・AI親和性で「集める」を担当
+- BigQuery ： 無料枠・SQL・サーバーレスという3つの理由で「蓄める」を担当
+- Discord ： 無制限の履歴・強力なBot API・スマホアクセスで「見る」を担当
+- Obsidian ： ローカルファイル・Markdown・AI親和性で「集める」を担当
 
 「集める・蓄める・見る」の3層に分けて考えることで、各ツールの責務が明確になり、将来的な入れ替えも容易になる。Obsidianが合わなければ別のPKMに、Discordが合わなければLINEやSlackに差し替えても、BigQueryの分析基盤はそのまま活きます。
 
@@ -297,7 +297,7 @@ https://auto-worker.com/blog/?p=6174
 **関連記事**
 
 - [1人法人のGCP業務基盤を月額5ドル以下で構築した話](https://zenn.dev/correlate_dev/articles/solo-corp-gcp)
-- [Obsidian→BigQueryナレッジ同期 — 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
+- [Obsidian→BigQueryナレッジ同期 ： 1人法人の第二の脳をDB化する](https://zenn.dev/correlate_dev/articles/obsidian-bigquery-sync)
 - [1人法人がDiscord Botを業務ツールにしたら便利だった話](https://zenn.dev/correlate_dev/articles/discord-bot-business)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

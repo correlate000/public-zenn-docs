@@ -1,5 +1,5 @@
 ---
-title: "Claude Codeのメモリ設計 — 3層構造で長期記憶を実現する"
+title: "Claude Codeのメモリ設計 ： 3層構造で長期記憶を実現する"
 emoji: "🧠"
 type: "tech"
 topics: ["claudecode", "claude", "ai", "productivity", "devenv"]
@@ -386,7 +386,7 @@ https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files
 **関連記事**
 
 - [CLAUDE.mdをKnowledge Files化して67%スリム化した実践記録](https://zenn.dev/correlate_dev/articles/claude-code-knowledge-files)
-- [CLAUDE.md設計ガイド — AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
+- [CLAUDE.md設計ガイド ： AIエージェントに環境を理解させる](https://zenn.dev/correlate_dev/articles/claude-md-guide)
 - [Claude Codeの7つの拡張機能を「所有権モデル」で整理する](https://zenn.dev/correlate_dev/articles/context-ownership-model-claude-code)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

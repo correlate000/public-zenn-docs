@@ -1,5 +1,5 @@
 ---
-title: "Claude Codeのpermissions.deny設計ガイド — 250件の実践的ルールセットとdeny/askの使い分け"
+title: "Claude Codeのpermissions.deny設計ガイド ： 250件の実践的ルールセットとdeny/askの使い分け"
 emoji: "🛡️"
 type: "tech"
 topics: ["claudecode", "security", "permissions", "ai", "devops"]

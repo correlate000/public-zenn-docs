@@ -1,5 +1,5 @@
 ---
-title: "TypeScriptユーティリティ型完全ガイド — Partial・Omit・ReturnType"
+title: "TypeScriptユーティリティ型完全ガイド ： Partial・Omit・ReturnType"
 emoji: "🔧"
 type: "tech"
 topics: ["typescript", "type", "javascript", "nextjs", "frontend"]
@@ -59,7 +59,7 @@ interface User {
 }
 ```
 
-### Partial — 全プロパティをオプショナルに
+### Partial ： 全プロパティをオプショナルに
 
 `Partial<T>` は、型 `T` の全プロパティを省略可能（`?`）にします。更新処理のペイロード型として頻繁に使います。
 
@@ -79,7 +79,7 @@ function updateUser(id: number, updates: Partial<User>): Promise<User> {
 updateUser(1, { name: "Taro Yamada", role: "editor" });
 ```
 
-### Required — 全プロパティを必須に
+### Required ： 全プロパティを必須に
 
 `Required<T>` は `Partial` の逆で、全プロパティを必須にします。外部から受け取った型にデフォルト値を保証したい場合などに使います。
 
@@ -100,7 +100,7 @@ function applyDefaults(config: Config): Required<Config> {
 }
 ```
 
-### Readonly — 全プロパティを読み取り専用に
+### Readonly ： 全プロパティを読み取り専用に
 
 `Readonly<T>` は全プロパティを読み取り専用にします。意図しない変更を型レベルで防止できます。
 
@@ -120,7 +120,7 @@ const user: ReadonlyUser = {
 // user.name = "Jiro";
 ```
 
-### Pick — 特定プロパティだけを抽出
+### Pick ： 特定プロパティだけを抽出
 
 `Pick<T, K>` は、型 `T` から指定したキー `K` のプロパティだけを抽出します。
 
@@ -134,7 +134,7 @@ type UserOption = Pick<User, "id" | "name">;
 // => { id: number; name: string }
 ```
 
-### Omit — 特定プロパティを除外
+### Omit ： 特定プロパティを除外
 
 `Omit<T, K>` は `Pick` の逆で、型 `T` から指定したキー `K` を除いた型を作ります。
 
@@ -151,7 +151,7 @@ async function createUser(input: CreateUserInput): Promise<User> {
 }
 ```
 
-### Record — キーと値の型を指定したオブジェクト
+### Record ： キーと値の型を指定したオブジェクト
 
 `Record<K, V>` は、キーの型が `K`、値の型が `V` のオブジェクト型を作ります。
 
@@ -177,7 +177,7 @@ Union型を絞り込んだり、特定の型を除外したりする際に使う
 type Status = "active" | "inactive" | "pending" | null | undefined;
 ```
 
-### Exclude — Union から特定の型を除外
+### Exclude ： Union から特定の型を除外
 
 `Exclude<T, U>` は、Union型 `T` から `U` に代入可能な型を取り除きます。
 
@@ -191,7 +191,7 @@ type NonAdminRole = Exclude<Role, "admin">;
 // => "editor" | "viewer"
 ```
 
-### Extract — Union から特定の型を抽出
+### Extract ： Union から特定の型を抽出
 
 `Extract<T, U>` は `Exclude` の逆で、`T` の中から `U` に代入可能な型だけを残します。
 
@@ -203,7 +203,7 @@ type Primitives = Extract<StringOrNumber, string | number>;
 // => string | number
 ```
 
-### NonNullable — null と undefined を除去
+### NonNullable ： null と undefined を除去
 
 `NonNullable<T>` は、`null` と `undefined` を型から取り除きます。
 
@@ -228,7 +228,7 @@ function assertDefined<T>(value: T): NonNullable<T> {
 
 関数の型情報を抽出するユーティリティ型です。既存関数の型を再利用する際に非常に便利です。
 
-### ReturnType — 関数の戻り値の型を抽出
+### ReturnType ： 関数の戻り値の型を抽出
 
 ```typescript
 async function fetchUsers(): Promise<User[]> {
@@ -244,7 +244,7 @@ type ResolvedUsers = Awaited<ReturnType<typeof fetchUsers>>;
 // => User[]
 ```
 
-### Parameters — 関数の引数の型を抽出
+### Parameters ： 関数の引数の型を抽出
 
 ```typescript
 function createPost(
@@ -264,7 +264,7 @@ type PostTitle = Parameters<typeof createPost>[0];
 // => string
 ```
 
-### ConstructorParameters — コンストラクタの引数の型を抽出
+### ConstructorParameters ： コンストラクタの引数の型を抽出
 
 ```typescript
 class ApiClient {
@@ -279,7 +279,7 @@ type ApiClientArgs = ConstructorParameters<typeof ApiClient>;
 // => [baseUrl: string, apiKey: string, timeout?: number]
 ```
 
-### Awaited — Promise の解決型を取得
+### Awaited ： Promise の解決型を取得
 
 TypeScript 4.5 で追加された `Awaited<T>` は、ネストされた Promise も再帰的にアンラップします。
 
@@ -425,7 +425,7 @@ type StringProps = PickByValue<User, string>;
 // => { name: string; email: string }
 ```
 
-### Deep Partial — 再帰的な Partial
+### Deep Partial ： 再帰的な Partial
 
 ```typescript
 // 標準のPartialはネストされたオブジェクトに効かない
@@ -453,7 +453,7 @@ type PartialConfig = DeepPartial<DeepConfig>;
 // server.ssl.enabled も省略可能になる
 ```
 
-### Mutable — Readonly を解除する
+### Mutable ： Readonly を解除する
 
 ```typescript
 // Readonlyの逆（-readonly で修飾子を削除）
@@ -694,7 +694,7 @@ TypeScript のユーティリティ型を体系的にまとめると、以下の
 **関連記事**
 
 - [TypeScript × Zodで型安全なランタイムバリデーションを実現する](https://zenn.dev/correlate_dev/articles/typescript-zod-validation)
-- [Next.js App Router実践パターン — RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
-- [Python型ヒント実践ガイド — mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
+- [Next.js App Router実践パターン ： RSC・Server Actions・キャッシュ戦略](https://zenn.dev/correlate_dev/articles/nextjs-app-router-patterns)
+- [Python型ヒント実践ガイド ： mypy/pyrightで型安全なコードを書く](https://zenn.dev/correlate_dev/articles/python-type-hints-advanced)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

@@ -1,5 +1,5 @@
 ---
-title: "Zennレートリミットで7本が全滅 — 自動リトライ機構の実装"
+title: "Zennレートリミットで7本が全滅 ： 自動リトライ機構の実装"
 emoji: "🔁"
 type: "tech"
 topics: ["zenn", "githubactions", "python", "automation", "ci"]
@@ -8,7 +8,7 @@ status: "draft"
 publication_name: "correlate_dev"
 ---
 
-## 1. はじめに — レートリミットで記事が消えた日
+## 1. はじめに ： レートリミットで記事が消えた日
 
 2026年2月14日、7本分の記事予約公開が一斉にブロックされました。
 
@@ -498,7 +498,7 @@ if __name__ == "__main__":
 **関連記事**
 
 - [ZennとNoteに同時投稿するGitHub Actions自動化パイプライン](https://zenn.dev/correlate_dev/articles/zenn-note-dual-publish)
-- [APIレートリミット対策の設計パターン — 自動リトライ機構の実装](https://zenn.dev/correlate_dev/articles/api-rate-limit-retry-pattern)
+- [APIレートリミット対策の設計パターン ： 自動リトライ機構の実装](https://zenn.dev/correlate_dev/articles/api-rate-limit-retry-pattern)
 - [Python asyncio で複数API並列呼び出し ─ LLM API のレートリミット対策まで](https://zenn.dev/correlate_dev/articles/python-asyncio-api)
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

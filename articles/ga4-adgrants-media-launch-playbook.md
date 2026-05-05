@@ -598,6 +598,6 @@ QS の低いキーワードを一律 ENABLE すると、アカウント全体の
 ### 参考リソース
 
 - [GA4 Consent Mode v2 公式ドキュメント](https://developers.google.com/tag-platform/security/guides/consent?hl=ja)
-- [Google Ads API — AdGroupCriterion リファレンス](https://developers.google.com/google-ads/api/reference/rpc/v19/AdGroupCriterion)
-- [Google Analytics Admin API — KeyEvent](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/properties.keyEvents)
+- [Google Ads API ： AdGroupCriterion リファレンス](https://developers.google.com/google-ads/api/reference/rpc/v19/AdGroupCriterion)
+- [Google Analytics Admin API ： KeyEvent](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/properties.keyEvents)
 - [Schema.org FAQPage](https://schema.org/FAQPage)
