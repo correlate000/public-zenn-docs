@@ -398,7 +398,7 @@ export async function POST(request: NextRequest) {
 :::message
 
 **WIFクライアントとIDトークンについて**
-`getIdTokenClient` はWIFクライアントとも連携します。`ExternalAccountClient` はGCPのサービスアカウントに成り代わった後、そのサービスアカウントのIDトークンを発行できます。`GoogleAuth` を初期化せずに `getGcpAuthClient()` が返すクライアントを直接使う場合は、`generateIdToken` エンドポイントを手動で呼び出す方法もあります。
+`getIdTokenClient` はWIFクライアントとも連携します。`ExternalAccountClient` はGCPのサービスアカウントに成り代わった後、そのサービスアカウントのIDトークンを発行できる。`GoogleAuth` を初期化せずに `getGcpAuthClient()` が返すクライアントを直接使う場合は、`generateIdToken` エンドポイントを手動で呼び出す方法もあります。
 :::
 
 ### BigQueryを使う実装

@@ -480,4 +480,4 @@ uvicorn[standard]>=0.30.0
 structlog>=24.0.0
 ```
 
-Cloud Run にデプロイする際は `ENV=production` 環境変数を設定するだけで JSON ログに切り替わります。ローカルでは `ENV=local` を設定すると ConsoleRenderer の色付き出力になります。標準 `logging` からの移行コストは低いため、新規プロジェクトはもちろん、既存プロジェクトへの部分導入から始めるのもおすすめです。
+Cloud Run にデプロイする際は `ENV=production` 環境変数を設定するだけで JSON ログに切り替わります。ローカルでは `ENV=local` を設定すると ConsoleRenderer の色付き出力になります。標準 `logging` からの移行コストは低く、新規プロジェクトはもちろん、既存プロジェクトへの部分導入も現実的な選択肢。

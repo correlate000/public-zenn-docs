@@ -48,7 +48,7 @@ sequenceDiagram
     A-->>C: {"state": "SUCCESS", "result": ...}
 ```
 
-Broker と Backend の違いは混同しやすいポイントです。Broker はタスクの「配送」に特化した一方通行のメッセージキューです。Backend は「結果の永続化」を担い、Producer がポーリングで結果を取得するために使います。どちらも Redis を使うことはできますが、用途が異なるため概念上は分離して考えます。
+Broker と Backend の違いは混同しやすいポイントです。Broker はタスクの「配送」に特化した一方通行のメッセージキュー。Backend は「結果の永続化」を担い、Producer がポーリングで結果を取得するために使います。どちらも Redis を使うことはできますが、用途が異なるため概念上は分離して考えます。
 
 ## Celery vs Cloud Tasks ： 使い分けの基準
 
@@ -305,7 +305,7 @@ async def enqueue_report(report_id: int):
     return TaskResponse(task_id=task.id, status="queued")
 ```
 
-FastAPI の `BackgroundTasks` との違いに注意が必要です。`BackgroundTasks` はプロセス内で実行されるため、サーバーが落ちるとタスクが消えます。Celery は別プロセス（別コンテナ）で動作するため、耐障害性が高く、スケールアウトも容易です。
+FastAPI の `BackgroundTasks` との違いに注意が必要です。`BackgroundTasks` はプロセス内で実行されるため、サーバーが落ちるとタスクが消える。Celery は別プロセス（別コンテナ）で動作するため、耐障害性が高く、スケールアウトも容易です。
 
 ## タスクチェーン・グループ・コード
 

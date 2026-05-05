@@ -389,7 +389,7 @@ gcloud run deploy my-service \
   --min-instances 1
 ```
 
-ただし min-instances を1以上に設定しないとコールドスタート自体は発生し続けます。また、アイドル時間も CPU 課金が発生するため、コストが大幅に増加します。バックグラウンドタスク（Pub/Sub消費、WebSocket維持）が必要なサービスを除き、通常の HTTP API には over-spec になる場合が多いです。
+ただし min-instances を1以上に設定しないとコールドスタート自体は発生し続けます。また、アイドル時間も CPU 課金が発生するため、コストが大幅に増加。バックグラウンドタスク（Pub/Sub消費、WebSocket維持）が必要なサービスを除き、通常の HTTP API には over-spec になる場合が多いです。
 
 ---
 
@@ -551,8 +551,8 @@ flowchart TD
 **2026年4月時点の最新情報**
 
 - **Startup CPU Boost の効果対象が拡大**: 2026年時点では GPU インスタンス（N1 GPU）を使ったサービスでも Startup CPU Boost が利用可能になりました。ML推論サービスなど GPU を使うユースケースでのコールドスタート短縮にも活用できます。
-- **Cloud Run GPU 対応が GA に**: NVIDIA GPU（L4 等）を Cloud Run サービスにアタッチする機能が GA になりました。ML モデルのウォームアップコストが高いため、GPU ワークロードでは `min-instances=1` の設定が特に重要です。
-- **IAP（Identity-Aware Proxy）直接統合が GA に**: Cloud Run への IAP 直接統合が GA になりました。認証レイヤーをサービス側で実装しなくてよくなるため、起動処理をさらにシンプルに保てます。
+- **Cloud Run GPU 対応が GA に**: NVIDIA GPU（L4 等）を Cloud Run サービスにアタッチする機能が GA に到達。ML モデルのウォームアップコストが高いため、GPU ワークロードでは `min-instances=1` の設定が特に重要です。
+- **IAP（Identity-Aware Proxy）直接統合が GA に**: Cloud Run への IAP 直接統合が GA に到達。認証レイヤーをサービス側で実装しなくてよくなるため、起動処理をさらにシンプルに保てます。
 :::
 
 > [correlate_dev](https://zenn.dev/p/correlate_dev) では、Claude Code・GCP・Pythonを使った開発自動化の実践知を発信しています。

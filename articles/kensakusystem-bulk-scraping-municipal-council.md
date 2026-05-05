@@ -87,7 +87,7 @@ def discover_system_code(self) -> Optional[str]:
 
 ## macOS SSL 問題と curl ラッパー
 
-macOS Tahoe（25.2）と Python 3.12 の組み合わせで、`urllib` / `requests` が kensakusystem.jp への SSL 接続でタイムアウトします。既知のバグのため、`subprocess` + `curl` で回避します。GET/POST ともにレスポンスは `cp932` でデコード、POST パラメータも `cp932` でエンコードします。
+macOS Tahoe（25.2）と Python 3.12 の組み合わせで、`urllib` / `requests` が kensakusystem.jp への SSL 接続でタイムアウトします。既知のバグのため、`subprocess` + `curl` で回避します。GET/POST ともにレスポンスは `cp932` でデコード、POST パラメータも `cp932` でエンコード。
 
 ```python
 def _curl_get(self, url: str) -> str:
@@ -232,7 +232,7 @@ def _parse_title_line(self, title_line: str) -> tuple[str, str, str]:
 
 ## QA ペアとブラックリスト方式
 
-発言列から「質問-答弁」ペアを構造化する際、答弁者の判定が課題です。部長名をホワイトリスト管理しようとしましたが、自治体ごとに部長名が異なるため維持できません。「議員・議長・副議長・事務局長でなければ答弁者」というブラックリスト方式で解決しました。
+発言列から「質問-答弁」ペアを構造化する際、答弁者の判定が課題です。部長名をホワイトリスト管理しようとしましたが、自治体ごとに部長名が異なるため維持できません。「議員・議長・副議長・事務局長でなければ答弁者」というブラックリスト方式が解決策。
 
 ```python
 MODERATOR_ROLES = {"議長", "副議長", "事務局長"}

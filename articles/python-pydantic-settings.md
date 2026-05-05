@@ -76,15 +76,15 @@ settings = Settings()
 
 ポイントを整理します。
 
-`model_config` は `SettingsConfigDict` でまとめて指定します。これは Pydantic v2 のスタイルです。v1 の `class Config:` は非推奨になりました。
+`model_config` は `SettingsConfigDict` でまとめて指定します。これは Pydantic v2 のスタイル。v1 の `class Config:` は非推奨になりました。
 
 `env_prefix="APP_"` を指定すると、`gcp_project_id` フィールドは `APP_GCP_PROJECT_ID` という環境変数から読み込まれます。`alias` を使えば任意の環境変数名にマッピングできます。
 
 `SecretStr` 型を使うと、ログ出力時に値が `**********` とマスクされます。シークレット値には積極的に使いましょう。
 
-型変換は自動で行われます。環境変数 `APP_DEBUG=true` は `bool` の `True` として読み込まれます。`APP_MAX_CONNECTIONS=50` は `int` の `50` になります。バリデーション（`ge=1, le=100`）も自動で適用されます。
+型変換は自動で行われます。環境変数 `APP_DEBUG=true` は `bool` の `True` として読み込まれます。`APP_MAX_CONNECTIONS=50` は `int` の `50`。バリデーション（`ge=1, le=100`）も自動で適用されます。
 
-`gcp_project_id` はデフォルト値がないため必須項目です。環境変数が未設定だと `Settings()` の時点で `ValidationError` が発生します。起動時に問題が発覚するので、実行中の予期しないクラッシュを防げます。
+`gcp_project_id` はデフォルト値がないため必須項目です。環境変数が未設定だと `Settings()` の時点で `ValidationError` が発生。起動時に問題が発覚するので、実行中の予期しないクラッシュを防げます。
 
 ---
 

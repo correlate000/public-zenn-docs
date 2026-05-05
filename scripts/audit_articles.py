@@ -325,6 +325,54 @@ def check_tech_without_code(articles: list[dict]) -> list[dict]:
     return issues
 
 
+def check_commonmark_flanking(articles: list[dict]) -> list[dict]:
+    """CommonMark flanking rule違反による未レンダリングboldを検出する。
+
+    `）**は` `**word **` のように日本語文字や全角括弧に挟まれた `**` は
+    Zenn上で literal asterisk として表示される。python-commonmark で
+    実際にHTMLレンダリングし、コード/preブロック外に `**` が残るかを検査する。
+    """
+    try:
+        import commonmark
+    except ImportError:
+        return [{
+            "severity": "INFO",
+            "category": "依存欠落",
+            "message": "python-commonmark が未インストール。`pip install commonmark` で flanking チェックが有効化されます",
+        }]
+    parser = commonmark.Parser()
+    renderer = commonmark.HtmlRenderer()
+    issues = []
+    for a in articles:
+        try:
+            ast = parser.parse(a["body"])
+            html = renderer.render(ast)
+        except Exception:
+            continue
+        # コード/preブロック除外
+        cleaned = re.sub(r"<pre[^>]*>.*?</pre>", "", html, flags=re.S)
+        cleaned = re.sub(r"<code[^>]*>.*?</code>", "", cleaned, flags=re.S)
+        if "**" in cleaned:
+            count = cleaned.count("**")
+            samples = []
+            for m in re.finditer(r".{0,40}\*\*.{0,40}", cleaned):
+                ctx = re.sub(r"<[^>]+>", "", m.group()).strip()
+                if ctx:
+                    samples.append(ctx[:120])
+                if len(samples) >= 3:
+                    break
+            severity = "HIGH" if is_published(a) else "MEDIUM"
+            issues.append({
+                "severity": severity,
+                "category": "CommonMark flanking違反",
+                "message": (
+                    f"{a['filename']}: literal `**` がレンダリングHTMLに{count}件残存\n"
+                    f"  例: " + " / ".join(samples)
+                ),
+            })
+    return issues
+
+
 def check_duplicate_emoji(articles: list[dict]) -> list[dict]:
     """emoji が重複している記事ペア"""
     issues = []
@@ -422,6 +470,9 @@ def main():
 
     # 4. frontmatter品質
     all_issues += check_duplicate_emoji(articles)
+
+    # 5. レンダリング品質（CommonMark flanking）
+    all_issues += check_commonmark_flanking(articles)
 
     # ソート（重大度順）
     all_issues.sort(key=lambda x: SEVERITY_ORDER.get(x["severity"], 99))

@@ -857,7 +857,7 @@ export const getSales = unstable_cache(_getSales, ["sales"], {
 
 ### 特に重要なポイント
 
-**コスト管理**: BigQuery はスキャン量課金です。`unstable_cache` で適切にキャッシュしないと、アクセス増加とともにコストが線形で増えます。1時間キャッシュするだけで、60回のクエリが1回に削減されます。
+**コスト管理**: BigQuery はスキャン量課金です。`unstable_cache` で適切にキャッシュしないと、アクセス増加とともにコストが線形に増加。1時間キャッシュするだけで、60回のクエリが1回に削減されます。
 
 **認証の分離**: ローカル開発は ADC（`gcloud auth application-default login`）、本番は Workload Identity と使い分けることで、サービスアカウントキーをリポジトリに含めるリスクを最小化できます。
 

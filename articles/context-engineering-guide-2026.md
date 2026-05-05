@@ -26,7 +26,7 @@ Anthropicによる[公式定義（2025-09-29）](https://www.anthropic.com/engin
 
 日本語にすると「LLM推論中に、プロンプト以外のあらゆる情報を含む、最適なトークンセット（情報）を選定・維持するための戦略の集合体」となります。
 
-Karpathyが示したメンタルモデルが直感的に理解しやすいです。すなわち **LLMをCPU、コンテキストウィンドウをRAM（ワーキングメモリ）** として捉えるのです。CPUにどのデータをRAMに乗せるかを設計するのがコンテキストエンジニアリングの本質です。
+Karpathyが示したメンタルモデルが直感的に理解しやすいです。すなわち **LLMをCPU、コンテキストウィンドウをRAM（ワーキングメモリ）** として捉える視点が核心。CPUにどのデータをRAMに乗せるかを設計するのがコンテキストエンジニアリングの本質です。
 
 ### プロンプトエンジニアリングとの違い
 
@@ -48,7 +48,7 @@ Karpathyが示したメンタルモデルが直感的に理解しやすいです
 
 ### 1. CLAUDE.md ： プロジェクト知識の永続化
 
-Claude Codeにおける `CLAUDE.md` は、プロジェクト固有の知識をAIエージェントに伝える最も基本的な手段です。適切に設計されたCLAUDE.mdは「右高度（Right Altitude）」を目指します。過剰詳細でも過度に曖昧でもなく、柔軟性を保ちながら具体的なシグナルに基づく行動指針を提供します。
+Claude Codeにおける `CLAUDE.md` は、プロジェクト固有の知識をAIエージェントに伝える最も基本的な手段です。適切に設計されたCLAUDE.mdは「右高度（Right Altitude）」が目標。過剰詳細でも過度に曖昧でもなく、柔軟性を保ちながら具体的なシグナルに基づく行動指針を提供します。
 
 [HumanLayerのブログ](https://www.humanlayer.dev/blog/writing-a-good-claude-md)によると、CLAUDE.mdの命令遵守率は約70%です。300行未満（できれば200行以内）を推奨サイズとし、フロンティア思考LLMでも150〜200命令の遵守が合理的な上限とされています。
 
@@ -206,7 +206,7 @@ Level 3: forms.md / reference.md 等（補足リソース）
 | 【Confusion（混乱）】 | 無関係なツールを使用する | Tool Loadout最適化、JIT Retrieval |
 | 【Clash（矛盾）】 | 相反する指示で停止する | Context Quarantine（独立スレッド化）|
 
-長いコンテキストでトランスフォーマーのパフォーマンスが低下する原因の多くはこのContext Rotです。単に「長いコンテキストに対応している」というスペックではなく、**コンテキストの質を維持する設計**こそが重要です。
+長いコンテキストでトランスフォーマーのパフォーマンスが低下する原因の多くはこのContext Rotです。単に「長いコンテキストに対応している」というスペックではなく、 **コンテキストの質を維持する設計** こそが重要です。
 
 ### コンパクション（Context Compaction）
 
@@ -228,9 +228,9 @@ Level 3: forms.md / reference.md 等（補足リソース）
   CLAUDE.md / git status / 現在日時 / 実行環境
 ```
 
-この設計には経済的な意図があります。[Claude APIのプロンプトキャッシュ](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)はキャッシュヒット時にコストが90%削減されます。静的ゾーンを全ユーザー・全セッションでグローバルキャッシュすることで、Anthropicは大規模なAPIコストを節約できます。キャッシュヒット1回で損益分岐点に達するため、2回目以降は確実な節約になります。
+この設計には経済的な意図があります。[Claude APIのプロンプトキャッシュ](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)はキャッシュヒット時にコストが90%削減。静的ゾーンを全ユーザー・全セッションでグローバルキャッシュすることで、Anthropicは大規模なAPIコストを節約できます。キャッシュヒット1回で損益分岐点に達するため、2回目以降は確実な節約になります。
 
-また、ソースリーク内には **KAIROS** というコードネームのデーモンモード（現時点では未リリース・フラグ無効状態）が150回以上参照されていることも判明しています（[DeepLearning.AI報告](https://www.deeplearning.ai/the-batch/claude-codes-source-code-leaked-exposing-potential-future-features-kairos-and-autodream/)）。GitHubウェブフックを購読し、定期的なtickプロンプトを受け取る常時稼働型バックグラウンドエージェントモードとされています。同様に **autoDream** という、ユーザーのアイドル時間に「メモリ統合」を行うフォーク型サブエージェントの存在も確認されています。これらは将来の機能として開発中のものであり、現在のClaude Codeには存在しません。
+また、ソースリーク内には **KAIROS** というコードネームのデーモンモード（現時点では未リリース・フラグ無効状態）が150回以上参照されていることも判明しています（[DeepLearning.AI報告](https://www.deeplearning.ai/the-batch/claude-codes-source-code-leaked-exposing-potential-future-features-kairos-and-autodream/)）。GitHubウェブフックを購読し、定期的なtickプロンプトを受け取る常時稼働型バックグラウンドエージェントモード。同様に **autoDream** という、ユーザーのアイドル時間に「メモリ統合」を行うフォーク型サブエージェントの存在も確認されています。これらは将来の機能として開発中のものであり、現在のClaude Codeには存在しません。
 
 ## 実践チェックリスト
 

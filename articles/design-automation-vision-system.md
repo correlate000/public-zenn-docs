@@ -252,7 +252,7 @@ message = client.messages.create(
 
 :::message
 
-**現状**: 品質スコアリングはモックモード（固定値返却）が中心です。実際のVision APIによる分析は、ANTHROPIC_API_KEY設定後に実運用化予定です。以降のスコアはモック分析による暫定値です。
+**現状**: 品質スコアリングはモックモード（固定値返却）が中心です。実際のVision APIによる分析は、ANTHROPIC_API_KEY設定後に実運用化予定。以降のスコアはモック分析による暫定値です。
 :::
 
 
