@@ -56,8 +56,8 @@ MT-Benchは、LLMの「会話能力」を測る評価指標です。マルチタ
 
 | モデル | 英語MT-Bench |
 |--------|--------------|
-| LLM-jp-4 32B-A3B | **7.86** |
-| LLM-jp-4 8B | **7.79** |
+| LLM-jp-4 32B-A3B | ★7.86 |
+| LLM-jp-4 8B | ★7.79 |
 | GPT-4o | 7.69 |
 
 注目すべき点は、英語MT-Benchでも両モデルがGPT-4oを上回っていることです。日本語特化を意図したモデルが英語でも高スコアを記録した背景については、後述のアーキテクチャ選択（Qwen3 MoE）が影響している可能性があります。
@@ -146,8 +146,8 @@ LLM-jp-4の公開により、国産LLMのランドスケープはどう変わっ
 
 | モデル | 開発元 | パラメータ | 日本語MT-Bench | ライセンス | 特徴 |
 |--------|--------|-----------|---------------|-----------|------|
-| LLM-jp-4 32B-A3B | NII | 32B（MoE）/ 3.8B active | **7.82** | Apache 2.0 | フルスクラッチ・産学官 |
-| LLM-jp-4 8B | NII | 8.6B（Dense） | **7.54** | Apache 2.0 | フルスクラッチ |
+| LLM-jp-4 32B-A3B | NII | 32B（MoE）/ 3.8B active | ★7.82 | Apache 2.0 | フルスクラッチ・産学官 |
+| LLM-jp-4 8B | NII | 8.6B（Dense） | ★7.54 | Apache 2.0 | フルスクラッチ |
 | PLaMo 3.0 Prime | Preferred Networks | 非公開 | 未公開 | 非公開 | 長考機能（初の国産Thinking） |
 | Swallow-120B-RL | 東京工業大学 | 120B | 参照注1 | Apache 2.0 | GPT-oss-Swallow系 |
 | CALM3-22B-Chat | CyberAgent | 22B | 未公開 | Apache 2.0 | 日本語特化SFT |

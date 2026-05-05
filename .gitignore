@@ -7,3 +7,7 @@ node_modules
 # ローカル作業用ファイル（Zenn公開対象外）
 *_fixed_visual*
 scripts/__pycache__/
+
+# 一括修正スクリプトのバックアップ（Zenn公開対象外）
+.bold-fix-backup/
+.emdash-fix-backup/
