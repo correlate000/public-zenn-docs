@@ -3,8 +3,8 @@ title: "GitHub Agentic Workflowsが使えなくてもclaude-code-actionで同等
 emoji: "🤖"
 type: "tech"
 topics: ["githubactions", "claudecode", "anthropic", "automation", "cicd"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
