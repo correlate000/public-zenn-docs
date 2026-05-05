@@ -398,13 +398,13 @@ Skill内でファイルパスを指定する場合は以下の優先順位で解
    node "${PROJECT_ROOT}/scripts/deploy.js"
    ```
 
-2. **git root を基準にする **:
+2. **git root を基準にする**:
    ```bash
    GIT_ROOT=$(git rev-parse --show-toplevel)
    node "${GIT_ROOT}/scripts/deploy.js"
    ```
 
-3. ** 相対パスは原則禁止 ** （`./` 始まりのパス指定はSkillで使わない）
+3. **相対パスは原則禁止** （`./` 始まりのパス指定はSkillで使わない）
 ```
 
 ---
