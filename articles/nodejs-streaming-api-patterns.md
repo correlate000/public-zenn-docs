@@ -8,7 +8,7 @@ status: "draft"
 publication_name: "correlate_dev"
 ---
 
-> ** 本記事のコードはすべて ESM（`"type": "module"` 設定済み）、Node.js v18 以上を前提とします。 **
+> **本記事のコードはすべて ESM（`"type": "module"` 設定済み）、Node.js v18 以上を前提とします。**
 > `node:` プレフィックスは v14.18 以降で利用可能です。`pipe()` との比較も扱いますが、実装では `pipeline()` を中心に解説します。
 
 ---
@@ -35,7 +35,7 @@ publication_name: "correlate_dev"
 
 Readable には **paused mode** と **flowing mode** の 2 つの動作モードがあります。
 
-- **paused mode（デフォルト） **: `read()` を明示的に呼ぶか、`for await...of` で消費する
+- **paused mode（デフォルト）**: `read()` を明示的に呼ぶか、`for await...of` で消費する
 - **flowing mode**: `data` イベントリスナーを登録すると自動的に切り替わる
 
 現代的なコードでは `for await...of` を推奨します。
@@ -176,9 +176,9 @@ readStream.pipe(transformStream).pipe(writeStream);
 
 `pipe()` には以下の欠点があります。
 
-1. ** エラーが自動伝播しない **: 中間ストリームでエラーが発生しても、上流・下流のストリームは閉じられない
-2. ** クリーンアップが手動 **: ストリームが中断されたとき、すべてのストリームを個別に `destroy()` する必要がある
-3. **Promise と組み合わせにくい **: callback ベースのため、async/await コードに混ぜると複雑になる
+1. **エラーが自動伝播しない**: 中間ストリームでエラーが発生しても、上流・下流のストリームは閉じられない
+2. **クリーンアップが手動**: ストリームが中断されたとき、すべてのストリームを個別に `destroy()` する必要がある
+3. **Promise と組み合わせにくい**: callback ベースのため、async/await コードに混ぜると複雑になる
 
 ### `stream.pipeline()` ─ 推奨パターン
 

@@ -1,5 +1,5 @@
 ---
-title: "NotebookLM非公式APIでインフォグラフィック自動生成を試みた話——認証・レートリミット・ポーリングの罠"
+title: "NotebookLM非公式APIでインフォグラフィック自動生成を試みた話：認証・レートリミット・ポーリングの罠"
 emoji: "📊"
 type: "tech"
 topics: ["notebooklm", "python", "automation", "api", "playwright"]
@@ -10,14 +10,14 @@ publication_name: "correlate_dev"
 
 ## はじめに
 
-NotebookLMのインフォグラフィック生成機能をPythonから自動化できないか——そう思ったのは、長文ドキュメントから視覚的なサマリーを定期的に作りたかったからです。
+NotebookLMのインフォグラフィック生成機能をPythonから自動化できないか。そう思ったのは、長文ドキュメントから視覚的なサマリーを定期的に作りたかったからです。
 
 公式APIは存在しません。調べると `notebooklm-py` という非公式ライブラリがあり、ブラウザCookieを使った認証でNotebookLMの機能にアクセスできるとのこと。日本語情報がほぼ皆無だったため、手探りで実装することになりました。
 
 この記事では、動くまでに詰まったポイント（認証・属性名の不一致・レートリミット・ポーリング）を中心に書きます。完全な自動化パイプラインを目指す方の参考になれば幸い。
 
 :::message alert
-** 免責事項 **: `notebooklm-py` は非公式ライブラリです。Googleの利用規約に反する可能性があります。本記事は技術的な探求の記録であり、本番環境での使用を推奨しない立場。また、ライブラリの仕様は予告なく変更・破壊される可能性があります。
+**免責事項**: `notebooklm-py` は非公式ライブラリです。Googleの利用規約に反する可能性があります。本記事は技術的な探求の記録であり、本番環境での使用を推奨しない立場。また、ライブラリの仕様は予告なく変更・破壊される可能性があります。
 :::
 
 ---
@@ -79,7 +79,7 @@ async def setup_auth() -> AuthTokens:
 ```
 
 :::message
-**macOS Tahoe (25.x) + Python 3.13 の注意 **: 現時点でSSLバグが報告されています。Python 3.12.x を pyenv で使うことを推奨します。詳細は `reference_macos_tahoe_network_issue.md` を参照してください。
+**macOS Tahoe (25.x) + Python 3.13 の注意**: 現時点でSSLバグが報告されています。Python 3.12.x を pyenv で使うことを推奨します。詳細は `reference_macos_tahoe_network_issue.md` を参照してください。
 :::
 
 ### Cookie直接指定（より簡単な方法）
@@ -192,7 +192,7 @@ source = await client.add_source(...)
 # source.source_id ← 正しい
 ```
 
-** 対策 **: 実行時に `dir()` や `vars()` でオブジェクトの実際の属性を確認してから使うこと。
+**対策**: 実行時に `dir()` や `vars()` でオブジェクトの実際の属性を確認してから使うこと。
 
 ```python
 # デバッグ時に属性を確認する
@@ -205,7 +205,7 @@ print("利用可能な属性:", [attr for attr in dir(notebook) if not attr.star
 
 ## 最大の罠2：レートリミット
 
-`notebooklm-py` を使っていると、 ** 約10回でリクエストが全ブロック ** されます。
+`notebooklm-py` を使っていると、 **約10回でリクエストが全ブロック** されます。
 
 ```
 RateLimitError: Too many requests. Please try again later.
@@ -316,7 +316,7 @@ class AccountPool:
 
 ## 最大の罠3：ポーリング戦略
 
-インフォグラフィック生成は非同期で実行されます。`job.job_id` で完了状態を定期的に確認（ポーリング）する必要がありますが、 ** 間隔が短すぎるとレートリミットを消費してしまう ** のが問題です。
+インフォグラフィック生成は非同期で実行されます。`job.job_id` で完了状態を定期的に確認（ポーリング）する必要がありますが、 **間隔が短すぎるとレートリミットを消費してしまう** のが問題です。
 
 ### Exponential Backoffの実装
 
@@ -485,7 +485,7 @@ if __name__ == "__main__":
 
 ## 現時点での限界と代替案
 
-`notebooklm-py` を試した結果、現時点では ** 定期バッチ処理のような使い方は難しい ** という結論に至りました。
+`notebooklm-py` を試した結果、現時点では **定期バッチ処理のような使い方は難しい** という結論に至りました。
 
 ### 制約のまとめ
 
@@ -501,7 +501,7 @@ if __name__ == "__main__":
 現時点でより安定した代替案として以下を検討しています。
 
 1. **Google Slides API + Gemini API**: 公式APIで安定、インフォグラフィック的なスライドを生成可能
-2. **Claude API + SVG生成 **: プロンプトでSVGを生成させ、画像変換する
+2. **Claude API + SVG生成**: プロンプトでSVGを生成させ、画像変換する
 3. **D3.js + Puppeteer**: データ可視化ライブラリをヘッドレスブラウザで実行
 
 ```python
@@ -541,17 +541,17 @@ async def generate_infographic_via_claude(text: str) -> str:
 
 `notebooklm-py` でインフォグラフィック自動生成を試した記録をまとめます。
 
-** うまくいったこと:**
+**うまくいったこと:**
 - 認証フローの実装（`AuthTokens.from_storage()` で比較的簡単）
 - 基本的なノートブック作成→ソース追加→生成のフロー
 - Exponential backoffによる安定したポーリング
 
-** 詰まったこと:**
+**詰まったこと:**
 - 属性名の不一致（`notebook.id` vs `notebook.notebook_id`）
 - 予想より厳しいレートリミット（10回程度でブロック）
 - 日本語情報がゼロなので全てソースコードを読む必要がある
 
-** 今後の方針:**
+**今後の方針:**
 - 公式API待ち（Google が NotebookLM API を正式公開した場合に移行）
 - 少量・手動トリガーの用途には使い続ける
 - 大量バッチ処理は Claude API + SVG生成の代替案で対応

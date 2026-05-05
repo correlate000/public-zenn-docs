@@ -1,5 +1,5 @@
 ---
-title: "Figma MCP の Code to Canvas はビルトインコネクタでは使えない——正しい設定手順と落とし穴"
+title: "Figma MCP の Code to Canvas はビルトインコネクタでは使えない：正しい設定手順と落とし穴"
 emoji: "🎨"
 type: "tech"
 topics: ["figma", "mcp", "claudecode", "ai", "design"]
@@ -12,7 +12,7 @@ publication_name: "correlate_dev"
 
 Figma MCP の「Code to Canvas」機能（`generate_figma_design` ツール）は、2026年2月17日のアップデートで正式リリースされました。Claude Code から自然言語でFigmaキャンバスにUIを生成できる、非常に魅力的な機能です。
 
-しかし実際に使おうとすると、 **Claude Code のビルトインコネクタではこの機能が使えません ** 。
+しかし実際に使おうとすると、 **Claude Code のビルトインコネクタではこの機能が使えません** 。
 
 Figma Forum でも「ツールが表示されない」という報告が多数上がっており、公式ドキュメントにもこの区別が明確に書かれていません。本記事では、なぜ使えないのか・どう設定すれば使えるのかを、実際にはまった経験をもとに解説します。
 
@@ -51,7 +51,7 @@ Claude Code の設定画面から「Figma」を選択するだけで使えるコ
 
 まず以下を確認してください。
 
-- **Figma アカウント **: Pro プラン以上、かつ Full seat であること
+- **Figma アカウント**: Pro プラン以上、かつ Full seat であること
   - Starter プランや Viewer ロールでは Code to Canvas が利用できません
 - **Claude Code**: 最新バージョンであること（`claude --version` で確認）
 
@@ -155,9 +155,9 @@ https://www.figma.com/file/XXXXXXXXXXXXXXXX/...
 
 ### 「generate_figma_design ツールが見つからない」
 
-** 原因 **: ビルトインコネクタのみ設定されている状態です。
+**原因**: ビルトインコネクタのみ設定されている状態です。
 
-** 対処 **: 前述の手順でリモートMCPサーバーを追加してください。`claude mcp list` で現在の設定を確認できます。
+**対処**: 前述の手順でリモートMCPサーバーを追加してください。`claude mcp list` で現在の設定を確認できます。
 
 ```bash
 claude mcp list
@@ -165,7 +165,7 @@ claude mcp list
 
 ### OAuth 認証後もツールが表示されない
 
-** 対処 **: Claude Code を完全に再起動してください。プロセスが残っている場合、設定が反映されないことがあります。
+**対処**: Claude Code を完全に再起動してください。プロセスが残っている場合、設定が反映されないことがあります。
 
 ```bash
 # プロセスを確認
@@ -176,7 +176,7 @@ ps aux | grep claude
 
 ### 認証は通るが生成が失敗する
 
-** 原因の候補 **:
+**原因の候補**:
 1. Figmaアカウントが Pro プラン未満
 2. Full seat ではなく Viewer ロールになっている
 3. 指定したファイルIDへのアクセス権限がない
@@ -193,12 +193,12 @@ Figma の「Settings > Members」でロールを確認してください。
 
 両者の使い分けの目安です。
 
-** ビルトインコネクタで十分な場面 **
+**ビルトインコネクタで十分な場面**
 - 既存のFigmaデザインをコードに変換したい（Design to Code）
 - コンポーネントの構造を読み取りたい
 - デザイントークンを確認したい
 
-** リモートMCPサーバーが必要な場面 **
+**リモートMCPサーバーが必要な場面**
 - Claude Code からFigmaキャンバスにUIを生成したい（Code to Canvas）
 - デザインを自動更新したい
 - プログラマティックにコンポーネントを作成したい

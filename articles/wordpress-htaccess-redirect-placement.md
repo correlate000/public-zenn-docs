@@ -10,11 +10,11 @@ publication_name: "correlate_dev"
 
 ## はじめに
 
-WordPressのパーマリンク構造を変更した後、旧URLの301リダイレクトを `.htaccess` に書いたのに全く効かない——そんな経験はないでしょうか。
+WordPressのパーマリンク構造を変更した後、旧URLの301リダイレクトを `.htaccess` に書いたのに全く効かない。そんな経験はないでしょうか。
 
 `.htaccess` の設定は間違っていない。ブラウザで旧URLにアクセスすると、リダイレクトされるどころか404になる。あるいは、WordPressのデフォルトページが表示される。
 
-この原因は **`.htaccess` 内のリダイレクトルールの配置位置 ** にあります。WordPressが自動生成するブロックの後ろにルールを書いてしまうと、そのルールは永遠に実行されません。
+この原因は **`.htaccess` 内のリダイレクトルールの配置位置** にあります。WordPressが自動生成するブロックの後ろにルールを書いてしまうと、そのルールは永遠に実行されません。
 
 ## WordPressの .htaccess 構造
 
@@ -38,7 +38,7 @@ RewriteRule . /index.php [L]
 
 最後の行 `RewriteRule . /index.php [L]` が重要です。
 
-この `[L]` フラグは「Last」を意味し、 ** このルールにマッチしたらそれ以降のルールを処理しない ** という意味です。そして `RewriteRule . /index.php` は ** 全てのリクエスト ** （`.` は任意の1文字以上にマッチ）をWordPressの `index.php` に転送します。
+この `[L]` フラグは「Last」を意味し、 **このルールにマッチしたらそれ以降のルールを処理しない** という意味です。そして `RewriteRule . /index.php` は **全てのリクエスト** （`.` は任意の1文字以上にマッチ）をWordPressの `index.php` に転送します。
 
 つまり、このブロックの後ろにリダイレクトルールを書いても、先にWordPressのルールが全てのリクエストをキャプチャしてしまうため、カスタムルールに到達しません。
 
@@ -89,7 +89,7 @@ RewriteRule . /index.php [L]
 # END WordPress
 ```
 
-カスタムルールを `# BEGIN WordPress` より ** 前 ** に配置することで、リダイレクトが正常に機能します。
+カスタムルールを `# BEGIN WordPress` より **前** に配置することで、リダイレクトが正常に機能します。
 
 ## パーマリンク変更時の全手順
 
@@ -115,7 +115,7 @@ wp rewrite structure '/%category%/%postname%/'
 wp rewrite flush --hard
 ```
 
-このコマンドで `.htaccess` の `# BEGIN WordPress` 〜 `# END WordPress` ブロックが自動更新されます。ただし、 ** カスタムリダイレクトは手動で追加する必要があります ** 。
+このコマンドで `.htaccess` の `# BEGIN WordPress` 〜 `# END WordPress` ブロックが自動更新されます。ただし、 **カスタムリダイレクトは手動で追加する必要があります** 。
 
 ### Step 3: .htaccess にリダイレクトルールを追加する
 

@@ -63,7 +63,7 @@ response = ad_service.mutate_ad_group_ads(
 
 ## display_width() による文字数バリデーション
 
-RSA の文字数制限は「バイト数」でも「文字数」でもなく、 ** 表示幅 ** （display width）で判定されます。
+RSA の文字数制限は「バイト数」でも「文字数」でもなく、 **表示幅** （display width）で判定されます。
 
 - 半角英数字・記号 → 表示幅 1
 - 全角文字（漢字・ひらがな・カタカナ）→ 表示幅 2

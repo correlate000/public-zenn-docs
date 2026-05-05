@@ -98,7 +98,7 @@ graph LR
 
 セットアップは拍子抜けするほど簡単でした。
 
-**1. 両方のMacにTailscaleをインストール **
+**1. 両方のMacにTailscaleをインストール**
 
 ```bash
 # Homebrew経由（Mac mini / MBP 両方で実行）
@@ -107,17 +107,17 @@ brew install --cask tailscale
 
 App Storeからもインストールできます。
 
-**2. 両方のMacでログイン **
+**2. 両方のMacでログイン**
 
 Tailscaleアプリを起動し、Googleアカウント等でログインします。同じアカウントでログインしたデバイスは、自動的に同一のtailnet（Tailscaleのプライベートネットワーク）に参加する仕組みです。
 
-**3. Mac miniでSSHを有効化 **
+**3. Mac miniでSSHを有効化**
 
 macOSの設定画面からリモートログインを有効にします。
 
 - システム設定 → 一般 → 共有 → リモートログイン → ON
 
-**4. 接続テスト **
+**4. 接続テスト**
 
 ```bash
 # MacBook Proから実行

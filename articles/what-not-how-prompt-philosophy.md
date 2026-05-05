@@ -327,6 +327,15 @@ sequenceDiagram
 - Prompt Engineering — 「一回のプロンプトをいかにうまく書くか」
 - Context Engineering — 「エージェントが必要とする文脈情報の全体設計」
 
+なお、2025年後半以降、この「Context Engineering」という概念はAnthropicによって公式に定義されました。2025年9月29日にAnthropicが発表した定義は次の通りです。
+
+> "Context engineering is the set of strategies for curating and maintaining the optimal set of tokens during LLM inference"
+> （コンテキストエンジニアリングとは、LLM推論中に最適なトークンの集合を選別・維持するための戦略体系である）
+
+Shopify CEOのTobi LütkeやAI研究者のAndrej Karpathyもこの方向性を支持しており、「プロンプト単体の最適化」から「コンテキスト全体の設計・管理」へと概念の重心が移動しています。
+
+詳しくは「[コンテキストエンジニアリング入門](/articles/context-engineering-guide-2026)」で論じています。
+
 Claude Codeの4要素（CLAUDE.md + Knowledge Files + Commands + Hooks）は、まさにContext Engineeringの実装です。一回のプロンプトではなく、エージェントが動作する環境全体を設計する。
 
 [Anthropic公式のベストプラクティス](https://www.anthropic.com/engineering/claude-code-best-practices)が「CLAUDE.mdは簡潔に」「詳細はKnowledge Filesに分離」「Skillsで定型ワークフローをパッケージ化」「Hooksで決定論的な制御を追加」と推奨していることは、この文脈で理解すると腑に落ちます。公式が言っていることは、つまり「Whatを構造化し、Howはエージェントに任せよ」ということです。
