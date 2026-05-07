@@ -3,8 +3,8 @@ title: "Google Ads API v23でMAXIMIZE_CLICKSが使えない問題とTARGET_SPEND
 emoji: "🔧"
 type: "tech"
 topics: ["googleads", "python", "adgrants", "automation"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
