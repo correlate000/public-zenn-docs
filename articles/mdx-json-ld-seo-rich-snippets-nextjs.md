@@ -3,8 +3,8 @@ title: "MDXコンポーネントに構造化データを埋め込んでSEOリッ
 emoji: "🔖"
 type: "tech"
 topics: ["nextjs", "mdx", "seo", "jsonld", "typescript"]
-published: false
-status: "publish-ready"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
