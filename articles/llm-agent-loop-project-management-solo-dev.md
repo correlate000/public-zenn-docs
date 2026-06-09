@@ -3,8 +3,8 @@ title: "LLMエージェントループで個人開発のプロジェクト管理
 emoji: "🔁"
 type: "tech"
 topics: ["llm", "agent", "projectmanagement", "python", "claude"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
