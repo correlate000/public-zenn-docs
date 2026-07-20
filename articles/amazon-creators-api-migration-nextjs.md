@@ -3,8 +3,8 @@ title: "Amazon PA-API → Creators API 移行ガイド ： Next.js + TypeScript�
 emoji: "🛒"
 type: "tech"
 topics: ["amazon", "nextjs", "typescript", "api", "affiliate"]
-published: false
-status: "publish-ready"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
