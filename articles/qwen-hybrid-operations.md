@@ -3,8 +3,8 @@ title: "Qwen3-Next 80B × Claude Opus 4.6 ハイブリッド運用で月$480削�
 emoji: "🔀"
 type: "tech"
 topics: ["llm", "localllm", "claude", "mlx", "costreduction"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
