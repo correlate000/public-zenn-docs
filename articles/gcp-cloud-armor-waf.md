@@ -3,8 +3,8 @@ title: "Google Cloud ArmorでWAFを構築する ： DDoS対策・IPフィルタ�
 emoji: "🛡️"
 type: "tech"
 topics: ["gcp", "cloudarmor", "security", "waf", "loadbalancing"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
