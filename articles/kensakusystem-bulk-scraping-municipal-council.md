@@ -3,8 +3,8 @@ title: "119自治体の議会議事録を一括スクレイピングする ： k
 emoji: "🏛️"
 type: "tech"
 topics: ["python", "scraping", "opendata", "automation", "bigquery"]
-published: false
-status: "publish-ready"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
