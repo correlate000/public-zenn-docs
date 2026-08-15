@@ -56,9 +56,12 @@ jobs:
           file_pattern: 'articles/*.md scripts/.publish-failures.json'
           commit_options: '--no-verify'
 
+      # 2026-08-15: Discord への公開通知を止めた（横田判断「Discord 通知は全て不要」）。
+      # notify-discord-publish.py は DISCORD_WEBHOOK_CONTENT が空なら sys.exit(0) するので、
+      # env で渡さないだけで送信が止まる。スクリプトと Secret は残してあるため、
+      # DISCORD_WEBHOOK_CONTENT の 1 行を戻せば復活する。
       - name: Notify Discord
-        if: steps.publish.outputs.published_count != '' && steps.commit.outputs.changes_detected == 'true'
+        if: false
         env:
-          DISCORD_WEBHOOK_CONTENT: ${{ secrets.DISCORD_WEBHOOK_CONTENT }}
           PUBLISHED_SLUGS: ${{ steps.publish.outputs.published_slugs }}
         run: python3 scripts/notify-discord-publish.py

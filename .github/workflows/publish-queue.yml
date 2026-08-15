@@ -74,10 +74,12 @@ jobs:
           commit_message: 'fix: Zenn未デプロイ記事を非公開に戻す — publish-queue-v2.py'
           file_pattern: 'articles/*.md'
 
+      # 2026-08-15: Discord への公開通知を止めた（横田判断「Discord 通知は全て不要」）。
+      # DISCORD_WEBHOOK_CONTENT を渡さないので、下の `if [ -n ... ]` で素通りする。
+      # Secret とスクリプトは残してあるため、env の 1 行を戻せば復活する。
       - name: Notify Discord
         if: steps.publish.outputs.published == 'true'
         env:
-          DISCORD_WEBHOOK_CONTENT: ${{ secrets.DISCORD_WEBHOOK_CONTENT }}
           PUBLISHED_SLUGS: ${{ steps.publish.outputs.published_slug }}
         run: |
           if [ -n "$DISCORD_WEBHOOK_CONTENT" ] && [ -n "$PUBLISHED_SLUGS" ]; then

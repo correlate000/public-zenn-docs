@@ -63,14 +63,12 @@ jobs:
           commit_message: 'fix: デプロイ失敗記事のpublishedフラグをロールバック'
           file_pattern: 'articles/ scripts/.publish-failures.json'
 
-      # Step 6: 失敗時のDiscord通知（verify.pyが自動送信するので不要だが、念のため）
-      - name: Notify on failure
-        if: steps.publish.outcome == 'failure' || steps.verify.outcome == 'failure'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_CONTENT }}
-        run: |
-          curl -X POST "$DISCORD_WEBHOOK" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "content": "⚠️ **Zenn自動公開ワークフローで問題が発生しました**\n\nGitHub Actions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\n確認してください。"
-            }'
+      # Step 6: 失敗時の Discord 通知は 2026-08-15 に削除した。
+      #
+      # 理由 2 つ。
+      #   1. 横田判断「Discord 通知は全て不要」。
+      #   2. そもそも動いていなかった。参照している Secret 名は DISCORD_WEBHOOK_URL_CONTENT だが、
+      #      本リポジトリに登録されているのは DISCORD_WEBHOOK_CONTENT。名前が違うので値は空になり、
+      #      curl -X POST "" が exit 2 で落ちるだけだった。
+      #
+      # 失敗そのものは GitHub の Actions 失敗通知メールで届く。
