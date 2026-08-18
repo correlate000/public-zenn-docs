@@ -3,8 +3,8 @@ title: "AIチームに「反対意見係」を入れたら、セキュリティ�
 emoji: "😈"
 type: "tech"
 topics: ["claudecode", "aiagent", "codereview", "security"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
