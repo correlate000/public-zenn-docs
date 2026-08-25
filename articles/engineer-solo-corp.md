@@ -3,8 +3,8 @@ title: "エンジニアが1人法人を始めて分かった5つのこと"
 emoji: "🏢"
 type: "idea"
 topics: ["solocorp", "freelance", "ai", "freee"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
