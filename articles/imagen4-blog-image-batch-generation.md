@@ -3,8 +3,8 @@ title: "Imagen 4.0でブログ画像を一括生成する ： Gemini 2.5 Flash +
 emoji: "🖼️"
 type: "tech"
 topics: ["imagen", "gemini", "python", "imagegeneration", "contentautomation"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
