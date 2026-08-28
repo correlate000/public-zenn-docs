@@ -3,8 +3,8 @@ title: "Claude Code × knip × MCP ： 不要コードを検出して自動削�
 emoji: "🧹"
 type: "tech"
 topics: ["claudecode", "typescript", "mcp", "knip", "deadcode"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
