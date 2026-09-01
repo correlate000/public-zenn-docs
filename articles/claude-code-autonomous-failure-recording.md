@@ -3,8 +3,8 @@ title: "Claude Codeに「自己修復」を実装する ： 自律的再発防�
 emoji: "🔧"
 type: "tech"
 topics: ["claudecode", "ai", "debugging", "automation", "devproductivity"]
-published: false
-status: "publish-ready"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
