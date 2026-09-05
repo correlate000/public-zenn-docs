@@ -3,8 +3,8 @@ title: "FastAPI × BigQuery CRUD実装ガイド ─ BigQueryをAPIバックエ�
 emoji: "🗄️"
 type: "tech"
 topics: ["fastapi", "bigquery", "gcp", "python", "api"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
