@@ -3,8 +3,8 @@ title: "BigQuery×launchd×watchdogで作るコンテンツ全自動生成パイ
 emoji: "🤖"
 type: "tech"
 topics: ["bigquery", "python", "launchd", "automation", "claudeapi"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
