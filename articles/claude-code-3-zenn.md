@@ -3,8 +3,8 @@ title: "Claude Code で作った実運用エージェント3選 ─ Zenn自動�
 emoji: "🤖"
 type: "tech"
 topics: ["claudecode", "anthropic", "ai", "automation", "python"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
