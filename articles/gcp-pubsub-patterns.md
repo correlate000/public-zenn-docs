@@ -3,8 +3,8 @@ title: "Cloud Pub/Sub実践パターン ： Push/Pull・デッドレタートピ
 emoji: "📨"
 type: "tech"
 topics: ["gcp", "pubsub", "cloudrun", "python", "messaging"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

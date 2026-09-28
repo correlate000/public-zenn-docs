@@ -3,8 +3,8 @@ title: "Git Worktree で並列開発 ─ ブランチ切り替えゼロ、AIエ�
 emoji: "🌿"
 type: "tech"
 topics: ["git", "claudecode", "devproductivity", "parallelprocessing", "workflow"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 

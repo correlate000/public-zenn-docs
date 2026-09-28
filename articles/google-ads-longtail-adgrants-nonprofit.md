@@ -3,8 +3,8 @@ title: "Ad Grantsの$2制限を逆手に取る ： ロングテール一括登�
 emoji: "🎯"
 type: "tech"
 topics: ["googleads", "adgrants", "python", "automation"]
-published: true
-status: "published"
+published: false
+status: "draft"
 publication_name: "correlate_dev"
 ---
 
