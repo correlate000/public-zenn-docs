@@ -3,8 +3,8 @@ title: "GitHub Actions × GCP キーレス認証デプロイ ： Workload Identi
 emoji: "🚀"
 type: "tech"
 topics: ["githubactions", "gcp", "cloudrun", "cicd", "docker"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
