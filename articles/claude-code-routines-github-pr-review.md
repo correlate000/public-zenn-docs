@@ -3,8 +3,8 @@ title: "Claude Code RoutinesでGitHub PRを自動レビューする実装ガイ�
 emoji: "🤖"
 type: "tech"
 topics: ["claudecode", "githubactions", "aicodereview", "anthropic", "automation"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
