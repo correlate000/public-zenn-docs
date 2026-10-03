@@ -3,8 +3,8 @@ title: "Cloud Scheduler × Cloud Run 実践パターン ─ 冪等バッチ・�
 emoji: "⏱️"
 type: "tech"
 topics: ["gcp", "cloudrun", "cloudscheduler", "python", "bigquery"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
