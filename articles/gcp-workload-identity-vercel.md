@@ -3,8 +3,8 @@ title: "Vercel × GCP Workload Identity ─ サービスアカウントキー不
 emoji: "🔐"
 type: "tech"
 topics: ["vercel", "gcp", "oidc", "nextjs", "cloudrun"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
