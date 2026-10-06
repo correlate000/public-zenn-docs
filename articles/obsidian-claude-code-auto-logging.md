@@ -3,8 +3,8 @@ title: "MCP不要。Claude Code × Obsidianでセッションログを自動蓄�
 emoji: "🧠"
 type: "tech"
 topics: ["claudecode", "obsidian", "pkm", "ai", "productivity"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
