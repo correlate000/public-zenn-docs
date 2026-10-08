@@ -3,8 +3,8 @@ title: "Google Ad Grants初期設定完全ガイド ： API自動構築からDA�
 emoji: "📢"
 type: "tech"
 topics: ["googleads", "python", "googleadsapi", "nonprofit", "ga4"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
