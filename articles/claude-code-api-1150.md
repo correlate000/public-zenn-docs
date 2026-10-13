@@ -3,8 +3,8 @@ title: "Claude Codeで1行もコードを書かずにAPIキーを漏洩させる
 emoji: "🔐"
 type: "tech"
 topics: ["claudecode", "security", "apikey", "git", "devops"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
