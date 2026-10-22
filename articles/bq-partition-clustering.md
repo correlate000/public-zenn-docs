@@ -3,8 +3,8 @@ title: "BigQuery パーティション×クラスタリング最適化 ─ コ�
 emoji: "💰"
 type: "tech"
 topics: ["bigquery", "gcp", "sql", "dataengineering", "costoptimization"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
