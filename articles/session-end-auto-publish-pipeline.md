@@ -3,8 +3,8 @@ title: "セッション終了→Zenn記事自動公開の全自動パイプラ�
 emoji: "⚙️"
 type: "tech"
 topics: ["claudecode", "python", "automation", "zenn", "llm"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
