@@ -3,8 +3,8 @@ title: "Google Driveで開発フォルダを同期してはいけない理由（
 emoji: "💾"
 type: "tech"
 topics: ["googledrive", "macos", "syncthing", "rsync", "devenv"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
