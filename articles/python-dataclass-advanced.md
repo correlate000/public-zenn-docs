@@ -3,8 +3,8 @@ title: "Python dataclass完全ガイド ： field・slots・frozen・継承で�
 emoji: "📦"
 type: "tech"
 topics: ["python", "dataclass", "typing", "pydantic", "design"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
