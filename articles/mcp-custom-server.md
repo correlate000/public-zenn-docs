@@ -3,8 +3,8 @@ title: "MCPカスタムサーバーをPythonで実装する ： Claudeに自前A
 emoji: "🔌"
 type: "tech"
 topics: ["mcp", "claude", "python", "ai", "claudecode"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
