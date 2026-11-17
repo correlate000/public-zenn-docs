@@ -3,8 +3,8 @@ title: "shadcn/ui × Tailwind CSS v4 移行ガイド ─ v3からの変更点と
 emoji: "🎨"
 type: "tech"
 topics: ["tailwindcss", "shadcnui", "nextjs", "react", "typescript"]
-published: false
-status: "draft"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
