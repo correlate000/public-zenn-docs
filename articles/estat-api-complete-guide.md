@@ -3,8 +3,8 @@ title: "e-Stat API v3.0 完全活用ガイド ： 22万テーブルから必要�
 emoji: "📊"
 type: "tech"
 topics: ["estat", "typescript", "api", "opendata", "nodejs"]
-published: false
-status: "publish-ready"
+published: true
+status: "published"
 publication_name: "correlate_dev"
 ---
 
